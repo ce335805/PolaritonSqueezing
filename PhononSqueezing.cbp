@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="PhononSqueezing"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="icc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\mkl-2021.3.0\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PhononSqueezing.out">
+				<Option output="/home/chris/academics/PhD/codebase/phononSqueezing/PhononSqueezing.out" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="icc"/>
+				<Compiler>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing/./include"/>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing/./include/onePhonon"/>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing/./include/twoPhonon"/>
+					<Add directory="/usr/include/hdf5/serial"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 PhononSqueezing.out"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PhononSqueezing.out/fast">
+				<Option output="/home/chris/academics/PhD/codebase/phononSqueezing/PhononSqueezing.out" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="icc"/>
+				<Compiler>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing"/>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing/./include"/>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing/./include/onePhonon"/>
+					<Add directory="/home/chris/academics/PhD/codebase/phononSqueezing/./include/twoPhonon"/>
+					<Add directory="/usr/include/hdf5/serial"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 PhononSqueezing.out/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/globals.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/twoPhonons/evalExpectation.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/twoPhonons/setUpGlobalHamiltonian.cpp.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/twoPhonons/setupBasicOperators.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/utils.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/mainSqueeze.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalExpectation.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/setUpGlobalHamiltonian.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/setupBasicOpertors.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/../../../../../../usr/local/lib/cmake/mkl-2021.3.0/MKLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\mkl-2021.3.0\"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/../../../../../../usr/local/lib/cmake/mkl-2021.3.0/MKLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\mkl-2021.3.0\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
