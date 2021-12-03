@@ -9,7 +9,6 @@ void setupB2(std::vector<std::complex<double>> &B2);
 
 void setupA(std::vector<std::complex<double>> &A);
 
-void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall);
 
 void setupDOcc(std::vector<std::complex<double>> &DOcc);
 

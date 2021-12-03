@@ -187,6 +187,150 @@ src/matrixOperations.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.s
 .PHONY : src/matrixOperations.cpp.s
 
+src/onePhonon/evalDoccInGSOnePh.o: src/onePhonon/evalDoccInGSOnePh.cpp.o
+.PHONY : src/onePhonon/evalDoccInGSOnePh.o
+
+# target to build an object file
+src/onePhonon/evalDoccInGSOnePh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o
+.PHONY : src/onePhonon/evalDoccInGSOnePh.cpp.o
+
+src/onePhonon/evalDoccInGSOnePh.i: src/onePhonon/evalDoccInGSOnePh.cpp.i
+.PHONY : src/onePhonon/evalDoccInGSOnePh.i
+
+# target to preprocess a source file
+src/onePhonon/evalDoccInGSOnePh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.i
+.PHONY : src/onePhonon/evalDoccInGSOnePh.cpp.i
+
+src/onePhonon/evalDoccInGSOnePh.s: src/onePhonon/evalDoccInGSOnePh.cpp.s
+.PHONY : src/onePhonon/evalDoccInGSOnePh.s
+
+# target to generate assembly for a file
+src/onePhonon/evalDoccInGSOnePh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.s
+.PHONY : src/onePhonon/evalDoccInGSOnePh.cpp.s
+
+src/onePhonon/evalExpectationOnePh.o: src/onePhonon/evalExpectationOnePh.cpp.o
+.PHONY : src/onePhonon/evalExpectationOnePh.o
+
+# target to build an object file
+src/onePhonon/evalExpectationOnePh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o
+.PHONY : src/onePhonon/evalExpectationOnePh.cpp.o
+
+src/onePhonon/evalExpectationOnePh.i: src/onePhonon/evalExpectationOnePh.cpp.i
+.PHONY : src/onePhonon/evalExpectationOnePh.i
+
+# target to preprocess a source file
+src/onePhonon/evalExpectationOnePh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.i
+.PHONY : src/onePhonon/evalExpectationOnePh.cpp.i
+
+src/onePhonon/evalExpectationOnePh.s: src/onePhonon/evalExpectationOnePh.cpp.s
+.PHONY : src/onePhonon/evalExpectationOnePh.s
+
+# target to generate assembly for a file
+src/onePhonon/evalExpectationOnePh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.s
+.PHONY : src/onePhonon/evalExpectationOnePh.cpp.s
+
+src/onePhonon/setUpGlobalHamiltonianOnePh.o: src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o
+.PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.o
+
+# target to build an object file
+src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o
+.PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o
+
+src/onePhonon/setUpGlobalHamiltonianOnePh.i: src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.i
+.PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.i
+
+# target to preprocess a source file
+src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.i
+.PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.i
+
+src/onePhonon/setUpGlobalHamiltonianOnePh.s: src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s
+.PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.s
+
+# target to generate assembly for a file
+src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s
+.PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s
+
+src/onePhonon/setupBasicOpertorsOnePh.o: src/onePhonon/setupBasicOpertorsOnePh.cpp.o
+.PHONY : src/onePhonon/setupBasicOpertorsOnePh.o
+
+# target to build an object file
+src/onePhonon/setupBasicOpertorsOnePh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.o
+.PHONY : src/onePhonon/setupBasicOpertorsOnePh.cpp.o
+
+src/onePhonon/setupBasicOpertorsOnePh.i: src/onePhonon/setupBasicOpertorsOnePh.cpp.i
+.PHONY : src/onePhonon/setupBasicOpertorsOnePh.i
+
+# target to preprocess a source file
+src/onePhonon/setupBasicOpertorsOnePh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.i
+.PHONY : src/onePhonon/setupBasicOpertorsOnePh.cpp.i
+
+src/onePhonon/setupBasicOpertorsOnePh.s: src/onePhonon/setupBasicOpertorsOnePh.cpp.s
+.PHONY : src/onePhonon/setupBasicOpertorsOnePh.s
+
+# target to generate assembly for a file
+src/onePhonon/setupBasicOpertorsOnePh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.s
+.PHONY : src/onePhonon/setupBasicOpertorsOnePh.cpp.s
+
+src/setupElectronicOperatorsSmall.o: src/setupElectronicOperatorsSmall.cpp.o
+.PHONY : src/setupElectronicOperatorsSmall.o
+
+# target to build an object file
+src/setupElectronicOperatorsSmall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/setupElectronicOperatorsSmall.cpp.o
+.PHONY : src/setupElectronicOperatorsSmall.cpp.o
+
+src/setupElectronicOperatorsSmall.i: src/setupElectronicOperatorsSmall.cpp.i
+.PHONY : src/setupElectronicOperatorsSmall.i
+
+# target to preprocess a source file
+src/setupElectronicOperatorsSmall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/setupElectronicOperatorsSmall.cpp.i
+.PHONY : src/setupElectronicOperatorsSmall.cpp.i
+
+src/setupElectronicOperatorsSmall.s: src/setupElectronicOperatorsSmall.cpp.s
+.PHONY : src/setupElectronicOperatorsSmall.s
+
+# target to generate assembly for a file
+src/setupElectronicOperatorsSmall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/setupElectronicOperatorsSmall.cpp.s
+.PHONY : src/setupElectronicOperatorsSmall.cpp.s
+
+src/twoPhonons/evalDoccInGS.o: src/twoPhonons/evalDoccInGS.cpp.o
+.PHONY : src/twoPhonons/evalDoccInGS.o
+
+# target to build an object file
+src/twoPhonons/evalDoccInGS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o
+.PHONY : src/twoPhonons/evalDoccInGS.cpp.o
+
+src/twoPhonons/evalDoccInGS.i: src/twoPhonons/evalDoccInGS.cpp.i
+.PHONY : src/twoPhonons/evalDoccInGS.i
+
+# target to preprocess a source file
+src/twoPhonons/evalDoccInGS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.i
+.PHONY : src/twoPhonons/evalDoccInGS.cpp.i
+
+src/twoPhonons/evalDoccInGS.s: src/twoPhonons/evalDoccInGS.cpp.s
+.PHONY : src/twoPhonons/evalDoccInGS.s
+
+# target to generate assembly for a file
+src/twoPhonons/evalDoccInGS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.s
+.PHONY : src/twoPhonons/evalDoccInGS.cpp.s
+
 src/twoPhonons/evalExpectation.o: src/twoPhonons/evalExpectation.cpp.o
 .PHONY : src/twoPhonons/evalExpectation.o
 
@@ -275,6 +419,24 @@ help:
 	@echo "... src/matrixOperations.o"
 	@echo "... src/matrixOperations.i"
 	@echo "... src/matrixOperations.s"
+	@echo "... src/onePhonon/evalDoccInGSOnePh.o"
+	@echo "... src/onePhonon/evalDoccInGSOnePh.i"
+	@echo "... src/onePhonon/evalDoccInGSOnePh.s"
+	@echo "... src/onePhonon/evalExpectationOnePh.o"
+	@echo "... src/onePhonon/evalExpectationOnePh.i"
+	@echo "... src/onePhonon/evalExpectationOnePh.s"
+	@echo "... src/onePhonon/setUpGlobalHamiltonianOnePh.o"
+	@echo "... src/onePhonon/setUpGlobalHamiltonianOnePh.i"
+	@echo "... src/onePhonon/setUpGlobalHamiltonianOnePh.s"
+	@echo "... src/onePhonon/setupBasicOpertorsOnePh.o"
+	@echo "... src/onePhonon/setupBasicOpertorsOnePh.i"
+	@echo "... src/onePhonon/setupBasicOpertorsOnePh.s"
+	@echo "... src/setupElectronicOperatorsSmall.o"
+	@echo "... src/setupElectronicOperatorsSmall.i"
+	@echo "... src/setupElectronicOperatorsSmall.s"
+	@echo "... src/twoPhonons/evalDoccInGS.o"
+	@echo "... src/twoPhonons/evalDoccInGS.i"
+	@echo "... src/twoPhonons/evalDoccInGS.s"
 	@echo "... src/twoPhonons/evalExpectation.o"
 	@echo "... src/twoPhonons/evalExpectation.i"
 	@echo "... src/twoPhonons/evalExpectation.s"

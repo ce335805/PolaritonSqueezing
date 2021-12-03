@@ -6,11 +6,12 @@
 #include "utils.h"
 #include "matrixOperations.h"
 #include "include/twoPhonons/setupBasicOperators.h"
+#include "setupElectronicOperatorsSmall.h"
 
 
 void setupHelectronic(std::vector<std::complex<double>> &HElectronic) {
 
-  HElectronic = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  HElectronic = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
   std::vector<std::complex<double>> HElectronicSmall;
   setupHElectronicSmall(HElectronicSmall);
@@ -29,37 +30,11 @@ void setupHelectronic(std::vector<std::complex<double>> &HElectronic) {
 
 }
 
-void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) {
 
-  HElectronicSmall = std::vector<std::complex<double>>(
-          {U / 2., -tHop, tHop, 0.,
-           -tHop, -U / 2., 0., -tHop,
-           tHop, 0., -U / 2., tHop,
-           0, -tHop, tHop, U / 2.}
-  );
-
-  //std::cout << "electronic Hamiltonian: " << '\n';
-  //for(ulong ind1 = 0ul; ind1 < 4ul; ++ind1){
-  //  for(ulong ind2 = 0ul; ind2 < 4ul; ++ind2) {
-  //    std::cout << HElectronicSmall[ind1 * 4ul + ind2] << " ";
-  //  }
-  //  std::cout << '\n';
-  //}
-}
-
-void setupDoubleOccSmall(std::vector<std::complex<double>> &DOccSmall) {
-
-  DOccSmall = std::vector<std::complex<double>>(
-          {0.5, 0., 0., 0.,
-           0., -0.5, 0., 0.,
-           0., 0., -0.5, 0.,
-           0, 0., 0., 0.5}
-  );
-}
 
 void setupDOcc(std::vector<std::complex<double>> &DOcc) {
 
-  DOcc = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  DOcc = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
   std::vector<std::complex<double>> DOccSmall;
   setupDoubleOccSmall(DOccSmall);
@@ -78,50 +53,10 @@ void setupDOcc(std::vector<std::complex<double>> &DOcc) {
 
 }
 
-void setupOccSiteISmall(std::vector<std::complex<double>> &occSmallSiteI, const ulong site) {
-
-
-  if (site == 0ul) {
-    occSmallSiteI = std::vector<std::complex<double>>(
-            {2., 0., 0., 0.,
-             0., 1., 0., 0.,
-             0., 0., 1., 0.,
-             0, 0., 0., 0.}
-    );
-  } else if (site == 1ul) {
-    occSmallSiteI = std::vector<std::complex<double>>(
-            {0., 0., 0., 0.,
-             0., 1., 0., 0.,
-             0., 0., 1., 0.,
-             0, 0., 0., 2.}
-    );
-  } else {
-    std::cout << "Hubbard dimer only has 2 sites!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << '\n';
-  }
-
-  //for (ulong eInd1 = 0ul; eInd1 < 4ul; ++eInd1) {
-  //  for (ulong eInd2 = 0ul; eInd2 < 4ul; ++eInd2) {
-  //    if (eInd1 == eInd2) {
-  //      if (site == 1ul || site == 2ul) {
-  //        occSmallSiteI[eInd1 * 4ul + eInd2] = 1.;
-  //      }
-  //      if (site == 0ul) {
-  //        if (eInd1 == 0ul) {
-  //          occSmallSiteI[eInd1 * 4ul + eInd2] = 2.;
-  //        }
-  //      } else if (site == 1ul) {
-  //        if (eInd1 == 3ul)
-  //          occSmallSiteI[eInd1 * 4ul + eInd2] = 2.;
-  //      }
-  //    }
-  //  }
-  //}
-}
-
 
 void setupOccSiteI(std::vector<std::complex<double>> &OccSiteI, const ulong site) {
 
-  OccSiteI = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  OccSiteI = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
   std::vector<std::complex<double>> occSmall;
   setupOccSiteISmall(occSmall, site);
@@ -141,7 +76,7 @@ void setupOccSiteI(std::vector<std::complex<double>> &OccSiteI, const ulong site
 }
 
 void setupB1(std::vector<std::complex<double>> &B1) {
-  B1 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  B1 = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
   for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
     for (ulong ph2Ind = 0ul; ph2Ind < dimPhonon; ++ph2Ind) {
@@ -161,7 +96,7 @@ void setupB1(std::vector<std::complex<double>> &B1) {
 
 
 void setupB2(std::vector<std::complex<double>> &B2) {
-  B2 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  B2 = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
   for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
     for (ulong ph2Ind1 = 0ul; ph2Ind1 < dimPhonon; ++ph2Ind1) {
@@ -180,7 +115,7 @@ void setupB2(std::vector<std::complex<double>> &B2) {
 }
 
 void setupA(std::vector<std::complex<double>> &A) {
-  A = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  A = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
   for (ulong ptInd1 = 0ul; ptInd1 < dimPhoton; ++ptInd1) {
     for (ulong ptInd2 = 0ul; ptInd2 < dimPhoton; ++ptInd2) {

@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PhononSqueezing.out.dir/src/mainSqueeze.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/setupElectronicOperatorsSmall.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setUpGlobalHamiltonian.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setupBasicOpertors.cpp.o"

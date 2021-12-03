@@ -25,6 +25,12 @@ set(project_sources
         src/twoPhonons/setUpGlobalHamiltonian.cpp
         src/matrixOperations.cpp
         src/twoPhonons/evalExpectation.cpp
+        src/onePhonon/setupBasicOpertorsOnePh.cpp
+        src/setupElectronicOperatorsSmall.cpp
+        src/onePhonon/setUpGlobalHamiltonianOnePh.cpp
+        src/onePhonon/evalExpectationOnePh.cpp
+        src/twoPhonons/evalDoccInGS.cpp
+        src/onePhonon/evalDoccInGSOnePh.cpp
         )
 
 set(header_files
@@ -33,6 +39,12 @@ set(header_files
         include/twoPhonons/setupBasicOperators.h
         include/twoPhonons/setUpGlobalHamiltonian.cpp.h
         include/twoPhonons/evalExpectation.h
+        include/setupElectronicOperatorsSmall.h
+        include/onePhonon/setupBasicOperatorsOnePh.h
+        include/onePhonon/setUpGlobalHamiltonianOnePh.h
+        include/onePhonon/evalExpectationOnePh.h
+        include/twoPhonons/evalDoccInGS.h
+        include/onePhonon/evalDoccInGSOnePh.h
         )
 
 include_directories("./include")

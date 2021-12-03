@@ -10,13 +10,13 @@ constexpr double tHop(0.25);
 constexpr double wPt(0.1);
 constexpr double wPh(0.2);
 constexpr double U(1.25);
-constexpr double gPh(0.05);
-constexpr double wP(0.05);
+constexpr double gPh(-0.05);
+constexpr double wP(0.0);
 
-constexpr ulong dimPhonon(8ul);
-constexpr ulong dimPhoton(8ul);
+constexpr ulong dimPhonon(20ul);
+constexpr ulong dimPhoton(20ul);
+constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
-constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhoton);
 
 
 #endif //PHONONSQUEEZING_GLOBALS_H

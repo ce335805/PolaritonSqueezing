@@ -1,5 +1,6 @@
 #include <vector>
 #include <complex>
+#include <cassert>
 
 #include "matrixOperations.h"
 #include "globals.h"
@@ -28,7 +29,10 @@ std::vector<double> diagonalize(std::vector<std::complex<double>> &Mat, ulong di
 void addMatricies(const std::vector<std::complex<double>> &A,
                   const std::vector<std::complex<double>> &B,
                   std::vector<std::complex<double>> &C){
-  for(ulong ind = 0ul; ind < dimHOnePh * dimHOnePh; ++ind){
+  assert(A.size() == B.size());
+  assert(A.size() == C.size());
+
+  for(ulong ind = 0ul; ind < A.size(); ++ind){
     C[ind] = A[ind] + B[ind];
   }
 }
@@ -36,7 +40,10 @@ void addMatricies(const std::vector<std::complex<double>> &A,
 void matrixAMinusB(const std::vector<std::complex<double>> &A,
                   const std::vector<std::complex<double>> &B,
                   std::vector<std::complex<double>> &C){
-  for(ulong ind = 0ul; ind < dimHOnePh * dimHOnePh; ++ind){
+  assert(A.size() == B.size());
+  assert(A.size() == C.size());
+
+  for(ulong ind = 0ul; ind < A.size(); ++ind){
     C[ind] = A[ind] - B[ind];
   }
 }
