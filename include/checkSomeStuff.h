@@ -1,0 +1,11 @@
+//
+// Created by chris on 04.12.21.
+//
+
+#ifndef PHONONSQUEEZING_CHECKSOMESTUFF_H
+#define PHONONSQUEEZING_CHECKSOMESTUFF_H
+
+
+void checkMatrixDiag();
+
+#endif //PHONONSQUEEZING_CHECKSOMESTUFF_H

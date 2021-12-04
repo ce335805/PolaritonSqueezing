@@ -31,6 +31,10 @@ set(project_sources
         src/onePhonon/evalExpectationOnePh.cpp
         src/twoPhonons/evalDoccInGS.cpp
         src/onePhonon/evalDoccInGSOnePh.cpp
+        src/onePhonon/timeStep.cpp
+        src/onePhonon/timeEvolution.cpp
+        src/onePhonon/calcGSOnePh.cpp
+        src/checkSomeStuff.cpp
         )
 
 set(header_files
@@ -45,6 +49,10 @@ set(header_files
         include/onePhonon/evalExpectationOnePh.h
         include/twoPhonons/evalDoccInGS.h
         include/onePhonon/evalDoccInGSOnePh.h
+        include/onePhonon/timeStep.h
+        include/onePhonon/timeEvolution.h
+        include/onePhonon/calcGSOnePh.h
+        include/checkSomeStuff.h
         )
 
 include_directories("./include")

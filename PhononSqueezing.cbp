@@ -88,7 +88,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/checkSomeStuff.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/globals.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/calcGSOnePh.h">
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/evalDoccInGSOnePh.h">
@@ -101,6 +107,12 @@
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/setupBasicOperatorsOnePh.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/timeEvolution.h">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/timeStep.h">
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/setupElectronicOperatorsSmall.h">
@@ -121,10 +133,16 @@
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/utils.h">
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/checkSomeStuff.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/mainSqueeze.cpp">
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/calcGSOnePh.cpp">
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp">
@@ -137,6 +155,12 @@
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setupBasicOpertorsOnePh.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeEvolution.cpp">
+			<Option target="PhononSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeStep.cpp">
 			<Option target="PhononSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/setupElectronicOperatorsSmall.cpp">

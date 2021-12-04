@@ -12,6 +12,12 @@ void addMatricies(const std::vector<std::complex<double>> &A,
                   const std::vector<std::complex<double>> &B,
                   std::vector<std::complex<double>> &C);
 
+void addMatricies(const std::vector<std::complex<double>> &A,
+                  const std::complex<double> alpha,
+                  const std::vector<std::complex<double>> &B,
+                  const std::complex<double> beta,
+                  std::vector<std::complex<double>> &C);
+
 void matrixAMinusB(const std::vector<std::complex<double>> &A,
                    const std::vector<std::complex<double>> &B,
                    std::vector<std::complex<double>> &C);

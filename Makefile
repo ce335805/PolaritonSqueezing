@@ -139,6 +139,30 @@ PhononSqueezing.out/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/build
 .PHONY : PhononSqueezing.out/fast
 
+src/checkSomeStuff.o: src/checkSomeStuff.cpp.o
+.PHONY : src/checkSomeStuff.o
+
+# target to build an object file
+src/checkSomeStuff.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o
+.PHONY : src/checkSomeStuff.cpp.o
+
+src/checkSomeStuff.i: src/checkSomeStuff.cpp.i
+.PHONY : src/checkSomeStuff.i
+
+# target to preprocess a source file
+src/checkSomeStuff.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.i
+.PHONY : src/checkSomeStuff.cpp.i
+
+src/checkSomeStuff.s: src/checkSomeStuff.cpp.s
+.PHONY : src/checkSomeStuff.s
+
+# target to generate assembly for a file
+src/checkSomeStuff.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.s
+.PHONY : src/checkSomeStuff.cpp.s
+
 src/mainSqueeze.o: src/mainSqueeze.cpp.o
 .PHONY : src/mainSqueeze.o
 
@@ -186,6 +210,30 @@ src/matrixOperations.s: src/matrixOperations.cpp.s
 src/matrixOperations.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.s
 .PHONY : src/matrixOperations.cpp.s
+
+src/onePhonon/calcGSOnePh.o: src/onePhonon/calcGSOnePh.cpp.o
+.PHONY : src/onePhonon/calcGSOnePh.o
+
+# target to build an object file
+src/onePhonon/calcGSOnePh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o
+.PHONY : src/onePhonon/calcGSOnePh.cpp.o
+
+src/onePhonon/calcGSOnePh.i: src/onePhonon/calcGSOnePh.cpp.i
+.PHONY : src/onePhonon/calcGSOnePh.i
+
+# target to preprocess a source file
+src/onePhonon/calcGSOnePh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.i
+.PHONY : src/onePhonon/calcGSOnePh.cpp.i
+
+src/onePhonon/calcGSOnePh.s: src/onePhonon/calcGSOnePh.cpp.s
+.PHONY : src/onePhonon/calcGSOnePh.s
+
+# target to generate assembly for a file
+src/onePhonon/calcGSOnePh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.s
+.PHONY : src/onePhonon/calcGSOnePh.cpp.s
 
 src/onePhonon/evalDoccInGSOnePh.o: src/onePhonon/evalDoccInGSOnePh.cpp.o
 .PHONY : src/onePhonon/evalDoccInGSOnePh.o
@@ -282,6 +330,54 @@ src/onePhonon/setupBasicOpertorsOnePh.s: src/onePhonon/setupBasicOpertorsOnePh.c
 src/onePhonon/setupBasicOpertorsOnePh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.s
 .PHONY : src/onePhonon/setupBasicOpertorsOnePh.cpp.s
+
+src/onePhonon/timeEvolution.o: src/onePhonon/timeEvolution.cpp.o
+.PHONY : src/onePhonon/timeEvolution.o
+
+# target to build an object file
+src/onePhonon/timeEvolution.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o
+.PHONY : src/onePhonon/timeEvolution.cpp.o
+
+src/onePhonon/timeEvolution.i: src/onePhonon/timeEvolution.cpp.i
+.PHONY : src/onePhonon/timeEvolution.i
+
+# target to preprocess a source file
+src/onePhonon/timeEvolution.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.i
+.PHONY : src/onePhonon/timeEvolution.cpp.i
+
+src/onePhonon/timeEvolution.s: src/onePhonon/timeEvolution.cpp.s
+.PHONY : src/onePhonon/timeEvolution.s
+
+# target to generate assembly for a file
+src/onePhonon/timeEvolution.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.s
+.PHONY : src/onePhonon/timeEvolution.cpp.s
+
+src/onePhonon/timeStep.o: src/onePhonon/timeStep.cpp.o
+.PHONY : src/onePhonon/timeStep.o
+
+# target to build an object file
+src/onePhonon/timeStep.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o
+.PHONY : src/onePhonon/timeStep.cpp.o
+
+src/onePhonon/timeStep.i: src/onePhonon/timeStep.cpp.i
+.PHONY : src/onePhonon/timeStep.i
+
+# target to preprocess a source file
+src/onePhonon/timeStep.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.i
+.PHONY : src/onePhonon/timeStep.cpp.i
+
+src/onePhonon/timeStep.s: src/onePhonon/timeStep.cpp.s
+.PHONY : src/onePhonon/timeStep.s
+
+# target to generate assembly for a file
+src/onePhonon/timeStep.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.s
+.PHONY : src/onePhonon/timeStep.cpp.s
 
 src/setupElectronicOperatorsSmall.o: src/setupElectronicOperatorsSmall.cpp.o
 .PHONY : src/setupElectronicOperatorsSmall.o
@@ -413,12 +509,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... PhononSqueezing.out"
+	@echo "... src/checkSomeStuff.o"
+	@echo "... src/checkSomeStuff.i"
+	@echo "... src/checkSomeStuff.s"
 	@echo "... src/mainSqueeze.o"
 	@echo "... src/mainSqueeze.i"
 	@echo "... src/mainSqueeze.s"
 	@echo "... src/matrixOperations.o"
 	@echo "... src/matrixOperations.i"
 	@echo "... src/matrixOperations.s"
+	@echo "... src/onePhonon/calcGSOnePh.o"
+	@echo "... src/onePhonon/calcGSOnePh.i"
+	@echo "... src/onePhonon/calcGSOnePh.s"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.o"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.i"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.s"
@@ -431,6 +533,12 @@ help:
 	@echo "... src/onePhonon/setupBasicOpertorsOnePh.o"
 	@echo "... src/onePhonon/setupBasicOpertorsOnePh.i"
 	@echo "... src/onePhonon/setupBasicOpertorsOnePh.s"
+	@echo "... src/onePhonon/timeEvolution.o"
+	@echo "... src/onePhonon/timeEvolution.i"
+	@echo "... src/onePhonon/timeEvolution.s"
+	@echo "... src/onePhonon/timeStep.o"
+	@echo "... src/onePhonon/timeStep.i"
+	@echo "... src/onePhonon/timeStep.s"
 	@echo "... src/setupElectronicOperatorsSmall.o"
 	@echo "... src/setupElectronicOperatorsSmall.i"
 	@echo "... src/setupElectronicOperatorsSmall.s"
