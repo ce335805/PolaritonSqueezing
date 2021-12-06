@@ -12,8 +12,6 @@ void setupPhPtCouplingOnePh(std::vector<std::complex<double>> &HPhPt);
 
 void setupQuadEPhCouplingOnePh(std::vector<std::complex<double>> &HEPh);
 
-void setupEPhCouplingOnePh(std::vector<std::complex<double>> &HEPh);
-
 void setupUncoupledHamiltonianOnePh(std::vector<std::complex<double>> &H);
 
 #endif //PHONONSQUEEZING_SETUPGLOBALHAMILTONIANONEPH_H

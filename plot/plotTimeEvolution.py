@@ -38,23 +38,45 @@ def main():
     print("plotting some beautiful time evolution")
 
     #read in stuff
-    file = h5py.File("../data/timeEvolutionResults.hdf5", 'r')
-    times = file['times'][()]
-    pump = file['pump'][()]
-    dOcc = file['dOcc'][()]
-    Xpt = file['Xpt'][()]
-    XptSqr = file['XptSqr'][()]
-    Xph = file['Xph'][()]
-    XphSqr = file['XphSqr'][()]
+    fileC = h5py.File("../data/timeEvolutionResultsClassicalDrive.hdf5", 'r')
+    fileQ = h5py.File("../data/timeEvolutionResultsQuantumDrive.hdf5", 'r')
+    times = fileC['times'][()]
+    pump = fileC['pump'][()]
+    dOccC = fileC['dOcc'][()]
+    XptC = fileC['Xpt'][()]
+    XptSqrC = fileC['XptSqr'][()]
+    NptC = fileC['Npt'][()]
+    XphC = fileC['Xph'][()]
+    XphSqrC = fileC['XphSqr'][()]
+    NphC = fileC['Nph'][()]
 
+    fileQ = h5py.File("../data/timeEvolutionResultsQuantumDrive.hdf5", 'r')
+    dOccQ = fileQ['dOcc'][()]
+    XptQ = fileQ['Xpt'][()]
+    XptSqrQ = fileQ['XptSqr'][()]
+    NptQ = fileQ['Npt'][()]
+    XphQ = fileQ['Xph'][()]
+    XphSqrQ = fileQ['XphSqr'][()]
+    NphQ = fileQ['Nph'][()]
 
     print("times.shape = {}".format(times.shape))
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    ax.plot(times, pump)
-    ax.plot(times, Xpt)
+    #ax.plot(times, pump, color = 'cornflowerblue' , label = 'pump')
+    #ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$ - Classical')
+    #ax.plot(times, NphQ, color = 'rosybrown' , label = r'$N_{\rm phon}$ - Quantum')
+    #ax.plot(times, NptC, color = 'mediumseagreen' , label = r'$N_{\rm phot}$')
+    #ax.plot(times, XphSqrC * 0.2, label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
+    #ax.plot(times, XptSqrC * 0.1, label = r'$\langle X_{\rm phot}^2 \rangle$', color = 'rosybrown')
+    #ax.plot(times, XphC, label = r'$\langle X_{\rm phon} \rangle$', color = 'olive')
+    #ax.plot(times, XptC, label = r'$\langle X_{\rm phot} \rangle$', color = 'rosybrown')
+
+    ax.plot(times, dOccC + .5, color = 'olive', label = 'dOcc - Classical')
+    #ax.plot(times, dOccQ + .5, color = 'rosybrown', label = 'dOcc - Quantum')
+
+    plt.legend()
 
     #ax.set_ylim(-1e10, 1e10)
 
