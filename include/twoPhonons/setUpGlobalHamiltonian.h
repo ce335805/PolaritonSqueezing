@@ -1,5 +1,5 @@
-#ifndef PHONONSQUEEZING_SETUPGLOBALHAMILTONIAN_CPP_H
-#define PHONONSQUEEZING_SETUPGLOBALHAMILTONIAN_CPP_H
+#ifndef PHONONSQUEEZING_SETUPGLOBALHAMILTONIAN_H
+#define PHONONSQUEEZING_SETUPGLOBALHAMILTONIAN_H
 
 void setupUncoupledHamiltonian(std::vector<std::complex<double>> &H);
 
@@ -11,4 +11,4 @@ void setupPhPtCoupling(std::vector<std::complex<double>> &HPhPt);
 
 void setupQuadEPhCoupling(std::vector<std::complex<double>> &HEPh);
 
-#endif //PHONONSQUEEZING_SETUPGLOBALHAMILTONIAN_CPP_H
+#endif //PHONONSQUEEZING_SETUPGLOBALHAMILTONIAN_H

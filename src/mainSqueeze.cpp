@@ -27,7 +27,8 @@ int main() {
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
 
-  calcTimeEvolution();
+  const bool twoPhonons = false;
+  calcTimeEvolution(twoPhonons);
 
   //std::vector<std::complex<double>> I({1., 0., 0., 1.});
   //std::vector<std::complex<double>> vec({1., 2.});

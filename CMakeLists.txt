@@ -24,16 +24,15 @@ set(project_sources
         src/twoPhonons/setupBasicOpertors.cpp
         src/twoPhonons/setUpGlobalHamiltonian.cpp
         src/matrixOperations.cpp
-        src/twoPhonons/evalExpectation.cpp
+        src/evalExpectation.cpp
         src/onePhonon/setupBasicOpertorsOnePh.cpp
         src/setupElectronicOperatorsSmall.cpp
         src/onePhonon/setUpGlobalHamiltonianOnePh.cpp
-        src/onePhonon/evalExpectationOnePh.cpp
         src/twoPhonons/evalDoccInGS.cpp
         src/onePhonon/evalDoccInGSOnePh.cpp
-        src/onePhonon/timeStep.cpp
-        src/onePhonon/timeEvolution.cpp
-        src/onePhonon/calcGSOnePh.cpp
+        src/timeStep.cpp
+        src/timeEvolution.cpp
+        src/calcGS.cpp
         src/checkSomeStuff.cpp
         )
 
@@ -41,23 +40,22 @@ set(header_files
         include/globals.h
         include/utils.h
         include/twoPhonons/setupBasicOperators.h
-        include/twoPhonons/setUpGlobalHamiltonian.cpp.h
-        include/twoPhonons/evalExpectation.h
+        include/twoPhonons/setUpGlobalHamiltonian.h
+        include/evalExpectation.h
         include/setupElectronicOperatorsSmall.h
         include/onePhonon/setupBasicOperatorsOnePh.h
         include/onePhonon/setUpGlobalHamiltonianOnePh.h
-        include/onePhonon/evalExpectationOnePh.h
         include/twoPhonons/evalDoccInGS.h
         include/onePhonon/evalDoccInGSOnePh.h
-        include/onePhonon/timeStep.h
-        include/onePhonon/timeEvolution.h
-        include/onePhonon/calcGSOnePh.h
+        include/timeStep.h
+        include/timeEvolution.h
+        include/calcGS.h
         include/checkSomeStuff.h
         )
 
 include_directories("./include")
 include_directories("./include/onePhonon")
-include_directories("./include/twoPhonon")
+include_directories("./include/twoPhonons")
 #include_directories(SYSTEM ${MPI_INCLUDE_PATH})
 include_directories(${HDF5_INCLUDE_DIRS})
 message(STATUS "---------------------------------------------------------------------")

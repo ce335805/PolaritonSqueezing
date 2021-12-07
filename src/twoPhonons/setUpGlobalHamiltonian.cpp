@@ -5,7 +5,7 @@
 #include "globals.h"
 #include "include/twoPhonons/setupBasicOperators.h"
 #include "matrixOperations.h"
-#include "include/twoPhonons/setUpGlobalHamiltonian.cpp.h"
+#include "include/twoPhonons/setUpGlobalHamiltonian.h"
 
 #define MKL_Complex16 std::complex<double>
 

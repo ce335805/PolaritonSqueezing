@@ -4,7 +4,7 @@
 #include "matrixOperations.h"
 #include "include/onePhonon/setUpGlobalHamiltonianOnePh.h"
 #include "include/onePhonon/setupBasicOperatorsOnePh.h"
-#include "include/onePhonon/evalExpectationOnePh.h"
+#include "evalExpectation.h"
 
 #include <chrono>
 
@@ -37,6 +37,8 @@ void evalDoccInGSOnePh(){
 
   std::vector<double> spectrum = diagonalize(H, dimHOnePh, 'V');
 
+  std::cout << "GS energy = " << spectrum[0] << '\n';
+
   stop = std::chrono::high_resolution_clock::now();
   duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
@@ -52,7 +54,7 @@ void evalDoccInGSOnePh(){
   std::vector<std::complex<double>> dOcc;
   setupDOccOnePh(dOcc);
 
-  double dOccExpec = evalExpectationOnePh(dOcc, gs);
+  double dOccExpec = evalExpectation(dOcc, gs, dimHOnePh);
 
   std::cout << "<dOcc> = " << dOccExpec + 0.5 << '\n';
   std::cout << "Delta<dOcc> = " << (dOccExpec + 0.5) - 0.109566 << '\n';

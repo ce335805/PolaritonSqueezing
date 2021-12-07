@@ -1,6 +1,6 @@
 #ifndef PHONONSQUEEZING_TIMEEVOLUTION_H
 #define PHONONSQUEEZING_TIMEEVOLUTION_H
 
-void calcTimeEvolution();
+void calcTimeEvolution(const bool twoPhonons);
 
 #endif //PHONONSQUEEZING_TIMEEVOLUTION_H

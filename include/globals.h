@@ -10,15 +10,15 @@ constexpr double tHop(0.25);
 constexpr double wPt(0.1);
 constexpr double wPh(0.2);
 constexpr double U(5. * tHop);
-constexpr double gPh(-0.01);
-constexpr double wP(0.0);
+constexpr double gPh(-0.1);
+constexpr double wP(0.2);
 
-constexpr double wDrive(.4);
-constexpr double fDrive(.1);
-constexpr double dt(2. * PI / wDrive / 50.);
+constexpr double wDrive(0.15);
+constexpr double fDrive(.5);
+constexpr double dt(2. * PI / wDrive / 40.);
 
-constexpr ulong dimPhonon(20ul);
-constexpr ulong dimPhoton(1ul);
+constexpr ulong dimPhonon(14ul);
+constexpr ulong dimPhoton(14ul);
 constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
 

@@ -4,17 +4,17 @@
 #include "matrixOperations.h"
 #include "include/onePhonon/setUpGlobalHamiltonianOnePh.h"
 #include "include/onePhonon/setupBasicOperatorsOnePh.h"
-#include "include/onePhonon/evalExpectationOnePh.h"
+#include "evalExpectation.h"
 
 #include <chrono>
 
-void calcGSOnePh(std::vector<std::complex<double>> &gs, std::vector<std::complex<double>> globalH){
+void calcGS(std::vector<std::complex<double>> &gs, std::vector<std::complex<double>> globalH, const ulong dimH){
 
   std::cout << "Starting diagonalization ..." << '\n';
 
   auto start = std::chrono::high_resolution_clock::now();
 
-  std::vector<double> spectrum = diagonalize(globalH, dimHOnePh, 'V');
+  std::vector<double> spectrum = diagonalize(globalH, dimH, 'V');
 
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -23,8 +23,8 @@ void calcGSOnePh(std::vector<std::complex<double>> &gs, std::vector<std::complex
 
   std::cout << '\n';
 
-  for(ulong ind = 0ul; ind < dimHOnePh; ++ind){
-    gs[ind] = globalH[ind * dimHOnePh];
+  for(ulong ind = 0ul; ind < dimH; ++ind){
+    gs[ind] = globalH[ind * dimH];
   }
 
 }

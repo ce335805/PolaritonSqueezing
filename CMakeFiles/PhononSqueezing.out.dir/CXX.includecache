@@ -6,6 +6,34 @@
 
 #IncludeRegexTransform: 
 
+/home/chris/academics/PhD/codebase/phononSqueezing/src/calcGS.cpp
+iostream
+-
+globals.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/globals.h
+matrixOperations.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.h
+include/onePhonon/setUpGlobalHamiltonianOnePh.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/include/onePhonon/setUpGlobalHamiltonianOnePh.h
+include/onePhonon/setupBasicOperatorsOnePh.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/include/onePhonon/setupBasicOperatorsOnePh.h
+evalExpectation.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.h
+chrono
+-
+
+/home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.cpp
+vector
+-
+complex
+-
+globals.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/globals.h
+mkl.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/mkl.h
+include/evalExpectation.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/include/evalExpectation.h
+
 /home/chris/academics/PhD/codebase/phononSqueezing/src/mainSqueeze.cpp
 iostream
 -
@@ -48,22 +76,6 @@ globals.h
 mkl.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/mkl.h
 
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/calcGSOnePh.cpp
-iostream
--
-globals.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/globals.h
-matrixOperations.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/matrixOperations.h
-include/onePhonon/setUpGlobalHamiltonianOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/setUpGlobalHamiltonianOnePh.h
-include/onePhonon/setupBasicOperatorsOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/setupBasicOperatorsOnePh.h
-include/onePhonon/evalExpectationOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/evalExpectationOnePh.h
-chrono
--
-
 /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp
 iostream
 -
@@ -75,22 +87,10 @@ include/onePhonon/setUpGlobalHamiltonianOnePh.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/setUpGlobalHamiltonianOnePh.h
 include/onePhonon/setupBasicOperatorsOnePh.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/setupBasicOperatorsOnePh.h
-include/onePhonon/evalExpectationOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/evalExpectationOnePh.h
+evalExpectation.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectation.h
 chrono
 -
-
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectationOnePh.cpp
-vector
--
-complex
--
-globals.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/globals.h
-mkl.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/mkl.h
-include/twoPhonons/evalExpectation.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/twoPhonons/evalExpectation.h
 
 /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp
 vector
@@ -128,48 +128,6 @@ setupElectronicOperatorsSmall.h
 setupBasicOperatorsOnePh.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setupBasicOperatorsOnePh.h
 
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeEvolution.cpp
-vector
--
-complex
--
-iostream
--
-globals.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/globals.h
-setupBasicOperatorsOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setupBasicOperatorsOnePh.h
-matrixOperations.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/matrixOperations.h
-setUpGlobalHamiltonianOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setUpGlobalHamiltonianOnePh.h
-calcGSOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/calcGSOnePh.h
-timeStep.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeStep.h
-evalExpectationOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectationOnePh.h
-H5Cpp.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/H5Cpp.h
-mkl.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/mkl.h
-
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeStep.cpp
-vector
--
-complex
--
-cmath
--
-iostream
--
-globals.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/globals.h
-matrixOperations.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/matrixOperations.h
-mkl.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/mkl.h
-
 /home/chris/academics/PhD/codebase/phononSqueezing/src/setupElectronicOperatorsSmall.cpp
 vector
 -
@@ -182,6 +140,52 @@ globals.h
 setupElectronicOperatorsSmall.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/setupElectronicOperatorsSmall.h
 
+/home/chris/academics/PhD/codebase/phononSqueezing/src/timeEvolution.cpp
+vector
+-
+complex
+-
+iostream
+-
+globals.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/globals.h
+setupBasicOperatorsOnePh.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/setupBasicOperatorsOnePh.h
+matrixOperations.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.h
+setUpGlobalHamiltonianOnePh.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/setUpGlobalHamiltonianOnePh.h
+calcGS.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/calcGS.h
+timeStep.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/timeStep.h
+setupBasicOperators.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/setupBasicOperators.h
+setUpGlobalHamiltonian.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/setUpGlobalHamiltonian.h
+evalExpectation.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.h
+H5Cpp.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/H5Cpp.h
+mkl.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/mkl.h
+
+/home/chris/academics/PhD/codebase/phononSqueezing/src/timeStep.cpp
+vector
+-
+complex
+-
+cmath
+-
+iostream
+-
+globals.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/globals.h
+matrixOperations.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.h
+mkl.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/mkl.h
+
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalDoccInGS.cpp
 iostream
 -
@@ -189,26 +193,14 @@ globals.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/globals.h
 matrixOperations.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/matrixOperations.h
-include/twoPhonons/setUpGlobalHamiltonian.cpp.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/setUpGlobalHamiltonian.cpp.h
+include/twoPhonons/setUpGlobalHamiltonian.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/setUpGlobalHamiltonian.h
 include/twoPhonons/setupBasicOperators.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/setupBasicOperators.h
-include/twoPhonons/evalExpectation.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/evalExpectation.h
+include/evalExpectation.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/evalExpectation.h
 chrono
 -
-
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalExpectation.cpp
-vector
--
-complex
--
-globals.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/globals.h
-mkl.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/mkl.h
-include/twoPhonons/evalExpectation.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/evalExpectation.h
 
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/setUpGlobalHamiltonian.cpp
 vector
@@ -223,8 +215,8 @@ include/twoPhonons/setupBasicOperators.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/setupBasicOperators.h
 matrixOperations.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/matrixOperations.h
-include/twoPhonons/setUpGlobalHamiltonian.cpp.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/setUpGlobalHamiltonian.cpp.h
+include/twoPhonons/setUpGlobalHamiltonian.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/include/twoPhonons/setUpGlobalHamiltonian.h
 mkl.h
 /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/mkl.h
 
@@ -636,7 +628,11 @@ H5FDstdio.h
 H5FDwindows.h
 /usr/include/hdf5/serial/H5FDwindows.h
 
+include/calcGS.h
+
 include/checkSomeStuff.h
+
+include/evalExpectation.h
 
 include/globals.h
 complex
@@ -648,11 +644,7 @@ vector
 complex
 -
 
-include/onePhonon/calcGSOnePh.h
-
 include/onePhonon/evalDoccInGSOnePh.h
-
-include/onePhonon/evalExpectationOnePh.h
 
 include/onePhonon/setUpGlobalHamiltonianOnePh.h
 vector
@@ -664,17 +656,15 @@ include/onePhonon/globals.h
 
 include/onePhonon/setupBasicOperatorsOnePh.h
 
-include/onePhonon/timeEvolution.h
-
-include/onePhonon/timeStep.h
-
 include/setupElectronicOperatorsSmall.h
+
+include/timeEvolution.h
+
+include/timeStep.h
 
 include/twoPhonons/evalDoccInGS.h
 
-include/twoPhonons/evalExpectation.h
-
-include/twoPhonons/setUpGlobalHamiltonian.cpp.h
+include/twoPhonons/setUpGlobalHamiltonian.h
 
 include/twoPhonons/setupBasicOperators.h
 

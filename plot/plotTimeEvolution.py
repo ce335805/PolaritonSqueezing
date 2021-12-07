@@ -38,26 +38,25 @@ def main():
     print("plotting some beautiful time evolution")
 
     #read in stuff
-    fileC = h5py.File("../data/timeEvolutionResultsClassicalDrive.hdf5", 'r')
-    fileQ = h5py.File("../data/timeEvolutionResultsQuantumDrive.hdf5", 'r')
+    fileC = h5py.File("../data/timeEvolOnePhonW01.hdf5", 'r')
     times = fileC['times'][()]
     pump = fileC['pump'][()]
     dOccC = fileC['dOcc'][()]
     XptC = fileC['Xpt'][()]
     XptSqrC = fileC['XptSqr'][()]
     NptC = fileC['Npt'][()]
-    XphC = fileC['Xph'][()]
-    XphSqrC = fileC['XphSqr'][()]
-    NphC = fileC['Nph'][()]
+    XphC = fileC['X1ph'][()]
+    XphSqrC = fileC['X1phSqr'][()]
+    NphC = fileC['N1ph'][()]
 
-    fileQ = h5py.File("../data/timeEvolutionResultsQuantumDrive.hdf5", 'r')
+    fileQ = h5py.File("../data/timeEvolOnePhonW005.hdf5", 'r')
     dOccQ = fileQ['dOcc'][()]
     XptQ = fileQ['Xpt'][()]
     XptSqrQ = fileQ['XptSqr'][()]
     NptQ = fileQ['Npt'][()]
-    XphQ = fileQ['Xph'][()]
-    XphSqrQ = fileQ['XphSqr'][()]
-    NphQ = fileQ['Nph'][()]
+    XphQ = fileQ['X1ph'][()]
+    XphSqrQ = fileQ['X1phSqr'][()]
+    NphQ = fileQ['N1ph'][()]
 
     print("times.shape = {}".format(times.shape))
 
@@ -65,16 +64,23 @@ def main():
     ax = fig.add_subplot(111)
 
     #ax.plot(times, pump, color = 'cornflowerblue' , label = 'pump')
-    #ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$ - Classical')
-    #ax.plot(times, NphQ, color = 'rosybrown' , label = r'$N_{\rm phon}$ - Quantum')
+    #ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.1$')
+    #ax.plot(times, NphQ, color = 'rosybrown' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.05$')
     #ax.plot(times, NptC, color = 'mediumseagreen' , label = r'$N_{\rm phot}$')
-    #ax.plot(times, XphSqrC * 0.2, label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
+    #ax.plot(times, 0.2 * (XphSqrC - XphSqrC[0]), label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
     #ax.plot(times, XptSqrC * 0.1, label = r'$\langle X_{\rm phot}^2 \rangle$', color = 'rosybrown')
     #ax.plot(times, XphC, label = r'$\langle X_{\rm phon} \rangle$', color = 'olive')
     #ax.plot(times, XptC, label = r'$\langle X_{\rm phot} \rangle$', color = 'rosybrown')
 
-    ax.plot(times, dOccC + .5, color = 'olive', label = 'dOcc - Classical')
-    #ax.plot(times, dOccQ + .5, color = 'rosybrown', label = 'dOcc - Quantum')
+    ax.plot(times, dOccQ + .5, color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.05$')
+    ax.plot(times, (dOccC + .5) , color = 'olive', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    #ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    #ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) / ((XphSqrC - XphSqrC[0]) + 1e-9) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+
+
+    #ax.plot(times, (dOccC + .5) * 100 - 10.71, color = 'rosybrown', label = 'dOcc - Classical')
+    #ax.plot(times, XphSqrC * 0.2, label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
+
 
     plt.legend()
 

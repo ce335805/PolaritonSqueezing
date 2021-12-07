@@ -118,18 +118,18 @@ CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.s"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.s
 
-CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
-CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o: src/twoPhonons/evalExpectation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalExpectation.cpp
+CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o: src/evalExpectation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.cpp
 
-CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.i"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalExpectation.cpp > CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.i
+CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.cpp > CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.i
 
-CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.s"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalExpectation.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.s
+CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.s
 
 CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
 CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.o: src/onePhonon/setupBasicOpertorsOnePh.cpp
@@ -170,22 +170,9 @@ CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o: src/onePhonon/evalExpectationOnePh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectationOnePh.cpp
-
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.i"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectationOnePh.cpp > CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.i
-
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.s"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectationOnePh.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.s
-
 CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
 CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o: src/twoPhonons/evalDoccInGS.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalDoccInGS.cpp
 
 CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.i: cmake_force
@@ -198,7 +185,7 @@ CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.s: cmake_forc
 
 CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
 CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o: src/onePhonon/evalDoccInGSOnePh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp
 
 CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.i: cmake_force
@@ -209,48 +196,48 @@ CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.s: cmake_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.s"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.s
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o: src/onePhonon/timeStep.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeStep.cpp
+CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o: src/timeStep.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/timeStep.cpp
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.i"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeStep.cpp > CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.i
+CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/timeStep.cpp > CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.i
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.s"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeStep.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.s
+CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/timeStep.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.s
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o: src/onePhonon/timeEvolution.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeEvolution.cpp
+CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o: src/timeEvolution.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/timeEvolution.cpp
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.i"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeEvolution.cpp > CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.i
+CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/timeEvolution.cpp > CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.i
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.s"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/timeEvolution.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.s
+CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/timeEvolution.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.s
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o: src/onePhonon/calcGSOnePh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/calcGSOnePh.cpp
+CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o: src/calcGS.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/calcGS.cpp
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.i"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/calcGSOnePh.cpp > CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.i
+CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/calcGS.cpp > CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.i
 
-CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.s"
-	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/calcGSOnePh.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.s
+CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/calcGS.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.s
 
 CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
 CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o: src/checkSomeStuff.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/checkSomeStuff.cpp
 
 CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.i: cmake_force
@@ -267,16 +254,15 @@ PhononSqueezing_out_OBJECTS = \
 "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setupBasicOpertors.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setUpGlobalHamiltonian.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.o" \
-"CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/setupElectronicOperatorsSmall.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o" \
-"CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o" \
-"CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o" \
-"CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o" \
-"CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o"
 
 # External object files for target PhononSqueezing.out
@@ -286,16 +272,15 @@ PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/mainSqueeze.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setupBasicOpertors.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setUpGlobalHamiltonian.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.o
-PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalExpectation.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setupBasicOpertorsOnePh.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/setupElectronicOperatorsSmall.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o
-PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalExpectationOnePh.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o
-PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeStep.cpp.o
-PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/timeEvolution.cpp.o
-PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/calcGSOnePh.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/build.make
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so
@@ -306,7 +291,7 @@ PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/libz.so
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/libdl.so
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/libm.so
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable PhononSqueezing.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable PhononSqueezing.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PhononSqueezing.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

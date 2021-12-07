@@ -9,7 +9,6 @@ void setupB2(std::vector<std::complex<double>> &B2);
 
 void setupA(std::vector<std::complex<double>> &A);
 
-
 void setupDOcc(std::vector<std::complex<double>> &DOcc);
 
 void setupOccSiteI(std::vector<std::complex<double>> &OccSiteI, const ulong site);

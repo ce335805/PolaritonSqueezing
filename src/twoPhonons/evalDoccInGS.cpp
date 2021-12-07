@@ -2,9 +2,9 @@
 
 #include "globals.h"
 #include "matrixOperations.h"
-#include "include/twoPhonons/setUpGlobalHamiltonian.cpp.h"
+#include "include/twoPhonons/setUpGlobalHamiltonian.h"
 #include "include/twoPhonons/setupBasicOperators.h"
-#include "include/twoPhonons/evalExpectation.h"
+#include "include/evalExpectation.h"
 
 #include <chrono>
 
@@ -52,7 +52,7 @@ void evalDoccInGSTwoPh(){
   std::vector<std::complex<double>> dOcc;
   setupDOcc(dOcc);
 
-  double dOccExpec = evalExpectation(dOcc, gs);
+  double dOccExpec = evalExpectation(dOcc, gs, dimHTwoPh);
 
   std::cout << "<dOcc> = " << dOccExpec + 0.5 << '\n';
   std::cout << "Delta<dOcc> = " << (dOccExpec + 0.5) - 0.109566 << '\n';
