@@ -38,6 +38,14 @@ inline ulong toGlobalMatrixIndexOne(const ulong ptInd1,
           ptInd2 * dimPhonon * 4ul +
           phInd2 * 4ul +
           eInd2;
+
+  //return
+  //        ptInd1 * dimHOnePh +
+  //        phInd1 * dimHOnePh * dimPhoton +
+  //        eInd1 * dimHOnePh * dimPhoton * dimPhonon +
+  //        ptInd2+
+  //        phInd2 * dimPhoton+
+  //        eInd2 * dimPhoton * dimPhonon;
 }
 
 #endif //PHONONSQUEEZING_UTILS_H

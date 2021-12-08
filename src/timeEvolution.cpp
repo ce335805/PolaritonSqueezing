@@ -1,6 +1,7 @@
 #include <vector>
 #include <complex>
 #include <iostream>
+#include <string>
 
 #include "globals.h"
 #include "setupBasicOperatorsOnePh.h"
@@ -65,13 +66,13 @@ void calcTimeEvolution(const bool twoPhonons) {
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong timeSteps(100ul * 4ul);
+  const ulong timeSteps(40ul * 30ul);
   std::vector<double> times(timeSteps, 0.);
   std::vector<double> pumpPreFac(timeSteps, 0.);
   std::vector<double> pumpPreFacOutput(timeSteps, 0.);
 
-  const double t0 = 2. * PI / wDrive * 4.;
-  const double s = 2. * PI / wDrive * 1.;
+  const double t0 = 2. * PI / wDrive * 10.;
+  const double s = 2. * PI / wDrive * 2.;
 
   for (ulong ind = 0; ind < timeSteps; ++ind) {
     times[ind] = double(ind) * dt;
@@ -142,6 +143,8 @@ void calcTimeEvolution(const bool twoPhonons) {
     }
   }
 
+  std::string filename = "data/timeEvolOnePhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + ".hdf5";
+
   writeStuffToHdf5(times,
                    pumpPreFacOutput,
                    dOccExpectation,
@@ -154,7 +157,7 @@ void calcTimeEvolution(const bool twoPhonons) {
                    X2phExpectation,
                    X2phSqrExpectation,
                    N2phExpectation,
-                   "data/timeEvolOnePhonW005.hdf5",
+                   filename,
                    twoPhonons);
 }
 void setupOpsOnePh(std::vector<std::complex<double>> &dOcc,

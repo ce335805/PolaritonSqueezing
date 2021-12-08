@@ -33,12 +33,7 @@ void setupPhPtCouplingOnePh(std::vector<std::complex<double>> &HPhPt){
 
   std::vector<std::complex<double>> A;
   setupAOnePh(A);
-  std::vector<std::complex<double>> ADag(A);
-  dagger(ADag, dimHOnePh);
 
-  std::vector<std::complex<double>> APADag(A.size(), std::complex<double> (0., 0.));
-
-  addMatricies(A, ADag, APADag);
   std::complex<double> alpha (wP * wP / (4. * wPt), 0.);
   std::complex<double> beta (1., 0.);
 
@@ -64,21 +59,9 @@ void setupPhPtCouplingOnePh(std::vector<std::complex<double>> &HPhPt){
 
   std::vector<std::complex<double>> B;
   setupB(B);
-  std::vector<std::complex<double>> BDag(B);
-  dagger(BDag, dimHOnePh);
-
-  std::vector<std::complex<double>> BMBDag(B.size(), std::complex<double> (0., 0.));
-
-  matrixAMinusB(B, BDag, BMBDag);
 
   alpha = std::complex<double> (0., wP * std::sqrt(wPh) / (2. * std::sqrt(wPt)));
   beta = std::complex<double> (1., 0.);
-
-  //cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
-  //            dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
-  //            APADag.data(), dimHOnePh,
-  //            BMBDag.data(), dimHOnePh,
-  //            &beta, HPhPt.data(), dimHOnePh);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
@@ -117,30 +100,80 @@ void setupQuadEPhCouplingOnePh(std::vector<std::complex<double>> &HEPh){
 
   std::vector<std::complex<double>> B;
   setupB(B);
-  std::vector<std::complex<double>> BDag(B);
-  dagger(BDag, dimHOnePh);
 
-  std::vector<std::complex<double>> BPBDag(B.size(), std::complex<double> (0., 0.));
+  std::vector<std::complex<double>> BBDag(B.size(), std::complex<double> (0., 0.));
+  std::vector<std::complex<double>> BDagB(B.size(), std::complex<double> (0., 0.));
+  std::vector<std::complex<double>> BB(B.size(), std::complex<double> (0., 0.));
+  std::vector<std::complex<double>> BDagBDag(B.size(), std::complex<double> (0., 0.));
 
-  addMatricies(B, BDag, BPBDag);
-
-  //std::complex<double> alpha (gPh / (2. * wPh), 0.);
-  std::complex<double> alpha (gPh, 0.);
+  std::complex<double> alpha (1., 0.);
   std::complex<double> beta (0., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
-              BPBDag.data(), dimHOnePh,
-              BPBDag.data(), dimHOnePh,
-              &beta, HEPh.data(), dimHOnePh);
+              B.data(), dimHOnePh,
+              B.data(), dimHOnePh,
+              &beta, BB.data(), dimHOnePh);
 
-  alpha = std::complex<double> (1., 0.);
+  cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasConjTrans,
+              dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+              B.data(), dimHOnePh,
+              B.data(), dimHOnePh,
+              &beta, BDagBDag.data(), dimHOnePh);
+
+  cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasNoTrans,
+              dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+              B.data(), dimHOnePh,
+              B.data(), dimHOnePh,
+              &beta, BDagB.data(), dimHOnePh);
+
+
+  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasConjTrans,
+              dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+              B.data(), dimHOnePh,
+              B.data(), dimHOnePh,
+              &beta, BBDag.data(), dimHOnePh);
+
+  alpha = std::complex<double>  (gPh, 0.);
+  beta = std::complex<double> (1., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
-              HEPh.data(), dimHOnePh,
+              BB.data(), dimHOnePh,
               dOcc.data(), dimHOnePh,
               &beta, HEPh.data(), dimHOnePh);
+
+  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+              dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+              BDagBDag.data(), dimHOnePh,
+              dOcc.data(), dimHOnePh,
+              &beta, HEPh.data(), dimHOnePh);
+
+  //cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+  //            dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+  //            BBDag.data(), dimHOnePh,
+  //            dOcc.data(), dimHOnePh,
+  //            &beta, HEPh.data(), dimHOnePh);
+
+  alpha = std::complex<double>  (2. * gPh, 0.);
+  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+              dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+              BDagB.data(), dimHOnePh,
+              dOcc.data(), dimHOnePh,
+              &beta, HEPh.data(), dimHOnePh);
+
+  std::vector<std::complex<double>> unitMat (dimHOnePh * dimHOnePh, std::complex<double> (0., 0.));
+  for(ulong ind = 0ul; ind < dimHOnePh; ++ind){
+    unitMat[ind * dimHOnePh + ind] = 1.;
+  }
+
+  alpha = std::complex<double>  (gPh, 0.);
+  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+              dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
+              unitMat.data(), dimHOnePh,
+              dOcc.data(), dimHOnePh,
+              &beta, HEPh.data(), dimHOnePh);
+
 }
 
 void setupUncoupledHamiltonianOnePh(std::vector<std::complex<double>> &H) {

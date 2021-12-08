@@ -13,14 +13,6 @@ void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) 
            tHop, 0., -U / 2., tHop,
            0, -tHop, tHop, U / 2.}
   );
-
-  //std::cout << "electronic Hamiltonian: " << '\n';
-  //for(ulong ind1 = 0ul; ind1 < 4ul; ++ind1){
-  //  for(ulong ind2 = 0ul; ind2 < 4ul; ++ind2) {
-  //    std::cout << HElectronicSmall[ind1 * 4ul + ind2] << " ";
-  //  }
-  //  std::cout << '\n';
-  //}
 }
 
 void setupDoubleOccSmall(std::vector<std::complex<double>> &DOccSmall) {

@@ -33,35 +33,73 @@ mpl.rcParams['text.latex.preamble'] = [
     #    r'\everymath={\sf}'
 ]
 
+def avOverArr(arr, avOver):
+
+    averagedArr = np.zeros(arr.shape)
+
+    for ind in np.arange(len(arr)):
+        for avInd in np.arange(avOver):
+            averagedArr[ind] += arr[(ind - (avInd - avOver // 2)) % len(arr)] / avOver
+    return averagedArr
+
 
 def main():
     print("plotting some beautiful time evolution")
 
     #read in stuff
-    fileC = h5py.File("../data/timeEvolOnePhonW01.hdf5", 'r')
-    times = fileC['times'][()]
-    pump = fileC['pump'][()]
-    dOccC = fileC['dOcc'][()]
-    XptC = fileC['Xpt'][()]
-    XptSqrC = fileC['XptSqr'][()]
-    NptC = fileC['Npt'][()]
-    XphC = fileC['X1ph'][()]
-    XphSqrC = fileC['X1phSqr'][()]
-    NphC = fileC['N1ph'][()]
+    fileW20 = h5py.File("../data/timeEvolOnePhonWP20N10.hdf5", 'r')
+    times = fileW20['times'][()]
+    pump = fileW20['pump'][()]
+    dOccW20 = fileW20['dOcc'][()]
+    XptW20 = fileW20['Xpt'][()]
+    XptSqrW20 = fileW20['XptSqr'][()]
+    NptW20 = fileW20['Npt'][()]
+    XphW20 = fileW20['X1ph'][()]
+    XphSqrW20 = fileW20['X1phSqr'][()]
+    NphW20 = fileW20['N1ph'][()]
 
-    fileQ = h5py.File("../data/timeEvolOnePhonW005.hdf5", 'r')
-    dOccQ = fileQ['dOcc'][()]
-    XptQ = fileQ['Xpt'][()]
-    XptSqrQ = fileQ['XptSqr'][()]
-    NptQ = fileQ['Npt'][()]
-    XphQ = fileQ['X1ph'][()]
-    XphSqrQ = fileQ['X1phSqr'][()]
-    NphQ = fileQ['N1ph'][()]
+    fileW10 = h5py.File("../data/timeEvolOnePhonWP10N10.hdf5", 'r')
+    dOccW10 = fileW10['dOcc'][()]
+    XptW10 = fileW10['Xpt'][()]
+    XptSqrW10 = fileW10['XptSqr'][()]
+    NptW10 = fileW10['Npt'][()]
+    XphW10 = fileW10['X1ph'][()]
+    XphSqrW10 = fileW10['X1phSqr'][()]
+    NphW10 = fileW10['N1ph'][()]
+    
+    fileW15 = h5py.File("../data/timeEvolOnePhonWP14N10.hdf5", 'r')
+    dOccW15 = fileW15['dOcc'][()]
+    XptW15 = fileW15['Xpt'][()]
+    XptSqrW15 = fileW15['XptSqr'][()]
+    NptW15 = fileW15['Npt'][()]
+    XphW15 = fileW15['X1ph'][()]
+    XphSqrW15 = fileW15['X1phSqr'][()]
+    NphW15 = fileW15['N1ph'][()]
+    
+    fileW5 = h5py.File("../data/timeEvolOnePhonWP5N10.hdf5", 'r')
+    dOccW5 = fileW5['dOcc'][()]
+    XptW5 = fileW5['Xpt'][()]
+    XptSqrW5 = fileW5['XptSqr'][()]
+    NptW5 = fileW5['Npt'][()]
+    XphW5 = fileW5['X1ph'][()]
+    XphSqrW5 = fileW5['X1phSqr'][()]
+    NphW5 = fileW5['N1ph'][()]
+
+    fileW1 = h5py.File("../data/timeEvolOnePhonWP1N10.hdf5", 'r')
+    dOccW1 = fileW1['dOcc'][()]
+    XptW1 = fileW1['Xpt'][()]
+    XptSqrW1 = fileW1['XptSqr'][()]
+    NptW1 = fileW1['Npt'][()]
+    XphW1 = fileW1['X1ph'][()]
+    XphSqrW1 = fileW1['X1phSqr'][()]
+    NphW1 = fileW1['N1ph'][()]
 
     print("times.shape = {}".format(times.shape))
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
+
+    #dOccQAv = avOverArr(dOccQ, 7)
 
     #ax.plot(times, pump, color = 'cornflowerblue' , label = 'pump')
     #ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.1$')
@@ -72,8 +110,11 @@ def main():
     #ax.plot(times, XphC, label = r'$\langle X_{\rm phon} \rangle$', color = 'olive')
     #ax.plot(times, XptC, label = r'$\langle X_{\rm phot} \rangle$', color = 'rosybrown')
 
-    ax.plot(times, dOccQ + .5, color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.05$')
-    ax.plot(times, (dOccC + .5) , color = 'olive', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    ax.plot(times, dOccW20 + .5, color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.2$')
+    ax.plot(times, dOccW15 + .5 , color = 'c', label = 'dOcc, $\omega_{\rm P} = 0.15$')
+    ax.plot(times, dOccW10 + .5 , color = 'olive', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    ax.plot(times, dOccW5 + .5, color = 'peru', label = 'dOcc, $\omega_{\rm P} = 0.05$')
+    ax.plot(times, dOccW1 + .5, color = 'black', label = 'dOcc, $\omega_{\rm P} = 0.01$')
     #ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
     #ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) / ((XphSqrC - XphSqrC[0]) + 1e-9) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
 

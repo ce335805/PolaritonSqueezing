@@ -26,6 +26,9 @@ void evalDoccInGSOnePh(){
 
   setupGlobalHOnePh(H);
 
+  std::vector<std::complex<double>> dOcc;
+  setupDOccOnePh(dOcc);
+
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
@@ -35,9 +38,11 @@ void evalDoccInGSOnePh(){
 
   start = std::chrono::high_resolution_clock::now();
 
+
   std::vector<double> spectrum = diagonalize(H, dimHOnePh, 'V');
 
   std::cout << "GS energy = " << spectrum[0] << '\n';
+  std::cout << "GS + 1 energy = " << spectrum[1] << '\n';
 
   stop = std::chrono::high_resolution_clock::now();
   duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -50,9 +55,6 @@ void evalDoccInGSOnePh(){
   for(ulong ind = 0ul; ind < dimHOnePh; ++ind){
     gs[ind] = H[ind * dimHOnePh];
   }
-
-  std::vector<std::complex<double>> dOcc;
-  setupDOccOnePh(dOcc);
 
   double dOccExpec = evalExpectation(dOcc, gs, dimHOnePh);
 
