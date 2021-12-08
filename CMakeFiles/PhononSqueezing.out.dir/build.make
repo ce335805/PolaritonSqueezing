@@ -248,6 +248,45 @@ CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.s"
 	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/checkSomeStuff.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.s
 
+CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o: src/utils/writeStuffToHdf5.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/utils/writeStuffToHdf5.cpp
+
+CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/utils/writeStuffToHdf5.cpp > CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.i
+
+CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/utils/writeStuffToHdf5.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.s
+
+CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o: src/utils/setupOps.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/utils/setupOps.cpp
+
+CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/utils/setupOps.cpp > CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.i
+
+CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/utils/setupOps.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.s
+
+CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o: CMakeFiles/PhononSqueezing.out.dir/flags.make
+CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o: src/evalGSProps.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o -c /home/chris/academics/PhD/codebase/phononSqueezing/src/evalGSProps.cpp
+
+CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.i"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/academics/PhD/codebase/phononSqueezing/src/evalGSProps.cpp > CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.i
+
+CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.s"
+	/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/academics/PhD/codebase/phononSqueezing/src/evalGSProps.cpp -o CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.s
+
 # Object files for target PhononSqueezing.out
 PhononSqueezing_out_OBJECTS = \
 "CMakeFiles/PhononSqueezing.out.dir/src/mainSqueeze.cpp.o" \
@@ -263,7 +302,10 @@ PhononSqueezing_out_OBJECTS = \
 "CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o" \
 "CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o" \
-"CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o"
+"CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o" \
+"CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o"
 
 # External object files for target PhononSqueezing.out
 PhononSqueezing_out_EXTERNAL_OBJECTS =
@@ -282,6 +324,9 @@ PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/timeStep.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/timeEvolution.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o
+PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/build.make
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5_cpp.so
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so
@@ -291,7 +336,7 @@ PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/libz.so
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/libdl.so
 PhononSqueezing.out: /usr/lib/x86_64-linux-gnu/libm.so
 PhononSqueezing.out: CMakeFiles/PhononSqueezing.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable PhononSqueezing.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable PhononSqueezing.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PhononSqueezing.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

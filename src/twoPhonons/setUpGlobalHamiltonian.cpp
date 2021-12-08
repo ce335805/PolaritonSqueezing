@@ -40,7 +40,7 @@ void setupPhPtCoupling(std::vector<std::complex<double>> &HPhPt){
   std::vector<std::complex<double>> APADag(A.size(), std::complex<double> (0., 0.));
 
   addMatricies(A, ADag, APADag);
-  std::complex<double> alpha (wP * wP / (2. * wPt), 0.);
+  std::complex<double> alpha (wP * wP / (4. * wPt), 0.);
   std::complex<double> beta (0., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
@@ -58,7 +58,7 @@ void setupPhPtCoupling(std::vector<std::complex<double>> &HPhPt){
 
   matrixAMinusB(B1, B1Dag, B1MB1Dag);
 
-  alpha = std::complex<double> (0., wP * std::sqrt(wPh) / (2. * std::sqrt(wPt)));
+  alpha = std::complex<double> (0., wP * std::sqrt(wPh) / (2. * std::sqrt(wPt) * std::sqrt(2.)));
   beta = std::complex<double> (1., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
@@ -76,7 +76,7 @@ void setupPhPtCoupling(std::vector<std::complex<double>> &HPhPt){
 
   matrixAMinusB(B2, B2Dag, B2MB2Dag);
 
-  alpha = std::complex<double> (0., wP * std::sqrt(wPh) / (2. * std::sqrt(wPt)));
+  alpha = std::complex<double> (0., wP * std::sqrt(wPh) / (2. * std::sqrt(wPt) * std::sqrt(2.)));
   beta = std::complex<double> (1., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
@@ -166,7 +166,7 @@ void setupEPhCoupling(std::vector<std::complex<double>> &HEPh){
 
   addMatricies(B1, B1Dag, B1PB1Dag);
 
-  std::complex<double> alpha (gPh / (2. * wPh), 0.);
+  std::complex<double> alpha (gPh, 0.);
   std::complex<double> beta (0., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
@@ -197,7 +197,7 @@ void setupEPhCoupling(std::vector<std::complex<double>> &HEPh){
 
   std::vector<std::complex<double>> B2PB2DagSqr(B2.size(), std::complex<double> (0., 0.));
 
-  alpha = std::complex<double> (gPh / (2. * wPh), 0.);
+  alpha = std::complex<double> (gPh, 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHTwoPh, dimHTwoPh, dimHTwoPh, &alpha,

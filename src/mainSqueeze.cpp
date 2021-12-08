@@ -9,6 +9,7 @@
 #include "globals.h"
 #include "checkSomeStuff.h"
 #include <chrono>
+#include "evalGSProps.h"
 
 #define MKL_Complex16 std::complex<double>
 #include "mkl.h"
@@ -20,14 +21,14 @@ int main() {
   std::cout << std::setprecision(12);
 
   //evalDoccInGSTwoPh();
-  evalDoccInGSOnePh();
+  //evalDoccInGSOnePh();
 
-  //const bool twoPhonons = false;
+  const bool twoPhonons = false;
   //calcTimeEvolution(twoPhonons);
 
+  evalGSProps(twoPhonons);
+
+
   return 0;
-
-
-
 }
 

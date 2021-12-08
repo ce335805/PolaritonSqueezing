@@ -43,10 +43,10 @@ def avOverArr(arr, avOver):
     return averagedArr
 
 
-def main():
+def plotTimeEvol():
     print("plotting some beautiful time evolution")
 
-    #read in stuff
+    # read in stuff
     fileW20 = h5py.File("../data/timeEvolOnePhonWP20N10.hdf5", 'r')
     times = fileW20['times'][()]
     pump = fileW20['pump'][()]
@@ -66,7 +66,7 @@ def main():
     XphW10 = fileW10['X1ph'][()]
     XphSqrW10 = fileW10['X1phSqr'][()]
     NphW10 = fileW10['N1ph'][()]
-    
+
     fileW15 = h5py.File("../data/timeEvolOnePhonWP14N10.hdf5", 'r')
     dOccW15 = fileW15['dOcc'][()]
     XptW15 = fileW15['Xpt'][()]
@@ -75,7 +75,7 @@ def main():
     XphW15 = fileW15['X1ph'][()]
     XphSqrW15 = fileW15['X1phSqr'][()]
     NphW15 = fileW15['N1ph'][()]
-    
+
     fileW5 = h5py.File("../data/timeEvolOnePhonWP5N10.hdf5", 'r')
     dOccW5 = fileW5['dOcc'][()]
     XptW5 = fileW5['Xpt'][()]
@@ -99,36 +99,31 @@ def main():
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    #dOccQAv = avOverArr(dOccQ, 7)
+    # dOccQAv = avOverArr(dOccQ, 7)
 
-    #ax.plot(times, pump, color = 'cornflowerblue' , label = 'pump')
-    #ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.1$')
-    #ax.plot(times, NphQ, color = 'rosybrown' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.05$')
-    #ax.plot(times, NptC, color = 'mediumseagreen' , label = r'$N_{\rm phot}$')
-    #ax.plot(times, 0.2 * (XphSqrC - XphSqrC[0]), label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
-    #ax.plot(times, XptSqrC * 0.1, label = r'$\langle X_{\rm phot}^2 \rangle$', color = 'rosybrown')
-    #ax.plot(times, XphC, label = r'$\langle X_{\rm phon} \rangle$', color = 'olive')
-    #ax.plot(times, XptC, label = r'$\langle X_{\rm phot} \rangle$', color = 'rosybrown')
+    # ax.plot(times, pump, color = 'cornflowerblue' , label = 'pump')
+    # ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.1$')
+    # ax.plot(times, NphQ, color = 'rosybrown' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.05$')
+    # ax.plot(times, NptC, color = 'mediumseagreen' , label = r'$N_{\rm phot}$')
+    # ax.plot(times, 0.2 * (XphSqrC - XphSqrC[0]), label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
+    # ax.plot(times, XptSqrC * 0.1, label = r'$\langle X_{\rm phot}^2 \rangle$', color = 'rosybrown')
+    # ax.plot(times, XphC, label = r'$\langle X_{\rm phon} \rangle$', color = 'olive')
+    # ax.plot(times, XptC, label = r'$\langle X_{\rm phot} \rangle$', color = 'rosybrown')
 
-    ax.plot(times, dOccW20 + .5, color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.2$')
-    ax.plot(times, dOccW15 + .5 , color = 'c', label = 'dOcc, $\omega_{\rm P} = 0.15$')
-    ax.plot(times, dOccW10 + .5 , color = 'olive', label = 'dOcc, $\omega_{\rm P} = 0.1$')
-    ax.plot(times, dOccW5 + .5, color = 'peru', label = 'dOcc, $\omega_{\rm P} = 0.05$')
-    ax.plot(times, dOccW1 + .5, color = 'black', label = 'dOcc, $\omega_{\rm P} = 0.01$')
-    #ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
-    #ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) / ((XphSqrC - XphSqrC[0]) + 1e-9) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    ax.plot(times, dOccW20 + .5, color='rosybrown', label='dOcc, $\omega_{\rm P} = 0.2$')
+    ax.plot(times, dOccW15 + .5, color='c', label='dOcc, $\omega_{\rm P} = 0.15$')
+    ax.plot(times, dOccW10 + .5, color='olive', label='dOcc, $\omega_{\rm P} = 0.1$')
+    ax.plot(times, dOccW5 + .5, color='peru', label='dOcc, $\omega_{\rm P} = 0.05$')
+    ax.plot(times, dOccW1 + .5, color='black', label='dOcc, $\omega_{\rm P} = 0.01$')
+    # ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    # ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) / ((XphSqrC - XphSqrC[0]) + 1e-9) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
 
-
-    #ax.plot(times, (dOccC + .5) * 100 - 10.71, color = 'rosybrown', label = 'dOcc - Classical')
-    #ax.plot(times, XphSqrC * 0.2, label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
-
+    # ax.plot(times, (dOccC + .5) * 100 - 10.71, color = 'rosybrown', label = 'dOcc - Classical')
+    # ax.plot(times, XphSqrC * 0.2, label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
 
     plt.legend()
 
-    #ax.set_ylim(-1e10, 1e10)
+    # ax.set_ylim(-1e10, 1e10)
 
     plt.show()
 
-
-
-main()

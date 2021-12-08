@@ -59,5 +59,4 @@ void evalDoccInGSOnePh(){
   double dOccExpec = evalExpectation(dOcc, gs, dimHOnePh);
 
   std::cout << "<dOcc> = " << dOccExpec + 0.5 << '\n';
-  std::cout << "Delta<dOcc> = " << (dOccExpec + 0.5) - 0.109566 << '\n';
 }

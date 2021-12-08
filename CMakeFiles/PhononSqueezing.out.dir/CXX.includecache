@@ -6,23 +6,37 @@
 
 #IncludeRegexTransform: 
 
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp
+/home/chris/academics/PhD/codebase/phononSqueezing/src/mainSqueeze.cpp
 iostream
 -
-globals.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/globals.h
+iomanip
+-
+vector
+/home/chris/academics/PhD/codebase/phononSqueezing/src/vector
+complex
+/home/chris/academics/PhD/codebase/phononSqueezing/src/complex
+include/twoPhonons/evalDoccInGS.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/include/twoPhonons/evalDoccInGS.h
+include/onePhonon/evalDoccInGSOnePh.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/include/onePhonon/evalDoccInGSOnePh.h
 matrixOperations.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/matrixOperations.h
-include/onePhonon/setUpGlobalHamiltonianOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/setUpGlobalHamiltonianOnePh.h
-include/onePhonon/setupBasicOperatorsOnePh.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/include/onePhonon/setupBasicOperatorsOnePh.h
-evalExpectation.h
-/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalExpectation.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.h
+timeEvolution.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/timeEvolution.h
+globals.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/globals.h
+checkSomeStuff.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/checkSomeStuff.h
 chrono
 -
+evalGSProps.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/evalGSProps.h
+mkl.h
+/home/chris/academics/PhD/codebase/phononSqueezing/src/mkl.h
 
-include/evalExpectation.h
+include/checkSomeStuff.h
+
+include/evalGSProps.h
 
 include/globals.h
 complex
@@ -34,13 +48,9 @@ vector
 complex
 -
 
-include/onePhonon/setUpGlobalHamiltonianOnePh.h
-vector
--
-complex
--
-globals.h
-include/onePhonon/globals.h
+include/onePhonon/evalDoccInGSOnePh.h
 
-include/onePhonon/setupBasicOperatorsOnePh.h
+include/timeEvolution.h
+
+include/twoPhonons/evalDoccInGS.h
 

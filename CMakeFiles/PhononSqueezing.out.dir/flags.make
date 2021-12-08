@@ -4,7 +4,7 @@
 # compile CXX with /opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/chris/academics/PhD/codebase/phononSqueezing -I/home/chris/academics/PhD/codebase/phononSqueezing/./include -I/home/chris/academics/PhD/codebase/phononSqueezing/./include/onePhonon -I/home/chris/academics/PhD/codebase/phononSqueezing/./include/twoPhonons -I/usr/include/hdf5/serial
+CXX_INCLUDES = -I/home/chris/academics/PhD/codebase/phononSqueezing -I/home/chris/academics/PhD/codebase/phononSqueezing/./include -I/home/chris/academics/PhD/codebase/phononSqueezing/./include/utils -I/home/chris/academics/PhD/codebase/phononSqueezing/./include/onePhonon -I/home/chris/academics/PhD/codebase/phononSqueezing/./include/twoPhonons -I/usr/include/hdf5/serial
 
 CXX_FLAGS =  -O0 -fvar-tracking -ggdb -Wall -Wextra -pedantic -mkl -qopenmp -g -std=c++14
 

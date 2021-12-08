@@ -34,6 +34,9 @@ set(project_sources
         src/timeEvolution.cpp
         src/calcGS.cpp
         src/checkSomeStuff.cpp
+        src/utils/writeStuffToHdf5.cpp
+        src/utils/setupOps.cpp
+        src/evalGSProps.cpp
         )
 
 set(header_files
@@ -51,9 +54,13 @@ set(header_files
         include/timeEvolution.h
         include/calcGS.h
         include/checkSomeStuff.h
+        include/utils/writeStuffToHdf5.h
+        include/utils/setupOps.h
+        include/evalGSProps.h
         )
 
 include_directories("./include")
+include_directories("./include/utils")
 include_directories("./include/onePhonon")
 include_directories("./include/twoPhonons")
 #include_directories(SYSTEM ${MPI_INCLUDE_PATH})

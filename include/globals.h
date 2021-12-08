@@ -8,19 +8,19 @@ constexpr double PI = 3.14159265358979323846264338327950288419716939937510582097
 
 constexpr double tHop(0.25);
 constexpr double wPt(.1);
-constexpr double wPh(.2);
+constexpr double wPh(.25);
 constexpr double U(1.25);
-constexpr double gPh(-0.1);
-constexpr double wP(0.2);
+constexpr double gPh(-0.05);
+//constexpr double wP(0.2);
+extern double wP;
 
 constexpr double wDrive(0.15);
 constexpr double fDrive(.3);
 constexpr double dt(2. * PI / wDrive / 40.);
 
-constexpr ulong dimPhonon(10ul);
-constexpr ulong dimPhoton(10ul);
+constexpr ulong dimPhonon(6ul);
+constexpr ulong dimPhoton(6ul);
 constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
-
 
 #endif //PHONONSQUEEZING_GLOBALS_H

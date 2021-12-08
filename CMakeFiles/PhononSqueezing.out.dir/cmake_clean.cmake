@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/PhononSqueezing.out.dir/src/calcGS.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/checkSomeStuff.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/mainSqueeze.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/matrixOperations.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.o"
@@ -13,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/evalDoccInGS.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setUpGlobalHamiltonian.cpp.o"
   "CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setupBasicOpertors.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o"
+  "CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o"
   "PhononSqueezing.out"
   "PhononSqueezing.out.pdb"
 )

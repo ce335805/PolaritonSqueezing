@@ -211,6 +211,30 @@ src/evalExpectation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/evalExpectation.cpp.s
 .PHONY : src/evalExpectation.cpp.s
 
+src/evalGSProps.o: src/evalGSProps.cpp.o
+.PHONY : src/evalGSProps.o
+
+# target to build an object file
+src/evalGSProps.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.o
+.PHONY : src/evalGSProps.cpp.o
+
+src/evalGSProps.i: src/evalGSProps.cpp.i
+.PHONY : src/evalGSProps.i
+
+# target to preprocess a source file
+src/evalGSProps.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.i
+.PHONY : src/evalGSProps.cpp.i
+
+src/evalGSProps.s: src/evalGSProps.cpp.s
+.PHONY : src/evalGSProps.s
+
+# target to generate assembly for a file
+src/evalGSProps.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/evalGSProps.cpp.s
+.PHONY : src/evalGSProps.cpp.s
+
 src/mainSqueeze.o: src/mainSqueeze.cpp.o
 .PHONY : src/mainSqueeze.o
 
@@ -475,6 +499,54 @@ src/twoPhonons/setupBasicOpertors.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/twoPhonons/setupBasicOpertors.cpp.s
 .PHONY : src/twoPhonons/setupBasicOpertors.cpp.s
 
+src/utils/setupOps.o: src/utils/setupOps.cpp.o
+.PHONY : src/utils/setupOps.o
+
+# target to build an object file
+src/utils/setupOps.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.o
+.PHONY : src/utils/setupOps.cpp.o
+
+src/utils/setupOps.i: src/utils/setupOps.cpp.i
+.PHONY : src/utils/setupOps.i
+
+# target to preprocess a source file
+src/utils/setupOps.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.i
+.PHONY : src/utils/setupOps.cpp.i
+
+src/utils/setupOps.s: src/utils/setupOps.cpp.s
+.PHONY : src/utils/setupOps.s
+
+# target to generate assembly for a file
+src/utils/setupOps.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/utils/setupOps.cpp.s
+.PHONY : src/utils/setupOps.cpp.s
+
+src/utils/writeStuffToHdf5.o: src/utils/writeStuffToHdf5.cpp.o
+.PHONY : src/utils/writeStuffToHdf5.o
+
+# target to build an object file
+src/utils/writeStuffToHdf5.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.o
+.PHONY : src/utils/writeStuffToHdf5.cpp.o
+
+src/utils/writeStuffToHdf5.i: src/utils/writeStuffToHdf5.cpp.i
+.PHONY : src/utils/writeStuffToHdf5.i
+
+# target to preprocess a source file
+src/utils/writeStuffToHdf5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.i
+.PHONY : src/utils/writeStuffToHdf5.cpp.i
+
+src/utils/writeStuffToHdf5.s: src/utils/writeStuffToHdf5.cpp.s
+.PHONY : src/utils/writeStuffToHdf5.s
+
+# target to generate assembly for a file
+src/utils/writeStuffToHdf5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PhononSqueezing.out.dir/build.make CMakeFiles/PhononSqueezing.out.dir/src/utils/writeStuffToHdf5.cpp.s
+.PHONY : src/utils/writeStuffToHdf5.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -494,6 +566,9 @@ help:
 	@echo "... src/evalExpectation.o"
 	@echo "... src/evalExpectation.i"
 	@echo "... src/evalExpectation.s"
+	@echo "... src/evalGSProps.o"
+	@echo "... src/evalGSProps.i"
+	@echo "... src/evalGSProps.s"
 	@echo "... src/mainSqueeze.o"
 	@echo "... src/mainSqueeze.i"
 	@echo "... src/mainSqueeze.s"
@@ -527,6 +602,12 @@ help:
 	@echo "... src/twoPhonons/setupBasicOpertors.o"
 	@echo "... src/twoPhonons/setupBasicOpertors.i"
 	@echo "... src/twoPhonons/setupBasicOpertors.s"
+	@echo "... src/utils/setupOps.o"
+	@echo "... src/utils/setupOps.i"
+	@echo "... src/utils/setupOps.s"
+	@echo "... src/utils/writeStuffToHdf5.o"
+	@echo "... src/utils/writeStuffToHdf5.i"
+	@echo "... src/utils/writeStuffToHdf5.s"
 .PHONY : help
 
 
