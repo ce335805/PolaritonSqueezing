@@ -68,8 +68,8 @@ def plotTimeEvol():
     ax = fig.add_subplot(111)
 
     #ax.plot(times, dOcc + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P} = 0.2$')
-    #ax.plot(times, Nph, color='olive', label='$N_{ph, 1}$')
-    ax.plot(times, Npt, color='rosybrown', label='$N_{ph, 1}$')
+    ax.plot(times, Nph, color='olive', label='$N_{ph, 1}$')
+    #ax.plot(times, Npt, color='rosybrown', label='$N_{ph, 1}$')
     #ax.plot(times, Nph2, color='rosybrown', label='$N_{ph, 2}$')
     #ax.plot(times, (Nph - Nph2) - (Nph[0] - Nph2[0]), color='olive', label=r'$\langle X^2 \rangle$', linewidth = 0.8)
     #ax.plot(times, (XphSqr - XphSqr2) - (XphSqr[0] - XphSqr2[0]), color='olive', label=r'$\langle X^2 \rangle$', linewidth = 0.8)

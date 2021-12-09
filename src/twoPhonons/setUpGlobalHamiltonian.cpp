@@ -24,7 +24,7 @@ void setupGlobalH(std::vector<std::complex<double>> &H) {
   setupPhPtCoupling(HPhPt);
 
   addMatricies(HUncoupled, HEPh, H);
-  //addMatricies(H, HPhPt, H);
+  addMatricies(H, HPhPt, H);
 }
 
 void setupPhPtCoupling(std::vector<std::complex<double>> &HPhPt) {
