@@ -1,4 +1,0 @@
-/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles/rebuild_cache.dir
-/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles/edit_cache.dir
-/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles/test.dir
-/home/chris/academics/PhD/codebase/phononSqueezing/CMakeFiles/PhononSqueezing.out.dir

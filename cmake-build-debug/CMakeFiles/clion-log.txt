@@ -1,5 +1,0 @@
-/home/chris/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicc -DCMAKE_CXX_COMPILER=/opt/intel/oneapi/mpi/2021.3.0/bin/mpiicpc -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/chris/academics/PhD/codebase/phononSqueezing
--- ---------------------------------------------------------------------
--- Configuring done
--- Generating done
--- Build files have been written to: /home/chris/academics/PhD/codebase/phononSqueezing
