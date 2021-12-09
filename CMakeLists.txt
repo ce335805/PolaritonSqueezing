@@ -16,7 +16,7 @@ enable_testing()
 #set(BLA_VENDOR Intel10_64lp_seq)
 #find_package(LAPACK REQUIRED)
 find_package(HDF5 REQUIRED COMPONENTS CXX)
-find_package(MKL CONFIG REQUIRED)
+#find_package(MKL CONFIG REQUIRED)
 #find_package(MPI REQUIRED)
 
 set(project_sources

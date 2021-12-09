@@ -111,9 +111,9 @@ void calcTimeEvolution(const bool twoPhonons) {
   std::string filename;
 
   if (twoPhonons) {
-    filename = "data/timeEvolTwoPhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + ".hdf5";
+    filename = "data/timeEvolTwoPhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + "F" + std::to_string(int(10 * fDrive)) + ".hdf5";
   } else {
-    filename = "data/timeEvolOnePhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + ".hdf5";
+    filename = "data/timeEvolOnePhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + "F" + std::to_string(int(10 * fDrive)) + ".hdf5";
   }
 
   writeStuffToHdf5(times,

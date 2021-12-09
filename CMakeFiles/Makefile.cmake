@@ -33,8 +33,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.20.2/CMakeSystem.cmake"
   "CMakeFiles/hdf5/cmake_hdf5_test.cxx"
   "CMakeLists.txt"
-  "/usr/local/lib/cmake/mkl-2021.3.0/MKLConfig.cmake"
-  "/usr/local/lib/cmake/mkl-2021.3.0/MKLConfigVersion.cmake"
   )
 
 # The corresponding makefile is:

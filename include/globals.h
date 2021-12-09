@@ -18,7 +18,7 @@ constexpr double wDrive(0.2);
 constexpr double fDrive(2.);
 constexpr double dt(2. * PI / wDrive / 40.);
 
-constexpr ulong dimPhonon(10ul);
+constexpr ulong dimPhonon(6ul);
 constexpr ulong dimPhoton(1ul);
 constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
