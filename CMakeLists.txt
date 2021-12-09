@@ -74,9 +74,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_flags}")
 #set project name
 project(PhononSqueezing)
 #add an executable - using variables
-add_executable(${PROJECT_NAME}.out ${project_sources} ${header_files})
+set(EXNAME "Prog")
+add_executable(${EXNAME}.out ${project_sources} ${header_files})
 
-target_link_libraries(${PROJECT_NAME}.out ${HDF5_LIBRARIES})
+target_link_libraries(${EXNAME}.out ${HDF5_LIBRARIES})
 #target_link_libraries(${PROJECT_NAME}.out ${MPI_CXX_LIBRARIES})
 
 
