@@ -31,12 +31,12 @@ void calcTimeEvolution(const bool twoPhonons) {
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong timeSteps(40ul * 30ul);
+  const ulong timeSteps(40ul * 20ul);
   std::vector<double> times(timeSteps, 0.);
   std::vector<double> pumpPreFac(timeSteps, 0.);
   std::vector<double> pumpPreFacOutput(timeSteps, 0.);
 
-  const double t0 = 2. * PI / wDrive * 10.;
+  const double t0 = 2. * PI / wDrive * 8.;
   const double s = 2. * PI / wDrive * 2.;
 
   for (ulong ind = 0; ind < timeSteps; ++ind) {
@@ -108,7 +108,13 @@ void calcTimeEvolution(const bool twoPhonons) {
     }
   }
 
-  std::string filename = "data/timeEvolOnePhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + ".hdf5";
+  std::string filename;
+
+  if (twoPhonons) {
+    filename = "data/timeEvolTwoPhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + ".hdf5";
+  } else {
+    filename = "data/timeEvolOnePhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + ".hdf5";
+  }
 
   writeStuffToHdf5(times,
                    pumpPreFacOutput,

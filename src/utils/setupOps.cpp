@@ -145,8 +145,7 @@ void setupOpsTwoPh(std::vector<std::complex<double>> &dOcc,
 
   X1ph = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
 
-  std::vector<std::complex<double>> B1(dimH * dimH, std::complex<double>(
-          0., 0.));
+  std::vector<std::complex<double>> B1(dimH * dimH, std::complex<double>(0., 0.));
   setupB1(B1);
   std::vector<std::complex<double>> B1Dag(B1);
   dagger(B1Dag, dimH);

@@ -20,8 +20,8 @@ void calcTimeStep(const double tPoint,
   std::vector<std::complex<double>> H1(dim * dim, std::complex<double>(0., 0.));
   std::vector<std::complex<double>> H2(dim * dim, std::complex<double>(0., 0.));
 
-  addMatricies(H, 1., ODrive, pumpPrefac * std::sin(wDrive * (tPoint - (.5 - std::sqrt(3.) / 6.) * dt)), H1);
-  addMatricies(H, 1., ODrive, pumpPrefac * std::sin(wDrive * (tPoint - (.5 + std::sqrt(3.) / 6.) * dt)), H2);
+  addMatricies(H, 1., ODrive, pumpPrefac * std::sin(wDrive * (tPoint + (.5 - std::sqrt(3.) / 6.) * dt)), H1);
+  addMatricies(H, 1., ODrive, pumpPrefac * std::sin(wDrive * (tPoint + (.5 + std::sqrt(3.) / 6.) * dt)), H2);
 
 
   std::vector<std::complex<double>> uMat(dim * dim, std::complex<double>(0., 0.));

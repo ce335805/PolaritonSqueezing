@@ -47,6 +47,44 @@ def plotTimeEvol():
     print("plotting some beautiful time evolution")
 
     # read in stuff
+    file = h5py.File("../data/timeEvolTwoPhonWP0N10.hdf5", 'r')
+    times = file['times'][()]
+    pump = file['pump'][()]
+    dOcc = file['dOcc'][()]
+    Xpt = file['Xpt'][()]
+    XptSqr = file['XptSqr'][()]
+    Npt = file['Npt'][()]
+    Xph = file['X1ph'][()]
+    XphSqr = file['X1phSqr'][()]
+    Nph = file['N1ph'][()]
+
+    Xph2 = file['X2ph'][()]
+    XphSqr2 = file['X2phSqr'][()]
+    Nph2 = file['N2ph'][()]
+
+    print("times.shape = {}".format(times.shape))
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    #ax.plot(times, dOcc + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P} = 0.2$')
+    ax.plot(times, Nph, color='olive', label='$N_{ph, 1}$')
+    #ax.plot(times, Nph2, color='rosybrown', label='$N_{ph, 2}$')
+    #ax.plot(times, (Nph - Nph2) - (Nph[0] - Nph2[0]), color='olive', label=r'$\langle X^2 \rangle$', linewidth = 0.8)
+    #ax.plot(times, (XphSqr - XphSqr2) - (XphSqr[0] - XphSqr2[0]), color='olive', label=r'$\langle X^2 \rangle$', linewidth = 0.8)
+    #ax.plot(times, Xph, color='olive', label=r'$\langle X^2 \rangle$')
+    #ax.plot(times, Xph2, color='rosybrown', label=r'$\langle X^2 \rangle$')
+
+    plt.legend()
+
+    # ax.set_ylim(-1e10, 1e10)
+
+    plt.show()
+
+def plotTimeEvolManyCurves():
+    print("plotting some beautiful time evolution")
+
+    # read in stuff
     fileW20 = h5py.File("../data/timeEvolOnePhonWP20N10.hdf5", 'r')
     times = fileW20['times'][()]
     pump = fileW20['pump'][()]

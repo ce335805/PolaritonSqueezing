@@ -64,9 +64,14 @@ def plotGSProps():
     ax = fig.add_subplot(111)
 
 
-    ax.plot(times, dOccOnePh + 0.5, color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
-    ax.plot(times, dOccTwoPh + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P}$ - $X^2 n$', marker = 'v')
-    #ax.plot(times, NphOnePh, color='rosybrown', label='dOcc, $\omega_{\rm P} = 0.2$')
+    #ax.plot(times, dOccOnePh + 0.5, color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
+    #ax.plot(times, dOccTwoPh + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P}$ - $X^2 n$', marker = 'v')
+    #ax.plot(times, XphSqrOnePh, color='olive', label=r'$\langle X^2 \rangle$ - $X^2 n^2$')
+    #ax.plot(times, XphSqrTwoPh, color='rosybrown', label=r'$\langle X^2 \rangle$ - $X^2 n$')
+
+    #ax.plot(times[1:], 1./((dOccOnePh - dOccOnePh[0])[1:] / (XphSqrOnePh - XphSqrOnePh[0])[1:]), color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
+    ax.plot(times[1:], 1./((dOccTwoPh - dOccTwoPh[0])[1:] / (XphSqrTwoPh - XphSqrTwoPh[0])[1:]), color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
+
 
     plt.legend()
 
