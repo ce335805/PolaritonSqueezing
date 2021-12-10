@@ -8,7 +8,7 @@ import matplotlib.cm as cm
 import matplotlib.colors
 import h5py
 
-fontsize = 14
+fontsize = 10
 
 mpl.rcParams['font.family'] = 'Helvetica'
 mpl.rcParams['lines.linewidth'] = 2
@@ -47,8 +47,39 @@ def plotTimeEvol():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    file = h5py.File("../data/timeEvolTwoPhonWP10N4F1.hdf5", 'r')
+    file = h5py.File("../data/tEvol1PhGPH5WP0WD15FD100NB10.hdf5", 'r')
+
+
+    wPh = (file['wPh'][()])[0]
+    wPt = (file['wPt'][()])[0]
+    tHop = (file['tHop'][()])[0]
+    U = (file['U'][()])[0]
+    gPh = (file['gPh'][()])[0]
+    wP = (file['wP'][()])[0]
+
+    wDrive = (file['wDrive'][()])[0]
+    fDrive = (file['fDrive'][()])[0]
+    tsPerDrivePeriod = (file['timePointsPerDrivingPeriod'][()])[0]
+
+    nPhonon = (file['dimPhonon'][()])[0]
+    nPhoton = (file['dimPhoton'][()])[0]
+
+
+    print("tHop = {}".format(tHop))
+    print("U = {}".format(U))
+    print("wPh = {}".format(wPh))
+    print("wPt = {}".format(wPt))
+    print("gPh = {}".format(gPh))
+    print("wP = {}".format(wP))
+    print("wDrive = {}".format(wDrive))
+    print("fDrive = {}".format(fDrive))
+    print("time points per driving period = {}".format(tsPerDrivePeriod))
+    print("n-Phonon = {}".format(nPhonon))
+    print("n-Photon = {}".format(nPhoton))
+
+
     times = file['times'][()]
+    times = times / (2. * np.pi / wDrive)
     pump = file['pump'][()]
     dOcc = file['dOcc'][()]
     Xpt = file['Xpt'][()]
@@ -58,28 +89,43 @@ def plotTimeEvol():
     XphSqr = file['X1phSqr'][()]
     Nph = file['N1ph'][()]
 
-    Xph2 = file['X2ph'][()]
-    XphSqr2 = file['X2phSqr'][()]
-    Nph2 = file['N2ph'][()]
+    #Xph2 = file['X2ph'][()]
+    #XphSqr2 = file['X2phSqr'][()]
+    #Nph2 = file['N2ph'][()]
 
     print("times.shape = {}".format(times.shape))
 
     fig = plt.figure()
-    ax = fig.add_subplot(111)
+    fig.set_size_inches(6., 3.5)
+    ax1 = fig.add_subplot(111)
 
-    #ax.plot(times, dOcc + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P} = 0.2$')
-    ax.plot(times, Nph, color='olive', label='$N_{ph, 1}$')
-    #ax.plot(times, Npt, color='rosybrown', label='$N_{ph, 1}$')
-    #ax.plot(times, Nph2, color='rosybrown', label='$N_{ph, 2}$')
-    #ax.plot(times, (Nph - Nph2) - (Nph[0] - Nph2[0]), color='olive', label=r'$\langle X^2 \rangle$', linewidth = 0.8)
-    #ax.plot(times, (XphSqr - XphSqr2) - (XphSqr[0] - XphSqr2[0]), color='olive', label=r'$\langle X^2 \rangle$', linewidth = 0.8)
-    #ax.plot(times, Xph, color='olive', label=r'$\langle X^2 \rangle$')
-    #ax.plot(times, Xph2, color='rosybrown', label=r'$\langle X^2 \rangle$')
+    ax2 = ax1.twinx()
+
+    ax1.plot(times, Nph * 5., color='rosybrown', label=r'$N_{ph} \times 5$', linewidth = 1.5)
+    ax1.plot(times, XphSqr * 0.2, color='olive', label=r'$\langle X^2 \rangle \times \omega_{\rm ph}$', linewidth = 1.)
+    ax2.plot(times, dOcc + 0.5, color='gray', label=r'dOcc', linewidth = 1.)
 
     plt.legend()
 
-    # ax.set_ylim(-1e10, 1e10)
+    ax1.set_xlabel(r"$t \,\, \, [2\pi / \omega_{\rm D}]$", fontsize = fontsize)
+    ax1.set_ylabel(r"$N_{\rm ph}$ / $\langle X_{\rm ph}^2 \rangle$", fontsize = fontsize)
+    ax2.set_ylabel(r"dOcc", fontsize = fontsize)
 
+    ax1.set_xlim(3., 12)
+    ax1.set_xticks([4, 6, 8, 10])
+    ax1.set_xticklabels(["$4$", "$6$", "$8$", "$10$"])
+
+    legend1 = ax1.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.02, .6), edgecolor = 'black', ncol = 1)
+    legend2 = ax2.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.02, .4), edgecolor = 'black', ncol = 1)
+    legend1.get_frame().set_alpha(1.)
+    legend1.get_frame().set_boxstyle('Square', pad=0.1)
+    legend1.get_frame().set_linewidth(0.0)
+    legend2.get_frame().set_alpha(1.)
+    legend2.get_frame().set_boxstyle('Square', pad=0.1)
+    legend2.get_frame().set_linewidth(0.0)
+
+    #plt.savefig('DoccDependsOnWhatNLin.png', format='png', bbox_inches='tight', dpi = 600)
+    plt.tight_layout()
     plt.show()
 
 def plotTimeEvolManyCurves():

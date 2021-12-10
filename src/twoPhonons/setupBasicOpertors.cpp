@@ -53,6 +53,48 @@ void setupDOcc(std::vector<std::complex<double>> &DOcc) {
 
 }
 
+void setupDOccNoPHS(std::vector<std::complex<double>> &DOcc) {
+
+  DOcc = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
+
+  std::vector<std::complex<double>> DOccSmall;
+  setupDoubleOccSmallNoPHS(DOccSmall);
+
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong ph2Ind = 0ul; ph2Ind < dimPhonon; ++ph2Ind) {
+      for (ulong ph1Ind = 0ul; ph1Ind < dimPhonon; ++ph1Ind) {
+        for (ulong eInd1 = 0ul; eInd1 < 4ul; ++eInd1) {
+          for (ulong eInd2 = 0ul; eInd2 < 4ul; ++eInd2) {
+            DOcc[toGlobalMatrixIndex(ptInd, ptInd, ph2Ind, ph2Ind, ph1Ind, ph1Ind, eInd1, eInd2)] = DOccSmall[eInd1 * 4ul + eInd2];
+          }
+        }
+      }
+    }
+  }
+
+}
+
+void setupDOccSiteI(std::vector<std::complex<double>> &DOcc, const ulong site) {
+
+  DOcc = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
+
+  std::vector<std::complex<double>> DOccSmall;
+  setupDOccSiteISmall(DOccSmall, site);
+
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong ph2Ind = 0ul; ph2Ind < dimPhonon; ++ph2Ind) {
+      for (ulong ph1Ind = 0ul; ph1Ind < dimPhonon; ++ph1Ind) {
+        for (ulong eInd1 = 0ul; eInd1 < 4ul; ++eInd1) {
+          for (ulong eInd2 = 0ul; eInd2 < 4ul; ++eInd2) {
+            DOcc[toGlobalMatrixIndex(ptInd, ptInd, ph2Ind, ph2Ind, ph1Ind, ph1Ind, eInd1, eInd2)] = DOccSmall[eInd1 * 4ul + eInd2];
+          }
+        }
+      }
+    }
+  }
+
+}
+
 
 void setupOccSiteI(std::vector<std::complex<double>> &OccSiteI, const ulong site) {
 

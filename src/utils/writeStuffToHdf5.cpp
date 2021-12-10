@@ -19,6 +19,39 @@
 
 #include "mkl.h"
 
+
+void writeParameterToHDF5File(H5::H5File file, const std::string &parameterName, const double parameterValue){
+
+  const hsize_t dataSize = 1ul;
+  H5::DataSpace dataSpace(1, &dataSize);
+  H5::FloatType datatype(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+
+  std::vector<double> data (1ul, parameterValue);
+  H5::DataSet datasetParameter = file.createDataSet(parameterName, datatype, dataSpace);
+  datasetParameter.write(&data[0], datatype);
+
+}
+
+void writeAllPrms(H5::H5File file){
+
+  writeParameterToHDF5File(file, "wPh", wPh);
+  writeParameterToHDF5File(file, "wPt", wPt);
+  writeParameterToHDF5File(file, "tHop", tHop);
+  writeParameterToHDF5File(file, "U", U);
+  writeParameterToHDF5File(file, "gPh", gPh);
+  writeParameterToHDF5File(file, "wP", wP);
+
+  writeParameterToHDF5File(file, "wDrive", wDrive);
+  writeParameterToHDF5File(file, "fDrive", fDrive);
+  writeParameterToHDF5File(file, "timePointsPerDrivingPeriod", timePointsPerDrivingPeriod);
+
+  writeParameterToHDF5File(file, "dimPhonon", dimPhonon);
+  writeParameterToHDF5File(file, "dimPhoton", dimPhoton);
+
+
+}
+
 void writeStuffToHdf5(
         const std::vector<double> &times,
         const std::vector<double> &pumpFunction,
@@ -38,6 +71,8 @@ void writeStuffToHdf5(
 
 
   H5::H5File file(filename, H5F_ACC_TRUNC);
+
+  writeAllPrms(file);
 
   const hsize_t dataSize = times.size();
   H5::DataSpace dataSpace(1, &dataSize);
@@ -70,6 +105,8 @@ void writeStuffToHdf5(
 
   H5::DataSet datasetNph = file.createDataSet("N1ph", datatype, dataSpace);
   datasetNph.write(&N1ph[0], datatype);
+
+
 
   if (twoPhonons) {
     H5::DataSet datasetX2ph = file.createDataSet("X2ph", datatype, dataSpace);

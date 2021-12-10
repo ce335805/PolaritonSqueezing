@@ -17,11 +17,11 @@
 					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="rebuild_cache">
 				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
@@ -37,18 +37,18 @@
 					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
+			<Target title="edit_cache">
 				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Prog.out">
-				<Option output="/home/chris/academics/PhD/codebase/phononSqueezing/Prog.out" prefix_auto="0" extension_auto="0"/>
+			<Target title="ProgF20N10.out">
+				<Option output="/home/chris/academics/PhD/codebase/phononSqueezing/ProgF20N10.out" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -62,14 +62,14 @@
 					<Add directory="/usr/include/hdf5/serial"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 Prog.out"/>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 ProgF20N10.out"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Prog.out/fast">
-				<Option output="/home/chris/academics/PhD/codebase/phononSqueezing/Prog.out" prefix_auto="0" extension_auto="0"/>
+			<Target title="ProgF20N10.out/fast">
+				<Option output="/home/chris/academics/PhD/codebase/phononSqueezing/ProgF20N10.out" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/chris/academics/PhD/codebase/phononSqueezing"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -83,7 +83,7 @@
 					<Add directory="/usr/include/hdf5/serial"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 Prog.out/fast"/>
+					<Build command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 ProgF20N10.out/fast"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/chris/academics/PhD/codebase/phononSqueezing/Makefile&quot;  VERBOSE=1 clean"/>
@@ -91,106 +91,112 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/calcGS.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/checkSomeStuff.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/evalExpectation.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/evalGSProps.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/globals.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/evalDoccInGSOnePh.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/setUpGlobalHamiltonianOnePh.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/onePhonon/setupBasicOperatorsOnePh.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/setupElectronicOperatorsSmall.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/timeEvolution.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/timeStep.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/twoPhonons/evalDoccInGS.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/twoPhonons/setUpGlobalHamiltonian.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/twoPhonons/setupBasicOperators.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/utils.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/utils/makeFilenames.h">
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/utils/setupOps.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/include/utils/writeStuffToHdf5.h">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/calcGS.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/checkSomeStuff.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/evalExpectation.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/evalGSProps.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/mainSqueeze.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/matrixOperations.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/onePhonon/setupBasicOpertorsOnePh.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/setupElectronicOperatorsSmall.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/timeEvolution.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/timeStep.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/evalDoccInGS.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/setUpGlobalHamiltonian.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/twoPhonons/setupBasicOpertors.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/utils/makeFilenames.cpp">
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/utils/setupOps.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/src/utils/writeStuffToHdf5.cpp">
-			<Option target="Prog.out"/>
+			<Option target="ProgF20N10.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/phononSqueezing/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

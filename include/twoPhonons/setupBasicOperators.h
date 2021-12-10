@@ -11,6 +11,10 @@ void setupA(std::vector<std::complex<double>> &A);
 
 void setupDOcc(std::vector<std::complex<double>> &DOcc);
 
+void setupDOccNoPHS(std::vector<std::complex<double>> &DOcc);
+
+void setupDOccSiteI(std::vector<std::complex<double>> &DOcc, const ulong site);
+
 void setupOccSiteI(std::vector<std::complex<double>> &OccSiteI, const ulong site);
 
 #endif //PHONONSQUEEZING_SETUPBASICOPERATORS_H

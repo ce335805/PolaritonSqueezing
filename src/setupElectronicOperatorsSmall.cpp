@@ -25,6 +25,38 @@ void setupDoubleOccSmall(std::vector<std::complex<double>> &DOccSmall) {
   );
 }
 
+void setupDoubleOccSmallNoPHS(std::vector<std::complex<double>> &DOccSmall) {
+
+  DOccSmall = std::vector<std::complex<double>>(
+          {1., 0., 0., 0.,
+           0., 0., 0., 0.,
+           0., 0., 0., 0.,
+           0, 0., 0., 1.}
+  );
+}
+
+void setupDOccSiteISmall(std::vector<std::complex<double>> &dOccSmallSiteI, const ulong site) {
+
+
+  if (site == 0ul) {
+    dOccSmallSiteI = std::vector<std::complex<double>>(
+            {1., 0., 0., 0.,
+             0., 0., 0., 0.,
+             0., 0., 0., 0.,
+             0, 0., 0., 0.}
+    );
+  } else if (site == 1ul) {
+    dOccSmallSiteI = std::vector<std::complex<double>>(
+            {0., 0., 0., 0.,
+             0., 0., 0., 0.,
+             0., 0., 0., 0.,
+             0, 0., 0., 1.}
+    );
+  } else {
+    std::cout << "Hubbard dimer only has 2 sites!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << '\n';
+  }
+}
+
 void setupOccSiteISmall(std::vector<std::complex<double>> &occSmallSiteI, const ulong site) {
 
 

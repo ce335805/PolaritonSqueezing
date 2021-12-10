@@ -37,6 +37,7 @@ set(project_sources
         src/utils/writeStuffToHdf5.cpp
         src/utils/setupOps.cpp
         src/evalGSProps.cpp
+        src/utils/makeFilenames.cpp
         )
 
 set(header_files
@@ -57,6 +58,7 @@ set(header_files
         include/utils/writeStuffToHdf5.h
         include/utils/setupOps.h
         include/evalGSProps.h
+        include/utils/makeFilenames.h
         )
 
 include_directories("./include")
@@ -68,13 +70,13 @@ include_directories(${HDF5_INCLUDE_DIRS})
 message(STATUS "---------------------------------------------------------------------")
 
 #add compiler flags
-set(C_flags "-O0 -fvar-tracking -ggdb -Wall -Wextra -pedantic -mkl -qopenmp")
+set(C_flags "-O3 -fvar-tracking -ggdb -Wall -Wextra -pedantic -mkl -qopenmp")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_flags}")
 
 #set project name
 project(PhononSqueezing)
 #add an executable - using variables
-set(EXNAME "Prog")
+set(EXNAME "ProgF20N10")
 add_executable(${EXNAME}.out ${project_sources} ${header_files})
 
 target_link_libraries(${EXNAME}.out ${HDF5_LIBRARIES})

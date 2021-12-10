@@ -14,6 +14,7 @@
 #include "evalExpectation.h"
 #include "writeStuffToHdf5.h"
 #include "setupOps.h"
+#include "makeFilenames.h"
 
 #include "H5Cpp.h"
 
@@ -31,7 +32,7 @@ void calcTimeEvolution(const bool twoPhonons) {
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong timeSteps(40ul * 20ul);
+  const ulong timeSteps(timePointsPerDrivingPeriod * 20ul);
   std::vector<double> times(timeSteps, 0.);
   std::vector<double> pumpPreFac(timeSteps, 0.);
   std::vector<double> pumpPreFacOutput(timeSteps, 0.);
@@ -86,10 +87,10 @@ void calcTimeEvolution(const bool twoPhonons) {
 
   if (twoPhonons) {
     setupOpsTwoPh(dOcc, Xpt, XptSqr, Npt, X1ph, X1phSqr, N1ph, X2ph, X2phSqr, N2ph);
-    addMatricies(X1ph, X2ph, ODrive);
+    addMatricies(X1ph, 1. / std::sqrt(2.), X2ph, 1. / std::sqrt(2.), ODrive);
   } else {
     setupOpsOnePh(dOcc, Xpt, XptSqr, Npt, X1ph, X1phSqr, N1ph, X2ph, X2phSqr, N2ph);
-    ODrive = std::vector<std::complex<double>>(Xpt);
+    ODrive = std::vector<std::complex<double>>(X1ph);
   }
   for (ulong timeStep = 0ul; timeStep < timeSteps; ++timeStep) {
     calcTimeStep(times[timeStep], pumpPreFac[timeStep], H, ODrive, gs, dimH);
@@ -108,13 +109,7 @@ void calcTimeEvolution(const bool twoPhonons) {
     }
   }
 
-  std::string filename;
-
-  if (twoPhonons) {
-    filename = "data/timeEvolTwoPhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + "F" + std::to_string(int(10 * fDrive)) + ".hdf5";
-  } else {
-    filename = "data/timeEvolOnePhonWP" + std::to_string(int(100 * wP)) + "N" + std::to_string(dimPhonon) + "F" + std::to_string(int(10 * fDrive)) + ".hdf5";
-  }
+  std::string filename = timeEvolName(twoPhonons);
 
   writeStuffToHdf5(times,
                    pumpPreFacOutput,

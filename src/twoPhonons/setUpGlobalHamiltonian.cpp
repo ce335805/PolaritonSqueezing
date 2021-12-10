@@ -89,8 +89,10 @@ void setupQuadEPhCoupling(std::vector<std::complex<double>> &HEPh) {
 
   HEPh = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
 
-  std::vector<std::complex<double>> dOcc;
-  setupDOcc(dOcc);
+  std::vector<std::complex<double>> dOcc1;
+  std::vector<std::complex<double>> dOcc2;
+  setupDOccSiteI(dOcc1, 0ul);
+  setupDOccSiteI(dOcc2, 1ul);
 
   std::vector<std::complex<double>> B1;
   setupB1(B1);
@@ -103,7 +105,7 @@ void setupQuadEPhCoupling(std::vector<std::complex<double>> &HEPh) {
 
   addMatricies(B1, B1Dag, B1PB1Dag);
 
-  std::complex<double> alpha(gPh / (2. * wPh), 0.);
+  std::complex<double> alpha(gPh, 0.);
   std::complex<double> beta(0., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
@@ -117,7 +119,7 @@ void setupQuadEPhCoupling(std::vector<std::complex<double>> &HEPh) {
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHTwoPh, dimHTwoPh, dimHTwoPh, &alpha,
               B1PB1DagSqr.data(), dimHTwoPh,
-              dOcc.data(), dimHTwoPh,
+              dOcc1.data(), dimHTwoPh,
               &beta, HEPh.data(), dimHTwoPh);
 
   std::vector<std::complex<double>> B2;
@@ -131,7 +133,7 @@ void setupQuadEPhCoupling(std::vector<std::complex<double>> &HEPh) {
 
   std::vector<std::complex<double>> B2PB2DagSqr(B2.size(), std::complex<double>(0., 0.));
 
-  alpha = std::complex<double>(gPh / (2. * wPh), 0.);
+  alpha = std::complex<double>(gPh, 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHTwoPh, dimHTwoPh, dimHTwoPh, &alpha,
@@ -145,7 +147,7 @@ void setupQuadEPhCoupling(std::vector<std::complex<double>> &HEPh) {
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHTwoPh, dimHTwoPh, dimHTwoPh, &alpha,
               B2PB2DagSqr.data(), dimHTwoPh,
-              dOcc.data(), dimHTwoPh,
+              dOcc2.data(), dimHTwoPh,
               &beta, HEPh.data(), dimHTwoPh);
 
 }
