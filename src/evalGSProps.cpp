@@ -88,13 +88,6 @@ void evalGSProps(const bool twoPhonons){
   }
 
   std::string filename;
-  if(twoPhonons){
-    filename = "data/gsProps2PhG2" + std::to_string(int(100 * abs(gPh))) + "N" + std::to_string(dimPhonon) + ".hdf5";
-  } else {
-    filename = "data/gsProps1PhG2" + std::to_string(int(100 * abs(gPh))) + "N" + std::to_string(dimPhonon) + ".hdf5";
-
-  }
-
   filename = gsPropName(twoPhonons);
 
   writeStuffToHdf5(wPArr,
