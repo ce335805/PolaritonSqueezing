@@ -29,5 +29,25 @@ std::string timeEvolName(const bool twoPhonons){
 }
 
 
+std::string gsPropName(const bool twoPhonons){
+
+  std::string fileName ("data/gsProp");
+
+  std::string twoPhonSpeci;
+  if(twoPhonons){
+    twoPhonSpeci = "2Ph";
+  } else {
+    twoPhonSpeci = "1Ph";
+  }
+
+  std::string gPhStr ("GPH" + std::to_string(int(std::round(100 * std::abs(gPh)))));
+  std::string nBStr ("NB" + std::to_string(int(dimPhonon)));
+
+  fileName = fileName + twoPhonSpeci + gPhStr + nBStr + ".hdf5";
+
+  return fileName;
+
+}
+
 
 

@@ -10,18 +10,19 @@
 #include "setUpGlobalHamiltonian.h"
 #include "calcGS.h"
 #include "writeStuffToHdf5.h"
+#include "makeFilenames.h"
 
-//double wP;
+double wP;
 
 void evalGSProps(const bool twoPhonons){
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong wPSteps (21ul);
+  const ulong wPSteps (11ul);
   std::vector<double> wPArr (wPSteps, 0.);
 
   for(ulong ind = 0ul; ind < wPSteps; ++ind){
-    wPArr[ind] = double(ind) / 200.;
+    wPArr[ind] = double(ind) / 2.;
   }
 
   std::vector<std::complex<double>> dOcc;
@@ -62,7 +63,7 @@ void evalGSProps(const bool twoPhonons){
 
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
 
-    //wP = wPArr[wPStep];
+    wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
     if(twoPhonons){
       setupGlobalH(H);
@@ -93,6 +94,8 @@ void evalGSProps(const bool twoPhonons){
     filename = "data/gsProps1PhG2" + std::to_string(int(100 * abs(gPh))) + "N" + std::to_string(dimPhonon) + ".hdf5";
 
   }
+
+  filename = gsPropName(twoPhonons);
 
   writeStuffToHdf5(wPArr,
                    wPArr,

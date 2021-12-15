@@ -5,4 +5,6 @@
 
 std::string timeEvolName(const bool twoPhonons);
 
+std::string gsPropName(const bool twoPhonons);
+
 #endif //PHONONSQUEEZING_MAKEFILENAMES_H
