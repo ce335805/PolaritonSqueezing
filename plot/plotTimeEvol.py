@@ -7,6 +7,9 @@ import matplotlib as mpl
 import matplotlib.cm as cm
 import matplotlib.colors
 import h5py
+from matplotlib import gridspec
+
+import plotPolaritonFreqs
 
 fontsize = 10
 
@@ -21,8 +24,8 @@ mpl.rcParams['xtick.major.size'] = 3
 mpl.rcParams['ytick.major.size'] = 3
 mpl.rcParams['xtick.major.width'] = .7
 mpl.rcParams['ytick.major.width'] = .7
-mpl.rcParams['xtick.direction'] = 'out'
-mpl.rcParams['ytick.direction'] = 'out'
+mpl.rcParams['xtick.direction'] = 'inout'
+mpl.rcParams['ytick.direction'] = 'inout'
 mpl.rcParams['figure.titlesize'] = 8
 mpl.rc('text', usetex=True)
 
@@ -43,172 +46,473 @@ def avOverArr(arr, avOver):
     return averagedArr
 
 
-def plotTimeEvol():
+
+
+def plotQCCompareNSqr():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    file = h5py.File("../data/tEvol1PhGPH5WP0WD15FD100NB10.hdf5", 'r')
+    fileC = h5py.File("../data/tEvol1PhGPH20WP0WD200FD200NB10.hdf5", 'r')
+    fileQ1 = h5py.File("../data/tEvol1PhGPH20WP50WD227FD200NB10.hdf5", 'r')
+    fileQ2 = h5py.File("../data/tEvol1PhGPH20WP50WD177FD200NB10.hdf5", 'r')
+
+    #readInPrmsAndAssert(fileC, fileQ1)
+    wPhQ = (fileQ1['wPh'][()])[0]
+    wPtQ = (fileQ1['wPt'][()])[0]
+    wPQ = (fileQ1['wP'][()])[0]
+
+    wDriveC = (fileC['wDrive'][()])[0]
+    wDriveQ = (fileQ1['wDrive'][()])[0]
 
 
-    wPh = (file['wPh'][()])[0]
-    wPt = (file['wPt'][()])[0]
-    tHop = (file['tHop'][()])[0]
-    U = (file['U'][()])[0]
-    gPh = (file['gPh'][()])[0]
-    wP = (file['wP'][()])[0]
+    wMinus = plotPolaritonFreqs.calcWMinus(wPhQ, wPtQ, wPQ)
+    wPlus = plotPolaritonFreqs.calcWPlus(wPhQ, wPtQ, wPQ)
 
-    wDrive = (file['wDrive'][()])[0]
-    fDrive = (file['fDrive'][()])[0]
-    tsPerDrivePeriod = (file['timePointsPerDrivingPeriod'][()])[0]
-
-    nPhonon = (file['dimPhonon'][()])[0]
-    nPhoton = (file['dimPhoton'][()])[0]
+    print("W+ = {}".format(wPlus))
+    print("W- = {}".format(wMinus))
+    print('')
+    print("W-Drive = {}".format(wDriveQ))
 
 
-    print("tHop = {}".format(tHop))
-    print("U = {}".format(U))
-    print("wPh = {}".format(wPh))
-    print("wPt = {}".format(wPt))
-    print("gPh = {}".format(gPh))
-    print("wP = {}".format(wP))
-    print("wDrive = {}".format(wDrive))
-    print("fDrive = {}".format(fDrive))
-    print("time points per driving period = {}".format(tsPerDrivePeriod))
-    print("n-Phonon = {}".format(nPhonon))
-    print("n-Photon = {}".format(nPhoton))
+    times = fileC['times'][()]
+    times = times / (2. * np.pi / wDriveC)
+    pump = fileC['pump'][()]
 
+    dOccC = fileC['dOcc'][()]
+    dOccQ = fileQ1['dOcc'][()]
+    dOccQ2 = fileQ2['dOcc'][()]
 
-    times = file['times'][()]
-    times = times / (2. * np.pi / wDrive)
-    pump = file['pump'][()]
-    dOcc = file['dOcc'][()]
-    Xpt = file['Xpt'][()]
-    XptSqr = file['XptSqr'][()]
-    Npt = file['Npt'][()]
-    Xph = file['X1ph'][()]
-    XphSqr = file['X1phSqr'][()]
-    Nph = file['N1ph'][()]
+    Xpt = fileC['Xpt'][()]
+    XptSqr = fileC['XptSqr'][()]
+    Npt = fileC['Npt'][()]
+    Xph = fileC['X1ph'][()]
+    XphSqr = fileC['X1phSqr'][()]
+    Nph = fileC['N1ph'][()]
 
-    #Xph2 = file['X2ph'][()]
-    #XphSqr2 = file['X2phSqr'][()]
-    #Nph2 = file['N2ph'][()]
+    NptQ = fileQ1['Npt'][()]
+    NphQ = fileQ1['N1ph'][()]
+    XphSqrQ = fileQ1['X1phSqr'][()]
 
-    print("times.shape = {}".format(times.shape))
+    NptQ2 = fileQ2['Npt'][()]
+    NphQ2 = fileQ2['N1ph'][()]
+    XphSqrQ2 = fileQ2['X1phSqr'][()]
+
 
     fig = plt.figure()
-    fig.set_size_inches(6., 3.5)
-    ax1 = fig.add_subplot(111)
+    fig.set_size_inches(3., 3.)
 
-    ax2 = ax1.twinx()
+    gs = gridspec.GridSpec(4, 1, height_ratios=[2, 1, 1, 1])
+    ax1 = fig.add_subplot(gs[0])
+    ax2 = fig.add_subplot(gs[1], sharex = ax1)
+    ax3 = fig.add_subplot(gs[2], sharex = ax1)
+    ax4 = fig.add_subplot(gs[3], sharex = ax1)
 
-    ax1.plot(times, Nph * 5., color='rosybrown', label=r'$N_{ph} \times 5$', linewidth = 1.5)
-    ax1.plot(times, XphSqr * 0.2, color='olive', label=r'$\langle X^2 \rangle \times \omega_{\rm ph}$', linewidth = 1.)
-    ax2.plot(times, dOcc + 0.5, color='gray', label=r'dOcc', linewidth = 1.)
+    ax1.tick_params(direction='inout', length=6, width=.5)
+    ax2.tick_params(direction='inout', length=6, width=.5)
+    ax3.tick_params(direction='inout', length=6, width=.5)
 
-    plt.legend()
+    #ax1.plot(times, Nph * 5., color='rosybrown', label=r'$N_{ph} \times 5$', linewidth = 1.5)
+    #ax1.plot(times, XphSqr * 0.2, color='olive', label=r'$\langle X^2 \rangle \times \omega_{\rm ph}$', linewidth = 1.)
+    ax1.plot(times, dOccC + 0.5, color='olive', label='Phonon Driving', linewidth = 1.)
+    ax1.plot(times, dOccQ + 0.5, color='rosybrown', label='Up-Polariton Driving', linewidth = 1.)
+    ax1.plot(times, dOccQ2 + 0.5, color='gray', label='Low-Polariton Driving', linewidth = 1.)
 
-    ax1.set_xlabel(r"$t \,\, \, [2\pi / \omega_{\rm D}]$", fontsize = fontsize)
-    ax1.set_ylabel(r"$N_{\rm ph}$ / $\langle X_{\rm ph}^2 \rangle$", fontsize = fontsize)
-    ax2.set_ylabel(r"dOcc", fontsize = fontsize)
+    ax2.plot(times, Nph, color='olive', label='Classical Driving', linewidth = 1.)
+    ax2.plot(times, NphQ, color='rosybrown', label='Driven Cavity', linewidth = 1.)
+    ax2.plot(times, NphQ2, color='gray', label='Driven Cavity', linewidth = 1.)
 
-    ax1.set_xlim(3., 12)
-    ax1.set_xticks([4, 6, 8, 10])
-    ax1.set_xticklabels(["$4$", "$6$", "$8$", "$10$"])
+    ax3.plot(times, Npt, color='olive', label='Classical Driving', linewidth = 1.)
+    ax3.plot(times, NptQ, color='rosybrown', label='Driven Cavity', linewidth = 1.)
+    ax3.plot(times, NptQ2, color='gray', label='Driven Cavity', linewidth = 1.)
 
-    legend1 = ax1.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.02, .6), edgecolor = 'black', ncol = 1)
-    legend2 = ax2.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.02, .4), edgecolor = 'black', ncol = 1)
-    legend1.get_frame().set_alpha(1.)
+    ax4.plot(times, pump, color='cornflowerblue', label='pump', linewidth = 1.)
+
+    #ax3.plot(times, XphSqr, color='olive', label='Driven Cavity', linewidth = 1.)
+    #ax3.plot(times, XphSqrQ, color='rosybrown', label='Driven Cavity', linewidth = 1.)
+
+    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+    ax2.set_ylabel(r"$N_{\rm phon}$", fontsize = fontsize)
+    ax3.set_ylabel(r"$N_{\rm phot}$", fontsize = fontsize)
+    ax4.set_ylabel(r"$F(t)$", fontsize = fontsize)
+
+
+    ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize = fontsize)
+
+
+    plt.setp(ax1.get_xticklabels(), visible=False)
+    plt.setp(ax2.get_xticklabels(), visible=False)
+
+    ax1.set_xlim(3., 13)
+    ax2.set_xlim(3., 13)
+    ax3.set_xlim(3., 13)
+    ax4.set_xlim(3., 13)
+    ax1.set_xticks([4, 6, 8, 10, 12])
+    ax2.set_xticks([4, 6, 8, 10, 12])
+    ax3.set_xticks([4, 6, 8, 10, 12])
+    ax3.set_xticklabels(["$4$", "$6$", "$8$", "$10$", "$12$"])
+
+
+    ax1.set_ylim(0.08, 0.21)
+
+    ax1.set_yticks([0.1, 0.2])
+    ax1.set_yticklabels(["$0.1$", "$0.2$"])
+
+    ax2.set_yticks([0, 1])
+    ax2.set_yticklabels(["$0$", "$1$"])
+
+    ax3.set_yticks([0, 1])
+    ax3.set_yticklabels(["$0$", "$1$"])
+
+    ax4.set_yticks([-0.2, 0., 0.2])
+    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+
+
+    legend1 = ax1.legend(fontsize = fontsize - 4, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)
+    legend1.get_frame().set_alpha(0.)
     legend1.get_frame().set_boxstyle('Square', pad=0.1)
     legend1.get_frame().set_linewidth(0.0)
-    legend2.get_frame().set_alpha(1.)
-    legend2.get_frame().set_boxstyle('Square', pad=0.1)
-    legend2.get_frame().set_linewidth(0.0)
 
-    #plt.savefig('DoccDependsOnWhatNLin.png', format='png', bbox_inches='tight', dpi = 600)
-    plt.tight_layout()
-    plt.show()
+    legend4 = ax4.legend(fontsize=fontsize - 4, loc='upper left', bbox_to_anchor=(.0, 1.1), edgecolor='black', ncol=1)
+    legend4.get_frame().set_alpha(0.)
+    legend4.get_frame().set_boxstyle('Square', pad=0.1)
+    legend4.get_frame().set_linewidth(0.0)
 
-def plotTimeEvolManyCurves():
+    #plt.tight_layout()
+    fig.subplots_adjust(hspace=.0)
+    #plt.show()
+
+    plt.savefig('testPlot.png', format='png', bbox_inches='tight', dpi = 600)
+
+
+def plotAsOfWP():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileW20 = h5py.File("../data/timeEvolOnePhonWP20N10.hdf5", 'r')
-    times = fileW20['times'][()]
-    pump = fileW20['pump'][()]
-    dOccW20 = fileW20['dOcc'][()]
-    XptW20 = fileW20['Xpt'][()]
-    XptSqrW20 = fileW20['XptSqr'][()]
-    NptW20 = fileW20['Npt'][()]
-    XphW20 = fileW20['X1ph'][()]
-    XphSqrW20 = fileW20['X1phSqr'][()]
-    NphW20 = fileW20['N1ph'][()]
+    fileWP1 = h5py.File("../data/tEvol1PhGPH20WP0WD200FD200NB10.hdf5", 'r')
+    fileWP2 = h5py.File("../data/tEvol1PhGPH20WP10WD200FD200NB10.hdf5", 'r')
+    fileWP3 = h5py.File("../data/tEvol1PhGPH20WP20WD200FD200NB10.hdf5", 'r')
+    fileWP4 = h5py.File("../data/tEvol1PhGPH20WP50WD200FD200NB10.hdf5", 'r')
 
-    fileW10 = h5py.File("../data/timeEvolOnePhonWP10N10.hdf5", 'r')
-    dOccW10 = fileW10['dOcc'][()]
-    XptW10 = fileW10['Xpt'][()]
-    XptSqrW10 = fileW10['XptSqr'][()]
-    NptW10 = fileW10['Npt'][()]
-    XphW10 = fileW10['X1ph'][()]
-    XphSqrW10 = fileW10['X1phSqr'][()]
-    NphW10 = fileW10['N1ph'][()]
+    #readInPrmsAndAssert(fileWP0, fileWP01)
+    wPhWP4 = (fileWP4['wPh'][()])[0]
+    wPtWP4 = (fileWP4['wPt'][()])[0]
+    wPWP4 = (fileWP4['wP'][()])[0]
 
-    fileW15 = h5py.File("../data/timeEvolOnePhonWP14N10.hdf5", 'r')
-    dOccW15 = fileW15['dOcc'][()]
-    XptW15 = fileW15['Xpt'][()]
-    XptSqrW15 = fileW15['XptSqr'][()]
-    NptW15 = fileW15['Npt'][()]
-    XphW15 = fileW15['X1ph'][()]
-    XphSqrW15 = fileW15['X1phSqr'][()]
-    NphW15 = fileW15['N1ph'][()]
 
-    fileW5 = h5py.File("../data/timeEvolOnePhonWP5N10.hdf5", 'r')
-    dOccW5 = fileW5['dOcc'][()]
-    XptW5 = fileW5['Xpt'][()]
-    XptSqrW5 = fileW5['XptSqr'][()]
-    NptW5 = fileW5['Npt'][()]
-    XphW5 = fileW5['X1ph'][()]
-    XphSqrW5 = fileW5['X1phSqr'][()]
-    NphW5 = fileW5['N1ph'][()]
 
-    fileW1 = h5py.File("../data/timeEvolOnePhonWP1N10.hdf5", 'r')
-    dOccW1 = fileW1['dOcc'][()]
-    XptW1 = fileW1['Xpt'][()]
-    XptSqrW1 = fileW1['XptSqr'][()]
-    NptW1 = fileW1['Npt'][()]
-    XphW1 = fileW1['X1ph'][()]
-    XphSqrW1 = fileW1['X1phSqr'][()]
-    NphW1 = fileW1['N1ph'][()]
 
-    print("times.shape = {}".format(times.shape))
+    wMinus = plotPolaritonFreqs.calcWMinus(wPhWP4, wPtWP4, wPWP4)
+    wPlus = plotPolaritonFreqs.calcWPlus(wPhWP4, wPtWP4, wPWP4)
+
+    wDrive = (fileWP1['wDrive'][()])[0]
+
+    print("W+ = {}".format(wPlus))
+    print("W- = {}".format(wMinus))
+    print('')
+    print("W-Drive = {}".format(wDrive))
+
+
+    times = fileWP1['times'][()]
+    times = times / (2. * np.pi / wDrive)
+    pump = fileWP1['pump'][()]
+
+    dOccWP1 = fileWP1['dOcc'][()]
+    dOccWP2 = fileWP2['dOcc'][()]
+    dOccWP3 = fileWP3['dOcc'][()]
+    dOccWP200 = fileWP4['dOcc'][()]
+
+    NptWP1 = fileWP1['Npt'][()]
+    NptWP2 = fileWP2['Npt'][()]
+    NptWP3 = fileWP3['Npt'][()]
+    NptWP4 = fileWP4['Npt'][()]
+
+
+
+    NphWP1 = fileWP1['N1ph'][()]
+    NphWP2 = fileWP2['N1ph'][()]
+    NphWP3 = fileWP3['N1ph'][()]
+    NphWP4 = fileWP4['N1ph'][()]
+
 
     fig = plt.figure()
-    ax = fig.add_subplot(111)
+    fig.set_size_inches(3., 3.)
 
-    # dOccQAv = avOverArr(dOccQ, 7)
+    gs = gridspec.GridSpec(4, 1, height_ratios=[2, 1, 1, 1])
+    ax1 = fig.add_subplot(gs[0])
+    ax2 = fig.add_subplot(gs[1], sharex = ax1)
+    ax3 = fig.add_subplot(gs[2], sharex = ax1)
+    ax4 = fig.add_subplot(gs[3], sharex = ax1)
 
-    # ax.plot(times, pump, color = 'cornflowerblue' , label = 'pump')
-    # ax.plot(times, NphC, color = 'olive' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.1$')
-    # ax.plot(times, NphQ, color = 'rosybrown' , label = r'$N_{\rm phon}$, $\omega_{\rm P} = 0.05$')
-    # ax.plot(times, NptC, color = 'mediumseagreen' , label = r'$N_{\rm phot}$')
-    # ax.plot(times, 0.2 * (XphSqrC - XphSqrC[0]), label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
-    # ax.plot(times, XptSqrC * 0.1, label = r'$\langle X_{\rm phot}^2 \rangle$', color = 'rosybrown')
-    # ax.plot(times, XphC, label = r'$\langle X_{\rm phon} \rangle$', color = 'olive')
-    # ax.plot(times, XptC, label = r'$\langle X_{\rm phot} \rangle$', color = 'rosybrown')
+    ax1.tick_params(direction='inout', length=6, width=.5)
+    ax2.tick_params(direction='inout', length=6, width=.5)
+    ax3.tick_params(direction='inout', length=6, width=.5)
 
-    ax.plot(times, dOccW20 + .5, color='rosybrown', label='dOcc, $\omega_{\rm P} = 0.2$')
-    ax.plot(times, dOccW15 + .5, color='c', label='dOcc, $\omega_{\rm P} = 0.15$')
-    ax.plot(times, dOccW10 + .5, color='olive', label='dOcc, $\omega_{\rm P} = 0.1$')
-    ax.plot(times, dOccW5 + .5, color='peru', label='dOcc, $\omega_{\rm P} = 0.05$')
-    ax.plot(times, dOccW1 + .5, color='black', label='dOcc, $\omega_{\rm P} = 0.01$')
-    # ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
-    # ax.plot(times, ((dOccC + .5) - (dOccC[0] + .5)) / ((XphSqrC - XphSqrC[0]) + 1e-9) , color = 'rosybrown', label = 'dOcc, $\omega_{\rm P} = 0.1$')
+    linewidth = 0.8
 
-    # ax.plot(times, (dOccC + .5) * 100 - 10.71, color = 'rosybrown', label = 'dOcc - Classical')
-    # ax.plot(times, XphSqrC * 0.2, label = r'$\langle X_{\rm phon}^2 \rangle$', color = 'olive')
+    color1 = '#28384D'
+    color2 = '#337343'
+    color3 = '#D4AE55'
+    color4 = '#FF785A'
+    colorPump = '#5295A4'
 
-    plt.legend()
+    ax1.plot(times, dOccWP1 + 0.5, color=color1, label=r'$\omega_{\rm P} = 0$', linewidth = linewidth)
+    ax1.plot(times, dOccWP2 + 0.5, color=color2, label=r'$\omega_{\rm P} = 0.1$', linewidth = linewidth)
+    ax1.plot(times, dOccWP3 + 0.5, color=color3, label=r'$\omega_{\rm P} = 0.2$', linewidth = linewidth)
+    ax1.plot(times, dOccWP200 + 0.5, color=color4, label=r'$\omega_{\rm P} = 0.5$', linewidth = linewidth)
 
-    # ax.set_ylim(-1e10, 1e10)
+    ax2.plot(times, NphWP1, color=color1, linewidth = linewidth)
+    ax2.plot(times, NphWP2, color=color2, linewidth = linewidth)
+    ax2.plot(times, NphWP3, color=color3, linewidth = linewidth)
+    ax2.plot(times, NphWP4, color=color4, linewidth = linewidth)
 
-    plt.show()
+    ax3.plot(times, NptWP1, color=color1, linewidth = linewidth)
+    ax3.plot(times, NptWP2, color=color2, linewidth = linewidth)
+    ax3.plot(times, NptWP3, color=color3, linewidth = linewidth)
+    ax3.plot(times, NptWP4, color=color4, linewidth = linewidth)
 
+    ax4.plot(times, pump, color=colorPump, label='pump', linewidth = 1.)
+
+    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+    ax2.set_ylabel(r"$N_{\rm phon}$", fontsize = fontsize)
+    ax3.set_ylabel(r"$N_{\rm phot}$", fontsize = fontsize)
+    ax4.set_ylabel(r"$F(t)$", fontsize = fontsize)
+
+
+    ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize = fontsize)
+
+
+    plt.setp(ax1.get_xticklabels(), visible=False)
+    plt.setp(ax2.get_xticklabels(), visible=False)
+
+    ax1.set_xlim(3., 17)
+    ax2.set_xlim(3., 17)
+    ax3.set_xlim(3., 17)
+    ax4.set_xlim(3., 17)
+    ax1.set_xticks([4, 6, 8, 10, 12])
+    ax2.set_xticks([4, 6, 8, 10, 12])
+    ax3.set_xticks([4, 6, 8, 10, 12])
+    ax3.set_xticklabels(["$4$", "$6$", "$8$", "$10$", "$12$"])
+
+
+    #ax1.set_ylim(0.08, 0.21)
+    ax1.set_yticks([0.1, 0.13, 0.16])
+    ax1.set_yticklabels(["$0.1$", "$0.13$", "$0.16$"])
+
+    ax2.set_yticks([0, 1])
+    ax2.set_yticklabels(["$0$", "$1$"])
+
+    ax3.set_yticks([0, 1, 2])
+    ax3.set_yticklabels(["$0$", "$1$", "$2$"])
+
+    ax4.set_yticks([-0.2, 0., 0.2])
+    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+
+
+    legend1 = ax1.legend(fontsize = fontsize - 4, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)
+    legend1.get_frame().set_alpha(0.)
+    legend1.get_frame().set_boxstyle('Square', pad=0.1)
+    legend1.get_frame().set_linewidth(0.0)
+
+    legend4 = ax4.legend(fontsize=fontsize - 4, loc='upper left', bbox_to_anchor=(0.7, 1.1), edgecolor='black', ncol=1)
+    legend4.get_frame().set_alpha(0.)
+    legend4.get_frame().set_boxstyle('Square', pad=0.1)
+    legend4.get_frame().set_linewidth(0.0)
+
+    #plt.tight_layout()
+    fig.subplots_adjust(hspace=.0)
+    #plt.show()
+
+    plt.savefig('functionOfWP.png', format='png', bbox_inches='tight', dpi = 600)
+
+
+def plotAsOfWPLin():
+    print("plotting some beautiful time evolution")
+
+    # read in stuff
+    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP0WD280FD200NB4.hdf5", 'r')
+    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP10WD280FD200NB4.hdf5", 'r')
+    fileWP3 = h5py.File("../data/tEvol2PhGPH50WP20WD280FD200NB4.hdf5", 'r')
+    fileWP4 = h5py.File("../data/tEvol2PhGPH50WP50WD280FD200NB4.hdf5", 'r')
+
+    #readInPrmsAndAssert(fileWP0, fileWP01)
+    wPhWP4 = (fileWP4['wPh'][()])[0]
+    wPtWP4 = (fileWP4['wPt'][()])[0]
+    wPWP4 = (fileWP4['wP'][()])[0]
+
+
+
+
+    wMinus = plotPolaritonFreqs.calcWMinus(wPhWP4, wPtWP4, wPWP4)
+    wPlus = plotPolaritonFreqs.calcWPlus(wPhWP4, wPtWP4, wPWP4)
+
+    wDrive = (fileWP1['wDrive'][()])[0]
+
+    print("W+ = {}".format(wPlus))
+    print("W- = {}".format(wMinus))
+    print('')
+    print("W-Drive = {}".format(wDrive))
+
+
+    times = fileWP1['times'][()]
+    times = times / (2. * np.pi / wDrive)
+    pump = fileWP1['pump'][()]
+
+    dOccWP1 = fileWP1['dOcc'][()]
+    dOccWP2 = fileWP2['dOcc'][()]
+    dOccWP3 = fileWP3['dOcc'][()]
+    dOccWP200 = fileWP4['dOcc'][()]
+
+    NptWP1 = fileWP1['Npt'][()]
+    NptWP2 = fileWP2['Npt'][()]
+    NptWP3 = fileWP3['Npt'][()]
+    NptWP4 = fileWP4['Npt'][()]
+
+
+
+    NphWP1 = fileWP1['N1ph'][()]
+    NphWP2 = fileWP2['N1ph'][()]
+    NphWP3 = fileWP3['N1ph'][()]
+    NphWP4 = fileWP4['N1ph'][()]
+
+
+    fig = plt.figure()
+    fig.set_size_inches(3., 3.)
+
+    gs = gridspec.GridSpec(4, 1, height_ratios=[2, 1, 1, 1])
+    ax1 = fig.add_subplot(gs[0])
+    ax2 = fig.add_subplot(gs[1], sharex = ax1)
+    ax3 = fig.add_subplot(gs[2], sharex = ax1)
+    ax4 = fig.add_subplot(gs[3], sharex = ax1)
+
+    ax1.tick_params(direction='inout', length=6, width=.5)
+    ax2.tick_params(direction='inout', length=6, width=.5)
+    ax3.tick_params(direction='inout', length=6, width=.5)
+
+    linewidth = .8
+
+    color1 = '#28384D'
+    color2 = '#337343'
+    color3 = '#D4AE55'
+    color4 = '#FF785A'
+    colorPump = '#5295A4'
+
+    ax1.plot(times, dOccWP1 + 0.5, color=color1, label=r'$\omega_{\rm P} = 0$', linewidth = linewidth, zorder = 4)
+    ax1.plot(times, dOccWP2 + 0.5, color=color2, label=r'$\omega_{\rm P} = 0.1$', linewidth = linewidth, zorder = 3)
+    ax1.plot(times, dOccWP3 + 0.5, color=color3, label=r'$\omega_{\rm P} = 0.2$', linewidth = linewidth, zorder = 2)
+    ax1.plot(times, dOccWP200 + 0.5, color=color4, label=r'$\omega_{\rm P} = 0.5$', linewidth = linewidth, zorder = 1)
+
+    ax2.plot(times, NphWP1, color=color1, linewidth = linewidth)
+    ax2.plot(times, NphWP2, color=color2, linewidth = linewidth)
+    ax2.plot(times, NphWP3, color=color3, linewidth = linewidth)
+    ax2.plot(times, NphWP4, color=color4, linewidth = linewidth)
+
+    ax3.plot(times, NptWP1, color=color1, linewidth = linewidth)
+    ax3.plot(times, NptWP2, color=color2, linewidth = linewidth)
+    ax3.plot(times, NptWP3, color=color3, linewidth = linewidth)
+    ax3.plot(times, NptWP4, color=color4, linewidth = linewidth)
+
+    ax4.plot(times, pump, color=colorPump, label='pump', linewidth = 1.)
+
+    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+    ax2.set_ylabel(r"$N_{\rm phon}$", fontsize = fontsize)
+    ax3.set_ylabel(r"$N_{\rm phot}$", fontsize = fontsize)
+    ax4.set_ylabel(r"$F(t)$", fontsize = fontsize)
+
+
+    ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize = fontsize)
+
+
+    plt.setp(ax1.get_xticklabels(), visible=False)
+    plt.setp(ax2.get_xticklabels(), visible=False)
+
+    ax1.set_xlim(3., 17)
+    ax2.set_xlim(3., 17)
+    ax3.set_xlim(3., 17)
+    ax4.set_xlim(3., 17)
+    ax1.set_xticks([4, 6, 8, 10, 12])
+    ax2.set_xticks([4, 6, 8, 10, 12])
+    ax3.set_xticks([4, 6, 8, 10, 12])
+    ax3.set_xticklabels(["$4$", "$6$", "$8$", "$10$", "$12$"])
+
+
+    #ax1.set_ylim(0.08, 0.21)
+    #ax1.set_yticks([0.1, 0.13, 0.16])
+    #ax1.set_yticklabels(["$0.1$", "$0.13$", "$0.16$"])
+#
+    #ax2.set_yticks([0, 1])
+    #ax2.set_yticklabels(["$0$", "$1$"])
+#
+    #ax3.set_yticks([0, 1, 2])
+    #ax3.set_yticklabels(["$0$", "$1$", "$2$"])
+#
+    #ax4.set_yticks([-0.2, 0., 0.2])
+    #ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+
+
+    legend1 = ax1.legend(fontsize = fontsize - 4, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)
+    legend1.get_frame().set_alpha(0.)
+    legend1.get_frame().set_boxstyle('Square', pad=0.1)
+    legend1.get_frame().set_linewidth(0.0)
+
+    legend4 = ax4.legend(fontsize=fontsize - 4, loc='upper left', bbox_to_anchor=(0.7, 1.1), edgecolor='black', ncol=1)
+    legend4.get_frame().set_alpha(0.)
+    legend4.get_frame().set_boxstyle('Square', pad=0.1)
+    legend4.get_frame().set_linewidth(0.0)
+
+    #plt.tight_layout()
+    fig.subplots_adjust(hspace=.0)
+    #plt.show()
+
+    plt.savefig('functionOfWPLin.png', format='png', bbox_inches='tight', dpi = 600)
+
+
+def readInPrmsAndAssert(fileC, fileQ):
+    wPhC = (fileC['wPh'][()])[0]
+    wPhQ = (fileQ['wPh'][()])[0]
+    assert (wPhC == wPhQ)
+    wPtC = (fileC['wPt'][()])[0]
+    wPtQ = (fileQ['wPt'][()])[0]
+    assert (wPtC == wPtQ)
+    tHopC = (fileC['tHop'][()])[0]
+    tHopQ = (fileQ['tHop'][()])[0]
+    assert (tHopQ == tHopC)
+    UC = (fileC['U'][()])[0]
+    UQ = (fileQ['U'][()])[0]
+    assert (UC == UQ)
+    gPhC = (fileC['gPh'][()])[0]
+    gPhQ = (fileQ['gPh'][()])[0]
+    assert (gPhQ == gPhC)
+    wPC = (fileC['wP'][()])[0]
+    wPQ = (fileQ['wP'][()])[0]
+    assert (wPC == 0.)
+    assert (wPQ != 0.)
+
+    wDriveC = (fileC['wDrive'][()])[0]
+    wDriveQ = (fileQ['wDrive'][()])[0]
+    #assert (wDriveQ == wDriveC)
+    fDriveC = (fileC['fDrive'][()])[0]
+    fDriveQ = (fileQ['fDrive'][()])[0]
+    assert (fDriveQ == fDriveC)
+    tsPerDrivePeriodC = (fileC['timePointsPerDrivingPeriod'][()])[0]
+    tsPerDrivePeriodQ = (fileQ['timePointsPerDrivingPeriod'][()])[0]
+    assert (tsPerDrivePeriodQ == tsPerDrivePeriodC)
+
+    nPhononC = (fileC['dimPhonon'][()])[0]
+    nPhononQ = (fileQ['dimPhonon'][()])[0]
+    assert (nPhononQ == nPhononC)
+    nPhotonC = (fileC['dimPhoton'][()])[0]
+    assert (nPhotonC == 1)
+    nPhotonQ = (fileQ['dimPhoton'][()])[0]
+    assert (nPhotonQ == nPhononQ)
+
+    print("tHop = {}".format(tHopC))
+    print("U = {}".format(UC))
+    print("wPh = {}".format(wPhC))
+    print("wPt = {}".format(wPtC))
+    print("gPh = {}".format(gPhC))
+    print("wP = {}".format(wPC))
+    print("wDrive = {}".format(wDriveC))
+    print("fDrive = {}".format(fDriveC))
+    print("time points per driving period = {}".format(tsPerDrivePeriodC))
+    print("n-Phonon = {}".format(nPhononC))
+    print("n-Photon = {}".format(nPhotonC))

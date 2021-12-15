@@ -45,6 +45,24 @@ void setupDOccOnePh(std::vector<std::complex<double>> &DOcc) {
   }
 }
 
+void setupDOccOnePhNoPHS(std::vector<std::complex<double>> &DOcc) {
+
+  DOcc = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+
+  std::vector<std::complex<double>> DOccSmall;
+  setupDoubleOccSmallNoPHS(DOccSmall);
+
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < 4ul; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < 4ul; ++eInd2) {
+          DOcc[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)] = DOccSmall[eInd1 * 4ul + eInd2];
+        }
+      }
+    }
+  }
+}
+
 void setupOccSiteIOnePh(std::vector<std::complex<double>> &OccSiteI, const ulong site) {
 
   OccSiteI = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));

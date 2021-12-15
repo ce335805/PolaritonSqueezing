@@ -37,40 +37,33 @@ mpl.rcParams['text.latex.preamble'] = [
 def plotGSProps():
     print("plotting GS props")
 
-    fileOnePh = h5py.File("../data/gsProps1PhG20N6.hdf5", 'r')
-    times = fileOnePh['times'][()]
-    pump = fileOnePh['pump'][()]
+    fileOnePh = h5py.File("../data/gsProp1PhGPH20NB20.hdf5", 'r')
+    wPOnePh = fileOnePh['times'][()]
     dOccOnePh = fileOnePh['dOcc'][()]
-    XptOnePh = fileOnePh['Xpt'][()]
-    XptSqrOnePh = fileOnePh['XptSqr'][()]
     NptOnePh = fileOnePh['Npt'][()]
-    XphOnePh = fileOnePh['X1ph'][()]
-    XphSqrOnePh = fileOnePh['X1phSqr'][()]
     NphOnePh = fileOnePh['N1ph'][()]
 
-    fileTwoPh = h5py.File("../data/gsProps2PhG20N6.hdf5", 'r')
-    times = fileTwoPh['times'][()]
-    pump = fileTwoPh['pump'][()]
+    fileTwoPh = h5py.File("../data/gsProp2PhGPH50NB4.hdf5", 'r')
+    wPTwoPh = fileTwoPh['times'][()]
     dOccTwoPh = fileTwoPh['dOcc'][()]
-    XptTwoPh = fileTwoPh['Xpt'][()]
-    XptSqrTwoPh = fileTwoPh['XptSqr'][()]
     NptTwoPh = fileTwoPh['Npt'][()]
-    XphTwoPh = fileTwoPh['X1ph'][()]
-    XphSqrTwoPh = fileTwoPh['X1phSqr'][()]
     NphTwoPh = fileTwoPh['N1ph'][()]
 
+    fileTwoPhN6 = h5py.File("../data/gsProp2PhGPH50NB6.hdf5", 'r')
+    dOccTwoPhN6 = fileTwoPh['dOcc'][()]
+
+    fileTwoPhN8 = h5py.File("../data/gsProp2PhGPH50NB8.hdf5", 'r')
+    dOccTwoPhN8 = fileTwoPh['dOcc'][()]
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
 
-    #ax.plot(times, dOccOnePh + 0.5, color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
-    #ax.plot(times, dOccTwoPh + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P}$ - $X^2 n$', marker = 'v')
-    #ax.plot(times, XphSqrOnePh, color='olive', label=r'$\langle X^2 \rangle$ - $X^2 n^2$')
-    #ax.plot(times, XphSqrTwoPh, color='rosybrown', label=r'$\langle X^2 \rangle$ - $X^2 n$')
+    ax.plot(wPOnePh, dOccOnePh + 0.5, color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n$', marker = '^')
+    ax.plot(wPTwoPh, dOccTwoPh + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = 'v')
+    #ax.plot(wPTwoPh, NphTwoPh, color='olive', label=r'$\langle X^2 \rangle$ - $X^2 n$')
+    #ax.plot(wPTwoPh, NptTwoPh, color='rosybrown', label=r'$\langle X^2 \rangle$ - $X^2 n^2$')
 
-    #ax.plot(times[1:], 1./((dOccOnePh - dOccOnePh[0])[1:] / (XphSqrOnePh - XphSqrOnePh[0])[1:]), color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
-    ax.plot(times[1:], 1./((dOccTwoPh - dOccTwoPh[0])[1:] / (XphSqrTwoPh - XphSqrTwoPh[0])[1:]), color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = '^')
 
 
     plt.legend()

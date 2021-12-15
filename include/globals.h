@@ -6,21 +6,25 @@
 constexpr std::complex<double> II = std::complex<double>(0., 1.);
 constexpr double PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640;
 
-constexpr double tHop(0.25);
-constexpr double wPt(0.1);
-constexpr double wPh(0.2);
-constexpr double U(1.25);
-constexpr double gPh(-0.05);
-constexpr double wP(0.0);
-//extern double wP;
+constexpr double tHop(1.);
+constexpr double wPt(2.);
+constexpr double U(5.);
+constexpr double gPh(0.5);
 
-constexpr double wDrive(0.15);
-constexpr double fDrive(1.);
+const double wPh(2. * std::sqrt(1. - 4. * gPh / 4.));
+//const double wPh(2. * std::sqrt(1. + 4. * gPh / 4. * 0.390434));
+
+
+//constexpr double wP(4.0);
+extern double wP;
+
+constexpr double wDrive(2.);
+constexpr double fDrive(2.);
 constexpr int timePointsPerDrivingPeriod (80);
 constexpr double dt(2. * PI / wDrive / timePointsPerDrivingPeriod);
 
-constexpr ulong dimPhonon(10ul);
-constexpr ulong dimPhoton(1ul);
+constexpr ulong dimPhonon(8ul);
+constexpr ulong dimPhoton(8ul);
 constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
 

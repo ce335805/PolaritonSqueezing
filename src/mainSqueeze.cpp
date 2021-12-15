@@ -23,6 +23,8 @@ int main() {
 
   std::cout << std::setprecision(12);
 
+  std::cout << "Bare phonon frequency is: wPh = " << wPh << '\n';
+
   //std::vector<std::complex<double>> HTest;
   //setupGlobalH(HTest);
 //
@@ -49,17 +51,18 @@ int main() {
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
 
-  std::cout << "Starting Time Evolution ..." << '\n';
-  auto start = std::chrono::high_resolution_clock::now();
+  //std::cout << "Starting Time Evolution ..." << '\n';
+  //auto start = std::chrono::high_resolution_clock::now();
+//
+  //const bool twoPhonons = false;
+  //calcTimeEvolution(twoPhonons);
+//
+  //auto stop = std::chrono::high_resolution_clock::now();
+  //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+  //std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
 
-  const bool twoPhonons = false;
-  calcTimeEvolution(twoPhonons);
-
-  auto stop = std::chrono::high_resolution_clock::now();
-  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
-
-  //evalGSProps(twoPhonons);
+  const bool twoPhonons = true;
+  evalGSProps(twoPhonons);
 
 
   return 0;

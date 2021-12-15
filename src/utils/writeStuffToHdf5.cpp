@@ -70,6 +70,8 @@ void writeStuffToHdf5(
 ) {
 
 
+  std::cout << "filename: " << filename << '\n';
+
   H5::H5File file(filename, H5F_ACC_TRUNC);
 
   writeAllPrms(file);
