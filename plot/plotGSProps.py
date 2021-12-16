@@ -8,7 +8,7 @@ import matplotlib.cm as cm
 import matplotlib.colors
 import h5py
 
-fontsize = 14
+fontsize = 10
 
 mpl.rcParams['font.family'] = 'Helvetica'
 mpl.rcParams['lines.linewidth'] = 2
@@ -37,37 +37,59 @@ mpl.rcParams['text.latex.preamble'] = [
 def plotGSProps():
     print("plotting GS props")
 
-    fileOnePh = h5py.File("../data/gsProp1PhGPH20NB20.hdf5", 'r')
+    fileOnePh = h5py.File("../data/gsPropQuad2PhGPH20NB6.hdf5", 'r')
     wPOnePh = fileOnePh['times'][()]
     dOccOnePh = fileOnePh['dOcc'][()]
     NptOnePh = fileOnePh['Npt'][()]
     NphOnePh = fileOnePh['N1ph'][()]
 
-    fileTwoPh = h5py.File("../data/gsProp2PhGPH50NB4.hdf5", 'r')
+    fileTwoPh = h5py.File("../data/gsProp2PhGPH50NB6.hdf5", 'r')
     wPTwoPh = fileTwoPh['times'][()]
     dOccTwoPh = fileTwoPh['dOcc'][()]
     NptTwoPh = fileTwoPh['Npt'][()]
     NphTwoPh = fileTwoPh['N1ph'][()]
 
-    fileTwoPhN6 = h5py.File("../data/gsProp2PhGPH50NB6.hdf5", 'r')
-    dOccTwoPhN6 = fileTwoPh['dOcc'][()]
-
-    fileTwoPhN8 = h5py.File("../data/gsProp2PhGPH50NB8.hdf5", 'r')
-    dOccTwoPhN8 = fileTwoPh['dOcc'][()]
-
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
 
-    ax.plot(wPOnePh, dOccOnePh + 0.5, color='olive', label='dOcc, $\omega_{\rm P}$ - $X^2 n$', marker = '^')
-    ax.plot(wPTwoPh, dOccTwoPh + 0.5, color='rosybrown', label='dOcc, $\omega_{\rm P}$ - $X^2 n^2$', marker = 'v')
+    for axis in ['top', 'bottom', 'left', 'right']:
+        ax.spines[axis].set_linewidth(0.5)
+
+    fig.set_size_inches(2.5, 2.)
+    #fig.set_size_inches(5., 5.)
+
+    linewidth = 1.
+    markersize = 3
+    markeredgewidth = 0.5
+    markeredgecolor = 'black'
+
+    ax.plot(wPOnePh / 2., dOccOnePh + 0.5, color='olive', label='$X^2 n^2$', marker = 'o', linewidth = linewidth, markersize = markersize, markeredgewidth = markeredgewidth, markeredgecolor = markeredgecolor)
+    ax.plot(wPTwoPh / 2., dOccTwoPh + 0.5, color='rosybrown', label='$X^2 n$', marker = 's', linewidth = linewidth, markersize = markersize, markeredgewidth = markeredgewidth, markeredgecolor = markeredgecolor)
+
+    ax.plot(wPTwoPh / 2., np.ones(len(wPTwoPh)) * 0.109566, color='black', label='$g = 0$', marker = '', linewidth = linewidth)
+
     #ax.plot(wPTwoPh, NphTwoPh, color='olive', label=r'$\langle X^2 \rangle$ - $X^2 n$')
     #ax.plot(wPTwoPh, NptTwoPh, color='rosybrown', label=r'$\langle X^2 \rangle$ - $X^2 n^2$')
 
+    ax.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+    ax.set_xlabel(r"$\omega_{\rm P} / \omega_{\rm phot}$", fontsize = fontsize)
 
 
-    plt.legend()
+    ax.set_xlim(0., 3)
 
-    # ax.set_ylim(-1e10, 1e10)
+    ax.set_xticks([0, 1., 2., 3.])
+    ax.set_xticklabels(["$0$", "$1$", "$2$", "$3$"], fontsize = fontsize)
 
-    plt.show()
+    ax.set_yticks([0.11, 0.112, 0.114, 0.116])
+    ax.set_yticklabels(["$0.11$", "$0.112$", "$0.114$", "$0.116$"], fontsize = fontsize)
+
+    legend = ax.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.0, .8), edgecolor = 'black', ncol = 1)
+    legend.get_frame().set_alpha(0.)
+    legend.get_frame().set_boxstyle('Square', pad=0.1)
+    legend.get_frame().set_linewidth(0.0)
+
+    plt.tight_layout()
+    #plt.show()
+
+    plt.savefig('dOccAsOfwP.png', format='png', bbox_inches='tight', dpi = 600)

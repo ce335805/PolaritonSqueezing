@@ -61,21 +61,23 @@ def plotPolaritonFreqs():
     wMinus = calcWMinus(wPh, wPt, wPArr)
 
     wDiff = wPlus - wMinus
-    print(wDiff - wPArr)
 
     fig = plt.figure()
-    fig.set_size_inches(2., 2.)
 
     ax = fig.add_subplot(111)
 
     for axis in ['top', 'bottom', 'left', 'right']:
         ax.spines[axis].set_linewidth(0.5)
 
-    ax.plot(wPArr, wPlus, color = 'olive', label = r'$\omega_+$')
-    ax.plot(wPArr, wMinus, color = 'rosybrown', label = r'$\omega_-$')
+    fig.set_size_inches(2., 2.)
+
+    linewidth = 1.
+
+    ax.plot(wPArr, wPlus, color = 'olive', label = r'$\omega_+$', linewidth = linewidth)
+    ax.plot(wPArr, wMinus, color = 'rosybrown', label = r'$\omega_-$', linewidth = linewidth)
 
     ax.set_xlabel(r"$\omega_{\rm P} / \omega_{\rm phot}$", fontsize = fontsize)
-    ax.set_ylabel(r"$\omega$", fontsize = fontsize)
+    ax.set_ylabel(r"$\omega \, \, [J]$", fontsize = fontsize)
 
     ax.set_xlim(0., 5.)
     ax.set_ylim(0., 6.)
@@ -95,7 +97,7 @@ def plotPolaritonFreqs():
     legend.get_frame().set_boxstyle('Square', pad=0.1)
     legend.get_frame().set_linewidth(0.0)
 
-    #plt.tight_layout()
+    plt.tight_layout()
     #plt.show()
 
     plt.savefig('PolaritonFreqs.png', format='png', bbox_inches='tight', dpi = 600)

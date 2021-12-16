@@ -188,10 +188,10 @@ def plotAsOfWP():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol1PhGPH20WP0WD200FD200NB10.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol1PhGPH20WP10WD200FD200NB10.hdf5", 'r')
-    fileWP3 = h5py.File("../data/tEvol1PhGPH20WP20WD200FD200NB10.hdf5", 'r')
-    fileWP4 = h5py.File("../data/tEvol1PhGPH20WP50WD200FD200NB10.hdf5", 'r')
+    fileWP1 = h5py.File("../data/tEvol1PhGPH20WP0WD200FD200NB4.hdf5", 'r')
+    fileWP2 = h5py.File("../data/tEvol1PhGPH20WP10WD200FD200NB4.hdf5", 'r')
+    fileWP3 = h5py.File("../data/tEvol1PhGPH20WP20WD200FD200NB4.hdf5", 'r')
+    fileWP4 = h5py.File("../data/tEvol1PhGPH20WP50WD200FD200NB4.hdf5", 'r')
 
     #readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP4 = (fileWP4['wPh'][()])[0]
@@ -318,7 +318,7 @@ def plotAsOfWP():
     legend4.get_frame().set_boxstyle('Square', pad=0.1)
     legend4.get_frame().set_linewidth(0.0)
 
-    #plt.tight_layout()
+    plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
     #plt.show()
 
@@ -329,10 +329,10 @@ def plotAsOfWPLin():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP0WD280FD200NB4.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP10WD280FD200NB4.hdf5", 'r')
-    fileWP3 = h5py.File("../data/tEvol2PhGPH50WP20WD280FD200NB4.hdf5", 'r')
-    fileWP4 = h5py.File("../data/tEvol2PhGPH50WP50WD280FD200NB4.hdf5", 'r')
+    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP0WD200FD200NB4.hdf5", 'r')
+    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP10WD200FD200NB4.hdf5", 'r')
+    fileWP3 = h5py.File("../data/tEvol2PhGPH50WP20WD200FD200NB4.hdf5", 'r')
+    fileWP4 = h5py.File("../data/tEvol2PhGPH50WP50WD200FD200NB4.hdf5", 'r')
 
     #readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP4 = (fileWP4['wPh'][()])[0]
@@ -459,7 +459,7 @@ def plotAsOfWPLin():
     legend4.get_frame().set_boxstyle('Square', pad=0.1)
     legend4.get_frame().set_linewidth(0.0)
 
-    #plt.tight_layout()
+    plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
     #plt.show()
 

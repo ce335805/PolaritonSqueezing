@@ -76,7 +76,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_flags}")
 #set project name
 project(PhononSqueezing)
 #add an executable - using variables
-set(EXNAME "ProgF20N10")
+set(EXNAME "PolaritonSqueezing")
 add_executable(${EXNAME}.out ${project_sources} ${header_files})
 
 target_link_libraries(${EXNAME}.out ${HDF5_LIBRARIES})

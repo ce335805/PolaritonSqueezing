@@ -18,7 +18,7 @@ void evalGSProps(const bool twoPhonons){
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong wPSteps (11ul);
+  const ulong wPSteps (21ul);
   std::vector<double> wPArr (wPSteps, 0.);
 
   for(ulong ind = 0ul; ind < wPSteps; ++ind){

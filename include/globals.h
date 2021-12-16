@@ -13,9 +13,10 @@ constexpr double gPh(0.5);
 
 const double wPh(2. * std::sqrt(1. - 4. * gPh / 4.));
 //const double wPh(2. * std::sqrt(1. + 4. * gPh / 4. * 0.390434));
+//const double wPh(2. * std::sqrt(1. - 4. * gPh / 4. * 0.109566));
 
 
-//constexpr double wP(4.0);
+//constexpr double wP(0.5);
 extern double wP;
 
 constexpr double wDrive(2.);
@@ -23,8 +24,8 @@ constexpr double fDrive(2.);
 constexpr int timePointsPerDrivingPeriod (80);
 constexpr double dt(2. * PI / wDrive / timePointsPerDrivingPeriod);
 
-constexpr ulong dimPhonon(8ul);
-constexpr ulong dimPhoton(8ul);
+constexpr ulong dimPhonon(6ul);
+constexpr ulong dimPhoton(6ul);
 constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
 

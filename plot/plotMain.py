@@ -9,7 +9,7 @@ import h5py
 
 def main():
 
-    #plotPolaritonFreqs.plotPolaritonFreqs()
+    plotPolaritonFreqs.plotPolaritonFreqs()
 
     numpy.set_printoptions(precision=1)
 
