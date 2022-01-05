@@ -21,8 +21,10 @@ std::string timeEvolName(const bool twoPhonons){
   std::string wDStr ("WD" + std::to_string(int(std::round(100 * wDrive))));
   std::string fDStr ("FD" + std::to_string(int(std::round(100 * fDrive))));
   std::string nBStr ("NB" + std::to_string(int(dimPhonon)));
+  std::string tsStr ("TS" + std::to_string(int(timePointsPerDrivingPeriod)));
+  std::string wPhStr ("WPh" + std::to_string(int(std::round(1000 * wPh))));
 
-  fileName = fileName + twoPhonSpeci + gPhStr + wPStr + wDStr + fDStr + nBStr + ".hdf5";
+  fileName = fileName + twoPhonSpeci + gPhStr + wPStr + wDStr + fDStr + nBStr + tsStr + wPhStr + ".hdf5";
 
   return fileName;
 

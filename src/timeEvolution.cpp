@@ -23,7 +23,7 @@
 #include "mkl.h"
 
 double pumpEnvolope(const double t, const double t0, const double s) {
-  return 1. / std::sqrt(2. * PI * s) * std::exp(-0.5 * (t - t0) * (t - t0) / (s * s));
+  return 1. / std::sqrt(2. * PI * s * s) * std::exp(-0.5 * (t - t0) * (t - t0) / (s * s));
 }
 
 
@@ -31,13 +31,13 @@ void calcTimeEvolution(const bool twoPhonons) {
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong timeSteps(timePointsPerDrivingPeriod * 20ul);
+  const ulong timeSteps(timePointsPerDrivingPeriod * 40ul);
   std::vector<double> times(timeSteps, 0.);
   std::vector<double> pumpPreFac(timeSteps, 0.);
   std::vector<double> pumpPreFacOutput(timeSteps, 0.);
 
-  const double t0 = 2. * PI / wDrive * 8.;
-  const double s = 2. * PI / wDrive * 2.;
+  const double t0 = 2. * PI / wPt * 8.;
+  const double s = 2. * PI / wPt * 2.;
 
   for (ulong ind = 0; ind < timeSteps; ++ind) {
     times[ind] = double(ind) * dt;
@@ -87,18 +87,14 @@ void calcTimeEvolution(const bool twoPhonons) {
   if (twoPhonons) {
     setupOpsTwoPh(dOcc, Xpt, XptSqr, Npt, X1ph, X1phSqr, N1ph, X2ph, X2phSqr, N2ph);
 
-    //if (std::abs(wP) < 1e-12) {
-    //  addMatricies(X1ph, 1. / std::sqrt(2.), X2ph, 1. / std::sqrt(2.), ODrive);
-    //  //addMatricies(X1ph, 1., X2ph, 1., ODrive);
-    //} else {
-    ODrive = std::vector<std::complex<double>>(Xpt);
-    //}
+    addMatricies(X1ph, 1. / std::sqrt(2.), X2ph, 1. / std::sqrt(2.), ODrive);
+    //ODrive = std::vector<std::complex<double>>(Xpt);
   } else {
     setupOpsOnePh(dOcc, Xpt, XptSqr, Npt, X1ph, X1phSqr, N1ph, X2ph, X2phSqr, N2ph);
     //if(std::abs(wP) < 1e-12){
-    //  ODrive = std::vector<std::complex<double>>(X1ph);
+    ODrive = std::vector<std::complex<double>>(X1ph);
     //} else {
-    ODrive = std::vector<std::complex<double>>(Xpt);
+    //ODrive = std::vector<std::complex<double>>(Xpt);
     //}
   }
   for (ulong timeStep = 0ul; timeStep < timeSteps; ++timeStep) {

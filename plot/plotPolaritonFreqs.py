@@ -63,7 +63,6 @@ def plotPolaritonFreqs():
     wDiff = wPlus - wMinus
 
     fig = plt.figure()
-
     ax = fig.add_subplot(111)
 
     for axis in ['top', 'bottom', 'left', 'right']:
@@ -73,23 +72,24 @@ def plotPolaritonFreqs():
 
     linewidth = 1.
 
-    ax.plot(wPArr, wPlus, color = 'olive', label = r'$\omega_+$', linewidth = linewidth)
-    ax.plot(wPArr, wMinus, color = 'rosybrown', label = r'$\omega_-$', linewidth = linewidth)
+    ax.plot(wPArr, wPlus / 2., color = 'olive', label = r'$\omega_+$', linewidth = linewidth)
+    ax.plot(wPArr, wMinus / 2., color = 'rosybrown', label = r'$\omega_-$', linewidth = linewidth)
 
-    ax.set_xlabel(r"$\omega_{\rm P} / \omega_{\rm phot}$", fontsize = fontsize)
-    ax.set_ylabel(r"$\omega \, \, [J]$", fontsize = fontsize)
+    #ax.set_xlabel(r"$\omega_{\rm P} / \omega_{\rm phot}$", fontsize = fontsize)
+    ax.set_xlabel(r"$\rm light{-}matter$ $\rm coupling$ $[\omega_{\rm P} / \omega_{\rm phot}]$", fontsize = fontsize-1)
+    ax.set_ylabel(r"$\omega \, \, [\omega_{\rm phot}]$", fontsize = fontsize)
 
     ax.set_xlim(0., 5.)
-    ax.set_ylim(0., 6.)
+    ax.set_ylim(0., 3.)
 
     ax.set_xticks([0, 2, 4])
     ax.set_xticklabels(["$0$", "$2$", "$4$"], fontsize = fontsize)
-    ax.set_yticks([0., 2., 4.])
-    ax.set_yticklabels(["$0$", "$2$", "$4$"], fontsize = fontsize)
+    ax.set_yticks([0., 1., 2.])
+    ax.set_yticklabels(["$0$", "$1$", "$2$"], fontsize = fontsize)
 
-    arrow = patches.FancyArrowPatch((3., calcWMinus(wPh, wPt, 3.)), (3., calcWPlus(wPh, wPt, 3.)), arrowstyle='<->', mutation_scale=10, zorder = 100, linewidth=1., color = 'black')
+    arrow = patches.FancyArrowPatch((3., calcWMinus(wPh, wPt, 3.) / 2.), (3., calcWPlus(wPh, wPt, 3.) / 2. ), arrowstyle='<->', mutation_scale=10, zorder = 100, linewidth=1., color = 'black')
     ax.add_patch(arrow)
-    ax.text(3.2, 2.5, r"$\omega_{\rm P}$", fontsize = fontsize)
+    ax.text(3.2, 2.5 / 2., r"$\omega_{\rm P}$", fontsize = fontsize)
 
 
     legend = ax.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)

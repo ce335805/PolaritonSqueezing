@@ -12,7 +12,7 @@
 #include "writeStuffToHdf5.h"
 #include "makeFilenames.h"
 
-double wP;
+//double wP;
 
 void evalGSProps(const bool twoPhonons){
 
@@ -63,7 +63,7 @@ void evalGSProps(const bool twoPhonons){
 
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
 
-    wP = wPArr[wPStep];
+    //wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
     if(twoPhonons){
       setupGlobalH(H);

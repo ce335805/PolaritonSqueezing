@@ -11,4 +11,6 @@ void setupDOccSiteISmall(std::vector<std::complex<double>> &dOccSmallSiteI, cons
 
 void setupOccSiteISmall(std::vector<std::complex<double>> &occSmallSiteI, const ulong site);
 
+void setupTotalSpinSmall(std::vector<std::complex<double>> &totalSpin);
+
 #endif //PHONONSQUEEZING_SETUPELECTRONICOPERATORSSMALL_CPP_H

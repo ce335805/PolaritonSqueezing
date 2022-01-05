@@ -74,6 +74,28 @@ void setupDOccNoPHS(std::vector<std::complex<double>> &DOcc) {
 
 }
 
+
+void setupTotalSpin(std::vector<std::complex<double>> &totalSpin) {
+
+  totalSpin = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));
+
+  std::vector<std::complex<double>> totalSpinSmall;
+  setupTotalSpinSmall(totalSpinSmall);
+
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong ph2Ind = 0ul; ph2Ind < dimPhonon; ++ph2Ind) {
+      for (ulong ph1Ind = 0ul; ph1Ind < dimPhonon; ++ph1Ind) {
+        for (ulong eInd1 = 0ul; eInd1 < 4ul; ++eInd1) {
+          for (ulong eInd2 = 0ul; eInd2 < 4ul; ++eInd2) {
+            totalSpin[toGlobalMatrixIndex(ptInd, ptInd, ph2Ind, ph2Ind, ph1Ind, ph1Ind, eInd1, eInd2)] = totalSpinSmall[eInd1 * 4ul + eInd2];
+          }
+        }
+      }
+    }
+  }
+
+}
+
 void setupDOccSiteI(std::vector<std::complex<double>> &DOcc, const ulong site) {
 
   DOcc = std::vector<std::complex<double>>(dimHTwoPh * dimHTwoPh, std::complex<double>(0., 0.));

@@ -79,3 +79,13 @@ void setupOccSiteISmall(std::vector<std::complex<double>> &occSmallSiteI, const 
   }
 }
 
+void setupTotalSpinSmall(std::vector<std::complex<double>> &totalSpin) {
+
+  totalSpin = std::vector<std::complex<double>>(
+          {0., 0., 0., 0.,
+           0., 0.5, 0.5, 0.,
+           0., 0.5, 0.5, 0.,
+           0, 0., 0., 0.}
+  );
+}
+

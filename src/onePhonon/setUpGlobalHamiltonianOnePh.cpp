@@ -96,8 +96,8 @@ void setupQuadEPhCouplingOnePh(std::vector<std::complex<double>> &HEPh){
   HEPh = std::vector<std::complex<double>> (dimHOnePh * dimHOnePh, std::complex<double> (0., 0.));
 
   std::vector<std::complex<double>> dOcc;
-  setupDOccOnePh(dOcc);
-  //setupDOccOnePhNoPHS(dOcc);
+  //setupDOccOnePh(dOcc);
+  setupDOccOnePhNoPHS(dOcc);
 
   std::vector<std::complex<double>> B;
   setupB(B);

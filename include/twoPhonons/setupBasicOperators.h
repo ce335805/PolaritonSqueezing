@@ -17,4 +17,6 @@ void setupDOccSiteI(std::vector<std::complex<double>> &DOcc, const ulong site);
 
 void setupOccSiteI(std::vector<std::complex<double>> &OccSiteI, const ulong site);
 
+void setupTotalSpin(std::vector<std::complex<double>> &totalSpin);
+
 #endif //PHONONSQUEEZING_SETUPBASICOPERATORS_H
