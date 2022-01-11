@@ -20,7 +20,9 @@ def main():
 
     #exit()
 
-    #plotPolaritonFreqs.plotPolaritonFreqs()
+    plotPolaritonFreqs.plotPolaritonFreqs()
+
+    plotGSProps.plotGSProps()
 
     #plotTimeEvol.plotQuadUSCpSC()
     #plotTimeEvol.plotLinUSCpSC()
@@ -30,10 +32,9 @@ def main():
 
     #plotTimeEvol.plot1Phonvs2Phon()
 
-    #plotGSProps.plotGSProps()
 
-    plotGSProps.plotGSPropsConvergenceLin()
-    plotGSProps.plotGSPropsConvergenceQuad()
+    #plotGSProps.plotGSPropsConvergenceLin()
+    #plotGSProps.plotGSPropsConvergenceQuad()
 
     #classicalVSQuantum.plotClassicalVSQuantumQuad()
     #classicalVSQuantum.plotClassicalVSQuantumLin()

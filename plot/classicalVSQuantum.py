@@ -109,12 +109,12 @@ def plotClassicalVSQuantumQuad():
     ax3.plot(times, NptWP1, color=color1, linewidth = linewidth)
     ax3.plot(times, NptWP2, color=color3, linewidth = linewidth)
 
-    ax4.plot(times, pump, color=colorPump, label='pump', linewidth = 1.)
+    ax4.plot(times, pump * 2/3, color=colorPump, label='pump', linewidth = 1.)
 
     ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize, labelpad=3.)
     ax2.set_ylabel(r"$N_{\rm phon}$", fontsize = fontsize, labelpad=7.)
     ax3.set_ylabel(r"$N_{\rm phot}$", fontsize = fontsize, labelpad=7.)
-    ax4.set_ylabel(r"$F(t)$", fontsize = fontsize, labelpad=1.)
+    ax4.set_ylabel(r"$F(t) / F_0$", fontsize = fontsize, labelpad=0.)
 
 
     ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize = fontsize)
@@ -135,8 +135,8 @@ def plotClassicalVSQuantumQuad():
 
 
     ax1.set_ylim(0.105, 0.145)
-    ax1.set_yticks([0.11, 0.12, 0.13, 0.14])
-    ax1.set_yticklabels(["$0.11$", "$0.12$", "$0.13$", "$0.14$"], fontsize = fontsize)
+    ax1.set_yticks([0.12, 0.14])
+    ax1.set_yticklabels(["$0.12$", "$0.14$"], fontsize = fontsize)
 ##
     ax2.set_ylim(-0.1, 0.8)
     ax2.set_yticks([0, 0.5])
@@ -146,9 +146,9 @@ def plotClassicalVSQuantumQuad():
     ax3.set_yticks([0, 0.5])
     ax3.set_yticklabels(["$0$", "$0.5$"], fontsize = fontsize)
 ##
-    ax4.set_ylim(-0.3, 0.3)
-    ax4.set_yticks([-0.2, 0., 0.2])
-    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"], fontsize = fontsize)
+    ax4.set_ylim(-0.175, 0.175)
+    ax4.set_yticks([-0.1, 0., 0.1])
+    ax4.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
 
     legend1 = ax1.legend(fontsize = fontsize - 4, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)
@@ -239,12 +239,12 @@ def plotClassicalVSQuantumLin():
     ax3.plot(times, NptWP1, color=color1, linewidth = linewidth)
     ax3.plot(times, NptWP2, color=color3, linewidth = linewidth)
 
-    ax4.plot(times, pump, color=colorPump, label='pump', linewidth = 1.)
+    ax4.plot(times, pump * 2/3, color=colorPump, label='pump', linewidth = 1.)
 
     ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize, labelpad=3.)
     ax2.set_ylabel(r"$N_{\rm phon}$", fontsize = fontsize, labelpad= 7.)
     ax3.set_ylabel(r"$N_{\rm phot}$", fontsize = fontsize, labelpad= 7.)
-    ax4.set_ylabel(r"$F(t)$", fontsize = fontsize, labelpad=1.)
+    ax4.set_ylabel(r"$F(t) / F_0$", fontsize = fontsize, labelpad=0.)
 
 
     ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize = fontsize)
@@ -260,7 +260,8 @@ def plotClassicalVSQuantumLin():
     ax1.set_xticks([5, 10, 15, 20])
     ax2.set_xticks([5, 10, 15, 20])
     ax3.set_xticks([5, 10, 15, 20])
-    ax3.set_xticklabels(["$5$", "$10$", "$15$", "$20$"], fontsize = fontsize)
+    ax4.set_xticks([5, 10, 15, 20])
+    ax4.set_xticklabels(["$5$", "$10$", "$15$", "$20$"], fontsize = fontsize)
 
 
     ax1.set_ylim(0.105, 0.13)
@@ -275,9 +276,9 @@ def plotClassicalVSQuantumLin():
     ax3.set_yticks([0, 0.5])
     ax3.set_yticklabels(["$0$", "$0.5$"], fontsize = fontsize)
 #
-    ax4.set_ylim(-0.3, 0.3)
-    ax4.set_yticks([-0.2, 0., 0.2])
-    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"], fontsize = fontsize)
+    ax4.set_ylim(-0.175, 0.175)
+    ax4.set_yticks([-0.1, 0., 0.1])
+    ax4.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
 
     legend1 = ax1.legend(fontsize = fontsize - 4, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)

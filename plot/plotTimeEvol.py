@@ -577,15 +577,15 @@ def plotQuadUSCpSC():
     ax32 = fig.add_subplot(gs[2, 0], sharex=ax12, sharey = ax31)
     ax42 = fig.add_subplot(gs[3, 0], sharex=ax12, sharey = ax41)
 
-    ax11.tick_params(direction='inout', length=4, width=.5)
-    ax21.tick_params(direction='inout', length=4, width=.5)
-    ax31.tick_params(direction='inout', length=4, width=.5)
-    ax41.tick_params(direction='inout', length=4, width=.5)
+    ax11.tick_params(direction='inout', length=4, width=.8)
+    ax21.tick_params(direction='inout', length=4, width=.8)
+    ax31.tick_params(direction='inout', length=4, width=.8)
+    ax41.tick_params(direction='inout', length=4, width=.8)
 
-    ax12.tick_params(direction='inout', length=4, width=.5)
-    ax22.tick_params(direction='inout', length=4, width=.5)
-    ax32.tick_params(direction='inout', length=4, width=.5)
-    ax42.tick_params(direction='inout', length=4, width=.5)
+    ax12.tick_params(direction='inout', length=4, width=.8)
+    ax22.tick_params(direction='inout', length=4, width=.8)
+    ax32.tick_params(direction='inout', length=4, width=.8)
+    ax42.tick_params(direction='inout', length=4, width=.8)
 
     ax11.yaxis.tick_right()
     ax21.yaxis.tick_right()
@@ -614,9 +614,9 @@ def plotQuadUSCpSC():
     ax31.plot(timesWP2, NptWP2, color=color2, linewidth=linewidth, zorder = 5)
     ax31.plot(timesWP3, NptWP3, color=color3, linewidth=linewidth)
 
-    ax41.plot(timesWP1, pumpWP1, color=color1, label='pump', linewidth=1., zorder = 10)
-    ax41.plot(timesWP2, pumpWP2, color=color2, label='pump', linewidth=1., zorder = 5)
-    ax41.plot(timesWP3, pumpWP3, color=color3, label='pump', linewidth=1.)
+    ax41.plot(timesWP1, pumpWP1 * 2. / 3., color=color1, label='pump', linewidth=1., zorder = 10)
+    ax41.plot(timesWP2, pumpWP2 * 2. / 3., color=color2, label='pump', linewidth=1., zorder = 5)
+    ax41.plot(timesWP3, pumpWP3 * 2. / 3., color=color3, label='pump', linewidth=1.)
 
     ax12.plot(timesWP4, dOccWP4 + 0.5, color=color1, label=r'$\omega_{\rm phot} = 20 \omega_{\rm P}$', linewidth=linewidth)
     ax12.plot(timesWP5, dOccWP5 + 0.5, color=color3, label=r'$\omega_{\rm phot} = 40 \omega_{\rm P}$', linewidth=linewidth)
@@ -627,13 +627,13 @@ def plotQuadUSCpSC():
     ax32.plot(timesWP4, NptWP4, color=color1, linewidth=linewidth)
     ax32.plot(timesWP5, NptWP5, color=color3, linewidth=linewidth)
 
-    ax42.plot(timesWP4, pumpWP4, color=color1, label='pump', linewidth=1.)
-    ax42.plot(timesWP5, pumpWP5, color=color3, label='pump', linewidth=1., linestyle = '--', dashes = [4, 4])
+    ax42.plot(timesWP4, pumpWP4 * 2. / 3., color=color1, label='pump', linewidth=1.)
+    ax42.plot(timesWP5, pumpWP5 * 2. / 3., color=color3, label='pump', linewidth=1., linestyle = '--', dashes = [4, 4])
 
     ax12.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize, labelpad=3.)
-    ax22.set_ylabel(r"$N_{\rm phon}$", fontsize=fontsize, labelpad=14.)
-    ax32.set_ylabel(r"$N_{\rm phot}$", fontsize=fontsize, labelpad=14.)
-    ax42.set_ylabel(r"$F(t)$", fontsize=fontsize, labelpad=2.)
+    ax22.set_ylabel(r"$N_{\rm phon}$", fontsize=fontsize, labelpad=15.)
+    ax32.set_ylabel(r"$N_{\rm phot}$", fontsize=fontsize, labelpad=15.)
+    ax42.set_ylabel(r"$F(t) / F_0$", fontsize=fontsize, labelpad=0.)
 
     ax41.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm phot}]$", fontsize=fontsize)
     ax42.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm phot}]$", fontsize=fontsize)
@@ -652,35 +652,35 @@ def plotQuadUSCpSC():
     plt.setp(ax41.get_yticklabels(), visible=False)
 
 
-    ax11.set_xlim(1., 18)
-    ax21.set_xlim(1., 18)
-    ax31.set_xlim(1., 18)
-    ax41.set_xlim(1., 18)
+    ax11.set_xlim(3., 18)
+    ax21.set_xlim(3., 18)
+    ax31.set_xlim(3., 18)
+    ax41.set_xlim(3., 18)
     ax41.set_xticks([4, 8, 12, 16])
-    ax41.set_xticklabels(["$4$", "$8$", "$12$", "$16$"])
+    ax41.set_xticklabels(["$4$", "$8$", "$12$", "$16$"], fontsize = fontsize)
 
     ax12.set_xlim(3., 29)
     ax22.set_xlim(3., 29)
     ax32.set_xlim(3., 29)
     ax42.set_xlim(3., 29)
     ax42.set_xticks([5, 10, 15, 20, 25])
-    ax42.set_xticklabels(["$5$", "$10$", "$15$", "$20$", "$25$"])
+    ax42.set_xticklabels(["$5$", "$10$", "$15$", "$20$", "$25$"], fontsize = fontsize)
 
-    # ax1.set_ylim(0.08, 0.21)
-    # ax1.set_yticks([0.1, 0.15, 0.2])
-    # ax1.set_yticklabels(["$0.1$", "$0.15$", "$0.2$"])
-    #
+    ax12.set_ylim(0.108, 0.144)
+    ax12.set_yticks([0.12, 0.14])
+    ax12.set_yticklabels(["$0.12$", "$0.14$"], fontsize = fontsize)
+
     ax22.set_ylim(-0.15, 1.2)
     ax22.set_yticks([0., 1.])
-    ax22.set_yticklabels(["$0$", "$1$"])
+    ax22.set_yticklabels(["$0$", "$1$"], fontsize = fontsize)
     #
     ax32.set_ylim(-0.15, 1.2)
     ax32.set_yticks([0., 1.])
-    ax32.set_yticklabels(["$0$", "$1$"])
+    ax32.set_yticklabels(["$0$", "$1$"], fontsize = fontsize)
     #
-    ax41.set_ylim(-0.3, 0.3)
-    ax41.set_yticks([-0.2, 0., 0.2])
-    ax41.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+    ax42.set_ylim(-0.175, 0.175)
+    ax42.set_yticks([-0.1, 0., 0.1])
+    ax42.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
 
@@ -709,11 +709,16 @@ def plotQuadUSCpSC():
     # legend4.get_frame().set_linewidth(0.0)
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
-    ax11.text(6., 0.144, r"$\rm Ultra$ $\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax11.text(12., 0.1355, r"$\omega_{\rm P} = 0.5 \, \omega_{\rm phot}$", fontsize=8, color='black', alpha=1., bbox=boxProps)
+    ax11.text(6., 0.147, r"$\rm Ultra$ $\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax11.text(12., 0.1375, r"$\omega_{\rm P} = 0.5 \, \omega_{\rm phot}$", fontsize=8, color='black', alpha=1., bbox=boxProps)
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
-    ax12.text(12., 0.144, r"$\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax12.text(12., 0.147, r"$\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+
+    ax12.text(3., 0.147, r"$\rm{\textbf{a.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax11.text(3., 0.147, r"$\rm{\textbf{b.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+
+    ax12.text(-2.5, 0.147, r"$X^2n_{\uparrow}n_{\downarrow}$", fontsize=12, color='black', alpha=1., bbox=boxProps)
 
     plt.tight_layout()
     fig.subplots_adjust(wspace=0, hspace=0)
@@ -821,15 +826,15 @@ def plotLinUSCpSC():
     ax32 = fig.add_subplot(gs[2, 0], sharex=ax12, sharey=ax31)
     ax42 = fig.add_subplot(gs[3, 0], sharex=ax12, sharey=ax41)
 
-    ax11.tick_params(direction='inout', length=4, width=.5)
-    ax21.tick_params(direction='inout', length=4, width=.5)
-    ax31.tick_params(direction='inout', length=4, width=.5)
-    ax41.tick_params(direction='inout', length=4, width=.5)
+    ax11.tick_params(direction='inout', length=4, width=.8)
+    ax21.tick_params(direction='inout', length=4, width=.8)
+    ax31.tick_params(direction='inout', length=4, width=.8)
+    ax41.tick_params(direction='inout', length=4, width=.8)
 
-    ax12.tick_params(direction='inout', length=4, width=.5)
-    ax22.tick_params(direction='inout', length=4, width=.5)
-    ax32.tick_params(direction='inout', length=4, width=.5)
-    ax42.tick_params(direction='inout', length=4, width=.5)
+    ax12.tick_params(direction='inout', length=4, width=.8)
+    ax22.tick_params(direction='inout', length=4, width=.8)
+    ax32.tick_params(direction='inout', length=4, width=.8)
+    ax42.tick_params(direction='inout', length=4, width=.8)
 
     ax11.yaxis.tick_right()
     ax21.yaxis.tick_right()
@@ -860,9 +865,9 @@ def plotLinUSCpSC():
     ax31.plot(timesWP2, NptWP2, color=color2, linewidth=linewidth, zorder=5)
     ax31.plot(timesWP3, NptWP3, color=color3, linewidth=linewidth)
 
-    ax41.plot(timesWP1, pumpWP1, color=color1, label='pump', linewidth=1., zorder=10)
-    ax41.plot(timesWP2, pumpWP2, color=color2, label='pump', linewidth=1., zorder=5)
-    ax41.plot(timesWP3, pumpWP3, color=color3, label='pump', linewidth=1.)
+    ax41.plot(timesWP1, pumpWP1 * 2. / 3., color=color1, label='pump', linewidth=1., zorder=10)
+    ax41.plot(timesWP2, pumpWP2 * 2. / 3., color=color2, label='pump', linewidth=1., zorder=5)
+    ax41.plot(timesWP3, pumpWP3 * 2. / 3., color=color3, label='pump', linewidth=1.)
 
     ax12.plot(timesWP4, dOccWP4 + 0.5, color=color1, label=r'$\omega_{\rm P} = \frac{\omega_{\rm phot}}{40}$',
               linewidth=linewidth)
@@ -875,13 +880,13 @@ def plotLinUSCpSC():
     ax32.plot(timesWP4, NptWP4, color=color1, linewidth=linewidth)
     ax32.plot(timesWP5, NptWP5, color=color3, linewidth=linewidth)
 
-    ax42.plot(timesWP4, pumpWP4, color=color1, label='pump', linewidth=1.)
-    ax42.plot(timesWP5, pumpWP5, color=color3, label='pump', linewidth=1., linestyle='--', dashes=[4, 4])
+    ax42.plot(timesWP4, pumpWP4 * 2. / 3., color=color1, label='pump', linewidth=1.)
+    ax42.plot(timesWP5, pumpWP5 * 2. / 3., color=color3, label='pump', linewidth=1., linestyle='--', dashes=[4, 4])
 
     ax12.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize, labelpad = 3.)
-    ax22.set_ylabel(r"$N_{\rm phon}$", fontsize=fontsize, labelpad = 13.)
-    ax32.set_ylabel(r"$N_{\rm phot}$", fontsize=fontsize, labelpad = 13.)
-    ax42.set_ylabel(r"$F(t)$", fontsize=fontsize, labelpad = 2.)
+    ax22.set_ylabel(r"$N_{\rm phon}$", fontsize=fontsize, labelpad = 15.)
+    ax32.set_ylabel(r"$N_{\rm phot}$", fontsize=fontsize, labelpad = 15.)
+    ax42.set_ylabel(r"$F(t) / F_0$", fontsize=fontsize, labelpad = 0.)
 
     ax41.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm phot}]$", fontsize=fontsize)
     ax42.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm phot}]$", fontsize=fontsize)
@@ -904,30 +909,30 @@ def plotLinUSCpSC():
     ax31.set_xlim(3., 18)
     ax41.set_xlim(3., 18)
     ax41.set_xticks([4, 8, 12, 16])
-    ax41.set_xticklabels(["$4$", "$8$", "$12$", "$16$"])
+    ax41.set_xticklabels(["$4$", "$8$", "$12$", "$16$"], fontsize = fontsize)
 
     ax12.set_xlim(3., 29)
     ax22.set_xlim(3., 29)
     ax32.set_xlim(3., 29)
     ax42.set_xlim(3., 29)
     ax42.set_xticks([5, 10, 15, 20, 25])
-    ax42.set_xticklabels(["$5$", "$10$", "$15$", "$20$", "$25$"])
+    ax42.set_xticklabels(["$5$", "$10$", "$15$", "$20$", "$25$"], fontsize = fontsize)
 
     # ax1.set_ylim(0.08, 0.21)
     ax12.set_yticks([0.11, 0.12])
-    ax12.set_yticklabels(["$0.11$", "$0.12$"])
+    ax12.set_yticklabels(["$0.11$", "$0.12$"], fontsize = fontsize)
     #
     ax22.set_ylim(-0.15, 1.7)
     ax22.set_yticks([0, 1])
-    ax22.set_yticklabels(["$0$", "$1$", '$2$'])
+    ax22.set_yticklabels(["$0$", "$1$", '$2$'], fontsize = fontsize)
     #
-    ax32.set_ylim(-0.15, 1.2)
+    ax32.set_ylim(-0.15, 1.4)
     ax32.set_yticks([0, 1])
-    ax32.set_yticklabels(["$0$", "$1$"])
+    ax32.set_yticklabels(["$0$", "$1$"], fontsize = fontsize)
     #
-    ax42.set_ylim(-0.3, 0.3)
-    ax42.set_yticks([-0.2, 0., 0.2])
-    ax42.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+    ax42.set_ylim(-0.175, 0.175)
+    ax42.set_yticks([-0.1, 0., 0.1])
+    ax42.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
 
@@ -963,6 +968,13 @@ def plotLinUSCpSC():
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
     ax12.text(12., 0.124, r"$\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+
+
+    boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
+    ax12.text(3., 0.124, r"$\rm{\textbf{a.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax11.text(3., 0.124, r"$\rm{\textbf{b.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+
+    ax12.text(-2.5, 0.124, r"$X^2n$", fontsize=12, color='black', alpha=1., bbox=boxProps)
 
     plt.tight_layout()
     fig.subplots_adjust(wspace=0, hspace=0)
@@ -1085,21 +1097,21 @@ def plotAsOfWPLin():
     ax1.set_xticks([4, 8, 12, 16])
     ax2.set_xticks([4, 8, 12, 16])
     ax3.set_xticks([4, 8, 12, 16])
-    ax3.set_xticklabels(["$4$", "$8$", "$12$", "$16$"])
+    ax3.set_xticklabels(["$4$", "$8$", "$12$", "$16$"], fontsize = fontsize)
 
     # ax1.set_ylim(0.08, 0.21)
     ax1.set_yticks([0.11, 0.12, 0.13])
-    ax1.set_yticklabels(["$0.11$", "$0.12$", "$0.13$"])
+    ax1.set_yticklabels(["$0.11$", "$0.12$", "$0.13$"], fontsize = fontsize)
     #
     ax2.set_yticks([0., 0.3, 0.6])
-    ax2.set_yticklabels(["$0$", "$0.3$", '$0.6$'])
+    ax2.set_yticklabels(["$0$", "$0.3$", '$0.6$'], fontsize = fontsize)
     #
     ax3.set_yticks([0, 1, 2])
-    ax3.set_yticklabels(["$0$", "$1$", "$2$"])
+    ax3.set_yticklabels(["$0$", "$1$", "$2$"], fontsize = fontsize)
     #
     ax4.set_ylim(-0.4, 0.4)
     ax4.set_yticks([-0.2, 0., 0.2])
-    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"], fontsize = fontsize)
 
 
     legend1 = ax1.legend(fontsize = fontsize - 4, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)
@@ -1189,13 +1201,13 @@ def plot1Phonvs2Phon():
     ax3.plot(times, NptQ, color=color3, label='Driven Cavity', linewidth = 1.)
     ax3.plot(times, Npt, color=color1, label='Classical Driving', linewidth = 1., zorder = 10)
 
-    ax4.plot(times, pump, color='red', label='pump', linewidth = 1.)
+    ax4.plot(times, pump * 2 / 3, color='red', label='pump', linewidth = 1.)
 
 
     ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize, labelpad=3.)
     ax2.set_ylabel(r"$N_{\rm phon}$", fontsize = fontsize, labelpad = 7.)
     ax3.set_ylabel(r"$N_{\rm phot}$", fontsize = fontsize, labelpad = 7.)
-    ax4.set_ylabel(r"$F(t)$", fontsize = fontsize, labelpad=1.)
+    ax4.set_ylabel(r"$F(t)/F_0$", fontsize = fontsize, labelpad=0.)
 
 
     ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm phot}]$", fontsize = fontsize)
@@ -1226,9 +1238,9 @@ def plot1Phonvs2Phon():
     ax3.set_ylim(-0.1, 0.9)
     ax3.set_yticks([0, 0.5])
     ax3.set_yticklabels(["$0$", "$0.5$"], fontsize = fontsize)
-    ax4.set_ylim(-0.35, 0.35)
-    ax4.set_yticks([-0.2, 0., 0.2])
-    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"], fontsize = fontsize)
+    ax4.set_ylim(-0.175, 0.175)
+    ax4.set_yticks([-0.1, 0., 0.1])
+    ax4.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
 
     legend1 = ax1.legend(fontsize = fontsize - 2, loc = 'upper left', bbox_to_anchor=(.0, 1.), edgecolor = 'black', ncol = 1)

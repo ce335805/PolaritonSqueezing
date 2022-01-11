@@ -768,8 +768,9 @@ def plotConvInDOccQuad():
     ax2 = fig.add_subplot(gs[1], sharex=ax1)
     ax4 = fig.add_subplot(gs[2], sharex=ax1)
 
-    ax1.tick_params(direction='inout', length=6, width=.5)
-    ax2.tick_params(direction='inout', length=6, width=.5)
+    ax1.tick_params(direction='inout', length=4, width=.8)
+    ax2.tick_params(direction='inout', length=4, width=.8)
+    ax4.tick_params(direction='inout', length=4, width=.8)
 
     linewidth = 1.2
 
@@ -796,11 +797,11 @@ def plotConvInDOccQuad():
 
     # ax4.plot(times1, pump1, color=colorPump, label='pump', linewidth = 1.)
     # ax4.plot(times2, pump2, color=colorPump, label='pump', linewidth = 1.)
-    ax4.plot(timesNB, pump1, color=colorPump, label='pump', linewidth=1.)
+    ax4.plot(timesNB, pump1 * 2. / 3., color=colorPump, label='pump', linewidth=1.)
 
-    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize)
-    ax2.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize)
-    ax4.set_ylabel(r"$F(t)$", fontsize=fontsize)
+    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize, labelpad=3.)
+    ax2.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize, labelpad=3.)
+    ax4.set_ylabel(r"$F(t) / F_0$", fontsize=fontsize, labelpad = 0.)
 
     ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize=fontsize)
 
@@ -811,20 +812,20 @@ def plotConvInDOccQuad():
     ax2.set_xlim(10., 14.)
     ax4.set_xlim(10., 14.)
 
+    ax4.set_xticks([10, 11, 12, 13, 14])
+    ax4.set_xticklabels(["$10$", "$11$", "$12$", "$13$", "$14$"], fontsize = fontsize)
+
     ax1.set_ylim(0.110, 0.142)
-    ax1.set_yticks([0.12, 0.13, 0.14])
-    ax1.set_yticklabels(["$0.12$", "$0.13$", "$0.14$"])
+    ax1.set_yticks([0.12, 0.14])
+    ax1.set_yticklabels(["$0.12$", "$0.14$"], fontsize = fontsize)
 
     ax2.set_ylim(0.110, 0.142)
-    ax2.set_yticks([0.12, 0.13, 0.14])
-    ax2.set_yticklabels(["$0.12$", "$0.13$", "$0.14$"])
+    ax2.set_yticks([0.12, 0.14])
+    ax2.set_yticklabels(["$0.12$", "$0.14$"], fontsize = fontsize)
     #
-    ax4.set_ylim(-0.3, 0.3)
-    # ax3.set_yticks([0, 1, 2])
-    # ax3.set_yticklabels(["$0$", "$1$", "$2$"])
-    #
-    ax4.set_yticks([-0.2, 0., 0.2])
-    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+    ax4.set_ylim(-0.175, 0.175)
+    ax4.set_yticks([-0.1, 0., 0.1])
+    ax4.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
     legend1 = ax1.legend(fontsize=fontsize - 4, loc='upper left', bbox_to_anchor=(.0, 1.), edgecolor='black', ncol=3)
     legend1.get_frame().set_alpha(0.)
@@ -925,8 +926,9 @@ def plotConvInDOccLin():
     ax2 = fig.add_subplot(gs[1], sharex=ax1)
     ax4 = fig.add_subplot(gs[2], sharex=ax1)
 
-    ax1.tick_params(direction='inout', length=6, width=.5)
-    ax2.tick_params(direction='inout', length=6, width=.5)
+    ax1.tick_params(direction='inout', length=4, width=.8)
+    ax2.tick_params(direction='inout', length=4, width=.8)
+    ax4.tick_params(direction='inout', length=4, width=.8)
 
     linewidth = 1.2
 
@@ -954,11 +956,11 @@ def plotConvInDOccLin():
 
     # ax4.plot(times1, pump1, color=colorPump, label='pump', linewidth = 1.)
     # ax4.plot(times2, pump2, color=colorPump, label='pump', linewidth = 1.)
-    ax4.plot(timesNB, pump1, color=colorPump, label='pump', linewidth=1.)
+    ax4.plot(timesNB, pump1 * 2. / 3., color=colorPump, label='pump', linewidth=1.)
 
-    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize)
-    ax2.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize)
-    ax4.set_ylabel(r"$F(t)$", fontsize=fontsize)
+    ax1.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize, labelpad=3.)
+    ax2.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize=fontsize, labelpad=3.)
+    ax4.set_ylabel(r"$F(t) / F_0$", fontsize=fontsize, labelpad = 0.)
 
     ax4.set_xlabel(r"$t \, \, [2 \pi / \omega_{\rm Drive}]$", fontsize=fontsize)
 
@@ -969,21 +971,21 @@ def plotConvInDOccLin():
     ax2.set_xlim(10., 14.)
     ax4.set_xlim(10., 14.)
 
+    ax4.set_xticks([10, 11, 12, 13, 14])
+    ax4.set_xticklabels(["$10$", "$11$", "$12$", "$13$", "$14$"], fontsize = fontsize)
+
 
     ax1.set_ylim(0.106, 0.131)
-    # ax1.set_yticks([0.1, 0.13, 0.16])
-    # ax1.set_yticklabels(["$0.1$", "$0.13$", "$0.16$"])
+    ax1.set_yticks([0.11, 0.13])
+    ax1.set_yticklabels(["$0.11$", "$0.13$"], fontsize = fontsize)
 
     ax2.set_ylim(0.106, 0.131)
-    # ax2.set_yticks([0, 1])
-    # ax2.set_yticklabels(["$0$", "$1$"])
+    ax2.set_yticks([0.11, 0.13])
+    ax2.set_yticklabels(["$0.11$", "$0.13$"], fontsize = fontsize)
 
-    ax4.set_ylim(-0.3, 0.3)
-    # ax3.set_yticks([0, 1, 2])
-    # ax3.set_yticklabels(["$0$", "$1$", "$2$"])
-    #
-    ax4.set_yticks([-0.2, 0., 0.2])
-    ax4.set_yticklabels(["$-0.2$", "$0$", "$0.2$"])
+    ax4.set_ylim(-0.175, 0.175)
+    ax4.set_yticks([-0.1, 0., 0.1])
+    ax4.set_yticklabels(["$-0.1$", "$0$", "$0.1$"], fontsize = fontsize)
 
     legend1 = ax1.legend(fontsize=fontsize - 4, loc='upper left', bbox_to_anchor=(.0, 1.), edgecolor='black', ncol=3)
     legend1.get_frame().set_alpha(0.)

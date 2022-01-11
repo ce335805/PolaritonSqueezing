@@ -70,6 +70,8 @@ def plotPolaritonFreqs():
 
     fig.set_size_inches(2., 2.)
 
+    ax.tick_params(direction='inout', length=4, width=.8)
+
     linewidth = 1.
 
     ax.plot(wPArr, wPlus / 2., color = 'olive', label = r'$\omega_+$', linewidth = linewidth)
@@ -77,7 +79,7 @@ def plotPolaritonFreqs():
 
     #ax.set_xlabel(r"$\omega_{\rm P} / \omega_{\rm phot}$", fontsize = fontsize)
     ax.set_xlabel(r"$\rm light{-}matter$ $\rm coupling$ $[\omega_{\rm P} / \omega_{\rm phot}]$", fontsize = fontsize-1)
-    ax.set_ylabel(r"$\omega \, \, [\omega_{\rm phot}]$", fontsize = fontsize)
+    ax.set_ylabel(r"$\omega / \omega_{\rm phot}$", fontsize = fontsize)
 
     ax.set_xlim(0., 5.)
     ax.set_ylim(0., 3.)

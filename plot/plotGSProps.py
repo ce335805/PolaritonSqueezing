@@ -58,7 +58,9 @@ def plotGSProps():
     for axis in ['top', 'bottom', 'left', 'right']:
         ax.spines[axis].set_linewidth(0.5)
 
-    fig.set_size_inches(3., 2.)
+    ax.tick_params(direction='inout', length=4, width=.8)
+
+    fig.set_size_inches(2.3, 2.)
     #fig.set_size_inches(5., 5.)
 
     linewidth = 1.
@@ -86,17 +88,17 @@ def plotGSProps():
     ax.set_yticks([0.11, 0.112, 0.114, 0.116])
     ax.set_yticklabels(["$0.11$", "$0.112$", "$0.114$", "$0.116$"], fontsize = fontsize)
 
-    arrow = patches.FancyArrowPatch((.5, 0.113), (2.5, 0.112), arrowstyle='->', mutation_scale=10, zorder = 100, linewidth=1.5, color = 'black')
+    arrow = patches.FancyArrowPatch((.5, 0.1137), (2.5, 0.1127), arrowstyle='->', mutation_scale=10, zorder = 100, linewidth=1.5, color = 'black')
     ax.add_patch(arrow)
 
-    boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
+    boxProps = dict(boxstyle='square', facecolor='white', alpha=0., linewidth=0., fill=True, pad=0.15)
     #plt.gcf().text(.4, 0.65, "Increased Correlations", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax.text(.2, 0.1135, r"$\rm Increased \, \, \,  Correlations$", fontsize=fontsize - 1, color='black', alpha=1., bbox=boxProps)
+    ax.text(.1, 0.114, r"$\rm Increased \, \, \,  Interactions$", fontsize=fontsize - 1, color='black', alpha=1., bbox=boxProps)
 
     #plt.gcf().text(.9, 0.1, r"$g_1 = g_2 = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax.text(3.1, 0.10925, r"$g = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax.text(3.1, 0.1102, r"$X^2 n$", fontsize=10, color='rosybrown', alpha=1., bbox=boxProps)
-    ax.text(3.1, 0.1145, r"$X^2 n^2$", fontsize=10, color='olive', alpha=1., bbox=boxProps)
+    ax.text(1., 0.1099, r"$g = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax.text(2.3, 0.1109, r"$X^2 n$", fontsize=10, color='rosybrown', alpha=1., bbox=boxProps)
+    ax.text(2., 0.11545, r"$X^2 n_{\uparrow}n_{\downarrow}$", fontsize=10, color='olive', alpha=1., bbox=boxProps)
 
 
     #legend = ax.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.0, .8), edgecolor = 'black', ncol = 1)
