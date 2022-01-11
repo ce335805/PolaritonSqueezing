@@ -20,23 +20,35 @@ def main():
 
     #exit()
 
+    #Plot of the polariton frequencies - Fig. 1 b.)
     plotPolaritonFreqs.plotPolaritonFreqs()
 
+    #Plot of the double occupancy in the ground-state - Fig. 1 c.)
     plotGSProps.plotGSProps()
 
-    #plotTimeEvol.plotQuadUSCpSC()
-    #plotTimeEvol.plotLinUSCpSC()
+    #Plot of time-evolution for the coupling to the linear density - Fig. 2
+    plotTimeEvol.plotLinUSCpSC()
 
-    #ConvergencePlots.plotConvInDOccLin()
-    #ConvergencePlots.plotConvInDOccQuad()
-
-    #plotTimeEvol.plot1Phonvs2Phon()
+    #Plot of time-evolution for the coupling to the double occupancy - Fig. 3
+    plotTimeEvol.plotQuadUSCpSC()
 
 
-    #plotGSProps.plotGSPropsConvergenceLin()
-    #plotGSProps.plotGSPropsConvergenceQuad()
+### plots for the appendix
 
-    #classicalVSQuantum.plotClassicalVSQuantumQuad()
-    #classicalVSQuantum.plotClassicalVSQuantumLin()
+    #Plots for convergence of double occupancy in boson cutoff - Fig. 5
+    plotGSProps.plotGSPropsConvergenceLin()
+    plotGSProps.plotGSPropsConvergenceQuad()
+
+    #Plots for convergence of time-evolved system in boson cutoff and time-step - Fig. 6
+    ConvergencePlots.plotConvInDOccLin()
+    ConvergencePlots.plotConvInDOccQuad()
+
+    #Plots for comparison of classical vs cavity driving - Fig. 7
+    classicalVSQuantum.plotClassicalVSQuantumLin()
+    classicalVSQuantum.plotClassicalVSQuantumQuad()
+
+    #Plots for comparison of 1Phonon vs 2Phonon model - Fig. 8
+    plotTimeEvol.plot1Phonvs2Phon()
+
 
 main()

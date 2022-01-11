@@ -39,13 +39,13 @@ mpl.rcParams['text.latex.preamble'] = [
 def plotGSProps():
     print("plotting GS props")
 
-    fileOnePh = h5py.File("../data/gsPropQuad2PhGPH20NB16.hdf5", 'r')
+    fileOnePh = h5py.File("../dataRef/gsPropQuad2PhGPH20NB16.hdf5", 'r')
     wPOnePh = fileOnePh['times'][()]
     dOccOnePh = fileOnePh['dOcc'][()]
     NptOnePh = fileOnePh['Npt'][()]
     NphOnePh = fileOnePh['N1ph'][()]
 
-    fileTwoPh = h5py.File("../data/gsPropQuad2PhGPH50NB16.hdf5", 'r')
+    fileTwoPh = h5py.File("../dataRef/gsPropQuad2PhGPH50NB16.hdf5", 'r')
     wPTwoPh = fileTwoPh['times'][()]
     dOccTwoPh = fileTwoPh['dOcc'][()]
     NptTwoPh = fileTwoPh['Npt'][()]
@@ -107,9 +107,9 @@ def plotGSProps():
     #legend.get_frame().set_linewidth(0.0)
 
     plt.tight_layout()
-    #plt.show()
+    plt.show()
 
-    plt.savefig('dOccAsOfwP.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('dOccAsOfwP.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 def plotGSPropsConvergence():
@@ -215,36 +215,36 @@ def plotGSPropsConvergence():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('gsPropsConvergenceNB.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('gsPropsConvergenceNB.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 def plotGSPropsConvergenceLin():
     print("plotting GS props")
 
-    filePhN6 = h5py.File("../data/gsPropQuad2PhGPH50NB6.hdf5", 'r')
+    filePhN6 = h5py.File("../dataRef/gsPropQuad2PhGPH50NB6.hdf5", 'r')
     wP = filePhN6['times'][()]
     dOccPhN6 = filePhN6['dOcc'][()]
     NphPhN6 = 2. * filePhN6['N1ph'][()]
     NptPhN6 = filePhN6['Npt'][()]
 
-    filePhN10 = h5py.File("../data/gsPropQuad2PhGPH50NB10.hdf5", 'r')
+    filePhN10 = h5py.File("../dataRef/gsPropQuad2PhGPH50NB10.hdf5", 'r')
     dOccPhN10 = filePhN10['dOcc'][()]
     NphPhN10 = 2. * filePhN10['N1ph'][()]
     NptPhN10 = filePhN10['Npt'][()]
 
-    filePhN12 = h5py.File("../data/gsPropQuad2PhGPH50NB12.hdf5", 'r')
+    filePhN12 = h5py.File("../dataRef/gsPropQuad2PhGPH50NB12.hdf5", 'r')
     dOccPhN12 = filePhN12['dOcc'][()]
     NphPhN12 = 2. * filePhN12['N1ph'][()]
     NptPhN12 = filePhN12['Npt'][()]
 
-    filePhN14 = h5py.File("../data/gsPropQuad2PhGPH50NB14.hdf5", 'r')
+    filePhN14 = h5py.File("../dataRef/gsPropQuad2PhGPH50NB14.hdf5", 'r')
     dOccPhN14 = filePhN14['dOcc'][()]
     NphPhN14 = 2. * filePhN14['N1ph'][()]
     NptPhN14 = filePhN14['Npt'][()]
 
-    filePhN16 = h5py.File("../data/gsPropQuad2PhGPH50NB16.hdf5", 'r')
+    filePhN16 = h5py.File("../dataRef/gsPropQuad2PhGPH50NB16.hdf5", 'r')
     dOccPhN16 = filePhN16['dOcc'][()]
     NphPhN16 = 2. * filePhN16['N1ph'][()]
     NptPhN16 = filePhN16['Npt'][()]
@@ -342,36 +342,36 @@ def plotGSPropsConvergenceLin():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('gsPropsConvergenceNBLin.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('gsPropsConvergenceNBLin.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 def plotGSPropsConvergenceQuad():
     print("plotting GS props")
 
-    filePhN6 = h5py.File("../data/gsPropQuad2PhGPH20NB6.hdf5", 'r')
+    filePhN6 = h5py.File("../dataRef/gsPropQuad2PhGPH20NB6.hdf5", 'r')
     wP = filePhN6['times'][()]
     dOccPhN6 = filePhN6['dOcc'][()]
     NphPhN6 = 2. * filePhN6['N1ph'][()]
     NptPhN6 = filePhN6['Npt'][()]
 
-    filePhN10 = h5py.File("../data/gsPropQuad2PhGPH20NB10.hdf5", 'r')
+    filePhN10 = h5py.File("../dataRef/gsPropQuad2PhGPH20NB10.hdf5", 'r')
     dOccPhN10 = filePhN10['dOcc'][()]
     NphPhN10 = 2. * filePhN10['N1ph'][()]
     NptPhN10 = filePhN10['Npt'][()]
 
-    filePhN12 = h5py.File("../data/gsPropQuad2PhGPH20NB12.hdf5", 'r')
+    filePhN12 = h5py.File("../dataRef/gsPropQuad2PhGPH20NB12.hdf5", 'r')
     dOccPhN12 = filePhN12['dOcc'][()]
     NphPhN12 = 2. * filePhN12['N1ph'][()]
     NptPhN12 = filePhN12['Npt'][()]
 
-    filePhN14 = h5py.File("../data/gsPropQuad2PhGPH20NB14.hdf5", 'r')
+    filePhN14 = h5py.File("../dataRef/gsPropQuad2PhGPH20NB14.hdf5", 'r')
     dOccPhN14 = filePhN14['dOcc'][()]
     NphPhN14 = 2. * filePhN14['N1ph'][()]
     NptPhN14 = filePhN14['Npt'][()]
 
-    filePhN16 = h5py.File("../data/gsPropQuad2PhGPH20NB16.hdf5", 'r')
+    filePhN16 = h5py.File("../dataRef/gsPropQuad2PhGPH20NB16.hdf5", 'r')
     dOccPhN16 = filePhN16['dOcc'][()]
     NphPhN16 = 2. * filePhN16['N1ph'][()]
     NptPhN16 = filePhN16['Npt'][()]
@@ -468,6 +468,6 @@ def plotGSPropsConvergenceQuad():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('gsPropsConvergenceNBQuad.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('gsPropsConvergenceNBQuad.png', format='png', bbox_inches='tight', dpi = 600)

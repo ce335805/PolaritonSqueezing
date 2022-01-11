@@ -1,7 +1,8 @@
 batchscriptRaven.sh
 *.pdf
-*.hdf5
 .idea
+data/
+
 
 CMakeLists.txt.user
 CMakeCache.txt

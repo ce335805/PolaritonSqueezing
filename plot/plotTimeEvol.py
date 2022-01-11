@@ -482,12 +482,12 @@ def plotQuadUSCpSC():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH20WP71WD200FD300NB10TS80WPh2022.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH20WP71WD156FD300NB10TS80WPh2022.hdf5", 'r')
-    fileWP3 = h5py.File("../data/tEvol2PhGPH20WP71WD256FD300NB10TS80WPh2022.hdf5", 'r')
+    fileWP1 = h5py.File("../dataRef/tEvol2PhGPH20WP71WD200FD300NB10TS80WPh2022.hdf5", 'r')
+    fileWP2 = h5py.File("../dataRef/tEvol2PhGPH20WP71WD156FD300NB10TS80WPh2022.hdf5", 'r')
+    fileWP3 = h5py.File("../dataRef/tEvol2PhGPH20WP71WD256FD300NB10TS80WPh2022.hdf5", 'r')
 
-    fileWP4 = h5py.File("../data/tEvol2PhGPH20WP4WD200FD300NB10TS80WPh2022.hdf5", 'r')
-    fileWP5 = h5py.File("../data/tEvol2PhGPH20WP7WD200FD300NB10TS80WPh2022.hdf5", 'r')
+    fileWP4 = h5py.File("../dataRef/tEvol2PhGPH20WP4WD200FD300NB10TS80WPh2022.hdf5", 'r')
+    fileWP5 = h5py.File("../dataRef/tEvol2PhGPH20WP7WD200FD300NB10TS80WPh2022.hdf5", 'r')
 
     # readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP1 = (fileWP1['wPh'][()])[0]
@@ -722,21 +722,21 @@ def plotQuadUSCpSC():
 
     plt.tight_layout()
     fig.subplots_adjust(wspace=0, hspace=0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('SCvsUSCQuad.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('SCvsUSCQuad.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 def plotLinUSCpSC():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP71WD200FD300NB10TS80WPh1230.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP71WD156FD300NB10TS80WPh1230.hdf5", 'r')
-    fileWP3 = h5py.File("../data/tEvol2PhGPH50WP71WD256FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP1 = h5py.File("../dataRef/tEvol2PhGPH50WP71WD200FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP2 = h5py.File("../dataRef/tEvol2PhGPH50WP71WD156FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP3 = h5py.File("../dataRef/tEvol2PhGPH50WP71WD256FD300NB10TS80WPh1230.hdf5", 'r')
 
-    fileWP4 = h5py.File("../data/tEvol2PhGPH50WP4WD200FD300NB10TS80WPh1230.hdf5", 'r')
-    fileWP5 = h5py.File("../data/tEvol2PhGPH50WP7WD200FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP4 = h5py.File("../dataRef/tEvol2PhGPH50WP4WD200FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP5 = h5py.File("../dataRef/tEvol2PhGPH50WP7WD200FD300NB10TS80WPh1230.hdf5", 'r')
 
     # readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP1 = (fileWP1['wPh'][()])[0]
@@ -978,9 +978,9 @@ def plotLinUSCpSC():
 
     plt.tight_layout()
     fig.subplots_adjust(wspace=0, hspace=0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('SCvsUSCLin.png', format='png', bbox_inches='tight', dpi=600)
+    #plt.savefig('SCvsUSCLin.png', format='png', bbox_inches='tight', dpi=600)
 
 def plotAsOfWPLin():
     print("plotting some beautiful time evolution")
@@ -1134,8 +1134,8 @@ def plot1Phonvs2Phon():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileC = h5py.File("../data/tEvol1PhGPH10WP20WD200FD300NB10TS80WPh2011.hdf5", 'r')
-    fileQ = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB10TS80WPh2022.hdf5", 'r')
+    fileC = h5py.File("../dataRef/tEvol1PhGPH10WP20WD200FD300NB10TS80WPh2011.hdf5", 'r')
+    fileQ = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB10TS80WPh2022.hdf5", 'r')
 
     # read in stuff
     #fileC = h5py.File("../data/tEvol1PhGPH10WP71WD200FD200NB10.hdf5", 'r')
@@ -1261,9 +1261,9 @@ def plot1Phonvs2Phon():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('1PhononVS2Phonon.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('1PhononVS2Phonon.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 

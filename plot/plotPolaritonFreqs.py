@@ -100,6 +100,6 @@ def plotPolaritonFreqs():
     legend.get_frame().set_linewidth(0.0)
 
     plt.tight_layout()
-    #plt.show()
+    plt.show()
 
-    plt.savefig('PolaritonFreqs.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('PolaritonFreqs.png', format='png', bbox_inches='tight', dpi = 600)

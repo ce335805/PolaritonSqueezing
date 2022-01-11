@@ -42,8 +42,8 @@ def plotClassicalVSQuantumQuad():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH20WP0WD200FD300NB10TS80WPh2022classic.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB10TS80WPh2022.hdf5", 'r')
+    fileWP1 = h5py.File("../dataRef/tEvol2PhGPH20WP0WD200FD300NB10TS80WPh2022classic.hdf5", 'r')
+    fileWP2 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB10TS80WPh2022.hdf5", 'r')
 
     #fileWP1 = h5py.File("../data/tEvol2PhGPH20WP0WD200FD100NB10.hdf5", 'r')
     #fileWP2 = h5py.File("../data/tEvol2PhGPH20WP20WD200FD200NB10TS80.hdf5", 'r')
@@ -167,16 +167,16 @@ def plotClassicalVSQuantumQuad():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('quantumVSclassical.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('quantumVSclassical.png', format='png', bbox_inches='tight', dpi = 600)
 
 def plotClassicalVSQuantumLin():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP0WD200FD300NB10TS80WPh1230classic.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP1 = h5py.File("../dataRef/tEvol2PhGPH50WP0WD200FD300NB10TS80WPh1230classic.hdf5", 'r')
+    fileWP2 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB10TS80WPh1230.hdf5", 'r')
 
     #readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP2 = (fileWP2['wPh'][()])[0]
@@ -296,7 +296,7 @@ def plotClassicalVSQuantumLin():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('quantumVSclassicalLin.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('quantumVSclassicalLin.png', format='png', bbox_inches='tight', dpi = 600)
 

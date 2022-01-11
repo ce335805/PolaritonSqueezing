@@ -704,18 +704,18 @@ def plotConvInDOccQuad():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileNB1 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB4TS40WPh2022.hdf5", 'r')
-    fileNB2 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB6TS40WPh2022.hdf5", 'r')
-    fileNB3 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB8TS40WPh2022.hdf5", 'r')
-    fileNB4 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB10TS40WPh2022.hdf5", 'r')
-    fileNB5 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB12TS40WPh2022.hdf5", 'r')
+    fileNB1 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB4TS40WPh2022.hdf5", 'r')
+    fileNB2 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB6TS40WPh2022.hdf5", 'r')
+    fileNB3 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB8TS40WPh2022.hdf5", 'r')
+    fileNB4 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB10TS40WPh2022.hdf5", 'r')
+    fileNB5 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB12TS40WPh2022.hdf5", 'r')
 
     # read in stuff
-    fileNT1 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB8TS10WPh2022.hdf5", 'r')
-    fileNT2 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB8TS20WPh2022.hdf5", 'r')
-    fileNT3 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB8TS40WPh2022.hdf5", 'r')
-    fileNT4 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB8TS80WPh2022.hdf5", 'r')
-    fileNT5 = h5py.File("../data/tEvol2PhGPH20WP14WD200FD300NB8TS160WPh2022.hdf5", 'r')
+    fileNT1 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB8TS10WPh2022.hdf5", 'r')
+    fileNT2 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB8TS20WPh2022.hdf5", 'r')
+    fileNT3 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB8TS40WPh2022.hdf5", 'r')
+    fileNT4 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB8TS80WPh2022.hdf5", 'r')
+    fileNT5 = h5py.File("../dataRef/tEvol2PhGPH20WP14WD200FD300NB8TS160WPh2022.hdf5", 'r')
 
     # readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP4 = (fileNB3['wPh'][()])[0]
@@ -847,20 +847,20 @@ def plotConvInDOccQuad():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('functionOfWPQuadConvNtNB.png', format='png', bbox_inches='tight', dpi=600)
+    #plt.savefig('functionOfWPQuadConvNtNB.png', format='png', bbox_inches='tight', dpi=600)
 
 
 def plotConvInDOccLin():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileNB1 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB4TS40WPh1230.hdf5", 'r')
-    fileNB2 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB6TS40WPh1230.hdf5", 'r')
-    fileNB3 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB8TS40WPh1230.hdf5", 'r')
-    fileNB4 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB10TS40WPh1230.hdf5", 'r')
-    fileNB5 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB12TS40WPh1230.hdf5", 'r')
+    fileNB1 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB4TS40WPh1230.hdf5", 'r')
+    fileNB2 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB6TS40WPh1230.hdf5", 'r')
+    fileNB3 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB8TS40WPh1230.hdf5", 'r')
+    fileNB4 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB10TS40WPh1230.hdf5", 'r')
+    fileNB5 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB12TS40WPh1230.hdf5", 'r')
 
     #fileNB1 = h5py.File("../data/tEvol2PhGPH50WP50WD200FD200NB4.hdf5", 'r')
     #fileNB2 = h5py.File("../data/tEvol2PhGPH50WP50WD200FD200NB6TS80.hdf5", 'r')
@@ -869,11 +869,11 @@ def plotConvInDOccLin():
     #fileNB5 = h5py.File("../data/tEvol2PhGPH50WP50WD200FD200NB12TS80.hdf5", 'r')
 
     # read in stuff
-    fileNT1 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB8TS10WPh1230.hdf5", 'r')
-    fileNT2 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB8TS20WPh1230.hdf5", 'r')
-    fileNT3 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB8TS40WPh1230.hdf5", 'r')
-    fileNT4 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB8TS80WPh1230.hdf5", 'r')
-    fileNT5 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB8TS160WPh1230.hdf5", 'r')
+    fileNT1 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB8TS10WPh1230.hdf5", 'r')
+    fileNT2 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB8TS20WPh1230.hdf5", 'r')
+    fileNT3 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB8TS40WPh1230.hdf5", 'r')
+    fileNT4 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB8TS80WPh1230.hdf5", 'r')
+    fileNT5 = h5py.File("../dataRef/tEvol2PhGPH50WP14WD200FD300NB8TS160WPh1230.hdf5", 'r')
 
     # readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP4 = (fileNB3['wPh'][()])[0]
@@ -1009,8 +1009,8 @@ def plotConvInDOccLin():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('functionOfWPLinConvNtNB.png', format='png', bbox_inches='tight', dpi=600)
+    #plt.savefig('functionOfWPLinConvNtNB.png', format='png', bbox_inches='tight', dpi=600)
 
 
