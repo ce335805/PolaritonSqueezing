@@ -10,19 +10,20 @@ import ConvergencePlots
 import h5py
 
 def main():
-    numpy.set_printoptions(precision=1)
+    numpy.set_printoptions(precision=10)
 
-    wMinus = plotPolaritonFreqs.calcWMinus(2., 2., 1.6)
-    wPlus = plotPolaritonFreqs.calcWPlus(2., 2., 1.6)
+    #wMinus = plotPolaritonFreqs.calcWMinus(2., 2., 1.6)
+    #wPlus = plotPolaritonFreqs.calcWPlus(2., 2., 1.6)
+#
+    #print("W+ = {}".format(wPlus))
+    #print("W- = {}".format(wMinus))
+#
+    ##exit()
+#
+    #plotPolaritonFreqs.plotPolaritonFreqs()
 
-    print("W+ = {}".format(wPlus))
-    print("W- = {}".format(wMinus))
-
-    #exit()
-
-    plotPolaritonFreqs.plotPolaritonFreqs()
-
-    plotGSProps.plotGSProps()
+    #plotGSProps.plotGSProps()
+    plotGSProps.plotGSPropsTemp()
 
     #plotTimeEvol.plotQuadUSCpSC()
     #plotTimeEvol.plotLinUSCpSC()

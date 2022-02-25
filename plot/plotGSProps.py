@@ -112,6 +112,81 @@ def plotGSProps():
     plt.savefig('dOccAsOfwP.png', format='png', bbox_inches='tight', dpi = 600)
 
 
+def plotGSPropsTemp():
+    print("plotting GS props")
+
+    #read in zero-temperature result
+    fileTZero = h5py.File("../data/gsPropQuad2PhGPH50NB16.hdf5", 'r')
+    wPTZero = fileTZero['times'][()]
+    dOccTZero = fileTZero['dOcc'][()]
+
+    fileTZeroQuad = h5py.File("../data/gsPropQuad2PhGPH20NB16.hdf5", 'r')
+    #wPOnePh = fileTZeroQuad['times'][()]
+    dOccTZeroQuad = fileTZeroQuad['dOcc'][()]
+
+    fileLin = h5py.File("../data/gsProp2PhLinGPH50NB6Temp.hdf5", 'r')
+    wPs = fileLin['wPs'][()]
+    betas = fileLin['betas'][()]
+    dOccLin = fileLin['dOccs'][()]
+
+    fileQuad = h5py.File("../data/gsProp2PhQuadGPH20NB6Temp.hdf5", 'r')
+    #wPs = fileQuad['wPs'][()]
+    #betas = fileQuad['betas'][()]
+    dOccQuad = fileQuad['dOccs'][()]
+
+    dOccLin = np.reshape(dOccLin, (len(betas), len(wPs)))
+    dOccQuad = np.reshape(dOccQuad, (len(betas), len(wPs)))
+
+    print(dOccLin)
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    for axis in ['top', 'bottom', 'left', 'right']:
+        ax.spines[axis].set_linewidth(0.5)
+
+    ax.tick_params(direction='inout', length=4, width=.8)
+
+    fig.set_size_inches(3., 2.)
+
+    linewidth = 1.
+    markersize = 3
+    markeredgewidth = 0.5
+    markeredgecolor = 'black'
+
+    betasPlot = np.array([betas[0], betas[1], betas[2], betas[5], betas[8], betas[-1]])
+
+    cmapGistHeat = cm.get_cmap('magma')
+
+    for betaInd, beta in enumerate(betasPlot):
+        color = cmapGistHeat((len(betasPlot) - betaInd) / (len(betasPlot) + 1.) + 0.1)
+        TinK = round(1. / beta * 930)
+        ax.plot(wPs / 2. * np.sqrt(2.), dOccLin[betaInd, :] + 0.5, color = color, label = r"$T = {} \rm K$".format(int(TinK)))
+        ax.plot(wPs / 2. * np.sqrt(2.), dOccQuad[betaInd, :] + 0.5, color = color)
+
+    ax.plot(wPTZero / 2. * np.sqrt(2.), dOccTZero + 0.5, color = 'black', linestyle = '--')
+    ax.plot(wPTZero / 2. * np.sqrt(2.), dOccTZeroQuad + 0.5, color = 'black', linestyle = '--')
+
+    ax.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+    ax.set_xlabel(r"$\rm light{-}matter$ $\rm coupling$ $[\omega_{\rm P} / \omega_{\rm phot}]$", fontsize = fontsize-1)
+
+    ax.set_xlim(0., 3.)
+
+    ax.set_xticks([0, 1., 2., 3.])
+    ax.set_xticklabels(["$0$", "$1$", "$2$", "$3$"], fontsize = fontsize)
+
+    ax.set_yticks([0.11, 0.112, 0.114, 0.116])
+    ax.set_yticklabels(["$0.11$", "$0.112$", "$0.114$", "$0.116$"], fontsize = fontsize)
+
+    legend = ax.legend(fontsize=fontsize, loc='upper left', bbox_to_anchor=(.3, 1.), edgecolor='black', ncol=1)
+    legend.get_frame().set_alpha(0.0)
+    legend.get_frame().set_boxstyle('Square', pad=0.0)
+    legend.get_frame().set_linewidth(0)
+
+    plt.tight_layout()
+    plt.show()
+
+
 def plotGSPropsConvergence():
     print("plotting GS props")
 

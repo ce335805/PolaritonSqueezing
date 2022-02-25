@@ -5,4 +5,6 @@
 
 void evalGSProps(const bool twoPhonons);
 
+void evalGSPropsTemp();
+
 #endif //PHONONSQUEEZING_EVALGSPROPS_H

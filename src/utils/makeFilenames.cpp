@@ -51,5 +51,32 @@ std::string gsPropName(const bool twoPhonons){
 
 }
 
+std::string gsPropNameTemp(const bool twoPhonons, const bool quadratic){
+
+  std::string fileName ("data/gsProp");
+
+  std::string twoPhonSpeci;
+  if(twoPhonons){
+    twoPhonSpeci = "2Ph";
+  } else {
+    twoPhonSpeci = "1Ph";
+  }
+
+  std::string quadraticSpeci;
+  if(quadratic){
+    quadraticSpeci = "Quad";
+  } else {
+    quadraticSpeci = "Lin";
+  }
+
+  std::string gPhStr ("GPH" + std::to_string(int(std::round(100 * std::abs(gPh)))));
+  std::string nBStr ("NB" + std::to_string(int(dimPhonon)));
+
+  fileName = fileName + twoPhonSpeci + quadraticSpeci + gPhStr + nBStr + "Temp.hdf5";
+
+  return fileName;
+
+}
+
 
 

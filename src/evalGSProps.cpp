@@ -11,17 +11,26 @@
 #include "calcGS.h"
 #include "writeStuffToHdf5.h"
 #include "makeFilenames.h"
+#include "matrixOperations.h"
 
-//double wP;
 
-void evalGSProps(const bool twoPhonons){
+double wP;
+
+double evalThermalExpectation(const ulong dimH,
+                              const double beta,
+                              const std::vector<std::complex<double>> &op,
+                              const std::vector<double> &spectrum,
+                              const std::vector<std::complex<double>> &eigenVecs);
+
+
+void evalGSProps(const bool twoPhonons) {
 
   const ulong dimH = twoPhonons ? dimHTwoPh : dimHOnePh;
 
-  const ulong wPSteps (21ul);
-  std::vector<double> wPArr (wPSteps, 0.);
+  const ulong wPSteps(21ul);
+  std::vector<double> wPArr(wPSteps, 0.);
 
-  for(ulong ind = 0ul; ind < wPSteps; ++ind){
+  for (ulong ind = 0ul; ind < wPSteps; ++ind) {
     wPArr[ind] = double(ind) / 2.;
   }
 
@@ -58,14 +67,14 @@ void evalGSProps(const bool twoPhonons){
     N2phExpectation = std::vector<double>(wPSteps, 0.);
   }
 
-  std::vector<std::complex<double>> gs(dimH, std::complex<double> (0., 0.));
+  std::vector<std::complex<double>> gs(dimH, std::complex<double>(0., 0.));
   std::vector<std::complex<double>> H;
 
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
 
-    //wP = wPArr[wPStep];
+    wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
-    if(twoPhonons){
+    if (twoPhonons) {
       setupGlobalH(H);
     } else {
       setupGlobalHOnePh(H);
@@ -106,5 +115,94 @@ void evalGSProps(const bool twoPhonons){
                    twoPhonons);
 
 
+}
+
+void evalGSPropsTemp() {
+
+  const ulong dimH = dimHTwoPh;
+
+  const ulong wPSteps(21ul);
+  std::vector<double> wPArr(wPSteps, 0.);
+
+  for (ulong ind = 0ul; ind < wPSteps; ++ind) {
+    wPArr[ind] = double(ind) / 2.;
+  }
+
+  const ulong betaSteps(17ul);
+  //std::vector<double> betaArr(betaSteps, 0.);
+  std::vector<double> betaArr({1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12., 13., 14.,  15., 18., 90.});
+
+  //for (ulong ind = 0ul; ind < betaSteps; ++ind) {
+  //  betaArr[ind] = (double(ind) + 1.) * 5.;
+  //}
+
+
+  std::vector<std::complex<double>> dOcc;
+  std::vector<std::complex<double>> Xpt;
+  std::vector<std::complex<double>> XptSqr;
+  std::vector<std::complex<double>> Npt;
+  std::vector<std::complex<double>> X1ph;
+  std::vector<std::complex<double>> X1phSqr;
+  std::vector<std::complex<double>> N1ph;
+  std::vector<std::complex<double>> X2ph;
+  std::vector<std::complex<double>> X2phSqr;
+  std::vector<std::complex<double>> N2ph;
+
+  setupOpsTwoPh(dOcc, Xpt, XptSqr, Npt, X1ph, X1phSqr, N1ph, X2ph, X2phSqr, N2ph);
+
+  std::vector<std::complex<double>> H;
+
+  std::vector<double> expectationVals(betaSteps * wPSteps, 0.);
+  std::vector<std::complex<double>> gs(dimH, std::complex<double> (0., 0.));
+
+
+  for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
+    wP = wPArr[wPStep];
+    std::cout << "wP = " << wP << '\n';
+    setupGlobalH(H);
+    std::vector<double> spectrum = diagonalize(H, dimH, 'V');
+
+    for (ulong betaInd = 0ul; betaInd < betaSteps; ++betaInd) {
+      double beta = betaArr[betaInd];
+      double thermalExp = evalThermalExpectation(dimH, beta, dOcc, spectrum, H);
+      //for(ulong ind = 0ul; ind < dimH; ++ind) {
+      //  gs[ind] = H[ind * dimH + 0];
+      //}
+      //double thermalExp = evalExpectation(dOcc, gs, dimH);
+
+      expectationVals[betaInd * wPSteps + wPStep] = thermalExp;
+    }
+  }
+
+  std::string filename;
+  filename = gsPropNameTemp(true, true);
+
+  writeStuffToHdf5Temps(betaArr, wPArr, expectationVals, filename);
+}
+
+double evalThermalExpectation(const ulong dimH,
+                              const double beta,
+                              const std::vector<std::complex<double>> &op,
+                              const std::vector<double> &spectrum,
+                              const std::vector<std::complex<double>> &eigenVecs) {
+
+  double partitionSum(0.);
+  double thermalExpectation(0.);
+  double canonicalPrefac(0.);
+  std::vector<std::complex<double>> state(dimH, std::complex<double>(0., 0.));
+
+  for (ulong indN = 0ul; indN < dimH; ++indN) {
+    canonicalPrefac = std::exp(- beta * (spectrum[indN] - spectrum[0]));
+    if(canonicalPrefac < 1e-6){
+      continue;
+    }
+    partitionSum += canonicalPrefac;
+    for (ulong ind = 0ul; ind < dimH; ++ind) {
+      state[ind] = eigenVecs[ind * dimH + indN];
+    }
+    thermalExpectation += evalExpectation(op, state, dimH) * canonicalPrefac;
+  }
+
+  return thermalExpectation / partitionSum;
 }
 

@@ -17,4 +17,11 @@ void writeStuffToHdf5(
         const std::string &filename,
         const bool twoPhonons);
 
+void writeStuffToHdf5Temps(
+        const std::vector<double> &betaArr,
+        const std::vector<double> &wPArr,
+        const std::vector<double> &dOcc,
+        const std::string &filename
+);
+
 #endif //PHONONSQUEEZING_WRITESTUFFTOHDF5_H

@@ -122,3 +122,36 @@ void writeStuffToHdf5(
   }
 
 }
+
+void writeStuffToHdf5Temps(
+        const std::vector<double> &betaArr,
+        const std::vector<double> &wPArr,
+        const std::vector<double> &dOcc,
+        const std::string &filename
+) {
+
+
+  std::cout << "filename: " << filename << '\n';
+
+  H5::H5File file(filename, H5F_ACC_TRUNC);
+
+  writeAllPrms(file);
+
+  H5::FloatType datatype(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+
+  const hsize_t dataSizeBeta = betaArr.size();
+  H5::DataSpace dataSpaceBeta(1, &dataSizeBeta);
+  H5::DataSet datasetBetas = file.createDataSet("betas", datatype, dataSpaceBeta);
+  datasetBetas.write(&betaArr[0], datatype);
+
+  const hsize_t dataSizeWP = wPArr.size();
+  H5::DataSpace dataSpaceWP(1, &dataSizeWP);
+  H5::DataSet datasetWP = file.createDataSet("wPs", datatype, dataSpaceWP);
+  datasetWP.write(&wPArr[0], datatype);
+
+  const hsize_t dataSizeDOcc = dOcc.size();
+  H5::DataSpace dataSpaceDOcc(1, &dataSizeDOcc);
+  H5::DataSet datasetDOccc = file.createDataSet("dOccs", datatype, dataSpaceDOcc);
+  datasetDOccc.write(&dOcc[0], datatype);
+}

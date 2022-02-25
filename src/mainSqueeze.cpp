@@ -51,18 +51,19 @@ int main() {
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
 
-  std::cout << "Starting Time Evolution ..." << '\n';
-  auto start = std::chrono::high_resolution_clock::now();
+  //std::cout << "Starting Time Evolution ..." << '\n';
+  //auto start = std::chrono::high_resolution_clock::now();
+//
+  //const bool twoPhonons = false;
+  //calcTimeEvolution(twoPhonons);
+//
+  //auto stop = std::chrono::high_resolution_clock::now();
+  //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+  //std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
 
-  const bool twoPhonons = false;
-  calcTimeEvolution(twoPhonons);
-
-  auto stop = std::chrono::high_resolution_clock::now();
-  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
-
-  //const bool twoPhonons = true;
+  const bool twoPhonons = true;
   //evalGSProps(twoPhonons);
+  evalGSPropsTemp();
 
 
   return 0;
