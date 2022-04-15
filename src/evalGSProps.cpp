@@ -14,7 +14,7 @@
 #include "matrixOperations.h"
 
 
-double wP;
+//double wP;
 
 double evalThermalExpectation(const ulong dimH,
                               const double beta,
@@ -72,7 +72,8 @@ void evalGSProps(const bool twoPhonons) {
 
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
 
-    wP = wPArr[wPStep];
+    ////////////////// set wp //////////////////////
+    //wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
     if (twoPhonons) {
       setupGlobalH(H);
@@ -157,7 +158,8 @@ void evalGSPropsTemp() {
 
 
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
-    wP = wPArr[wPStep];
+    ////////////////// set wp //////////////////////
+    //wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
     setupGlobalH(H);
     std::vector<double> spectrum = diagonalize(H, dimH, 'V');

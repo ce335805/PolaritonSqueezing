@@ -92,9 +92,9 @@ void calcTimeEvolution(const bool twoPhonons) {
   } else {
     setupOpsOnePh(dOcc, Xpt, XptSqr, Npt, X1ph, X1phSqr, N1ph, X2ph, X2phSqr, N2ph);
     //if(std::abs(wP) < 1e-12){
-    ODrive = std::vector<std::complex<double>>(X1ph);
+    //ODrive = std::vector<std::complex<double>>(X1ph);
     //} else {
-    //ODrive = std::vector<std::complex<double>>(Xpt);
+    ODrive = std::vector<std::complex<double>>(Xpt);
     //}
   }
   for (ulong timeStep = 0ul; timeStep < timeSteps; ++timeStep) {

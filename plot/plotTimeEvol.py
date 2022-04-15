@@ -618,8 +618,8 @@ def plotQuadUSCpSC():
     ax41.plot(timesWP2, pumpWP2 * 2. / 3., color=color2, label='pump', linewidth=1., zorder = 5)
     ax41.plot(timesWP3, pumpWP3 * 2. / 3., color=color3, label='pump', linewidth=1.)
 
-    ax12.plot(timesWP4, dOccWP4 + 0.5, color=color1, label=r'$\omega_{\rm phot} = 20 \omega_{\rm P}$', linewidth=linewidth)
-    ax12.plot(timesWP5, dOccWP5 + 0.5, color=color3, label=r'$\omega_{\rm phot} = 40 \omega_{\rm P}$', linewidth=linewidth)
+    ax12.plot(timesWP4, dOccWP4 + 0.5, color=color1, label=r'$\omega_{\rm P} = \frac{\omega_{\rm phot}}{40}$', linewidth=linewidth)
+    ax12.plot(timesWP5, dOccWP5 + 0.5, color=color3, label=r'$\omega_{\rm P} = \frac{\omega_{\rm phot}}{20}$', linewidth=linewidth)
 
     ax22.plot(timesWP4, 2. * NphWP4, color=color1, linewidth=linewidth)
     ax22.plot(timesWP5, 2. * NphWP5, color=color3, linewidth=linewidth)
@@ -731,12 +731,12 @@ def plotLinUSCpSC():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP71WD200FD300NB10TS80WPh1230.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP71WD156FD300NB10TS80WPh1230.hdf5", 'r')
-    fileWP3 = h5py.File("../data/tEvol2PhGPH50WP71WD256FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP71WD200FD300NB10TS80WPh1236.hdf5", 'r')
+    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP71WD156FD300NB10TS80WPh1236.hdf5", 'r')
+    fileWP3 = h5py.File("../data/tEvol2PhGPH50WP71WD256FD300NB10TS80WPh1236.hdf5", 'r')
 
-    fileWP4 = h5py.File("../data/tEvol2PhGPH50WP4WD200FD300NB10TS80WPh1230.hdf5", 'r')
-    fileWP5 = h5py.File("../data/tEvol2PhGPH50WP7WD200FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP4 = h5py.File("../data/tEvol2PhGPH50WP4WD200FD300NB10TS80WPh1236.hdf5", 'r')
+    fileWP5 = h5py.File("../data/tEvol2PhGPH50WP7WD200FD300NB10TS80WPh1236.hdf5", 'r')
 
     # readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP1 = (fileWP1['wPh'][()])[0]
@@ -962,19 +962,19 @@ def plotLinUSCpSC():
     # legend4.get_frame().set_linewidth(0.0)
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
-    ax11.text(7., 0.124, r"$\rm Ultra$ $\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax11.text(7., 0.1245, r"$\rm Ultra$ $\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
     ax11.text(12., 0.12, r"$\omega_{\rm P} = 0.5 \, \omega_{\rm phot}$", fontsize=8, color='black', alpha=1.,
               bbox=boxProps)
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
-    ax12.text(12., 0.124, r"$\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax12.text(12., 0.1245, r"$\rm Strong$ $\rm Coupling$", fontsize=10, color='black', alpha=1., bbox=boxProps)
 
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
-    ax12.text(3., 0.124, r"$\rm{\textbf{a.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax11.text(3., 0.124, r"$\rm{\textbf{b.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax12.text(3., 0.1245, r"$\rm{\textbf{a.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax11.text(3., 0.1245, r"$\rm{\textbf{b.)}}$", fontsize=10, color='black', alpha=1., bbox=boxProps)
 
-    ax12.text(-2.5, 0.124, r"$X^2n$", fontsize=12, color='black', alpha=1., bbox=boxProps)
+    ax12.text(-2.5, 0.1245, r"$X^2n$", fontsize=12, color='black', alpha=1., bbox=boxProps)
 
     plt.tight_layout()
     fig.subplots_adjust(wspace=0, hspace=0)

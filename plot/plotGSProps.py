@@ -96,7 +96,7 @@ def plotGSProps():
     ax.text(.1, 0.114, r"$\rm Increased \, \, \,  Interactions$", fontsize=fontsize - 1, color='black', alpha=1., bbox=boxProps)
 
     #plt.gcf().text(.9, 0.1, r"$g_1 = g_2 = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax.text(1., 0.1099, r"$g = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax.text(1., 0.109565595278 + 0.0003, r"$g = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
     ax.text(2.3, 0.1109, r"$X^2 n$", fontsize=10, color='rosybrown', alpha=1., bbox=boxProps)
     ax.text(2., 0.11545, r"$X^2 n_{\uparrow}n_{\downarrow}$", fontsize=10, color='olive', alpha=1., bbox=boxProps)
 
@@ -124,20 +124,18 @@ def plotGSPropsTemp():
     #wPOnePh = fileTZeroQuad['times'][()]
     dOccTZeroQuad = fileTZeroQuad['dOcc'][()]
 
-    fileLin = h5py.File("../data/gsProp2PhLinGPH50NB6Temp.hdf5", 'r')
+    fileLin = h5py.File("../data/gsProp2PhLinGPH50NB16Temp.hdf5", 'r')
     wPs = fileLin['wPs'][()]
     betas = fileLin['betas'][()]
     dOccLin = fileLin['dOccs'][()]
 
-    fileQuad = h5py.File("../data/gsProp2PhQuadGPH20NB6Temp.hdf5", 'r')
+    fileQuad = h5py.File("../data/gsProp2PhQuadGPH20NB16Temp.hdf5", 'r')
     #wPs = fileQuad['wPs'][()]
     #betas = fileQuad['betas'][()]
     dOccQuad = fileQuad['dOccs'][()]
 
     dOccLin = np.reshape(dOccLin, (len(betas), len(wPs)))
     dOccQuad = np.reshape(dOccQuad, (len(betas), len(wPs)))
-
-    print(dOccLin)
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -147,27 +145,40 @@ def plotGSPropsTemp():
 
     ax.tick_params(direction='inout', length=4, width=.8)
 
-    fig.set_size_inches(3., 2.)
+    fig.set_size_inches(3.5, 2.)
 
-    linewidth = 1.
     markersize = 3
     markeredgewidth = 0.5
     markeredgecolor = 'black'
 
-    betasPlot = np.array([betas[0], betas[1], betas[2], betas[5], betas[8], betas[-1]])
+    print("betas = ")
+    print(betas)
 
-    cmapGistHeat = cm.get_cmap('magma')
+    betaIndsPlot = np.array([5, 6, 7, 8, 15])
+    betasPlot = np.zeros(len(betaIndsPlot))
+    dOccsPlotLin = np.zeros((len(betaIndsPlot), dOccLin.shape[1]))
+    dOccsPlotQuad = np.zeros((len(betaIndsPlot), dOccQuad.shape[1]))
+
+    for betaInd, betaIndPlot in enumerate(betaIndsPlot):
+        betasPlot[betaInd] = betas[betaIndPlot]
+        dOccsPlotLin[betaInd, :] = dOccLin[betaIndPlot, :]
+        dOccsPlotQuad[betaInd, :] = dOccQuad[betaIndPlot, :]
+
+
+    cmap = cm.get_cmap('copper')
+    linewidth = 1.2
 
     for betaInd, beta in enumerate(betasPlot):
-        color = cmapGistHeat((len(betasPlot) - betaInd) / (len(betasPlot) + 1.) + 0.1)
+        color = cmap((len(betasPlot) - betaInd) / (len(betasPlot) + 1.) + 0.1)
         TinK = round(1. / beta * 930)
-        ax.plot(wPs / 2. * np.sqrt(2.), dOccLin[betaInd, :] + 0.5, color = color, label = r"$T = {} \rm K$".format(int(TinK)))
-        ax.plot(wPs / 2. * np.sqrt(2.), dOccQuad[betaInd, :] + 0.5, color = color)
+        ax.plot(wPs / 2. * np.sqrt(2.), dOccsPlotLin[betaInd, :] + 0.5, color = color, linewidth = linewidth, label = r"$T = {} \rm K$".format(int(TinK)))
+        ax.plot(wPs / 2. * np.sqrt(2.), dOccsPlotQuad[betaInd, :] + 0.5, color = color, linewidth = linewidth)
 
-    ax.plot(wPTZero / 2. * np.sqrt(2.), dOccTZero + 0.5, color = 'black', linestyle = '--')
-    ax.plot(wPTZero / 2. * np.sqrt(2.), dOccTZeroQuad + 0.5, color = 'black', linestyle = '--')
+    ax.plot(wPTZero / 2. * np.sqrt(2.), dOccTZero + 0.5, color = '#76C6FF', linestyle = '--', dashes=(3, 4), linewidth = linewidth, label = r"$T = {} \rm K$".format(int(0)))
+    ax.plot(wPTZero / 2. * np.sqrt(2.), dOccTZeroQuad + 0.5, color = '#76C6FF', linestyle = '--', dashes=(3, 4), linewidth = linewidth)
 
-    ax.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+
+    ax.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle_{\rm therm}$", fontsize = fontsize)
     ax.set_xlabel(r"$\rm light{-}matter$ $\rm coupling$ $[\omega_{\rm P} / \omega_{\rm phot}]$", fontsize = fontsize-1)
 
     ax.set_xlim(0., 3.)
@@ -175,16 +186,23 @@ def plotGSPropsTemp():
     ax.set_xticks([0, 1., 2., 3.])
     ax.set_xticklabels(["$0$", "$1$", "$2$", "$3$"], fontsize = fontsize)
 
+    ax.set_ylim(0.1085, 0.1165)
     ax.set_yticks([0.11, 0.112, 0.114, 0.116])
     ax.set_yticklabels(["$0.11$", "$0.112$", "$0.114$", "$0.116$"], fontsize = fontsize)
 
-    legend = ax.legend(fontsize=fontsize, loc='upper left', bbox_to_anchor=(.3, 1.), edgecolor='black', ncol=1)
+    boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.15)
+    plt.gcf().text(.915, 0.2, r"$X^2 n$", fontsize=fontsize, color='black', alpha=1., bbox=boxProps)
+    plt.gcf().text(.915, 0.6, r"$X^2 n_{\uparrow}n_{\downarrow}$", fontsize=fontsize, color='black', alpha=1., bbox=boxProps)
+
+    legend = ax.legend(fontsize=fontsize - 2, loc='lower left', bbox_to_anchor=(-.05, 1.), edgecolor='black', ncol=3)
     legend.get_frame().set_alpha(0.0)
     legend.get_frame().set_boxstyle('Square', pad=0.0)
     legend.get_frame().set_linewidth(0)
 
-    plt.tight_layout()
-    plt.show()
+    plt.savefig('gsPropsTemp.png', format='png', bbox_inches='tight', dpi = 600)
+
+    #plt.tight_layout()
+    #plt.show()
 
 
 def plotGSPropsConvergence():
@@ -417,9 +435,9 @@ def plotGSPropsConvergenceLin():
 
     plt.tight_layout()
     fig.subplots_adjust(hspace=.0)
-    #plt.show()
+    plt.show()
 
-    plt.savefig('gsPropsConvergenceNBLin.png', format='png', bbox_inches='tight', dpi = 600)
+    #plt.savefig('gsPropsConvergenceNBLin.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 def plotGSPropsConvergenceQuad():

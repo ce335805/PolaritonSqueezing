@@ -19,8 +19,8 @@ void setupGlobalH(std::vector<std::complex<double>> &H) {
   std::vector<std::complex<double>> HPhPt;
 
   setupUncoupledHamiltonian(HUncoupled);
-  //setupEPhCoupling(HEPh);
-  setupQuadEPhCoupling(HEPh);
+  setupEPhCoupling(HEPh);
+  //setupQuadEPhCoupling(HEPh);
   setupPhPtCoupling(HPhPt);
 
   addMatricies(HUncoupled, HEPh, H);

@@ -175,8 +175,8 @@ def plotClassicalVSQuantumLin():
     print("plotting some beautiful time evolution")
 
     # read in stuff
-    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP0WD200FD300NB10TS80WPh1230classic.hdf5", 'r')
-    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB10TS80WPh1230.hdf5", 'r')
+    fileWP1 = h5py.File("../data/tEvol2PhGPH50WP0WD200FD300NB10TS80WPh1236.hdf5", 'r')
+    fileWP2 = h5py.File("../data/tEvol2PhGPH50WP14WD200FD300NB10TS80WPh1236.hdf5", 'r')
 
     #readInPrmsAndAssert(fileWP0, fileWP01)
     wPhWP2 = (fileWP2['wPh'][()])[0]
