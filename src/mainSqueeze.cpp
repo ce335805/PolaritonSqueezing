@@ -13,6 +13,7 @@
 #include "evalGSProps.h"
 #include "H5Cpp.h"
 #include "setUpGlobalHamiltonian.h"
+#include "evalGSPropsOnlyPhot.h"
 
 #define MKL_Complex16 std::complex<double>
 #include "mkl.h"
@@ -22,8 +23,7 @@ int main() {
   std::cout << "Hello World! - let's squeeze some phonons" << std::endl;
 
   std::cout << std::setprecision(12);
-
-  std::cout << "Bare phonon frequency is: wPh = " << wPh << '\n';
+  //std::cout << "Bare phonon frequency is: wPh = " << wPh << '\n';
 
   //std::vector<std::complex<double>> HTest;
   //setupGlobalH(HTest);
@@ -50,16 +50,19 @@ int main() {
 
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
+  //evalDoccInGSOnlyPhot();
+  
+  evalGSPropsAsOfG();
 
-  std::cout << "Starting Time Evolution ..." << '\n';
-  auto start = std::chrono::high_resolution_clock::now();
-
-  const bool twoPhonons = true;
-  calcTimeEvolution(twoPhonons);
-
-  auto stop = std::chrono::high_resolution_clock::now();
-  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-  std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
+  //std::cout << "Starting Time Evolution ..." << '\n';
+  //auto start = std::chrono::high_resolution_clock::now();
+//
+  //const bool twoPhonons = true;
+  //calcTimeEvolution(twoPhonons);
+//
+  //auto stop = std::chrono::high_resolution_clock::now();
+  //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+  //std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
 
   //const bool twoPhonons = true;
   //evalGSProps(twoPhonons);

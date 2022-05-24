@@ -89,3 +89,12 @@ void setupTotalSpinSmall(std::vector<std::complex<double>> &totalSpin) {
   );
 }
 
+void setupHCouplingSmall(std::vector<std::complex<double>> &HElectronicSmall) {
+  
+  HElectronicSmall = std::vector<std::complex<double>>(
+      {0., +tHop, -tHop, 0.,
+       -tHop, 0., 0., +tHop,
+       +tHop, 0., 0., -tHop,
+       0, -tHop, +tHop, 0.}
+  );
+}

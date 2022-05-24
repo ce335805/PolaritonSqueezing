@@ -4,8 +4,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #using intel compiler
-set(CMAKE_CXX_COMPILER mpiicpc)
-set(CMAKE_C_COMPILER mpiicc)
+set(CMAKE_CXX_COMPILER icpc)
+set(CMAKE_C_COMPILER icc)
 
 enable_language(CXX)
 
@@ -38,6 +38,9 @@ set(project_sources
         src/utils/setupOps.cpp
         src/evalGSProps.cpp
         src/utils/makeFilenames.cpp
+        src/onlyPhot/setupBasicOpertorsOnlyPhot.cpp
+        src/onlyPhot/setUpGlobalHamiltonianOnlyPhot.cpp
+        src/onlyPhot/evalGSPropsOnlyPhot.cpp
         )
 
 set(header_files
@@ -59,18 +62,22 @@ set(header_files
         include/utils/setupOps.h
         include/evalGSProps.h
         include/utils/makeFilenames.h
+        include/onlyPhot/setupBasicOperatorsOnlyPhot.h
+        include/onlyPhot/setUpGlobalHamiltonianOnlyPhot.h
+        include/onlyPhot/evalGSPropsOnlyPhot.h
         )
 
 include_directories("./include")
 include_directories("./include/utils")
 include_directories("./include/onePhonon")
 include_directories("./include/twoPhonons")
+include_directories("./include/onlyPhot")
 #include_directories(SYSTEM ${MPI_INCLUDE_PATH})
 include_directories(${HDF5_INCLUDE_DIRS})
 message(STATUS "---------------------------------------------------------------------")
 
 #add compiler flags
-set(C_flags "-O3 -fvar-tracking -ggdb -Wall -Wextra -pedantic -mkl -qopenmp")
+set(C_flags "-O3 -fvar-tracking -ggdb -Wall -Wextra -pedantic -qmkl -qopenmp")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_flags}")
 
 #set project name

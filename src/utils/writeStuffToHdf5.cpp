@@ -155,3 +155,41 @@ void writeStuffToHdf5Temps(
   H5::DataSet datasetDOccc = file.createDataSet("dOccs", datatype, dataSpaceDOcc);
   datasetDOccc.write(&dOcc[0], datatype);
 }
+
+void writeStuffToHdf5OnlyPhot(
+    const std::vector<double> &gArr,
+    const std::vector<double> &dOcc,
+    const std::vector<double> &Xpt,
+    const std::vector<double> &XptSqr,
+    const std::vector<double> &Npt,
+    const std::vector<double> &eGS,
+    const std::string &filename
+) {
+  std::cout << "filename: " << filename << '\n';
+  
+  H5::H5File file(filename, H5F_ACC_TRUNC, 'w');
+  
+  const hsize_t dataSize = gArr.size();
+  H5::DataSpace dataSpace(1, &dataSize);
+  H5::FloatType datatype(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+  
+  H5::DataSet datasetgArr = file.createDataSet("g", datatype, dataSpace);
+  datasetgArr.write(&gArr[0], datatype);
+  
+  H5::DataSet datasetDOcc = file.createDataSet("dOcc", datatype, dataSpace);
+  datasetDOcc.write(&dOcc[0], datatype);
+  
+  H5::DataSet datasetXpt = file.createDataSet("Xpt", datatype, dataSpace);
+  datasetXpt.write(&Xpt[0], datatype);
+  
+  H5::DataSet datasetXptSqr = file.createDataSet("XptSqr", datatype, dataSpace);
+  datasetXptSqr.write(&XptSqr[0], datatype);
+  
+  H5::DataSet datasetNpt = file.createDataSet("Npt", datatype, dataSpace);
+  datasetNpt.write(&Npt[0], datatype);
+  
+  H5::DataSet dataseteGS = file.createDataSet("eGS", datatype, dataSpace);
+  dataseteGS.write(&eGS[0], datatype);
+  
+}

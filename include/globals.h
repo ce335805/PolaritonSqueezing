@@ -10,6 +10,8 @@ constexpr double tHop(1.);
 constexpr double wPt(2.);
 constexpr double U(5.);
 constexpr double gPh(0.5);
+extern double gE;
+//constexpr double gE(1.);
 
 //const double wPh(2. * std::sqrt(1. - 4. * gPh / 4.) - 0.25);
 //const double wPh(1.24);
@@ -28,9 +30,11 @@ constexpr double fDrive(3.);
 constexpr int timePointsPerDrivingPeriod (80);
 constexpr double dt(2. * PI / wDrive / timePointsPerDrivingPeriod);
 
-constexpr ulong dimPhonon(8ul);
-constexpr ulong dimPhoton(1ul);
-constexpr ulong dimHTwoPh(4ul * dimPhonon * dimPhonon * dimPhoton);
-constexpr ulong dimHOnePh(4ul * dimPhonon * dimPhoton);
+constexpr ulong dimElectron(4ul);
+constexpr ulong dimPhonon(1ul);
+constexpr ulong dimPhoton(16ul);
+constexpr ulong dimHOnlyPhot(dimElectron * dimPhoton);
+constexpr ulong dimHTwoPh(dimElectron * dimPhonon * dimPhonon * dimPhoton);
+constexpr ulong dimHOnePh(dimElectron * dimPhonon * dimPhoton);
 
 #endif //PHONONSQUEEZING_GLOBALS_H

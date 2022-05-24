@@ -13,4 +13,6 @@ void setupOccSiteISmall(std::vector<std::complex<double>> &occSmallSiteI, const 
 
 void setupTotalSpinSmall(std::vector<std::complex<double>> &totalSpin);
 
+void setupHCouplingSmall(std::vector<std::complex<double>> &HElectronicSmall);
+
 #endif //PHONONSQUEEZING_SETUPELECTRONICOPERATORSSMALL_CPP_H

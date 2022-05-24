@@ -24,4 +24,14 @@ void writeStuffToHdf5Temps(
         const std::string &filename
 );
 
+void writeStuffToHdf5OnlyPhot(
+    const std::vector<double> &gArr,
+    const std::vector<double> &dOcc,
+    const std::vector<double> &Xpt,
+    const std::vector<double> &XptSqr,
+    const std::vector<double> &Npt,
+    const std::vector<double> &eGS,
+    const std::string &filename
+);
+
 #endif //PHONONSQUEEZING_WRITESTUFFTOHDF5_H

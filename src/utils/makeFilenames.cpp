@@ -78,5 +78,16 @@ std::string gsPropNameTemp(const bool twoPhonons, const bool quadratic){
 
 }
 
+std::string gsPropNameOnlyPhot(){
+  
+  std::string fileName ("data/gsPropOnlyPhot");
+  
+  std::string nBStr ("NB" + std::to_string(int(dimPhoton)));
+  
+  fileName = fileName + nBStr + ".hdf5";
+  
+  return fileName;
+  
+}
 
 
