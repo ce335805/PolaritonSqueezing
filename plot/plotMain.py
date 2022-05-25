@@ -13,10 +13,12 @@ def main():
     numpy.set_printoptions(precision=10)
 
     #calculate bare phonon frequency in case of quadratic coupling
-    omegaPhon = 0.4 * 0.109565595278 / 2 +  2 * np.sqrt(0.2**2 * (0.109565595278 / 2)**2 + 1)
-    print("omegaPhon = {}".format(omegaPhon))
+    #omegaPhon = 0.4 * 0.109565595278 / 2 +  2 * np.sqrt(0.2**2 * (0.109565595278 / 2)**2 + 1)
+    #print("omegaPhon = {}".format(omegaPhon))
 
-    #wMinus = plotPolaritonFreqs.calcWMinus(2., 2., 0.5)
+    plotGSProps.plotGSPropsOnlyPhot()
+
+#wMinus = plotPolaritonFreqs.calcWMinus(2., 2., 0.5)
     #wPlus = plotPolaritonFreqs.calcWPlus(2., 2., 0.5)
 
     #exit()
@@ -28,7 +30,7 @@ def main():
 #
     #plotPolaritonFreqs.plotPolaritonFreqs()
 
-    plotGSProps.plotGSProps()
+    #plotGSProps.plotGSProps()
     #plotGSProps.plotGSPropsTemp()
 
     #plotTimeEvol.plotQuadUSCpSC()

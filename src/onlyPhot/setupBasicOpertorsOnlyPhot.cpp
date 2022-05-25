@@ -59,7 +59,7 @@ void setupDOccOnlyPhot(std::vector<std::complex<double>> &DOcc) {
 }
 
 void setupAOnlyPhot(std::vector<std::complex<double>> &A) {
-  A = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  A = std::vector<std::complex<double>>(dimHOnlyPhot * dimHOnlyPhot, std::complex<double>(0., 0.));
   
   for (ulong ptInd1 = 0ul; ptInd1 < dimPhoton; ++ptInd1) {
     for (ulong ptInd2 = 0ul; ptInd2 < dimPhoton; ++ptInd2) {

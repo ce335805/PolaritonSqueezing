@@ -4,6 +4,7 @@
 
 #include "globals.h"
 #include "setupElectronicOperatorsSmall.h"
+#include "writeStuffToHdf5.h"
 
 void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) {
 
@@ -14,6 +15,16 @@ void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) 
            0, -tHop, tHop, U / 2.}
   );
 }
+
+//void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) {
+//
+//  HElectronicSmall = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+//
+//  std::string filename = "./setupH/HN4U10.hdf5";
+//
+//  readInComplex2DArray(HElectronicSmall, filename);
+//
+//}
 
 void setupDoubleOccSmall(std::vector<std::complex<double>> &DOccSmall) {
 

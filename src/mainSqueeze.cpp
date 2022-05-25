@@ -14,9 +14,13 @@
 #include "H5Cpp.h"
 #include "setUpGlobalHamiltonian.h"
 #include "evalGSPropsOnlyPhot.h"
+#include "calcGS.h"
 
 #define MKL_Complex16 std::complex<double>
 #include "mkl.h"
+#include "setUpGlobalHamiltonianOnlyPhot.h"
+
+
 
 int main() {
 
@@ -52,8 +56,20 @@ int main() {
   //evalDoccInGSOnePh();
   //evalDoccInGSOnlyPhot();
   
-  evalGSPropsAsOfG();
-
+  //evalGSPropsAsOfG();
+  
+  std::cout << dimHOnlyPhot << '\n';
+  
+  std::vector<std::complex<double>> gs(dimHOnlyPhot, std::complex<double>(0., 0.));
+  std::vector<std::complex<double>> H;
+  
+  setupGlobalHOnlyPhot(H);
+  
+  double eGS = calcGSWithE(gs, H, dimHOnlyPhot);
+  
+  std::cout << eGS << '\n';
+  
+  
   //std::cout << "Starting Time Evolution ..." << '\n';
   //auto start = std::chrono::high_resolution_clock::now();
 //

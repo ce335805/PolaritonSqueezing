@@ -18,10 +18,10 @@ void setupGlobalHOnlyPhot(std::vector<std::complex<double>> &H){
   std::vector<std::complex<double>> HUncoupled;
   std::vector<std::complex<double>> HEPt;
 
-  setupUncoupledHamiltonianOnlyPhot(HUncoupled);
-  setupEPtCoupling(HEPt);
+  setupUncoupledHamiltonianOnlyPhot(H);
+  //setupEPtCoupling(HEPt);
 
-  addMatricies(HUncoupled, HEPt, H);
+  //addMatricies(HUncoupled, HEPt, H);
 }
 
 void setupEPtCoupling(std::vector<std::complex<double>> &HEPt){

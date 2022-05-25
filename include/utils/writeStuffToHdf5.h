@@ -34,4 +34,6 @@ void writeStuffToHdf5OnlyPhot(
     const std::string &filename
 );
 
+void readInComplex2DArray(std::vector<std::complex<double>> &readInArray, const std::string &fileName);
+
 #endif //PHONONSQUEEZING_WRITESTUFFTOHDF5_H

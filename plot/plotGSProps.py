@@ -204,6 +204,67 @@ def plotGSPropsTemp():
     #plt.tight_layout()
     #plt.show()
 
+def plotGSPropsOnlyPhot():
+    print("plotting GS props")
+
+    file = h5py.File("../data/gsPropOnlyPhotNB16.hdf5", 'r')
+    couplings = file['g'][()]
+    dOcc = file['dOcc'][()]
+    Npt = file['Npt'][()]
+    eGS = file['eGS'][()]
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax2 = ax.twinx()
+
+
+    for axis in ['top', 'bottom', 'left', 'right']:
+        ax.spines[axis].set_linewidth(0.5)
+
+    ax.tick_params(direction='inout', length=4, width=.8)
+
+    fig.set_size_inches(2.3, 1.5)
+    #fig.set_size_inches(5., 5.)
+
+    linewidth = 1.
+    markersize = 3
+    markeredgewidth = 0.5
+    markeredgecolor = 'black'
+
+    ax.plot(couplings, dOcc + 0.5, color='olive', label='$X^2 n^2$', marker = '', linewidth = linewidth, markersize = markersize, markeredgewidth = markeredgewidth, markeredgecolor = markeredgecolor)
+    ax2.plot(couplings, eGS, color='red', label='$X^2 n^2$', marker = '', linewidth = linewidth, markersize = markersize, markeredgewidth = markeredgewidth, markeredgecolor = markeredgecolor)
+
+    ax.set_ylabel(r"$\sum_i \langle n_{i, \uparrow} n_{i, \downarrow} \rangle$", fontsize = fontsize)
+    ax2.set_ylabel(r"$E_{\rm GS}$", fontsize = fontsize)
+    ax.set_xlabel(r"$g$", fontsize = fontsize-1)
+
+
+    ax.set_xlim(0., 1.)
+#
+    #ax.set_xticks([0, 1., 2., 3.])
+    #ax.set_xticklabels(["$0$", "$1$", "$2$", "$3$"], fontsize = fontsize)
+#
+    #ax.set_yticks([0.11, 0.112, 0.114, 0.116])
+    #ax.set_yticklabels(["$0.11$", "$0.112$", "$0.114$", "$0.116$"], fontsize = fontsize)
+
+    #arrow = patches.FancyArrowPatch((.5, 0.1137), (2.5, 0.1127), arrowstyle='->', mutation_scale=10, zorder = 100, linewidth=1.5, color = 'black')
+    #ax.add_patch(arrow)
+
+    #boxProps = dict(boxstyle='square', facecolor='white', alpha=0., linewidth=0., fill=True, pad=0.15)
+    #plt.gcf().text(.4, 0.65, "Increased Correlations", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    #ax.text(.1, 0.114, r"$\rm Increased \, \, \,  Interactions$", fontsize=fontsize - 1, color='black', alpha=1., bbox=boxProps)
+
+    #legend = ax.legend(fontsize = fontsize, loc = 'upper left', bbox_to_anchor=(.0, .8), edgecolor = 'black', ncol = 1)
+    #legend.get_frame().set_alpha(0.)
+    #legend.get_frame().set_boxstyle('Square', pad=0.1)
+    #legend.get_frame().set_linewidth(0.0)
+
+    plt.tight_layout()
+    #plt.show()
+
+    plt.savefig('dOccAsOfG.png', format='png', bbox_inches='tight', dpi = 600)
+
+
 
 def plotGSPropsConvergence():
     print("plotting GS props")
