@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="PhononSqueezing"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="icc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PolaritonSqueezing.out">
+				<Option output="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/PolaritonSqueezing.out" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="icc"/>
+				<Compiler>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/utils"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/onePhonon"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/twoPhonons"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/onlyPhot"/>
+					<Add directory="/usr/include/hdf5/serial"/>
+					<Add directory="/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/../../compiler/include/intel64"/>
+					<Add directory="/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/../../compiler/include/icc"/>
+					<Add directory="/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/../../compiler/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/include/"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 PolaritonSqueezing.out"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PolaritonSqueezing.out/fast">
+				<Option output="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/PolaritonSqueezing.out" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="icc"/>
+				<Compiler>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/utils"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/onePhonon"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/twoPhonons"/>
+					<Add directory="/home/chris/academics/PhD/codebase/PolaritonSqueezing/./include/onlyPhot"/>
+					<Add directory="/usr/include/hdf5/serial"/>
+					<Add directory="/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/../../compiler/include/intel64"/>
+					<Add directory="/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/../../compiler/include/icc"/>
+					<Add directory="/opt/intel/oneapi/compiler/2022.0.2/linux/bin/intel64/../../compiler/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/include/"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 PolaritonSqueezing.out/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/chris/academics/PhD/codebase/PolaritonSqueezing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/calcGS.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/checkSomeStuff.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/evalExpectation.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/evalGSProps.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/globals.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onePhonon/evalDoccInGSOnePh.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onePhonon/setUpGlobalHamiltonianOnePh.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onePhonon/setupBasicOperatorsOnePh.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onlyPhot/evalGSPropsOnlyPhot.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onlyPhot/setUpGlobalHamiltonianOnlyPhot.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onlyPhot/setupBasicOperatorsOnlyPhot.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/setupElectronicOperatorsSmall.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/timeEvolution.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/timeStep.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/twoPhonons/evalDoccInGS.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/twoPhonons/setUpGlobalHamiltonian.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/twoPhonons/setupBasicOperators.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/utils.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/utils/makeFilenames.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/utils/setupOps.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/utils/writeStuffToHdf5.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/calcGS.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/checkSomeStuff.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/evalExpectation.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/evalGSProps.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/mainSqueeze.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/matrixOperations.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onePhonon/setupBasicOpertorsOnePh.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onlyPhot/evalGSPropsOnlyPhot.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onlyPhot/setUpGlobalHamiltonianOnlyPhot.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onlyPhot/setupBasicOpertorsOnlyPhot.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/setupElectronicOperatorsSmall.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/timeEvolution.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/timeStep.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/twoPhonons/evalDoccInGS.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/twoPhonons/setUpGlobalHamiltonian.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/twoPhonons/setupBasicOpertors.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/utils/makeFilenames.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/utils/setupOps.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/utils/writeStuffToHdf5.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
