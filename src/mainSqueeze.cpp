@@ -15,20 +15,22 @@
 #include "setUpGlobalHamiltonian.h"
 #include "evalGSPropsOnlyPhot.h"
 #include "calcGS.h"
+#include "evalExpectation.h"
 
 #define MKL_Complex16 std::complex<double>
+
 #include "mkl.h"
 #include "setUpGlobalHamiltonianOnlyPhot.h"
-
+#include "setupBasicOperatorsOnlyPhot.h"
 
 
 int main() {
-
+  
   std::cout << "Hello World! - let's squeeze some phonons" << std::endl;
-
+  
   std::cout << std::setprecision(12);
   //std::cout << "Bare phonon frequency is: wPh = " << wPh << '\n';
-
+  
   //std::vector<std::complex<double>> HTest;
   //setupGlobalH(HTest);
 //
@@ -50,8 +52,8 @@ int main() {
 //
   //H5::DataSet datasetHTest = file.createDataSet("HTest", datatype, dataSpace);
   //datasetHTest.write(&realData[0], datatype);
-
-
+  
+  
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
   //evalDoccInGSOnlyPhot();
@@ -62,12 +64,20 @@ int main() {
   
   std::vector<std::complex<double>> gs(dimHOnlyPhot, std::complex<double>(0., 0.));
   std::vector<std::complex<double>> H;
+  std::vector<std::complex<double>> dOcc;
   
   setupGlobalHOnlyPhot(H);
   
+  setupDOccOnlyPhot(dOcc);
+  
+  
   double eGS = calcGSWithE(gs, H, dimHOnlyPhot);
   
-  std::cout << eGS << '\n';
+  double dOccGS = evalExpectation(dOcc, gs, dimHOnlyPhot);
+  
+  std::cout << "eGS = " << eGS << '\n';
+  
+  std::cout << "dOcc GS = " << dOccGS + 0.5 << '\n';
   
   
   //std::cout << "Starting Time Evolution ..." << '\n';
@@ -79,12 +89,12 @@ int main() {
   //auto stop = std::chrono::high_resolution_clock::now();
   //auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
   //std::cout << "Time Evolution took " << duration.count() << "ms" << '\n';
-
+  
   //const bool twoPhonons = true;
   //evalGSProps(twoPhonons);
   //evalGSPropsTemp();
-
-
+  
+  
   return 0;
 }
 

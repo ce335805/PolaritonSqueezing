@@ -12,7 +12,7 @@
 
 #include <chrono>
 
-double gE;
+//double gE;
 
 void evalDoccInGSOnlyPhot(){
   std::cout << "Using parameters: " << '\n';
@@ -93,7 +93,7 @@ void evalGSPropsAsOfG() {
   for (ulong gStep = 0ul; gStep < gSteps; ++gStep) {
     
     ////////////////// set g //////////////////////
-    gE = gArr[gStep];
+    //gE = gArr[gStep];
     std::cout << "gE = " << gE << '\n';
     setupGlobalHOnlyPhot(H);
   

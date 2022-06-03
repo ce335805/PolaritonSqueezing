@@ -18,10 +18,10 @@ void setupGlobalHOnlyPhot(std::vector<std::complex<double>> &H){
   std::vector<std::complex<double>> HUncoupled;
   std::vector<std::complex<double>> HEPt;
 
-  setupUncoupledHamiltonianOnlyPhot(H);
-  //setupEPtCoupling(HEPt);
+  setupUncoupledHamiltonianOnlyPhot(HUncoupled);
+  setupEPtCoupling(HEPt);
 
-  //addMatricies(HUncoupled, HEPt, H);
+  addMatricies(HUncoupled, HEPt, H);
 }
 
 void setupEPtCoupling(std::vector<std::complex<double>> &HEPt){
@@ -34,7 +34,7 @@ void setupEPtCoupling(std::vector<std::complex<double>> &HEPt){
   std::vector<std::complex<double>> HCoupling;
   setupHCouplingOnlyPhot(HCoupling);
 
-  std::complex<double> alpha (0., gE * tHop);
+  std::complex<double> alpha (0., gE);
   std::complex<double> beta (1., 0.);
 
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,

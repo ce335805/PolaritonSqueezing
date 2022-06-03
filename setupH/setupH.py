@@ -82,6 +82,48 @@ def setUpHInt():
 
     return U * H
 
+def setUpDOcc():
+    dOcc = np.zeros((2**N, 2**N), dtype = 'complex')
+
+    for site in np.arange(N // 2):
+        ciUp = setupOpAtSite(2 * site, cOp)
+        ciUpDag = setupOpAtSite(2 * site, cDag)
+        ciDown = setupOpAtSite(2 * site + 1, cOp)
+        ciDownDag = setupOpAtSite(2 * site + 1, cDag)
+
+        IDBig = np.identity(2**N)
+
+        dOcc += np.matmul(np.matmul(ciUpDag, ciUp) - 0.5 * IDBig, np.matmul(ciDownDag, ciDown) - 0.5 * IDBig)
+
+    return dOcc
+
+
+def setUpCouplingH():
+
+    H = np.zeros((2**N, 2**N), dtype = 'complex')
+
+    for site in np.arange(N - 2):
+        ci = setupOpAtSite(site, cOp)
+        cip2 = setupOpAtSite(site + 2, cOp)
+        ciDag = setupOpAtSite(site, cDag)
+        cip2Dag = setupOpAtSite(site + 2, cDag)
+        H += np.matmul(cip2Dag, ci) - np.matmul(ciDag, cip2)
+
+    if(N > 4):
+        cN = setupOpAtSite(N - 2, cOp)
+        c0 = setupOpAtSite(0, cOp)
+        cNDag = setupOpAtSite(N - 2, cDag)
+        c0Dag = setupOpAtSite(0, cDag)
+        H += np.matmul(cNDag, c0) - np.matmul(c0Dag, cN)
+
+        cN = setupOpAtSite(N - 1, cOp)
+        c0 = setupOpAtSite(1, cOp)
+        cNDag = setupOpAtSite(N - 1, cDag)
+        c0Dag = setupOpAtSite(1, cDag)
+        H += np.matmul(cNDag, c0) - np.matmul(c0Dag, cN)
+
+    return tHop * H
+
 def main():
     print("Let's setup H!")
 
@@ -98,12 +140,33 @@ def main():
     #print(H)
 
     filename = "HN{}U{}.hdf5".format(N, int(U * 10))
-
-    print(H.shape)
+    print("H.shape = {}".format(H.shape))
 
     f = h5py.File(filename, 'w')
     f.create_dataset("Real", data = np.real(H), dtype = 'double')
     f.create_dataset("Imag", data = np.imag(H), dtype = 'double')
+    f.close()
+
+
+    dOcc = setUpDOcc()
+    print("dOcc.shape = {}".format(dOcc.shape))
+
+    filename = "dOccN{}.hdf5".format(N)
+
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data = np.real(dOcc), dtype = 'double')
+    f.create_dataset("Imag", data = np.imag(dOcc), dtype = 'double')
+    f.close()
+
+
+    couplingH = setUpCouplingH()
+    print("couplingH.shape = {}".format(couplingH.shape))
+
+    filename = "couplingN{}.hdf5".format(N)
+
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data = np.real(couplingH), dtype = 'double')
+    f.create_dataset("Imag", data = np.imag(couplingH), dtype = 'double')
     f.close()
 
 main()

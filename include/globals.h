@@ -10,9 +10,9 @@ constexpr double tHop(1.);
 constexpr double wPt(2.);
 constexpr double U(1.);
 constexpr double gPh(0.5);
-extern double gE;
+//extern double gE;
+constexpr double gE(1.);
 constexpr ulong LCHAIN(2);
-//constexpr double gE(1.);
 
 //const double wPh(2. * std::sqrt(1. - 4. * gPh / 4.) - 0.25);
 //const double wPh(1.24);
