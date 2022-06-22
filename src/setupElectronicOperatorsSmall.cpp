@@ -16,7 +16,7 @@ void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) 
   );
 }
 
-//void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) {
+//void setupHElectronicSmall(std::vect1or<std::complex<double>> &HElectronicSmall) {
 //
 //  HElectronicSmall = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
 //

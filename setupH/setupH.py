@@ -1,128 +1,92 @@
 import numpy as np
 import h5py
 
-ID = np.array([[1, 0], [0, 1]])
-JW = np.array([[1, 0], [0, -1]])
+from globals import *
+from setupFunctions import *
+import singleBandHubbard
+import twoOrbitalH
 
-cOp = np.array([[0, 0], [1, 0]])
-cDag = np.array([[0, 1], [0, 0]])
-N = 4
-U = 1.
-tHop = -1.
+def projectList(val, op):
 
-transposelist = np.zeros(2 * N, dtype = 'int')
+    deleteInd = set()
+    for diagInd, diagEntry in enumerate(np.diag(op)):
+        #print(diagEntry)
+        if(diagEntry != val):
+            deleteInd.add(diagInd)
 
-def setupOpAtSite(site, localOp):
+    return deleteInd
 
-    C = np.zeros(0)
-
-    for ind in np.arange(N):
-        if (site == 0 and ind == 0):
-            C = localOp
-            continue
-        if(ind < site):
-            if(ind == 0):
-                C = JW
-            else:
-                C = np.tensordot(JW, C, 0)
-        elif(ind > site):
-            C = np.tensordot(ID, C, 0)
-        else:
-            C = np.tensordot(localOp, C, 0)
-
-    C = np.transpose(C, transposelist)
-    C = np.reshape(C, (2**N, 2**N))
-    return C
-
-def setupTransposeList():
-    for ind in range(N):
-        transposelist[ind] = int(2 * ind)
-    for ind in range(N):
-        transposelist[ind + N] = int(2 * ind + 1)
-
-
-def setUpHoppingH():
-
-    H = np.zeros((2**N, 2**N), dtype = 'complex')
-
-    for site in np.arange(N - 2):
+def setupN():
+    nOp = np.zeros((2**N, 2**N), dtype = 'complex')
+    for site in np.arange(N):
         ci = setupOpAtSite(site, cOp)
-        cip2 = setupOpAtSite(site + 2, cOp)
         ciDag = setupOpAtSite(site, cDag)
-        cip2Dag = setupOpAtSite(site + 2, cDag)
-        H += np.matmul(cip2Dag, ci) + np.matmul(ciDag, cip2)
+        nOp += np.matmul(ciDag, ci)
+    return nOp
 
-    if(N > 4):
-        cN = setupOpAtSite(N - 2, cOp)
-        c0 = setupOpAtSite(0, cOp)
-        cNDag = setupOpAtSite(N - 2, cDag)
-        c0Dag = setupOpAtSite(0, cDag)
-        H += np.matmul(cNDag, c0) + np.matmul(c0Dag, cN)
-
-        cN = setupOpAtSite(N - 1, cOp)
-        c0 = setupOpAtSite(1, cOp)
-        cNDag = setupOpAtSite(N - 1, cDag)
-        c0Dag = setupOpAtSite(1, cDag)
-        H += np.matmul(cN, c0) + np.matmul(c0Dag, cN)
-
-    return tHop * H
-
-def setUpHInt():
-    H = np.zeros((2**N, 2**N), dtype = 'complex')
-
-    for site in np.arange(N // 2):
+def setupNupMNdn():
+    op = np.zeros((2**N, 2**N), dtype = 'complex')
+    for site in np.arange(N//2):
         ciUp = setupOpAtSite(2 * site, cOp)
-        ciUpDag = setupOpAtSite(2 * site, cDag)
-        ciDown = setupOpAtSite(2 * site + 1, cOp)
-        ciDownDag = setupOpAtSite(2 * site + 1, cDag)
-
-        IDBig = np.identity(2**N)
-
-        H += np.matmul(np.matmul(ciUpDag, ciUp) - 0.5 * IDBig, np.matmul(ciDownDag, ciDown) - 0.5 * IDBig)
-
-    return U * H
-
-def setUpDOcc():
-    dOcc = np.zeros((2**N, 2**N), dtype = 'complex')
-
-    for site in np.arange(N // 2):
-        ciUp = setupOpAtSite(2 * site, cOp)
-        ciUpDag = setupOpAtSite(2 * site, cDag)
-        ciDown = setupOpAtSite(2 * site + 1, cOp)
-        ciDownDag = setupOpAtSite(2 * site + 1, cDag)
-
-        IDBig = np.identity(2**N)
-
-        dOcc += np.matmul(np.matmul(ciUpDag, ciUp) - 0.5 * IDBig, np.matmul(ciDownDag, ciDown) - 0.5 * IDBig)
-
-    return dOcc
+        ciDagUp = setupOpAtSite(2 * site, cDag)
+        ciDn = setupOpAtSite(2 * site + 1, cOp)
+        ciDagDn = setupOpAtSite(2 * site + 1, cDag)
+        op += np.matmul(ciDagUp, ciUp) - np.matmul(ciDagDn, ciDn)
+    return op
 
 
-def setUpCouplingH():
+def projectN(N, H):
+    nOp = setupN()
+    nUpMNDn = setupNupMNdn()
 
-    H = np.zeros((2**N, 2**N), dtype = 'complex')
+    deleteIndN = projectList(N, nOp)
+    deleteIndNUpMNDn = projectList(0, nUpMNDn)
+    deleteIndTot = deleteIndN.union(deleteIndNUpMNDn)
+    deleteIndArr = np.array(list(deleteIndTot), dtype='int')
 
-    for site in np.arange(N - 2):
-        ci = setupOpAtSite(site, cOp)
-        cip2 = setupOpAtSite(site + 2, cOp)
-        ciDag = setupOpAtSite(site, cDag)
-        cip2Dag = setupOpAtSite(site + 2, cDag)
-        H += np.matmul(cip2Dag, ci) - np.matmul(ciDag, cip2)
+    Hcut = np.delete(H, deleteIndArr, axis = 0)
+    Hcut = np.delete(Hcut, deleteIndArr, axis = 1)
 
-    if(N > 4):
-        cN = setupOpAtSite(N - 2, cOp)
-        c0 = setupOpAtSite(0, cOp)
-        cNDag = setupOpAtSite(N - 2, cDag)
-        c0Dag = setupOpAtSite(0, cDag)
-        H += np.matmul(cNDag, c0) - np.matmul(c0Dag, cN)
+    return Hcut
 
-        cN = setupOpAtSite(N - 1, cOp)
-        c0 = setupOpAtSite(1, cOp)
-        cNDag = setupOpAtSite(N - 1, cDag)
-        c0Dag = setupOpAtSite(1, cDag)
-        H += np.matmul(cNDag, c0) - np.matmul(c0Dag, cN)
+def writeH2Orb(Hcut, interOrb0, interOrb1, dOcc0, dOcc1):
+    filename = "./savedOperators/HU0_{}_U1_{}_eps0_{}_eps1_{}.hdf5".format(twoOrbitalH.U0, twoOrbitalH.U1, twoOrbitalH.eps0, twoOrbitalH.eps1)
 
-    return tHop * H
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(Hcut), dtype='double')
+    f.create_dataset("Imag", data=np.imag(Hcut), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/InterOrb0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(interOrb0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(interOrb0), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/InterOrb1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(interOrb1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(interOrb1), dtype='double')
+    f.close()
+
+
+    filename = "./savedOperators/dOcc0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(dOcc0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(dOcc0), dtype='double')
+    f.close()
+
+
+    filename = "./savedOperators/dOcc1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(dOcc1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(dOcc1), dtype='double')
+    f.close()
 
 def main():
     print("Let's setup H!")
@@ -131,42 +95,72 @@ def main():
 
     print("transposeList = {}".format(transposelist))
 
-    #op = setupOpAtSite(0, ID)
-    #print(op)
+    #c2 = setupOpAtSite(1, cDag)
+    #print(c2)
 
-    HHop = setUpHoppingH()
-    HInd = setUpHInt()
-    H = HInd + HHop
-    #print(H)
+    #mat1 = np.array([[1, 2], [3, 4]])
+    #mat2 = np.array([[5, 6], [7, 8]])
+    #ten1 = np.tensordot(mat1, mat2, 0)
+    #np.transpose(ten1, transposelist)
+    #ten1 = np.reshape(ten1, (4, 4))
+    #print(ten1)
+    #print()
+    ##print(np.tensordot(mat2, mat1, 0))
+    #exit()
+
+    #HHop = singleBandHubbard.setUpHoppingH()
+    #HInd = singleBandHubbard.setUpHInt()
+    #H = HInd + HHop
+    #print(np.real(H))
+    #Hcut = projectN(H)
+    #print(np.real(Hcut))
+    #exit()
+
+    particleN = 2
+
+    H = twoOrbitalH.setupHTwoOrb()
+    Hcut = projectN(particleN, H)
+    interOrb0 = twoOrbitalH.interOrbitalHop0()
+    interOrb0Cut = projectN(particleN, interOrb0)
+    interOrb1 = twoOrbitalH.interOrbitalHop1()
+    interOrb1Cut = projectN(particleN, interOrb1)
+
+    dOcc0 = twoOrbitalH.setupDocc0()
+    dOcc0Cut = projectN(particleN, dOcc0)
+    dOcc1 = twoOrbitalH.setupDocc1()
+    dOcc1Cut = projectN(particleN, dOcc1)
+
+    writeH2Orb(Hcut, interOrb0Cut, interOrb1Cut, dOcc0Cut, dOcc1Cut)
+    exit()
 
     filename = "HN{}U{}.hdf5".format(N, int(U * 10))
     print("H.shape = {}".format(H.shape))
 
     f = h5py.File(filename, 'w')
-    f.create_dataset("Real", data = np.real(H), dtype = 'double')
-    f.create_dataset("Imag", data = np.imag(H), dtype = 'double')
+    f.create_dataset("Real", data = np.real(Hcut), dtype = 'double')
+    f.create_dataset("Imag", data = np.imag(Hcut), dtype = 'double')
     f.close()
 
 
-    dOcc = setUpDOcc()
-    print("dOcc.shape = {}".format(dOcc.shape))
-
-    filename = "dOccN{}.hdf5".format(N)
-
-    f = h5py.File(filename, 'w')
-    f.create_dataset("Real", data = np.real(dOcc), dtype = 'double')
-    f.create_dataset("Imag", data = np.imag(dOcc), dtype = 'double')
-    f.close()
-
-
-    couplingH = setUpCouplingH()
-    print("couplingH.shape = {}".format(couplingH.shape))
-
-    filename = "couplingN{}.hdf5".format(N)
-
-    f = h5py.File(filename, 'w')
-    f.create_dataset("Real", data = np.real(couplingH), dtype = 'double')
-    f.create_dataset("Imag", data = np.imag(couplingH), dtype = 'double')
-    f.close()
+    #dOcc = setUpDOcc()
+    #print("dOcc.shape = {}".format(dOcc.shape))
+#
+    #filename = "dOccN{}.hdf5".format(N)
+#
+    #f = h5py.File(filename, 'w')
+    #f.create_dataset("Real", data = np.real(dOcc), dtype = 'double')
+    #f.create_dataset("Imag", data = np.imag(dOcc), dtype = 'double')
+    #f.close()
+#
+#
+    #couplingH = setUpCouplingH()
+    #print("couplingH.shape = {}".format(couplingH.shape))
+#
+    #filename = "couplingN{}.hdf5".format(N)
+#
+    #f = h5py.File(filename, 'w')
+    #f.create_dataset("Real", data = np.real(couplingH), dtype = 'double')
+    #f.create_dataset("Imag", data = np.imag(couplingH), dtype = 'double')
+    #f.close()
 
 main()
