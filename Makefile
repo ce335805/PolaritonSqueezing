@@ -296,6 +296,33 @@ src/matrixOperations.cpp.s:
 	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/matrixOperations.cpp.s
 .PHONY : src/matrixOperations.cpp.s
 
+src/onePhonon/evalDoccInGS2Bands.o: src/onePhonon/evalDoccInGS2Bands.cpp.o
+
+.PHONY : src/onePhonon/evalDoccInGS2Bands.o
+
+# target to build an object file
+src/onePhonon/evalDoccInGS2Bands.cpp.o:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalDoccInGS2Bands.cpp.o
+.PHONY : src/onePhonon/evalDoccInGS2Bands.cpp.o
+
+src/onePhonon/evalDoccInGS2Bands.i: src/onePhonon/evalDoccInGS2Bands.cpp.i
+
+.PHONY : src/onePhonon/evalDoccInGS2Bands.i
+
+# target to preprocess a source file
+src/onePhonon/evalDoccInGS2Bands.cpp.i:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalDoccInGS2Bands.cpp.i
+.PHONY : src/onePhonon/evalDoccInGS2Bands.cpp.i
+
+src/onePhonon/evalDoccInGS2Bands.s: src/onePhonon/evalDoccInGS2Bands.cpp.s
+
+.PHONY : src/onePhonon/evalDoccInGS2Bands.s
+
+# target to generate assembly for a file
+src/onePhonon/evalDoccInGS2Bands.cpp.s:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalDoccInGS2Bands.cpp.s
+.PHONY : src/onePhonon/evalDoccInGS2Bands.cpp.s
+
 src/onePhonon/evalDoccInGSOnePh.o: src/onePhonon/evalDoccInGSOnePh.cpp.o
 
 .PHONY : src/onePhonon/evalDoccInGSOnePh.o
@@ -323,6 +350,33 @@ src/onePhonon/evalDoccInGSOnePh.cpp.s:
 	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.s
 .PHONY : src/onePhonon/evalDoccInGSOnePh.cpp.s
 
+src/onePhonon/setHGlobal2Bands.o: src/onePhonon/setHGlobal2Bands.cpp.o
+
+.PHONY : src/onePhonon/setHGlobal2Bands.o
+
+# target to build an object file
+src/onePhonon/setHGlobal2Bands.cpp.o:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setHGlobal2Bands.cpp.o
+.PHONY : src/onePhonon/setHGlobal2Bands.cpp.o
+
+src/onePhonon/setHGlobal2Bands.i: src/onePhonon/setHGlobal2Bands.cpp.i
+
+.PHONY : src/onePhonon/setHGlobal2Bands.i
+
+# target to preprocess a source file
+src/onePhonon/setHGlobal2Bands.cpp.i:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setHGlobal2Bands.cpp.i
+.PHONY : src/onePhonon/setHGlobal2Bands.cpp.i
+
+src/onePhonon/setHGlobal2Bands.s: src/onePhonon/setHGlobal2Bands.cpp.s
+
+.PHONY : src/onePhonon/setHGlobal2Bands.s
+
+# target to generate assembly for a file
+src/onePhonon/setHGlobal2Bands.cpp.s:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setHGlobal2Bands.cpp.s
+.PHONY : src/onePhonon/setHGlobal2Bands.cpp.s
+
 src/onePhonon/setUpGlobalHamiltonianOnePh.o: src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.o
 
 .PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.o
@@ -349,6 +403,33 @@ src/onePhonon/setUpGlobalHamiltonianOnePh.s: src/onePhonon/setUpGlobalHamiltonia
 src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s:
 	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s
 .PHONY : src/onePhonon/setUpGlobalHamiltonianOnePh.cpp.s
+
+src/onePhonon/setupBasicOpertors2Bands.o: src/onePhonon/setupBasicOpertors2Bands.cpp.o
+
+.PHONY : src/onePhonon/setupBasicOpertors2Bands.o
+
+# target to build an object file
+src/onePhonon/setupBasicOpertors2Bands.cpp.o:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setupBasicOpertors2Bands.cpp.o
+.PHONY : src/onePhonon/setupBasicOpertors2Bands.cpp.o
+
+src/onePhonon/setupBasicOpertors2Bands.i: src/onePhonon/setupBasicOpertors2Bands.cpp.i
+
+.PHONY : src/onePhonon/setupBasicOpertors2Bands.i
+
+# target to preprocess a source file
+src/onePhonon/setupBasicOpertors2Bands.cpp.i:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setupBasicOpertors2Bands.cpp.i
+.PHONY : src/onePhonon/setupBasicOpertors2Bands.cpp.i
+
+src/onePhonon/setupBasicOpertors2Bands.s: src/onePhonon/setupBasicOpertors2Bands.cpp.s
+
+.PHONY : src/onePhonon/setupBasicOpertors2Bands.s
+
+# target to generate assembly for a file
+src/onePhonon/setupBasicOpertors2Bands.cpp.s:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/setupBasicOpertors2Bands.cpp.s
+.PHONY : src/onePhonon/setupBasicOpertors2Bands.cpp.s
 
 src/onePhonon/setupBasicOpertorsOnePh.o: src/onePhonon/setupBasicOpertorsOnePh.cpp.o
 
@@ -457,6 +538,33 @@ src/onlyPhot/setupBasicOpertorsOnlyPhot.s: src/onlyPhot/setupBasicOpertorsOnlyPh
 src/onlyPhot/setupBasicOpertorsOnlyPhot.cpp.s:
 	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onlyPhot/setupBasicOpertorsOnlyPhot.cpp.s
 .PHONY : src/onlyPhot/setupBasicOpertorsOnlyPhot.cpp.s
+
+src/setupElectronicOperators2Bands.o: src/setupElectronicOperators2Bands.cpp.o
+
+.PHONY : src/setupElectronicOperators2Bands.o
+
+# target to build an object file
+src/setupElectronicOperators2Bands.cpp.o:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/setupElectronicOperators2Bands.cpp.o
+.PHONY : src/setupElectronicOperators2Bands.cpp.o
+
+src/setupElectronicOperators2Bands.i: src/setupElectronicOperators2Bands.cpp.i
+
+.PHONY : src/setupElectronicOperators2Bands.i
+
+# target to preprocess a source file
+src/setupElectronicOperators2Bands.cpp.i:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/setupElectronicOperators2Bands.cpp.i
+.PHONY : src/setupElectronicOperators2Bands.cpp.i
+
+src/setupElectronicOperators2Bands.s: src/setupElectronicOperators2Bands.cpp.s
+
+.PHONY : src/setupElectronicOperators2Bands.s
+
+# target to generate assembly for a file
+src/setupElectronicOperators2Bands.cpp.s:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/setupElectronicOperators2Bands.cpp.s
+.PHONY : src/setupElectronicOperators2Bands.cpp.s
 
 src/setupElectronicOperatorsSmall.o: src/setupElectronicOperatorsSmall.cpp.o
 
@@ -729,12 +837,21 @@ help:
 	@echo "... src/matrixOperations.o"
 	@echo "... src/matrixOperations.i"
 	@echo "... src/matrixOperations.s"
+	@echo "... src/onePhonon/evalDoccInGS2Bands.o"
+	@echo "... src/onePhonon/evalDoccInGS2Bands.i"
+	@echo "... src/onePhonon/evalDoccInGS2Bands.s"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.o"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.i"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.s"
+	@echo "... src/onePhonon/setHGlobal2Bands.o"
+	@echo "... src/onePhonon/setHGlobal2Bands.i"
+	@echo "... src/onePhonon/setHGlobal2Bands.s"
 	@echo "... src/onePhonon/setUpGlobalHamiltonianOnePh.o"
 	@echo "... src/onePhonon/setUpGlobalHamiltonianOnePh.i"
 	@echo "... src/onePhonon/setUpGlobalHamiltonianOnePh.s"
+	@echo "... src/onePhonon/setupBasicOpertors2Bands.o"
+	@echo "... src/onePhonon/setupBasicOpertors2Bands.i"
+	@echo "... src/onePhonon/setupBasicOpertors2Bands.s"
 	@echo "... src/onePhonon/setupBasicOpertorsOnePh.o"
 	@echo "... src/onePhonon/setupBasicOpertorsOnePh.i"
 	@echo "... src/onePhonon/setupBasicOpertorsOnePh.s"
@@ -747,6 +864,9 @@ help:
 	@echo "... src/onlyPhot/setupBasicOpertorsOnlyPhot.o"
 	@echo "... src/onlyPhot/setupBasicOpertorsOnlyPhot.i"
 	@echo "... src/onlyPhot/setupBasicOpertorsOnlyPhot.s"
+	@echo "... src/setupElectronicOperators2Bands.o"
+	@echo "... src/setupElectronicOperators2Bands.i"
+	@echo "... src/setupElectronicOperators2Bands.s"
 	@echo "... src/setupElectronicOperatorsSmall.o"
 	@echo "... src/setupElectronicOperatorsSmall.i"
 	@echo "... src/setupElectronicOperatorsSmall.s"

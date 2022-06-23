@@ -47,6 +47,8 @@ void evalDoccInGSOnlyPhot(){
 
   std::cout << "GS energy = " << spectrum[0] << '\n';
   std::cout << "GS + 1 energy = " << spectrum[1] << '\n';
+  std::cout << "GS + 2 energy = " << spectrum[2] << '\n';
+  std::cout << "GS + 3 energy = " << spectrum[3] << '\n';
 
   stop = std::chrono::high_resolution_clock::now();
   duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);

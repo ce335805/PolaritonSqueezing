@@ -41,6 +41,10 @@ set(project_sources
         src/onlyPhot/setupBasicOpertorsOnlyPhot.cpp
         src/onlyPhot/setUpGlobalHamiltonianOnlyPhot.cpp
         src/onlyPhot/evalGSPropsOnlyPhot.cpp
+        src/setupElectronicOperators2Bands.cpp
+        src/onePhonon/setHGlobal2Bands.cpp
+        src/onePhonon/setupBasicOpertors2Bands.cpp
+        src/onePhonon/evalDoccInGS2Bands.cpp
         )
 
 set(header_files
@@ -65,6 +69,10 @@ set(header_files
         include/onlyPhot/setupBasicOperatorsOnlyPhot.h
         include/onlyPhot/setUpGlobalHamiltonianOnlyPhot.h
         include/onlyPhot/evalGSPropsOnlyPhot.h
+        include/setupElectronicOperators2Bands.h
+        include/onePhonon/setupHGlobal2Bands.h
+        include/onePhonon/setupBasicOperators2Bands.h
+        include/onePhonon/evalDoccInGs2Bands.h
         )
 
 include_directories("./include")

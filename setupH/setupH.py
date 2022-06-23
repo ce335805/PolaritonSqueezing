@@ -95,8 +95,8 @@ def main():
 
     print("transposeList = {}".format(transposelist))
 
-    #c2 = setupOpAtSite(1, cDag)
-    #print(c2)
+    #setupOpAtSite(1, cDag)
+    #exit()
 
     #mat1 = np.array([[1, 2], [3, 4]])
     #mat2 = np.array([[5, 6], [7, 8]])
@@ -111,8 +111,8 @@ def main():
     #HHop = singleBandHubbard.setUpHoppingH()
     #HInd = singleBandHubbard.setUpHInt()
     #H = HInd + HHop
-    #print(np.real(H))
-    #Hcut = projectN(H)
+    ##print(np.real(H))
+    #Hcut = projectN(2, H)
     #print(np.real(Hcut))
     #exit()
 
@@ -129,6 +129,11 @@ def main():
     dOcc0Cut = projectN(particleN, dOcc0)
     dOcc1 = twoOrbitalH.setupDocc1()
     dOcc1Cut = projectN(particleN, dOcc1)
+
+    print(np.real(np.diag(Hcut)))
+
+    eVals, _ = np.linalg.eigh(Hcut)
+    print(eVals)
 
     writeH2Orb(Hcut, interOrb0Cut, interOrb1Cut, dOcc0Cut, dOcc1Cut)
     exit()

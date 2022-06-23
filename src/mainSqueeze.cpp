@@ -16,6 +16,7 @@
 #include "evalGSPropsOnlyPhot.h"
 #include "calcGS.h"
 #include "evalExpectation.h"
+#include "evalDoccInGs2Bands.h"
 
 #define MKL_Complex16 std::complex<double>
 
@@ -57,27 +58,7 @@ int main() {
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
   //evalDoccInGSOnlyPhot();
-  
-  //evalGSPropsAsOfG();
-  
-  std::cout << dimHOnlyPhot << '\n';
-  
-  std::vector<std::complex<double>> gs(dimHOnlyPhot, std::complex<double>(0., 0.));
-  std::vector<std::complex<double>> H;
-  std::vector<std::complex<double>> dOcc;
-  
-  setupGlobalHOnlyPhot(H);
-  
-  setupDOccOnlyPhot(dOcc);
-  
-  
-  double eGS = calcGSWithE(gs, H, dimHOnlyPhot);
-  
-  double dOccGS = evalExpectation(dOcc, gs, dimHOnlyPhot);
-  
-  std::cout << "eGS = " << eGS << '\n';
-  
-  std::cout << "dOcc GS = " << dOccGS + 0.5 << '\n';
+  evalDoccInGS2Bands();
   
   
   //std::cout << "Starting Time Evolution ..." << '\n';

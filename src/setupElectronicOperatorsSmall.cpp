@@ -9,14 +9,18 @@
 void setupHElectronicSmall(std::vector<std::complex<double>> &HElectronicSmall) {
 
   HElectronicSmall = std::vector<std::complex<double>>(
-          {U / 2., -tHop, tHop, 0.,
-           -tHop, -U / 2., 0., -tHop,
-           tHop, 0., -U / 2., tHop,
-           0, -tHop, tHop, U / 2.}
+          //{U / 2., -tHop, tHop, 0.,
+          // -tHop, -U / 2., 0., -tHop,
+          // tHop, 0., -U / 2., tHop,
+          // 0, -tHop, tHop, U / 2.}
+  {U, -tHop, tHop, 0.,
+        -tHop, 0, 0., -tHop,
+        tHop, 0., 0, tHop,
+        0, -tHop, tHop, U}
   );
 }
 
-//void setupHElectronicSmall(std::vect1or<std::complex<double>> &HElectronicSmall) {
+//void setupHElectronicSmall2Bands(std::vect1or<std::complex<double>> &HElectronicSmall) {
 //
 //  HElectronicSmall = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
 //

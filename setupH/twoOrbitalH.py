@@ -4,14 +4,13 @@ from globals import *
 from setupFunctions import *
 
 eps0 = 0.
-eps1 = 1.
+eps1 = 100.
 tHop = -1.
 U0 = 1.
 U1 = 1.
 
 def setupHTwoOrb():
     assert N == 8, "wrong number of sites for this Hamiltonian"
-    H = np.zeros((2**N, 2**N), dtype = 'complex')
 
     HKin = setupHKin()
     HPot = onSitePotential()
@@ -23,7 +22,7 @@ def setupHKin():
     assert N == 8, "wrong number of sites for this Hamiltonian"
     H = np.zeros((2**N, 2**N), dtype = 'complex')
 
-    for site in np.arange(N // 4):
+    for site in np.arange(N // 2):
         ci = setupOpAtSite(site, cOp)
         cip4 = setupOpAtSite(site + 4, cOp)
         ciDag = setupOpAtSite(site, cDag)
@@ -39,7 +38,7 @@ def onSitePotential():
     for site in np.arange(N):
         ci = setupOpAtSite(site, cOp)
         ciDag = setupOpAtSite(site, cDag)
-        if(site in [1, 2, 5, 6]):
+        if(site in [0, 1, 4, 5]):
             H += eps0 * np.matmul(ciDag, ci)
         else:
             H += eps1 * np.matmul(ciDag, ci)
@@ -50,12 +49,15 @@ def setupHInt():
     assert N == 8, "wrong number of sites for this Hamiltonian"
     H = np.zeros((2 ** N, 2 ** N), dtype='complex')
 
+    #IDBig = np.identity(2 ** N)
+
     for site in np.arange(N // 2):
         ciUp = setupOpAtSite(2 * site, cOp)
         ciUpDag = setupOpAtSite(2 * site, cDag)
         ciDn = setupOpAtSite(2 * site + 1, cOp)
         ciDnDag = setupOpAtSite(2 * site + 1, cDag)
-        if(site % 2 == 0):
+
+        if(site in [0, 2]):
             H += U0 *  np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
         else:
             H += U1 * np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
@@ -94,17 +96,17 @@ def setupDocc0():
     H = np.zeros((2 ** N, 2 ** N), dtype='complex')
 
     site = 0
-    ciUp = setupOpAtSite(2 * site, cOp)
-    ciUpDag = setupOpAtSite(2 * site, cDag)
-    ciDn = setupOpAtSite(2 * site + 1, cOp)
-    ciDnDag = setupOpAtSite(2 * site + 1, cDag)
+    ciUp = setupOpAtSite(site, cOp)
+    ciUpDag = setupOpAtSite(site, cDag)
+    ciDn = setupOpAtSite(site + 1, cOp)
+    ciDnDag = setupOpAtSite(site + 1, cDag)
     H += np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
 
     site = 4
-    ciUp = setupOpAtSite(2 * site, cOp)
-    ciUpDag = setupOpAtSite(2 * site, cDag)
-    ciDn = setupOpAtSite(2 * site + 1, cOp)
-    ciDnDag = setupOpAtSite(2 * site + 1, cDag)
+    ciUp = setupOpAtSite(site, cOp)
+    ciUpDag = setupOpAtSite(site, cDag)
+    ciDn = setupOpAtSite(site + 1, cOp)
+    ciDnDag = setupOpAtSite(site + 1, cDag)
     H += np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
 
     return H
@@ -114,17 +116,17 @@ def setupDocc1():
     H = np.zeros((2 ** N, 2 ** N), dtype='complex')
 
     site = 2
-    ciUp = setupOpAtSite(2 * site, cOp)
-    ciUpDag = setupOpAtSite(2 * site, cDag)
-    ciDn = setupOpAtSite(2 * site + 1, cOp)
-    ciDnDag = setupOpAtSite(2 * site + 1, cDag)
+    ciUp = setupOpAtSite(site, cOp)
+    ciUpDag = setupOpAtSite(site, cDag)
+    ciDn = setupOpAtSite(site + 1, cOp)
+    ciDnDag = setupOpAtSite(site + 1, cDag)
     H += np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
 
     site = 6
-    ciUp = setupOpAtSite(2 * site, cOp)
-    ciUpDag = setupOpAtSite(2 * site, cDag)
-    ciDn = setupOpAtSite(2 * site + 1, cOp)
-    ciDnDag = setupOpAtSite(2 * site + 1, cDag)
+    ciUp = setupOpAtSite(site, cOp)
+    ciUpDag = setupOpAtSite(site, cDag)
+    ciDn = setupOpAtSite(site + 1, cOp)
+    ciDnDag = setupOpAtSite(site + 1, cDag)
     H += np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
 
     return H
