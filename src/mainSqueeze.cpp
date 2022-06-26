@@ -17,6 +17,7 @@
 #include "calcGS.h"
 #include "evalExpectation.h"
 #include "evalDoccInGs2Bands.h"
+#include "timeEvolution2Bands.h"
 
 #define MKL_Complex16 std::complex<double>
 
@@ -61,7 +62,10 @@ int main() {
   //evalDoccInGSOnlyPhot();
   //evalDoccInGS2Bands();
   
-  evalGSPropsAsOfWPh();
+  //evalGSPropsAsOfWPh();
+  
+  //calcTimeEvolution2Bands();
+  calcTimeEvolutionAsOfWD();
   
   
   //std::cout << "Starting Time Evolution ..." << '\n';

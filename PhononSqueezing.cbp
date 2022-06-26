@@ -146,6 +146,9 @@
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/timeEvolution.h">
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/timeEvolution2Bands.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/timeStep.h">
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
@@ -225,6 +228,9 @@
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/timeEvolution.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/timeEvolution2Bands.cpp">
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/timeStep.cpp">

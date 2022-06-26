@@ -12,7 +12,7 @@
 
 #include <chrono>
 
-double wPh;
+//double wPh;
 
 void evalGSPropsAsOfWPh() {
   
@@ -42,7 +42,7 @@ void evalGSPropsAsOfWPh() {
   for (ulong wStep = 0ul; wStep < wSteps; ++wStep) {
     
     ////////////////// set wPh //////////////////////
-    wPh = wArr[wStep];
+    //wPh = wArr[wStep];
     std::cout << "wPh = " << wPh << '\n';
     setupGlobalH2Bands(H);
   

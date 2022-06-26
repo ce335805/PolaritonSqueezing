@@ -13,4 +13,6 @@ std::string gsPropNameOnlyPhot();
 
 std::string gsPropName2Bands();
 
+std::string timeEvolName2Bands();
+
 #endif //PHONONSQUEEZING_MAKEFILENAMES_H

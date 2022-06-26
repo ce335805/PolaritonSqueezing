@@ -7,16 +7,16 @@ constexpr std::complex<double> II = std::complex<double>(0., 1.);
 constexpr double PI = 3.14159265358979323846264338327950288419716939937510582097494459230781640;
 
 constexpr double tHop(1.);
-constexpr double U(5.);
-constexpr double U1(5.);
-constexpr double uUpDn(5.);
-constexpr double uSigSig(5.);
+constexpr double U(10.);
+constexpr double U1(10.);
+constexpr double uUpDn(10.);
+constexpr double uSigSig(10.);
 constexpr double eps0 (0.);
 constexpr double eps1 (1.);
 //extern double gE;
 constexpr double gE(2.);
-//constexpr double wPh(2.);
-extern double wPh;
+constexpr double wPh(5.);
+//extern double wPh;
 
 constexpr ulong LCHAIN(2);
 constexpr double wPt(2.);
@@ -34,15 +34,17 @@ constexpr double gPh(0.0);
 constexpr double wP(0.0);
 //extern double wP;
 
-constexpr double wDrive(2.);
-constexpr double fDrive(3.);
-constexpr int timePointsPerDrivingPeriod (80);
-constexpr double dt(2. * PI / wDrive / timePointsPerDrivingPeriod);
+//constexpr double wDrive(0.8);
+extern double wDrive;
+constexpr double fDrive(10.);
+constexpr int timePointsPerDrivingPeriod (20);
+constexpr double dt(2. * PI / wPh / timePointsPerDrivingPeriod);
+//constexpr double dt(2. * PI / wDrive / timePointsPerDrivingPeriod);
 
 constexpr ulong dimElectron(16ul);
 //constexpr ulong dimElectron(1 << 2 * LCHAIN);
-constexpr ulong dimPhonon(8ul);
-constexpr ulong dimPhoton(8ul);
+constexpr ulong dimPhonon(4ul);
+constexpr ulong dimPhoton(4ul);
 constexpr ulong dimHOnlyPhot(dimElectron * dimPhoton);
 constexpr ulong dimHTwoPh(dimElectron * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(dimElectron * dimPhonon * dimPhoton);

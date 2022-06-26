@@ -35,4 +35,16 @@ void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
                     std::vector<std::complex<double>> &dOccUpDn,
                     std::vector<std::complex<double>> &dOccSigSig);
 
+void setupOps2BandsDrive(
+    std::vector<std::complex<double>> &dOcc0,
+    std::vector<std::complex<double>> &dOcc1,
+    std::vector<std::complex<double>> &dOccUpDn,
+    std::vector<std::complex<double>> &dOccSigSig,
+    std::vector<std::complex<double>> &Xph1,
+    std::vector<std::complex<double>> &Xph1Sqr,
+    std::vector<std::complex<double>> &Nph1,
+    std::vector<std::complex<double>> &Xph2,
+    std::vector<std::complex<double>> &Xph2Sqr,
+    std::vector<std::complex<double>> &Nph2);
+
 #endif //PHONONSQUEEZING_SETUPOPS_H

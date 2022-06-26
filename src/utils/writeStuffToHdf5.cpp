@@ -229,6 +229,72 @@ void writeStuffToHdf52Bands(
   
 }
 
+void writeStuffToHdf52BandsTime(
+    const std::vector<double> &times,
+    const std::vector<double> &pumpFunction,
+    const std::vector<double> &dOcc0,
+    const std::vector<double> &dOcc1,
+    const std::vector<double> &dOccUpDn,
+    const std::vector<double> &dOccSigSig,
+    const std::vector<double> &Xph1,
+    const std::vector<double> &Xph1Sqr,
+    const std::vector<double> &Nph1,
+    const std::vector<double> &Xph2,
+    const std::vector<double> &Xph2Sqr,
+    const std::vector<double> &Nph2,
+    const std::string &filename
+    ) {
+  
+  
+  std::cout << "filename: " << filename << '\n';
+  
+  H5::H5File file(filename, H5F_ACC_TRUNC);
+  
+  writeAllPrms(file);
+  
+  const hsize_t dataSize = times.size();
+  H5::DataSpace dataSpace(1, &dataSize);
+  H5::FloatType datatype(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+  
+  H5::DataSet datasetTimes = file.createDataSet("times", datatype, dataSpace);
+  datasetTimes.write(&times[0], datatype);
+  
+  H5::DataSet datasetPump = file.createDataSet("pump", datatype, dataSpace);
+  datasetPump.write(&pumpFunction[0], datatype);
+  
+  H5::DataSet datasetDOcc0 = file.createDataSet("dOcc0", datatype, dataSpace);
+  datasetDOcc0.write(&dOcc0[0], datatype);
+  
+  H5::DataSet datasetDOcc1 = file.createDataSet("dOcc1", datatype, dataSpace);
+  datasetDOcc1.write(&dOcc1[0], datatype);
+  
+  H5::DataSet datasetDOccUpDn = file.createDataSet("dOccUpDn", datatype, dataSpace);
+  datasetDOccUpDn.write(&dOccUpDn[0], datatype);
+  
+  H5::DataSet datasetDOccSigSig = file.createDataSet("dOccSigSig", datatype, dataSpace);
+  datasetDOccSigSig.write(&dOccSigSig[0], datatype);
+  
+  H5::DataSet datasetXpt = file.createDataSet("Xph1", datatype, dataSpace);
+  datasetXpt.write(&Xph1[0], datatype);
+  
+  H5::DataSet datasetXptSqr = file.createDataSet("Xph1Sqr", datatype, dataSpace);
+  datasetXptSqr.write(&Xph1Sqr[0], datatype);
+  
+  H5::DataSet datasetNpt = file.createDataSet("Nph1", datatype, dataSpace);
+  datasetNpt.write(&Nph1[0], datatype);
+  
+  H5::DataSet datasetXph = file.createDataSet("Xph2", datatype, dataSpace);
+  datasetXph.write(&Xph2[0], datatype);
+  
+  H5::DataSet datasetXphSqr = file.createDataSet("Xph2Sqr", datatype, dataSpace);
+  datasetXphSqr.write(&Xph2Sqr[0], datatype);
+  
+  H5::DataSet datasetNph = file.createDataSet("Nph2", datatype, dataSpace);
+  datasetNph.write(&Nph2[0], datatype);
+}
+
+
 void readInComplex2DArray(std::vector<std::complex<double>> &readInArray, const std::string &fileName) {
   H5::H5File file(fileName, H5F_ACC_RDONLY);
 

@@ -46,6 +46,7 @@ set(project_sources
         src/onePhonon/setupBasicOpertors2Bands.cpp
         src/onePhonon/evalDoccInGS2Bands.cpp
         src/onePhonon/evalGSProps2Bands.cpp
+        src/timeEvolution2Bands.cpp
         )
 
 set(header_files
@@ -75,6 +76,7 @@ set(header_files
         include/onePhonon/setupBasicOperators2Bands.h
         include/onePhonon/evalDoccInGs2Bands.h
         include/onePhonon/evalGSProps2Bands.h
+        include/timeEvolution2Bands.h
         )
 
 include_directories("./include")

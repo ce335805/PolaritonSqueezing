@@ -43,6 +43,22 @@ void writeStuffToHdf52Bands(
     const std::string &filename
 );
 
+void writeStuffToHdf52BandsTime(
+    const std::vector<double> &times,
+    const std::vector<double> &pumpFunction,
+    const std::vector<double> &dOcc0,
+    const std::vector<double> &dOcc1,
+    const std::vector<double> &dOccUpDn,
+    const std::vector<double> &dOccSigSig,
+    const std::vector<double> &Xph1,
+    const std::vector<double> &Xph1Sqr,
+    const std::vector<double> &Nph1,
+    const std::vector<double> &Xph2,
+    const std::vector<double> &Xph2Sqr,
+    const std::vector<double> &Nph2,
+    const std::string &filename
+);
+
 void readInComplex2DArray(std::vector<std::complex<double>> &readInArray, const std::string &fileName);
 
 #endif //PHONONSQUEEZING_WRITESTUFFTOHDF5_H

@@ -11,6 +11,7 @@
 #include "setupBasicOperators2Bands.h"
 
 #define MKL_Complex16 std::complex<double>
+
 #include "mkl.h"
 
 
@@ -217,7 +218,7 @@ void setupOpsOnlyPhot(std::vector<std::complex<double>> &dOcc,
               dimH, dimH, dimH, &alpha,
               Xpt.data(), dimH,
               Xpt.data(), dimH,
-              &beta, XptSqr.data(),dimH);
+              &beta, XptSqr.data(), dimH);
   
   Npt = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
   
@@ -230,16 +231,90 @@ void setupOpsOnlyPhot(std::vector<std::complex<double>> &dOcc,
   dOcc = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
   
   setupDOccOnlyPhot(dOcc);
-
+  
 }
 
 void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
-                      std::vector<std::complex<double>> &dOcc1,
-                      std::vector<std::complex<double>> &dOccUpDn,
-                      std::vector<std::complex<double>> &dOccSigSig) {
+                    std::vector<std::complex<double>> &dOcc1,
+                    std::vector<std::complex<double>> &dOccUpDn,
+                    std::vector<std::complex<double>> &dOccSigSig) {
   
   setupDOcc0(dOcc0);
   setupDOcc1(dOcc1);
   setupInterOrbUpDn(dOccUpDn);
   setupInterOrbSigSig(dOccSigSig);
+}
+
+void setupOps2BandsDrive(
+    std::vector<std::complex<double>> &dOcc0,
+    std::vector<std::complex<double>> &dOcc1,
+    std::vector<std::complex<double>> &dOccUpDn,
+    std::vector<std::complex<double>> &dOccSigSig,
+    std::vector<std::complex<double>> &Xph1,
+    std::vector<std::complex<double>> &Xph1Sqr,
+    std::vector<std::complex<double>> &Nph1,
+    std::vector<std::complex<double>> &Xph2,
+    std::vector<std::complex<double>> &Xph2Sqr,
+    std::vector<std::complex<double>> &Nph2) {
+  
+  const ulong dimH = dimHOnePh;
+  
+  setupOps2Bands(dOcc0, dOcc1, dOccUpDn, dOccSigSig);
+  
+  Xph1 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  std::vector<std::complex<double>> A(dimH * dimH, std::complex<double>(
+      0., 0.));
+  setupA0(A);
+  std::vector<std::complex<double>> ADag(A);
+  dagger(ADag, dimH);
+  
+  
+  addMatricies(ADag, 1. / std::sqrt(wPh), A, 1. / std::sqrt(wPh), Xph1);
+  
+  Nph1 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  
+  std::complex<double> alpha(1., 0.);
+  std::complex<double> beta(0., 0.);
+  
+  cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasNoTrans,
+              dimH, dimH, dimH, &alpha,
+              A.data(), dimH,
+              A.data(), dimH,
+              &beta, Nph1.data(), dimH);
+  
+  Xph1Sqr = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  
+  
+  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+              dimH, dimH, dimH, &alpha,
+              Xph1.data(), dimH,
+              Xph1.data(), dimH,
+              &beta, Xph1Sqr.data(), dimH);
+  
+  Xph2 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> B(dimH * dimH, std::complex<double>(
+      0., 0.));
+  setupA1(B);
+  std::vector<std::complex<double>> BDag(B);
+  dagger(BDag, dimH);
+  
+  addMatricies(BDag, 1. / std::sqrt(wPh), B, 1. / std::sqrt(wPh), Xph2);
+  
+  Nph2 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  
+  cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasNoTrans,
+              dimH, dimH, dimH, &alpha,
+              B.data(), dimH,
+              B.data(), dimH,
+              &beta, Nph2.data(), dimH);
+  
+  Xph2Sqr = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  
+  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+              dimH, dimH, dimH, &alpha,
+              Xph2.data(), dimH,
+              Xph2.data(), dimH,
+              &beta, Xph2Sqr.data(), dimH);
+  
 }
