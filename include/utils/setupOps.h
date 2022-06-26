@@ -30,4 +30,9 @@ void setupOpsOnlyPhot(std::vector<std::complex<double>> &dOcc,
                       std::vector<std::complex<double>> &XptSqr,
                       std::vector<std::complex<double>> &Npt);
 
+void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
+                    std::vector<std::complex<double>> &dOcc1,
+                    std::vector<std::complex<double>> &dOccUpDn,
+                    std::vector<std::complex<double>> &dOccSigSig);
+
 #endif //PHONONSQUEEZING_SETUPOPS_H

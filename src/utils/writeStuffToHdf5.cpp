@@ -195,6 +195,40 @@ void writeStuffToHdf5OnlyPhot(
   
 }
 
+void writeStuffToHdf52Bands(
+    const std::vector<double> &wPhArr,
+    const std::vector<double> &dOcc0,
+    const std::vector<double> &dOcc1,
+    const std::vector<double> &dOccUpDn,
+    const std::vector<double> &dOccSigSig,
+    const std::string &filename
+) {
+  std::cout << "filename: " << filename << '\n';
+  
+  H5::H5File file(filename, H5F_ACC_TRUNC, 'w');
+  
+  const hsize_t dataSize = wPhArr.size();
+  H5::DataSpace dataSpace(1, &dataSize);
+  H5::FloatType datatype(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+  
+  H5::DataSet datasetgArr = file.createDataSet("wPh", datatype, dataSpace);
+  datasetgArr.write(&wPhArr[0], datatype);
+  
+  H5::DataSet datasetDOcc0 = file.createDataSet("dOcc0", datatype, dataSpace);
+  datasetDOcc0.write(&dOcc0[0], datatype);
+  
+  H5::DataSet datasetDOcc1 = file.createDataSet("dOcc1", datatype, dataSpace);
+  datasetDOcc1.write(&dOcc1[0], datatype);
+  
+  H5::DataSet datasetDOccUpDn = file.createDataSet("dOccUpDn", datatype, dataSpace);
+  datasetDOccUpDn.write(&dOccUpDn[0], datatype);
+  
+  H5::DataSet datasetDOccSigSig = file.createDataSet("dOccSigSig", datatype, dataSpace);
+  datasetDOccSigSig.write(&dOccSigSig[0], datatype);
+  
+}
+
 void readInComplex2DArray(std::vector<std::complex<double>> &readInArray, const std::string &fileName) {
   H5::H5File file(fileName, H5F_ACC_RDONLY);
 

@@ -350,6 +350,33 @@ src/onePhonon/evalDoccInGSOnePh.cpp.s:
 	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalDoccInGSOnePh.cpp.s
 .PHONY : src/onePhonon/evalDoccInGSOnePh.cpp.s
 
+src/onePhonon/evalGSProps2Bands.o: src/onePhonon/evalGSProps2Bands.cpp.o
+
+.PHONY : src/onePhonon/evalGSProps2Bands.o
+
+# target to build an object file
+src/onePhonon/evalGSProps2Bands.cpp.o:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalGSProps2Bands.cpp.o
+.PHONY : src/onePhonon/evalGSProps2Bands.cpp.o
+
+src/onePhonon/evalGSProps2Bands.i: src/onePhonon/evalGSProps2Bands.cpp.i
+
+.PHONY : src/onePhonon/evalGSProps2Bands.i
+
+# target to preprocess a source file
+src/onePhonon/evalGSProps2Bands.cpp.i:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalGSProps2Bands.cpp.i
+.PHONY : src/onePhonon/evalGSProps2Bands.cpp.i
+
+src/onePhonon/evalGSProps2Bands.s: src/onePhonon/evalGSProps2Bands.cpp.s
+
+.PHONY : src/onePhonon/evalGSProps2Bands.s
+
+# target to generate assembly for a file
+src/onePhonon/evalGSProps2Bands.cpp.s:
+	$(MAKE) -f CMakeFiles/PolaritonSqueezing.out.dir/build.make CMakeFiles/PolaritonSqueezing.out.dir/src/onePhonon/evalGSProps2Bands.cpp.s
+.PHONY : src/onePhonon/evalGSProps2Bands.cpp.s
+
 src/onePhonon/setHGlobal2Bands.o: src/onePhonon/setHGlobal2Bands.cpp.o
 
 .PHONY : src/onePhonon/setHGlobal2Bands.o
@@ -843,6 +870,9 @@ help:
 	@echo "... src/onePhonon/evalDoccInGSOnePh.o"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.i"
 	@echo "... src/onePhonon/evalDoccInGSOnePh.s"
+	@echo "... src/onePhonon/evalGSProps2Bands.o"
+	@echo "... src/onePhonon/evalGSProps2Bands.i"
+	@echo "... src/onePhonon/evalGSProps2Bands.s"
 	@echo "... src/onePhonon/setHGlobal2Bands.o"
 	@echo "... src/onePhonon/setHGlobal2Bands.i"
 	@echo "... src/onePhonon/setHGlobal2Bands.s"

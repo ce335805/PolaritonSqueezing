@@ -90,4 +90,23 @@ std::string gsPropNameOnlyPhot(){
   
 }
 
+std::string gsPropName2Bands(){
+  
+  std::string fileName ("data/gsProp2Bands");
+  
+  std::string U0Str ("Ua" + std::to_string(int(10 * U)));
+  std::string U1Str ("Ub" + std::to_string(int(10 * U1)));
+  std::string UUDStr ("Uud" + std::to_string(int(10 * uUpDn)));
+  std::string USSStr ("Uss" + std::to_string(int(10 * uSigSig)));
+  std::string eps0Str ("epsA" + std::to_string(int(10 * eps0)));
+  std::string eps1Str ("epsB" + std::to_string(int(10 * eps1)));
+  std::string gEStr ("gE" + std::to_string(int(10 * gE)));
+  
+  
+  fileName = fileName + U0Str + U1Str + UUDStr + USSStr + eps0Str + eps1Str + gEStr + ".hdf5";
+  
+  return fileName;
+  
+}
+
 

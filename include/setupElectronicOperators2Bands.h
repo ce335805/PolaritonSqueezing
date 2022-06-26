@@ -14,4 +14,8 @@ void setupInterbandHop0Small(std::vector<std::complex<double>> &interbandHop);
 
 void setupInterbandHop1Small(std::vector<std::complex<double>> &interbandHop);
 
+void setupInterbandHop1Small(std::vector<std::complex<double>> &interbandHop);
+
+void setupInterOrbUpDnSmall(std::vector<std::complex<double>> &interOrbUpDn);
+
 #endif //PHONONSQUEEZING_SETUPELECTRONICOPERATORS2BANDS_H

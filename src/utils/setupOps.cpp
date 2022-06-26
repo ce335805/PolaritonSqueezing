@@ -6,19 +6,11 @@
 #include "globals.h"
 #include "setupBasicOperatorsOnePh.h"
 #include "matrixOperations.h"
-#include "setUpGlobalHamiltonianOnePh.h"
-#include "calcGS.h"
-#include "timeStep.h"
 #include "setupBasicOperators.h"
 #include "setupBasicOperatorsOnlyPhot.h"
-#include "setUpGlobalHamiltonian.h"
-#include "evalExpectation.h"
-#include "writeStuffToHdf5.h"
-
-#include "H5Cpp.h"
+#include "setupBasicOperators2Bands.h"
 
 #define MKL_Complex16 std::complex<double>
-
 #include "mkl.h"
 
 
@@ -241,3 +233,13 @@ void setupOpsOnlyPhot(std::vector<std::complex<double>> &dOcc,
 
 }
 
+void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
+                      std::vector<std::complex<double>> &dOcc1,
+                      std::vector<std::complex<double>> &dOccUpDn,
+                      std::vector<std::complex<double>> &dOccSigSig) {
+  
+  setupDOcc0(dOcc0);
+  setupDOcc1(dOcc1);
+  setupInterOrbUpDn(dOccUpDn);
+  setupInterOrbSigSig(dOccSigSig);
+}

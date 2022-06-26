@@ -30,6 +30,11 @@ void evalDoccInGS2Bands(){
   std::vector<std::complex<double>> dOcc1;
   setupDOcc0(dOcc0);
   setupDOcc1(dOcc1);
+  
+  std::vector<std::complex<double>> dOccInterUpDn;
+  std::vector<std::complex<double>> dOccInterSigSig;
+  setupInterOrbUpDn(dOccInterUpDn);
+  setupInterOrbSigSig(dOccInterSigSig);
 
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -66,7 +71,13 @@ void evalDoccInGS2Bands(){
   
   double dOccExpec0 = evalExpectation(dOcc0, gs, dimHOnePh);
   double dOccExpec1 = evalExpectation(dOcc1, gs, dimHOnePh);
+  double dOccInterUpDnExpec = evalExpectation(dOccInterUpDn, gs, dimHOnePh);
+  double dOccInterSigSigExpec = evalExpectation(dOccInterSigSig, gs, dimHOnePh);
   
   std::cout << "<dOcc0> = " << dOccExpec0 << '\n';
   std::cout << "<dOcc1> = " << dOccExpec1 << '\n';
+  std::cout << "<dOccInterUpDn> = " << dOccInterUpDnExpec << '\n';
+  std::cout << "<dOccInterSigSig> = " << dOccInterSigSigExpec << '\n';
+  
+  std::cout << "<dOccTot> = " << dOccExpec0 + dOccExpec1 + dOccInterUpDnExpec + dOccInterSigSigExpec << '\n';
 }

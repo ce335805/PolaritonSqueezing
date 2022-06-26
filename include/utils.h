@@ -13,13 +13,13 @@ inline ulong toGlobalMatrixIndex(const ulong ptInd1,
                                  const ulong eInd1,
                                  const ulong eInd2) {
   return
-          ptInd1 * dimHTwoPh * dimPhonon * dimPhonon * 4ul +
-          ph2Ind1 * dimHTwoPh * dimPhonon * 4ul +
-          ph1Ind1 * dimHTwoPh * 4ul +
+          ptInd1 * dimHTwoPh * dimPhonon * dimPhonon * dimElectron +
+          ph2Ind1 * dimHTwoPh * dimPhonon * dimElectron +
+          ph1Ind1 * dimHTwoPh * dimElectron +
           eInd1 * dimHTwoPh +
-          ptInd2 * dimPhonon * dimPhonon * 4ul +
-          ph2Ind2 * dimPhonon * 4ul +
-          ph1Ind2 * 4ul +
+          ptInd2 * dimPhonon * dimPhonon * dimElectron +
+          ph2Ind2 * dimPhonon * dimElectron +
+          ph1Ind2 * dimElectron +
           eInd2;
 }
 
@@ -30,11 +30,11 @@ inline ulong toGlobalMatrixIndexOne(const ulong ptInd1,
                                     const ulong eInd1,
                                     const ulong eInd2) {
   return
-          ptInd1 * dimHOnePh * dimPhonon * 4ul +
-          phInd1 * dimHOnePh * 4ul +
+          ptInd1 * dimHOnePh * dimPhonon * dimElectron +
+          phInd1 * dimHOnePh * dimElectron +
           eInd1 * dimHOnePh +
-          ptInd2 * dimPhonon * 4ul +
-          phInd2 * 4ul +
+          ptInd2 * dimPhonon * dimElectron +
+          phInd2 * dimElectron +
           eInd2;
 }
 

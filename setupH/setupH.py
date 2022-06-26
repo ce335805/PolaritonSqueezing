@@ -87,39 +87,83 @@ def writeH2Orb(Hcut, interOrb0, interOrb1, dOcc0, dOcc1):
     f.create_dataset("Real", data=np.real(dOcc1), dtype='double')
     f.create_dataset("Imag", data=np.imag(dOcc1), dtype='double')
     f.close()
+    
+def write2OrbOps(Hkin, onsitePot0, onsitePot1, interOrb0, interOrb1, dOcc0, dOcc1, intOrbUpDn, intOrbSigSig):
+    filename = "./savedOperators/HKin.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(Hkin), dtype='double')
+    f.create_dataset("Imag", data=np.imag(Hkin), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/onsitePot0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(onsitePot0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(onsitePot0), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/onsitePot1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(onsitePot1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(onsitePot1), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/InterOrb0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(interOrb0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(interOrb0), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/InterOrb1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(interOrb1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(interOrb1), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/dOcc0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(dOcc0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(dOcc0), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/dOcc1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(dOcc1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(dOcc1), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/intOrbUpDn.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(intOrbUpDn), dtype='double')
+    f.create_dataset("Imag", data=np.imag(intOrbUpDn), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/intOrbSigSig.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(intOrbSigSig), dtype='double')
+    f.create_dataset("Imag", data=np.imag(intOrbSigSig), dtype='double')
+    f.close()
 
 def main():
-    print("Let's setup H!")
-
     setupTransposeList()
-
     print("transposeList = {}".format(transposelist))
-
-    #setupOpAtSite(1, cDag)
-    #exit()
-
-    #mat1 = np.array([[1, 2], [3, 4]])
-    #mat2 = np.array([[5, 6], [7, 8]])
-    #ten1 = np.tensordot(mat1, mat2, 0)
-    #np.transpose(ten1, transposelist)
-    #ten1 = np.reshape(ten1, (4, 4))
-    #print(ten1)
-    #print()
-    ##print(np.tensordot(mat2, mat1, 0))
-    #exit()
-
-    #HHop = singleBandHubbard.setUpHoppingH()
-    #HInd = singleBandHubbard.setUpHInt()
-    #H = HInd + HHop
-    ##print(np.real(H))
-    #Hcut = projectN(2, H)
-    #print(np.real(Hcut))
-    #exit()
 
     particleN = 2
 
-    H = twoOrbitalH.setupHTwoOrb()
-    Hcut = projectN(particleN, H)
+    Hkin = twoOrbitalH.setupHKin()
+    HkinCut = projectN(particleN, Hkin)
+    onsitePot0 = twoOrbitalH.onSitePotential0()
+    onsitePot0Cut = projectN(particleN, onsitePot0)
+    onsitePot1 = twoOrbitalH.onSitePotential1()
+    onsitePot1Cut = projectN(particleN, onsitePot1)
     interOrb0 = twoOrbitalH.interOrbitalHop0()
     interOrb0Cut = projectN(particleN, interOrb0)
     interOrb1 = twoOrbitalH.interOrbitalHop1()
@@ -130,42 +174,11 @@ def main():
     dOcc1 = twoOrbitalH.setupDocc1()
     dOcc1Cut = projectN(particleN, dOcc1)
 
-    print(np.real(np.diag(Hcut)))
+    intOrbUpDn = twoOrbitalH.interOrbitalIntUpDn()
+    intOrbUpDnCut = projectN(particleN, intOrbUpDn)
+    intOrbSigSig = twoOrbitalH.interOrbitalIntSigSig()
+    intOrbSigSigCut = projectN(particleN, intOrbSigSig)
 
-    eVals, _ = np.linalg.eigh(Hcut)
-    print(eVals)
-
-    writeH2Orb(Hcut, interOrb0Cut, interOrb1Cut, dOcc0Cut, dOcc1Cut)
-    exit()
-
-    filename = "HN{}U{}.hdf5".format(N, int(U * 10))
-    print("H.shape = {}".format(H.shape))
-
-    f = h5py.File(filename, 'w')
-    f.create_dataset("Real", data = np.real(Hcut), dtype = 'double')
-    f.create_dataset("Imag", data = np.imag(Hcut), dtype = 'double')
-    f.close()
-
-
-    #dOcc = setUpDOcc()
-    #print("dOcc.shape = {}".format(dOcc.shape))
-#
-    #filename = "dOccN{}.hdf5".format(N)
-#
-    #f = h5py.File(filename, 'w')
-    #f.create_dataset("Real", data = np.real(dOcc), dtype = 'double')
-    #f.create_dataset("Imag", data = np.imag(dOcc), dtype = 'double')
-    #f.close()
-#
-#
-    #couplingH = setUpCouplingH()
-    #print("couplingH.shape = {}".format(couplingH.shape))
-#
-    #filename = "couplingN{}.hdf5".format(N)
-#
-    #f = h5py.File(filename, 'w')
-    #f.create_dataset("Real", data = np.real(couplingH), dtype = 'double')
-    #f.create_dataset("Imag", data = np.imag(couplingH), dtype = 'double')
-    #f.close()
+    write2OrbOps(HkinCut, onsitePot0Cut, onsitePot1Cut, interOrb0Cut, interOrb1Cut, dOcc0Cut, dOcc1Cut, intOrbUpDnCut, intOrbSigSigCut)
 
 main()

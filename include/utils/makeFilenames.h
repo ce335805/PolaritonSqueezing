@@ -11,4 +11,6 @@ std::string gsPropNameTemp(const bool twoPhonons, const bool quadratic);
 
 std::string gsPropNameOnlyPhot();
 
+std::string gsPropName2Bands();
+
 #endif //PHONONSQUEEZING_MAKEFILENAMES_H

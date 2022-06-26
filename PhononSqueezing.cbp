@@ -113,6 +113,9 @@
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onePhonon/evalDoccInGs2Bands.h">
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onePhonon/evalGSProps2Bands.h">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/include/onePhonon/setUpGlobalHamiltonianOnePh.h">
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
@@ -189,6 +192,9 @@
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onePhonon/evalDoccInGSOnePh.cpp">
+			<Option target="PolaritonSqueezing.out"/>
+		</Unit>
+		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onePhonon/evalGSProps2Bands.cpp">
 			<Option target="PolaritonSqueezing.out"/>
 		</Unit>
 		<Unit filename="/home/chris/academics/PhD/codebase/PolaritonSqueezing/src/onePhonon/setHGlobal2Bands.cpp">

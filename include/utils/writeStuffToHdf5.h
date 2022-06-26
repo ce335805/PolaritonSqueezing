@@ -34,6 +34,15 @@ void writeStuffToHdf5OnlyPhot(
     const std::string &filename
 );
 
+void writeStuffToHdf52Bands(
+    const std::vector<double> &wPhArr,
+    const std::vector<double> &dOcc0,
+    const std::vector<double> &dOcc1,
+    const std::vector<double> &dOccUpDn,
+    const std::vector<double> &dOccSigSig,
+    const std::string &filename
+);
+
 void readInComplex2DArray(std::vector<std::complex<double>> &readInArray, const std::string &fileName);
 
 #endif //PHONONSQUEEZING_WRITESTUFFTOHDF5_H

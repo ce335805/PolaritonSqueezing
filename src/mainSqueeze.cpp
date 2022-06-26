@@ -23,6 +23,7 @@
 #include "mkl.h"
 #include "setUpGlobalHamiltonianOnlyPhot.h"
 #include "setupBasicOperatorsOnlyPhot.h"
+#include "evalGSProps2Bands.h"
 
 
 int main() {
@@ -58,7 +59,9 @@ int main() {
   //evalDoccInGSTwoPh();
   //evalDoccInGSOnePh();
   //evalDoccInGSOnlyPhot();
-  evalDoccInGS2Bands();
+  //evalDoccInGS2Bands();
+  
+  evalGSPropsAsOfWPh();
   
   
   //std::cout << "Starting Time Evolution ..." << '\n';
