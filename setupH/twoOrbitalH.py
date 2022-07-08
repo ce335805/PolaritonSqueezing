@@ -190,3 +190,13 @@ def interOrbitalIntSigSig():
         H += np.matmul(np.matmul(ciUp0Dag, ciUp0), np.matmul(ciUp1Dag, ciUp1))
 
     return H
+
+def ni(site):
+    assert N == 8, "wrong number of sites for this Hamiltonian"
+    H = np.zeros((2 ** N, 2 ** N), dtype='complex')
+
+    cSite = setupOpAtSite(site, cOp)
+    cSiteDag = setupOpAtSite(site, cDag)
+    H += np.matmul(cSiteDag, cSite)
+
+    return H

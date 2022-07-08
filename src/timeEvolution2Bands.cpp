@@ -21,6 +21,7 @@
 #include "mkl.h"
 
 double wDrive;
+double dt;
 
 
 void calcTimeEvolutionAsOfWD(){
@@ -29,7 +30,7 @@ void calcTimeEvolutionAsOfWD(){
   std::vector<double> wArr(wSteps, 0.);
   
   for (ulong ind = 0ul; ind < wSteps; ++ind) {
-    wArr[ind] = double(ind + 1ul) / 10.;
+    wArr[ind] = double(ind + 1ul) / 4.;
   }
   
   auto start = std::chrono::high_resolution_clock::now();
@@ -41,6 +42,7 @@ void calcTimeEvolutionAsOfWD(){
   
     ////////////////// set wPh //////////////////////
     wDrive = wArr[wStep];
+    dt = 2. * PI / wDrive / timePointsPerDrivingPeriod;
     std::cout << "wDrive = " << wDrive << '\n';
     calcTimeEvolution2Bands();
   
@@ -84,6 +86,8 @@ void calcTimeEvolution2Bands() {
   std::vector<std::complex<double>> dOcc1;
   std::vector<std::complex<double>> dOccUpDn;
   std::vector<std::complex<double>> dOccSigSig;
+  std::vector<std::complex<double>> n0;
+  std::vector<std::complex<double>> n1;
   std::vector<std::complex<double>> Xph1;
   std::vector<std::complex<double>> Xph1Sqr;
   std::vector<std::complex<double>> Npt1;
@@ -103,7 +107,7 @@ void calcTimeEvolution2Bands() {
   std::vector<double> X1phSqrExpectation(timeSteps, 0.);
   std::vector<double> N1phExpectation(timeSteps, 0.);
   
-  setupOps2BandsDrive(dOcc0, dOcc1, dOccUpDn, dOccSigSig, Xph1, Xph1Sqr, Npt1, Xph2, Xph2Sqr, Nph2);
+  setupOps2BandsDrive(dOcc0, dOcc1, dOccUpDn, dOccSigSig, n0, n1, Xph1, Xph1Sqr, Npt1, Xph2, Xph2Sqr, Nph2);
   
   
   addMatricies(Xph1, 1. / std::sqrt(2.), Xph2, 1. / std::sqrt(2.), ODrive);

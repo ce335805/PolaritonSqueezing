@@ -201,6 +201,8 @@ void writeStuffToHdf52Bands(
     const std::vector<double> &dOcc1,
     const std::vector<double> &dOccUpDn,
     const std::vector<double> &dOccSigSig,
+    const std::vector<double> &n0,
+    const std::vector<double> &n1,
     const std::string &filename
 ) {
   std::cout << "filename: " << filename << '\n';
@@ -223,6 +225,12 @@ void writeStuffToHdf52Bands(
   
   H5::DataSet datasetDOccUpDn = file.createDataSet("dOccUpDn", datatype, dataSpace);
   datasetDOccUpDn.write(&dOccUpDn[0], datatype);
+  
+  H5::DataSet datasetN0 = file.createDataSet("n0", datatype, dataSpace);
+  datasetN0.write(&n0[0], datatype);
+  
+  H5::DataSet datasetN1 = file.createDataSet("n1", datatype, dataSpace);
+  datasetN1.write(&n1[0], datatype);
   
   H5::DataSet datasetDOccSigSig = file.createDataSet("dOccSigSig", datatype, dataSpace);
   datasetDOccSigSig.write(&dOccSigSig[0], datatype);

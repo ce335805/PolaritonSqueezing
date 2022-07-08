@@ -33,13 +33,17 @@ void setupOpsOnlyPhot(std::vector<std::complex<double>> &dOcc,
 void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
                     std::vector<std::complex<double>> &dOcc1,
                     std::vector<std::complex<double>> &dOccUpDn,
-                    std::vector<std::complex<double>> &dOccSigSig);
+                    std::vector<std::complex<double>> &dOccSigSig,
+                    std::vector<std::complex<double>> &n0,
+                    std::vector<std::complex<double>> &n1);
 
 void setupOps2BandsDrive(
     std::vector<std::complex<double>> &dOcc0,
     std::vector<std::complex<double>> &dOcc1,
     std::vector<std::complex<double>> &dOccUpDn,
     std::vector<std::complex<double>> &dOccSigSig,
+    std::vector<std::complex<double>> &n0,
+    std::vector<std::complex<double>> &n1,
     std::vector<std::complex<double>> &Xph1,
     std::vector<std::complex<double>> &Xph1Sqr,
     std::vector<std::complex<double>> &Nph1,

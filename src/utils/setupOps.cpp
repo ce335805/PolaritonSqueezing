@@ -237,12 +237,16 @@ void setupOpsOnlyPhot(std::vector<std::complex<double>> &dOcc,
 void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
                     std::vector<std::complex<double>> &dOcc1,
                     std::vector<std::complex<double>> &dOccUpDn,
-                    std::vector<std::complex<double>> &dOccSigSig) {
+                    std::vector<std::complex<double>> &dOccSigSig,
+                    std::vector<std::complex<double>> &n0,
+                    std::vector<std::complex<double>> &n1) {
   
   setupDOcc0(dOcc0);
   setupDOcc1(dOcc1);
   setupInterOrbUpDn(dOccUpDn);
   setupInterOrbSigSig(dOccSigSig);
+  setupN0(n0);
+  setupN1(n1);
 }
 
 void setupOps2BandsDrive(
@@ -250,6 +254,8 @@ void setupOps2BandsDrive(
     std::vector<std::complex<double>> &dOcc1,
     std::vector<std::complex<double>> &dOccUpDn,
     std::vector<std::complex<double>> &dOccSigSig,
+    std::vector<std::complex<double>> &n0,
+    std::vector<std::complex<double>> &n1,
     std::vector<std::complex<double>> &Xph1,
     std::vector<std::complex<double>> &Xph1Sqr,
     std::vector<std::complex<double>> &Nph1,
@@ -259,7 +265,7 @@ void setupOps2BandsDrive(
   
   const ulong dimH = dimHOnePh;
   
-  setupOps2Bands(dOcc0, dOcc1, dOccUpDn, dOccSigSig);
+  setupOps2Bands(dOcc0, dOcc1, dOccUpDn, dOccSigSig, n0, n1);
   
   Xph1 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
   std::vector<std::complex<double>> A(dimH * dimH, std::complex<double>(

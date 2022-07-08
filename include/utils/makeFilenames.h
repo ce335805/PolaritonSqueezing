@@ -11,7 +11,7 @@ std::string gsPropNameTemp(const bool twoPhonons, const bool quadratic);
 
 std::string gsPropNameOnlyPhot();
 
-std::string gsPropName2Bands();
+std::string gsPropName2Bands(const double gSqrOverOmega);
 
 std::string timeEvolName2Bands();
 

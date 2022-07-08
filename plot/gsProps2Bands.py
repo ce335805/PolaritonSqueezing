@@ -41,8 +41,10 @@ def getDataFromFile(fileName):
     dOcc1 = file['dOcc1'][()]
     dOccUpDn = file['dOccUpDn'][()]
     dOccSigSig = file['dOccSigSig'][()]
+    n0 = file['n0'][()]
+    n1 = file['n1'][()]
 
-    return (wPh, dOcc0, dOcc1, dOccUpDn, dOccSigSig)
+    return (wPh, dOcc0, dOcc1, dOccUpDn, dOccSigSig, n0, n1)
 
 
 
@@ -50,9 +52,9 @@ def dOccAsOfWp(fileNames):
 
     print("plotting Tc as function of Q")
 
-    gEArr = np.array([0., 0.1, 0.5, 1., 2.])
+    gEArr = np.array([1., 5., 10.])
 
-    wPhs, _, _, _, _ = getDataFromFile(fileNames[0])
+    wPhs, _, _, _, _, _, _ = getDataFromFile(fileNames[0])
     nW = len(wPhs)
     print("nW = {}".format(nW))
 
@@ -60,9 +62,14 @@ def dOccAsOfWp(fileNames):
     dOcc1Arrs = np.zeros((len(fileNames), nW))
     dOccUpDnArrs = np.zeros((len(fileNames), nW))
     dOccSigSigArrs = np.zeros((len(fileNames), nW))
+    n0 = np.zeros((len(fileNames), nW))
+    n1 = np.zeros((len(fileNames), nW))
 
     for fileInd, fileName in enumerate(fileNames):
-        _, dOcc0Arrs[fileInd, :], dOcc1Arrs[fileInd, :], dOccUpDnArrs[fileInd, :], dOccSigSigArrs[fileInd, :] = getDataFromFile(fileName)
+        _, dOcc0Arrs[fileInd, :], dOcc1Arrs[fileInd, :], dOccUpDnArrs[fileInd, :], dOccSigSigArrs[fileInd, :], n0[fileInd, :], n1[fileInd, :] = getDataFromFile(fileName)
+
+    dOccIntra = dOcc0Arrs - 2. * n0 * n0 + dOcc1Arrs - 2. * n1 * n1
+    dOccInter = dOccUpDnArrs - 2 * n0 * n1 + dOccSigSigArrs - 2. * n0 * n1
 
     print("dOcc0.shape = {}".format(dOcc0Arrs.shape))
 
@@ -78,11 +85,16 @@ def dOccAsOfWp(fileNames):
         color1 = cmapBone(gEInd / (len(gEArr) + 1) + 0.1)
         color2 = cmapPink(gEInd / (len(gEArr) + 1) + 0.1)
 
-        ax.plot(wPhs, dOcc0Arrs[gEInd, :], color = color1)
-        ax.plot(wPhs, dOcc0Arrs[gEInd, :] + dOcc1Arrs[gEInd, :], color = color2)
+        #ax.plot(wPhs, dOccIntra[gEInd, :], color = color1, linewidth = 1., label = r"$g = {}$".format(gE))
+        ax.plot(wPhs, dOccInter[gEInd, :], color = color2, linewidth = 1., label = r"$g = {}$".format(gE))
 
-    ax.set_ylabel(r"$dOcc_{\rm A}$")
+    ax.set_ylabel(r"$\langle n_{a, \sigma} n_{b, \sigma'} \rangle$")
     ax.set_xlabel(r"$\omega_{\rm ph}$")
+
+    legend = ax.legend(fontsize = fontsize - 2, loc = 'upper right', bbox_to_anchor=(1.0, 1.0), edgecolor = 'black', ncol = 1)
+    legend.get_frame().set_alpha(0.)
+    legend.get_frame().set_boxstyle('Square', pad=0.1)
+    legend.get_frame().set_linewidth(0.0)
 
     plt.savefig('./savedPlots/dOccAsOfWph.png', format='png', bbox_inches='tight', dpi=600)
 

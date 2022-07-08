@@ -22,5 +22,9 @@ void setupInterOrbUpDn(std::vector<std::complex<double>> &interOrbUpDn);
 
 void setupInterOrbSigSig(std::vector<std::complex<double>> &interOrbSigSig);
 
+void setupN0(std::vector<std::complex<double>> &N0);
+
+void setupN1(std::vector<std::complex<double>> &N1);
+
 #endif //PHONONSQUEEZING_SETUPBASICOPERATORS2BANDS_H
 

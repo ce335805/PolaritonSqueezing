@@ -157,7 +157,7 @@ void setupInterOrbSigSig(std::vector<std::complex<double>> &interOrbSigSig) {
   interOrbSigSig = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
   
   std::vector<std::complex<double>> interOrbSigSigSmall;
-  setupInterOrbUpDnSmall(interOrbSigSigSmall);
+  setupInterOrbSigSigSmall(interOrbSigSigSmall);
   
   for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
     for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
@@ -165,6 +165,45 @@ void setupInterOrbSigSig(std::vector<std::complex<double>> &interOrbSigSig) {
         for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
           interOrbSigSig[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
               = interOrbSigSigSmall[eInd1 * dimElectron + eInd2];
+        }
+      }
+    }
+  }
+}
+
+void setupN0(std::vector<std::complex<double>> &N0) {
+  
+  N0 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> n0small;
+  setupN0Small(n0small);
+  
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < dimElectron; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
+          N0[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
+              = n0small[eInd1 * dimElectron + eInd2];
+        }
+      }
+    }
+  }
+}
+
+
+void setupN1(std::vector<std::complex<double>> &N1) {
+  
+  N1 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> n1small;
+  setupN1Small(n1small);
+  
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < dimElectron; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
+          N1[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
+              = n1small[eInd1 * dimElectron + eInd2];
         }
       }
     }

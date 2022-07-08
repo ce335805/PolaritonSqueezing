@@ -117,3 +117,21 @@ void setupInterOrbSigSigSmall(std::vector<std::complex<double>> &interOrbSigSig)
   
   readInComplex2DArray(interOrbSigSig, filename);
 }
+
+void setupN0Small(std::vector<std::complex<double>> &N0) {
+  
+  N0 = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+  
+  std::string filename = "./setupH/savedOperators/n0.hdf5";
+  
+  readInComplex2DArray(N0, filename);
+}
+
+void setupN1Small(std::vector<std::complex<double>> &N1) {
+  
+  N1 = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+  
+  std::string filename = "./setupH/savedOperators/n1.hdf5";
+  
+  readInComplex2DArray(N1, filename);
+}

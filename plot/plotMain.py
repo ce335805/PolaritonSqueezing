@@ -20,17 +20,16 @@ def main():
 
     #plotGSProps.plotGSPropsOnlyPhot()
 
-    #filenames = [
-    #    "../data/gsProp2BandsUa50Ub50Uud50Uss50epsA0epsB10gE0.hdf5",
-    #    "../data/gsProp2BandsUa50Ub50Uud50Uss50epsA0epsB10gE1.hdf5",
-    #    "../data/gsProp2BandsUa50Ub50Uud50Uss50epsA0epsB10gE5.hdf5",
-    #    "../data/gsProp2BandsUa50Ub50Uud50Uss50epsA0epsB10gE10.hdf5",
-    #    "../data/gsProp2BandsUa50Ub50Uud50Uss50epsA0epsB10gE20.hdf5"
-    #    #"../data/gsProp2BandsUa50Ub50Uud50Uss50epsA0epsB10gE40.hdf5"
-    #]
-    #gsProps2Bands.dOccAsOfWp(filenames)
+    filenames = [
+        "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE100.hdf5",
+        "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE500.hdf5",
+        "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE1000.hdf5"
+    ]
+    gsProps2Bands.dOccAsOfWp(filenames)
 
-    timeEvol2Bands.plotTimeEvol2Bands()
+    #timeEvol2Bands.plotTimeEvol2Bands()
+
+    #timeEvol2Bands.plotTimeEvol2BandsManyPrms()
 
 #wMinus = plotPolaritonFreqs.calcWMinus(2., 2., 0.5)
     #wPlus = plotPolaritonFreqs.calcWPlus(2., 2., 0.5)
