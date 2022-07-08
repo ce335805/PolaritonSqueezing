@@ -250,6 +250,8 @@ void writeStuffToHdf52BandsTime(
     const std::vector<double> &Xph2,
     const std::vector<double> &Xph2Sqr,
     const std::vector<double> &Nph2,
+    const std::vector<double> &N0,
+    const std::vector<double> &N1,
     const std::string &filename
     ) {
   
@@ -282,6 +284,12 @@ void writeStuffToHdf52BandsTime(
   
   H5::DataSet datasetDOccSigSig = file.createDataSet("dOccSigSig", datatype, dataSpace);
   datasetDOccSigSig.write(&dOccSigSig[0], datatype);
+  
+  H5::DataSet datasetN0 = file.createDataSet("n0", datatype, dataSpace);
+  datasetN0.write(&N0[0], datatype);
+  
+  H5::DataSet datasetN1 = file.createDataSet("n1", datatype, dataSpace);
+  datasetN1.write(&N1[0], datatype);
   
   H5::DataSet datasetXpt = file.createDataSet("Xph1", datatype, dataSpace);
   datasetXpt.write(&Xph1[0], datatype);

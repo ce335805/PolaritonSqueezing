@@ -26,11 +26,11 @@ double dt;
 
 void calcTimeEvolutionAsOfWD(){
   
-  const ulong wSteps(60ul);
+  const ulong wSteps(40ul);
   std::vector<double> wArr(wSteps, 0.);
   
   for (ulong ind = 0ul; ind < wSteps; ++ind) {
-    wArr[ind] = double(ind + 1ul) / 4.;
+    wArr[ind] = double(ind + 1ul) / 4. + 6.;
   }
   
   auto start = std::chrono::high_resolution_clock::now();
@@ -106,6 +106,9 @@ void calcTimeEvolution2Bands() {
   std::vector<double> X1phExpectation(timeSteps, 0.);
   std::vector<double> X1phSqrExpectation(timeSteps, 0.);
   std::vector<double> N1phExpectation(timeSteps, 0.);
+  std::vector<double> N0Expectation(timeSteps, 0.);
+  std::vector<double> N1Expectation(timeSteps, 0.);
+  
   
   setupOps2BandsDrive(dOcc0, dOcc1, dOccUpDn, dOccSigSig, n0, n1, Xph1, Xph1Sqr, Npt1, Xph2, Xph2Sqr, Nph2);
   
@@ -125,6 +128,8 @@ void calcTimeEvolution2Bands() {
     X1phExpectation[timeStep] = evalExpectation(Xph2, gs, dimH);
     X1phSqrExpectation[timeStep] = evalExpectation(Xph2Sqr, gs, dimH);
     N1phExpectation[timeStep] = evalExpectation(Nph2, gs, dimH);
+    N0Expectation[timeStep] = evalExpectation(n0, gs, dimH);
+    N1Expectation[timeStep] = evalExpectation(n1, gs, dimH);
   }
   
   std::string filename = timeEvolName2Bands();
@@ -141,6 +146,8 @@ void calcTimeEvolution2Bands() {
                              X1phExpectation,
                              X1phSqrExpectation,
                              N1phExpectation,
+                             N0Expectation,
+                             N1Expectation,
                              filename);
 }
 

@@ -14,8 +14,8 @@ constexpr double uSigSig(0.);
 constexpr double eps0 (0.);
 constexpr double eps1 (8.);
 //extern double gE;
-constexpr double gE(0.1);
-constexpr double wPh(16.);
+constexpr double gE(4.);
+constexpr double wPh(12.);
 //extern double wPh;
 
 constexpr ulong LCHAIN(2);

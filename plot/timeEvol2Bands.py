@@ -40,10 +40,10 @@ mpl.rcParams['text.latex.preamble'] = [
 def plotTimeEvol2Bands():
     print("plotting more beautiful time evolution")
 
-    wD = .6
+    wD = 16
 
     # read in stuff
-    file = h5py.File("./dataNB10/gsProp2BandsUa100Ub100Uud100Uss100epsA0epsB10gE20WD{}FD1000NB10TS20WPh5000.hdf5".format(int(np.rint(wD * 100))), 'r')
+    file = h5py.File("../dataTimeEvNb6/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB80gE40WD{}FD100NB6TS20WPh16000.hdf5".format(int(np.rint(wD * 100))), 'r')
 
     #readInPrmsAndAssert(fileC, fileQ1)
     times = file['times'][()]
@@ -52,11 +52,13 @@ def plotTimeEvol2Bands():
     dOcc1 = file['dOcc1'][()]
     dOccUpDn = file['dOccUpDn'][()]
     dOccSigSig = file['dOccSigSig'][()]
+    n0 = file['n0'][()]
+    n1 = file['n1'][()]
     nPh = file['Nph1'][()]
 
 
-    dOccIntra = dOcc0 + dOcc1
-    dOccInter = dOccUpDn + dOccSigSig
+    dOccIntra = dOcc0 - n0 * n0 + dOcc1 - n1 * n1
+    dOccInter = dOccUpDn - n0 * n1 + dOccSigSig - n0 * n1
     dOccTot = dOcc0 + dOcc1 + dOccUpDn + dOccSigSig
 
     fig = plt.figure()
@@ -89,12 +91,13 @@ def plotTimeEvol2BandsManyPrms():
 
     wDArr = np.zeros(nWD)
     for wDInd, wD in enumerate(wDArr):
-        wDArr[wDInd] = (wDInd + 1.) / 10.
+        wDArr[wDInd] = (wDInd + 1.) / 4 + 6.
 
     print(wDArr)
 
     for wDInd, wD in enumerate(wDArr):
-        filename = "./dataNB10/gsProp2BandsUa100Ub100Uud100Uss100epsA0epsB10gE20WD{}FD1000NB10TS20WPh5000.hdf5".format(int(np.rint(wD * 100)))
+        #filename = "./dataNB10/gsProp2BandsUa100Ub100Uud100Uss100epsA0epsB10gE20WD{}FD1000NB10TS20WPh5000.hdf5".format(int(np.rint(wD * 100)))
+        filename = "../dataTimeEvNb6/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB80gE40WD{}FD100NB6TS20WPh16000.hdf5".format(int(np.rint(wD * 100)))
         #print(filename)
         file = h5py.File(filename,'r')
         times = file['times'][()]
@@ -117,27 +120,27 @@ def plotTimeEvol2BandsManyPrms():
     fig.set_size_inches(3., 2.)
 
     ax.plot(wDArr, nPhMax, linewidth = 1., color = 'indianred', label = r'$N_{\rm ph}$')
-    ax.plot(wDArr, 10 * dOccIntraMax, linewidth = 1., color = 'darkseagreen', label = r"$<n_{\alpha, \uparrow} n_{\alpha,\downarrow}>$")
-    ax.plot(wDArr, 10 * dOccInterMax, linewidth = 1., color = 'darkgreen', label = r"$<n_{\alpha, \sigma} n_{\beta,\sigma'}>$")
+    #ax.plot(wDArr, 10 * dOccIntraMax, linewidth = 1., color = 'darkseagreen', label = r"$<n_{\alpha, \uparrow} n_{\alpha,\downarrow}>$")
+    #ax.plot(wDArr, 10 * dOccInterMax, linewidth = 1., color = 'darkgreen', label = r"$<n_{\alpha, \sigma} n_{\beta,\sigma'}>$")
 
-    ax.axvline(1., linestyle = '--', linewidth = 0.8, color = 'gray')
-    ax.axvline(5., linestyle = '--', linewidth = 0.8, color = 'gray')
+    #ax.axvline(1., linestyle = '--', linewidth = 0.8, color = 'gray')
+    #ax.axvline(5., linestyle = '--', linewidth = 0.8, color = 'gray')
 
     boxProps = dict(boxstyle='square', facecolor='white', alpha=1., linewidth=0., fill=True, pad=0.3)
 
-    ax.text(0.5, 2.5, r"$\varepsilon_1 {-} \varepsilon_0$", fontsize=10, bbox=boxProps)
-    ax.text(4.7, 2.5, r"$\omega_{\rm ph}$", fontsize=10, bbox=boxProps)
+    #ax.text(0.5, 2.5, r"$\varepsilon_1 {-} \varepsilon_0$", fontsize=10, bbox=boxProps)
+    #ax.text(4.7, 2.5, r"$\omega_{\rm ph}$", fontsize=10, bbox=boxProps)
 
-    ax.set_ylim(0., 2.3)
-    ax.set_xlim(0., 6.)
+    #ax.set_ylim(0., 2.3)
+    #ax.set_xlim(0., 6.)
 
     ax.set_xlabel(r"$\omega_{\rm ph}$")
     ax.set_ylabel(r"$N$")
 
-    legend = ax.legend(fontsize=fontsize, loc='upper left', bbox_to_anchor=(0., 1.), edgecolor='black', ncol=1)
-    legend.get_frame().set_alpha(1.)
-    legend.get_frame().set_boxstyle('Square', pad=0.1)
-    legend.get_frame().set_linewidth(0.0)
+    #legend = ax.legend(fontsize=fontsize, loc='upper left', bbox_to_anchor=(0., 1.), edgecolor='black', ncol=1)
+    #legend.get_frame().set_alpha(1.)
+    #legend.get_frame().set_boxstyle('Square', pad=0.1)
+    #legend.get_frame().set_linewidth(0.0)
 
     plt.savefig('./savedPlots/maxAsOfWD.png', format='png', bbox_inches='tight', dpi=600)
 

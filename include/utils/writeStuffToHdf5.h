@@ -58,6 +58,8 @@ void writeStuffToHdf52BandsTime(
     const std::vector<double> &Xph2,
     const std::vector<double> &Xph2Sqr,
     const std::vector<double> &Nph2,
+    const std::vector<double> &N0,
+    const std::vector<double> &N1,
     const std::string &filename
 );
 

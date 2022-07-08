@@ -20,14 +20,14 @@ def main():
 
     #plotGSProps.plotGSPropsOnlyPhot()
 
-    filenames = [
-        "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE100.hdf5",
-        "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE500.hdf5",
-        "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE1000.hdf5"
-    ]
-    gsProps2Bands.dOccAsOfWp(filenames)
+    #filenames = [
+    #    "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE100.hdf5",
+    #    "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE500.hdf5",
+    #    "../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE1000.hdf5"
+    #]
+    #gsProps2Bands.dOccAsOfWp(filenames)
 
-    #timeEvol2Bands.plotTimeEvol2Bands()
+    timeEvol2Bands.plotTimeEvol2Bands()
 
     #timeEvol2Bands.plotTimeEvol2BandsManyPrms()
 
