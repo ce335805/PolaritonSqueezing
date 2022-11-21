@@ -1,7 +1,7 @@
 #specefiy required version - this is the newest one
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #using intel compiler
 set(CMAKE_CXX_COMPILER icpc)
@@ -89,7 +89,7 @@ include_directories(${HDF5_INCLUDE_DIRS})
 message(STATUS "---------------------------------------------------------------------")
 
 #add compiler flags
-set(C_flags "-O3 -fvar-tracking -ggdb -Wall -Wextra -pedantic -qmkl -qopenmp")
+set(C_flags "-O3 -fvar-tracking -ggdb -Wall -Wextra -pedantic -qmkl -qopenmp -std=c++17")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${C_flags}")
 
 #set project name

@@ -21,16 +21,17 @@
 #include "mkl.h"
 
 double wDrive;
+//double wPh;
 double dt;
 
 
 void calcTimeEvolutionAsOfWD(){
   
-  const ulong wSteps(40ul);
+  const ulong wSteps(50ul);
   std::vector<double> wArr(wSteps, 0.);
   
   for (ulong ind = 0ul; ind < wSteps; ++ind) {
-    wArr[ind] = double(ind + 1ul) / 4. + 6.;
+    wArr[ind] = double(ind + 1ul) / 5. + 5.;
   }
   
   auto start = std::chrono::high_resolution_clock::now();
@@ -42,6 +43,7 @@ void calcTimeEvolutionAsOfWD(){
   
     ////////////////// set wPh //////////////////////
     wDrive = wArr[wStep];
+    wPh = wDrive;
     dt = 2. * PI / wDrive / timePointsPerDrivingPeriod;
     std::cout << "wDrive = " << wDrive << '\n';
     calcTimeEvolution2Bands();

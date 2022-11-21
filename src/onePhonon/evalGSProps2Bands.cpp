@@ -12,12 +12,9 @@
 
 #include <chrono>
 
-//double wPh;
-//double gE;
+double wPh;
 
 void evalGSPropsAsOfWPh() {
-  
-  double gSqrOverOmega = 10.;
   
   const ulong wSteps(50ul);
   std::vector<double> wArr(wSteps, 0.);
@@ -49,8 +46,7 @@ void evalGSPropsAsOfWPh() {
   for (ulong wStep = 0ul; wStep < wSteps; ++wStep) {
     
     ////////////////// set wPh //////////////////////
-    //wPh = wArr[wStep];
-    //gE = gSqrOverOmega / std::sqrt(wPh);
+    wPh = wArr[wStep];
   
     std::cout << "wPh = " << wPh << '\n';
     std::cout << "gE = " << gE << '\n';
@@ -67,7 +63,7 @@ void evalGSPropsAsOfWPh() {
   }
   
   std::string filename;
-  filename = gsPropName2Bands(gSqrOverOmega);
+  filename = gsPropName2Bands(gE);
   
   writeStuffToHdf52Bands(wArr,
                          dOcc0Expectation,

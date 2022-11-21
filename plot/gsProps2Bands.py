@@ -52,7 +52,7 @@ def dOccAsOfWp(fileNames):
 
     print("plotting Tc as function of Q")
 
-    gEArr = np.array([1., 5., 10.])
+    gEArr = np.array([0.1, 0.5, 1., 5.])
 
     wPhs, _, _, _, _, _, _ = getDataFromFile(fileNames[0])
     nW = len(wPhs)
@@ -88,7 +88,7 @@ def dOccAsOfWp(fileNames):
         #ax.plot(wPhs, dOccIntra[gEInd, :], color = color1, linewidth = 1., label = r"$g = {}$".format(gE))
         ax.plot(wPhs, dOccInter[gEInd, :], color = color2, linewidth = 1., label = r"$g = {}$".format(gE))
 
-    ax.set_ylabel(r"$\langle n_{a, \sigma} n_{b, \sigma'} \rangle$")
+    ax.set_ylabel(r"$\langle n_{\uparrow} n_{\downarrow} \rangle - \langle n \rangle^2$")
     ax.set_xlabel(r"$\omega_{\rm ph}$")
 
     legend = ax.legend(fontsize = fontsize - 2, loc = 'upper right', bbox_to_anchor=(1.0, 1.0), edgecolor = 'black', ncol = 1)
