@@ -62,10 +62,10 @@ int main() {
   //evalDoccInGSOnlyPhot();
   //evalDoccInGS2Bands();
   
-  //evalGSPropsAsOfWPh();
+  evalGSPropsAsOfWPh();
   
   //calcTimeEvolution2Bands();
-  calcTimeEvolutionAsOfWD();
+  //calcTimeEvolutionAsOfWD();
   
   
   //std::cout << "Starting Time Evolution ..." << '\n';

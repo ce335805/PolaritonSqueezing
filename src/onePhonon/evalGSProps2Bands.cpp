@@ -16,11 +16,11 @@ double wPh;
 
 void evalGSPropsAsOfWPh() {
   
-  const ulong wSteps(50ul);
+  const ulong wSteps(100ul);
   std::vector<double> wArr(wSteps, 0.);
   
   for (ulong ind = 0ul; ind < wSteps; ++ind) {
-    wArr[ind] = double(ind + 1ul) / 5. + 5.;
+    wArr[ind] = double(ind + 1ul) / 10. + 5.;
   }
   
   std::vector<std::complex<double>> dOcc0;

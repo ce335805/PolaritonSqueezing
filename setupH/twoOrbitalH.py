@@ -116,7 +116,7 @@ def interOrbitalHop1():
 
     return H
 
-
+#Docc in lower band
 def setupDocc0():
     assert N == 8, "wrong number of sites for this Hamiltonian"
     H = np.zeros((2 ** N, 2 ** N), dtype='complex')
@@ -136,7 +136,7 @@ def setupDocc0():
     H += np.matmul(np.matmul(ciUpDag, ciUp), np.matmul(ciDnDag, ciDn))
 
     return H
-
+#DOcc in upper band
 def setupDocc1():
     assert N == 8, "wrong number of sites for this Hamiltonian"
     H = np.zeros((2 ** N, 2 ** N), dtype='complex')
