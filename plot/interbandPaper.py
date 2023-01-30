@@ -53,6 +53,7 @@ def getDataFromFile(fileName):
 def asOfFreq():
     print("plotting Tc as function of Q")
     filenameGS = "./../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE10.hdf5"
+    #filenameGS = "./../data/gsProp2Bands1BosUa0Ub0Uud0Uss0epsA0epsB100gE10.hdf5"
 
     gE = 0.1
 
@@ -60,6 +61,8 @@ def asOfFreq():
     wPhArr, dOcc0, dOcc1, dOccUpDn, dOccSigSig, n0, n1 = getDataFromFile(filenameGS)
     dOccIntra = dOcc0 - 2. * n0 * n0# + dOcc1 - 2. * n1 * n1
     dOccInter = dOccUpDn - 2 * n0 * n1 + dOccSigSig - 2. * n0 * n1
+
+    print(dOccIntra)
 
     print(wPhArr.shape)
 

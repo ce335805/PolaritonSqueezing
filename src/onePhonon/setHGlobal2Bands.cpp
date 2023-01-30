@@ -59,13 +59,13 @@ void setupHEBos(std::vector<std::complex<double>> &HEBos){
   
   cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
               dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
-              A1.data(), dimHOnePh,
+              A0.data(), dimHOnePh,
               hopInter1.data(), dimHOnePh,
               &beta, HEBos.data(), dimHOnePh);
   
   cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasNoTrans,
               dimHOnePh, dimHOnePh, dimHOnePh, &alpha,
-              A1.data(), dimHOnePh,
+              A0.data(), dimHOnePh,
               hopInter1.data(), dimHOnePh,
               &beta, HEBos.data(), dimHOnePh);
   
