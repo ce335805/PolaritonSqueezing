@@ -168,7 +168,7 @@ void writeStuffToHdf5OnlyPhot(
 ) {
   std::cout << "filename: " << filename << '\n';
   
-  H5::H5File file(filename, H5F_ACC_TRUNC, 'w');
+  H5::H5File file(filename, H5F_ACC_TRUNC);
   
   const hsize_t dataSize = gArr.size();
   H5::DataSpace dataSpace(1, &dataSize);
@@ -207,7 +207,7 @@ void writeStuffToHdf52Bands(
 ) {
   std::cout << "filename: " << filename << '\n';
   
-  H5::H5File file(filename, H5F_ACC_TRUNC, 'w');
+  H5::H5File file(filename, H5F_ACC_TRUNC);
   
   const hsize_t dataSize = wPhArr.size();
   H5::DataSpace dataSpace(1, &dataSize);
