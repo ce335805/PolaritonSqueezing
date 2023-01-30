@@ -11,7 +11,6 @@
 #include <chrono>
 #include <algorithm>
 #include "evalGSProps.h"
-#include "H5Cpp.h"
 #include "setUpGlobalHamiltonian.h"
 #include "evalGSPropsOnlyPhot.h"
 #include "calcGS.h"

@@ -16,7 +16,6 @@
 #include "setupOps.h"
 #include "makeFilenames.h"
 
-#include "H5Cpp.h"
 
 #define MKL_Complex16 std::complex<double>
 
