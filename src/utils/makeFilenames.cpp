@@ -111,7 +111,7 @@ std::string gsPropName2Bands(const double gSqrOverOmega){
 
 std::string timeEvolName2Bands(){
   
-  std::string fileName ("data/gsProp2Bands1Bos");
+  std::string fileName ("data/gsProp2Bands");
   
   std::string U0Str ("Ua" + std::to_string(int(10 * U)));
   std::string U1Str ("Ub" + std::to_string(int(10 * U1)));

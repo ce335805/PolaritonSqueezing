@@ -36,15 +36,15 @@ constexpr double wP(0.0);
 
 //constexpr double wDrive(0.8);
 extern double wDrive;
-constexpr double fDrive(10.);
+constexpr double fDrive(5.);
 constexpr int timePointsPerDrivingPeriod (20);
 extern double dt;
 //constexpr double dt(2. * PI / wDrive / timePointsPerDrivingPeriod);
 
 constexpr ulong dimElectron(16ul);
 //constexpr ulong dimElectron(1 << 2 * LCHAIN);
-constexpr ulong dimPhonon(4ul);
-constexpr ulong dimPhoton(4ul);
+constexpr ulong dimPhonon(6ul);
+constexpr ulong dimPhoton(6ul);
 constexpr ulong dimHOnlyPhot(dimElectron * dimPhoton);
 constexpr ulong dimHTwoPh(dimElectron * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(dimElectron * dimPhonon * dimPhoton);

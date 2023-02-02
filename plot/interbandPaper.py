@@ -53,7 +53,7 @@ def getDataFromFile(fileName):
 def asOfFreq():
     print("plotting Tc as function of Q")
     filenameGS = "./../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE10.hdf5"
-    #filenameGS = "./../data/gsProp2Bands1BosUa0Ub0Uud0Uss0epsA0epsB100gE10.hdf5"
+    filenameGS = "./../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE10.hdf5"
 
     gE = 0.1
 
@@ -61,8 +61,6 @@ def asOfFreq():
     wPhArr, dOcc0, dOcc1, dOccUpDn, dOccSigSig, n0, n1 = getDataFromFile(filenameGS)
     dOccIntra = dOcc0 - 2. * n0 * n0# + dOcc1 - 2. * n1 * n1
     dOccInter = dOccUpDn - 2 * n0 * n1 + dOccSigSig - 2. * n0 * n1
-
-    print(dOccIntra)
 
     print(wPhArr.shape)
 
@@ -78,8 +76,8 @@ def asOfFreq():
         wDArr[wDInd] = (wDInd + 1.) / 10. + 5.
     ### get driving data ###
     for wDInd, wD in enumerate(wDArr):
-        #filename = "./../data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD100NB6TS20WPh{}.hdf5".format(int(np.rint(wD * 100)), int(np.rint(wD * 1000)))
         filename = "./../data/gsProp2BandstHop10Ua0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD500NB6TS20WPh{}.hdf5".format(int(np.rint(wD * 100)), int(np.rint(wD * 1000)))
+        #filename = "./../data/clusterData/data/gsProp2Bands1BosUa0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD500NB6TS20WPh{}.hdf5".format(int(np.rint(wD * 100)), int(np.rint(wD * 1000)))
         #print(filename)
         file = h5py.File(filename,'r')
         #times = file['times'][()]
@@ -98,7 +96,8 @@ def asOfFreq():
         dOccIntraMean[wDInd] = np.mean(dOcc0[100:800] - 2. * n0[100:800] * n0[100:800])
         #dOccInterMax[wDInd] = np.amin(dOccUpDn - 2. * n0 * n1 + dOccSigSig - 2. * n0 * n1)
 
-    print(wDArr.shape)
+    print(dOccIntraMean.shape)
+    print("wD Driven array shape: {}".format(wDArr.shape))
 
 
     fig = plt.figure()
@@ -111,11 +110,11 @@ def asOfFreq():
 
     ax.plot(wPhArr, dOccIntra, color="peru", linewidth=1., label=r"GS")
     ax.plot(wPhArr, 10000 * dOccIntra, color="peru", alpha = 0.4, linewidth=1., label=r"GS $\times 10^{4}$")
-    ax.plot(wPhArr, dOccIntraMean, color="teal", linewidth=1., label=r"Driven")
+    ax.plot(wDArr, dOccIntraMean, color="teal", linewidth=1., label=r"Driven")
 
     #ax.plot(wPhArr, dOccIntraMax, color=cmapPink(0.3), linewidth=1., label=r"Driving - Max")
 
-    ax2.plot(wPhArr, nPhMean, color=cmapPink(0.7), linewidth=1., label=r"$N_{\rm bos}$")
+    ax2.plot(wDArr, nPhMean, color=cmapPink(0.7), linewidth=1., label=r"$N_{\rm bos}$")
     #ax2.plot(wPhArr, nPhMax, color=cmapPink(0.7), linewidth=1., label=r"$\overline{N_{\rm bos}}$")
 
     ax.axvline(10., color = 'gray', lw = 0.5)
