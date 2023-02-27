@@ -1,5 +1,6 @@
 import numpy
 
+import plotLevels
 import plotTimeEvol
 import plotGSProps
 import numpy as np
@@ -26,5 +27,11 @@ def main():
 
     #plotPTN()
     #plotPTAlpha()
+
+    #get spectrum lines
+
+    filename = "../data/spectrum2BandstHop0epsA0epsB100Om100.hdf5"
+    #plotLevels.makeLevelPlot(filename)
+    #plotLevels.plotEigenstateProperties(filename)
 
 main()

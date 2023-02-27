@@ -237,6 +237,62 @@ void writeStuffToHdf52Bands(
   
 }
 
+void writeSpectrumToFile(
+    const std::vector<double> &gArr,
+    const std::vector<double> &spectrum,
+    const std::vector<double> &nc0Arr,
+    const std::vector<double> &nd0Arr,
+    const std::vector<double> &nc1Arr,
+    const std::vector<double> &nd1Arr,
+    const std::vector<double> &nBos0Arr,
+    const std::vector<double> &nBos1Arr,
+    const std::string &filename
+)
+{
+  
+  std::cout << "filename: " << filename << '\n';
+  
+  H5::H5File file(filename, H5F_ACC_TRUNC);
+  
+  writeAllPrms(file);
+  
+  const hsize_t dataSize = gArr.size();
+  H5::DataSpace dataSpace(1, &dataSize);
+  H5::FloatType datatype(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+  
+  H5::DataSet datasetGArr = file.createDataSet("gE", datatype, dataSpace);
+  datasetGArr.write(&gArr[0], datatype);
+  
+  const hsize_t dataSize2D = spectrum.size();
+  H5::DataSpace dataSpace2D(1, &dataSize2D);
+  H5::FloatType datatype2D(H5::PredType::NATIVE_DOUBLE);
+  datatype.setOrder(H5T_ORDER_LE);
+  
+  H5::DataSet datasetSpectrum = file.createDataSet("spectrum", datatype2D, dataSpace2D);
+  datasetSpectrum.write(&spectrum[0], datatype2D);
+  
+  H5::DataSet datasetnc0 = file.createDataSet("nc0", datatype2D, dataSpace2D);
+  datasetnc0.write(nc0Arr.data(), datatype2D);
+  
+  H5::DataSet datasetnd0 = file.createDataSet("nd0", datatype2D, dataSpace2D);
+  datasetnd0.write(nd0Arr.data(), datatype2D);
+  
+  H5::DataSet datasetnc1 = file.createDataSet("nc1", datatype2D, dataSpace2D);
+  datasetnc1.write(nc1Arr.data(), datatype2D);
+  
+  H5::DataSet datasetnd1 = file.createDataSet("nd1", datatype2D, dataSpace2D);
+  datasetnd1.write(nd1Arr.data(), datatype2D);
+  
+  H5::DataSet datasetnBos0 = file.createDataSet("nBos0", datatype2D, dataSpace2D);
+  datasetnBos0.write(nBos0Arr.data(), datatype2D);
+  
+  H5::DataSet datasetnBos1 = file.createDataSet("nBos1", datatype2D, dataSpace2D);
+  datasetnBos1.write(nBos1Arr.data(), datatype2D);
+  
+  
+}
+
 void writeStuffToHdf52BandsTime(
     const std::vector<double> &times,
     const std::vector<double> &pumpFunction,
@@ -309,6 +365,8 @@ void writeStuffToHdf52BandsTime(
   H5::DataSet datasetNph = file.createDataSet("Nph2", datatype, dataSpace);
   datasetNph.write(&Nph2[0], datatype);
 }
+
+
 
 
 void readInComplex2DArray(std::vector<std::complex<double>> &readInArray, const std::string &fileName) {

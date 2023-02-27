@@ -3,4 +3,6 @@
 
 void evalGSPropsAsOfWPh();
 
+void eigenenergiesAsOfG();
+
 #endif //PHONONSQUEEZING_EVALGSPROPS2BANDS_H

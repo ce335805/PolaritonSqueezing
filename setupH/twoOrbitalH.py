@@ -200,3 +200,18 @@ def ni(site):
     H += np.matmul(cSiteDag, cSite)
 
     return H
+
+def nc0():
+    return ni(0) + ni(1)
+
+def nd0():
+    return ni(2) + ni(3)
+
+def nc1():
+    return ni(4) + ni(5)
+
+def nd1():
+    return ni(6) + ni(7)
+
+
+

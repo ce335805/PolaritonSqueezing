@@ -249,6 +249,44 @@ void setupOps2Bands(std::vector<std::complex<double>> &dOcc0,
   setupN1(n1);
 }
 
+void setupOps2BandsSpectrum(
+    std::vector<std::complex<double>> &nc0,
+    std::vector<std::complex<double>> &nd0,
+    std::vector<std::complex<double>> &nc1,
+    std::vector<std::complex<double>> &nd1,
+    std::vector<std::complex<double>> &Nph0,
+    std::vector<std::complex<double>> &Nph1
+) {
+  setupNC0(nc0);
+  setupND0(nd0);
+  setupNC1(nc1);
+  setupND1(nd1);
+  
+  const ulong dimH = dimHOnePh;
+  
+  std::complex<double> alpha(1., 0.);
+  std::complex<double> beta(0., 0.);
+  
+  Nph0 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  std::vector<std::complex<double>> A0(dimH * dimH, std::complex<double>(0., 0.));
+  setupA0(A0);
+  cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasNoTrans,
+              dimH, dimH, dimH, &alpha,
+              A0.data(), dimH,
+              A0.data(), dimH,
+              &beta, Nph0.data(), dimH);
+  
+  Nph1 = std::vector<std::complex<double>>(dimH * dimH, std::complex<double>(0., 0.));
+  std::vector<std::complex<double>> A1(dimH * dimH, std::complex<double>(0., 0.));
+  setupA1(A1);
+  cblas_zgemm(CblasRowMajor, CblasConjTrans, CblasNoTrans,
+              dimH, dimH, dimH, &alpha,
+              A1.data(), dimH,
+              A1.data(), dimH,
+              &beta, Nph1.data(), dimH);
+  
+}
+
 void setupOps2BandsDrive(
     std::vector<std::complex<double>> &dOcc0,
     std::vector<std::complex<double>> &dOcc1,

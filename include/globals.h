@@ -15,7 +15,7 @@ constexpr double eps0 (0.);
 constexpr double eps1 (10.);
 //extern double gE;
 constexpr double gE(0.1);
-//constexpr double wPh(8.);
+//constexpr double wPh(5.);
 extern double wPh;
 
 constexpr ulong LCHAIN(2);
@@ -43,8 +43,8 @@ extern double dt;
 
 constexpr ulong dimElectron(16ul);
 //constexpr ulong dimElectron(1 << 2 * LCHAIN);
-constexpr ulong dimPhonon(6ul);
-constexpr ulong dimPhoton(6ul);
+constexpr ulong dimPhonon(4ul);
+constexpr ulong dimPhoton(4ul);
 constexpr ulong dimHOnlyPhot(dimElectron * dimPhoton);
 constexpr ulong dimHTwoPh(dimElectron * dimPhonon * dimPhonon * dimPhoton);
 constexpr ulong dimHOnePh(dimElectron * dimPhonon * dimPhoton);

@@ -36,14 +36,13 @@ void calcTimeEvolutionAsOfWD(){
   
   auto start = std::chrono::high_resolution_clock::now();
   
-  
   for (ulong wStep = 0ul; wStep < wSteps; ++wStep) {
   
     auto startLoop = std::chrono::high_resolution_clock::now();
   
     ////////////////// set wPh //////////////////////
     wDrive = wArr[wStep];
-    wPh = wDrive;
+    //wPh = wDrive;
     dt = 2. * PI / wDrive / timePointsPerDrivingPeriod;
     std::cout << "wDrive = " << wDrive << '\n';
     calcTimeEvolution2Bands();
@@ -64,7 +63,7 @@ void calcTimeEvolution2Bands() {
   
   const ulong dimH = dimHOnePh;
   
-  const ulong timeSteps(timePointsPerDrivingPeriod * 20ul);
+  const ulong timeSteps(timePointsPerDrivingPeriod * 120ul);
   std::vector<double> times(timeSteps, 0.);
   std::vector<double> pumpPreFac(timeSteps, 0.);
   std::vector<double> pumpPreFacOutput(timeSteps, 0.);

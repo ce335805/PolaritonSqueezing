@@ -11,7 +11,7 @@ from matplotlib import gridspec
 
 import plotPolaritonFreqs
 
-fontsize = 10
+fontsize = 8
 
 mpl.rcParams['font.family'] = 'Helvetica'
 mpl.rcParams['lines.linewidth'] = 2
@@ -112,12 +112,13 @@ def plotPTAlpha():
 
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    fig.set_size_inches(3., 2.)
+    fig.set_size_inches(2.5, 1.8)
 
     ax.plot(OmArr, ptArrN0, lw = 1., color = 'peru', label = r"$|\alpha|^2 = 0$")
     ax.plot(OmArr, ptArrAlpha, lw = 1., color = 'teal', label = r"$|\alpha|^2 = 0.3$")
     #ax.plot(DeltaArr, 0.95 * ptArrN0 + 0.05 * ptArrN1, lw = 1., color = 'indianred')
     ax.axhline(0., color = 'gray', lw = 0.5)
+    ax.axvline(1., color = 'gray', lw = 0.5)
 
     ax.set_ylim(- 30., 5.)
     ax.set_xlim(0.1, 2.)
@@ -136,7 +137,7 @@ def plotPTAlpha():
     for axis in ['top', 'bottom', 'left', 'right']:
         ax.spines[axis].set_linewidth(0.5)
 
-    legend1 = ax.legend(fontsize = fontsize - 2, loc = 'lower right', bbox_to_anchor=(1.0, 0.), edgecolor = 'black', ncol = 1)
+    legend1 = ax.legend(fontsize = fontsize, loc = 'lower right', bbox_to_anchor=(1.0, 0.), edgecolor = 'black', ncol = 1, handlelength = 1.5)
     legend1.get_frame().set_alpha(0.)
     legend1.get_frame().set_boxstyle('Square', pad=0.1)
     legend1.get_frame().set_linewidth(0.0)

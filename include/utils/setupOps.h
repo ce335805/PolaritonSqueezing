@@ -51,4 +51,13 @@ void setupOps2BandsDrive(
     std::vector<std::complex<double>> &Xph2Sqr,
     std::vector<std::complex<double>> &Nph2);
 
+void setupOps2BandsSpectrum(
+    std::vector<std::complex<double>> &nc0,
+    std::vector<std::complex<double>> &nd0,
+    std::vector<std::complex<double>> &nc1,
+    std::vector<std::complex<double>> &nd1,
+    std::vector<std::complex<double>> &Nph0,
+    std::vector<std::complex<double>> &Nph1
+);
+
 #endif //PHONONSQUEEZING_SETUPOPS_H

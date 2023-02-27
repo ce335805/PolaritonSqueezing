@@ -134,3 +134,18 @@ std::string timeEvolName2Bands(){
   
 }
 
+std::string spectrumName(){
+  
+  std::string fileName ("data/spectrum2Bands");
+  
+  std::string tHopStr ("tHop" + std::to_string(int(std::round(100 * tHop))));
+  std::string eps0Str ("epsA" + std::to_string(int(10 * eps0)));
+  std::string eps1Str ("epsB" + std::to_string(int(10 * eps1)));
+  std::string omStr ("Om" + std::to_string(int(std::round(10 * wPt))));
+  
+  
+  fileName = fileName + tHopStr + eps0Str + eps1Str + omStr + ".hdf5";
+  
+  return fileName;
+  
+}

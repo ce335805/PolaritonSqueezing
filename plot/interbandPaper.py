@@ -76,6 +76,7 @@ def asOfFreq():
         wDArr[wDInd] = (wDInd + 1.) / 10. + 5.
     ### get driving data ###
     for wDInd, wD in enumerate(wDArr):
+        #filename = "./../data/clusterData/data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD500NB8TS20WPh{}.hdf5".format(int(np.rint(wD * 100)), int(np.rint(wD * 1000)))
         filename = "./../data/gsProp2BandstHop10Ua0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD500NB6TS20WPh{}.hdf5".format(int(np.rint(wD * 100)), int(np.rint(wD * 1000)))
         #filename = "./../data/clusterData/data/gsProp2Bands1BosUa0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD500NB6TS20WPh{}.hdf5".format(int(np.rint(wD * 100)), int(np.rint(wD * 1000)))
         #print(filename)
@@ -88,7 +89,7 @@ def asOfFreq():
         n1 = file['n1'][()]
         #dOccUpDn = file['dOccUpDn'][()]
         #dOccSigSig = file['dOccSigSig'][()]
-        nPh = file['Nph1'][()]
+        nPh = file['Nph2'][()]
 
         nPhMax[wDInd] = np.amax(nPh)
         nPhMean[wDInd] = np.mean(nPh)
@@ -103,48 +104,50 @@ def asOfFreq():
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax2 = ax.twinx()
-    fig.set_size_inches(3., 2.)
+    fig.set_size_inches(2.5, 2.)
 
     cmapBone = cm.get_cmap('bone')
     cmapPink = cm.get_cmap('pink')
 
     ax.plot(wPhArr, dOccIntra, color="peru", linewidth=1., label=r"GS")
-    ax.plot(wPhArr, 10000 * dOccIntra, color="peru", alpha = 0.4, linewidth=1., label=r"GS $\times 10^{4}$")
+    #ax.plot(wPhArr, 10000 * dOccIntra, color="peru", alpha = 0.4, linewidth=1., label=r"GS $\times 10^{4}$")
     ax.plot(wDArr, dOccIntraMean, color="teal", linewidth=1., label=r"Driven")
 
     #ax.plot(wPhArr, dOccIntraMax, color=cmapPink(0.3), linewidth=1., label=r"Driving - Max")
 
-    ax2.plot(wDArr, nPhMean, color=cmapPink(0.7), linewidth=1., label=r"$N_{\rm bos}$")
+    ax2.plot(wDArr, nPhMean, color=cmapPink(0.7), linewidth=1., label=r"$\overline{N}_{\rm Bos}$")
     #ax2.plot(wPhArr, nPhMax, color=cmapPink(0.7), linewidth=1., label=r"$\overline{N_{\rm bos}}$")
 
     ax.axvline(10., color = 'gray', lw = 0.5)
 
-    ax.set_ylabel(r"$\langle n_{\uparrow} n_{\downarrow} \rangle - \langle n \rangle^2$", fontsize = fontsize)
-    ax2.set_ylabel(r"$N_{\rm bos}$", fontsize = fontsize)
+    ax.set_yscale('log')
+
+    ax.set_ylabel(r"$\rm{Pairing \,\, Amplitude}$" + r"$\, \,\left(C \right)$", fontsize = fontsize)
+    ax2.set_ylabel(r"$N_{\rm Bos}$", fontsize = fontsize)
     ax.set_xlabel(r"$\Omega \, [\Delta]$", fontsize = fontsize)
 
-    ax.text(6, 0.004, r"$\times 10^{4}$", fontsize = 8, color = 'peru', alpha = 0.4)
+    #ax.text(6, 0.004, r"$\times 10^{4}$", fontsize = 8, color = 'peru', alpha = 0.4)
 
     ax2.set_ylim(- 0.55 / 100., 0.55)
-    ax.set_ylim(- 0.026 / 100., 0.026)
+    #ax.set_ylim(- 0.026 / 100., 0.026)
     ax.set_xlim(5.2, 15.)
 
     ax.set_xticks([6, 10, 14])
-    ax.set_xticklabels([r"$0.6$", r"$\Delta = \Omega$", "$1.4$"])
+    ax.set_xticklabels([r"$0.6$", r"$1$", "$1.4$"])
 
-    ax.set_yticks([0., 0.01, 0.02])
-    ax.set_yticklabels([r"$0$", r"$0.01$", r"$0.02$"])
+    #ax.set_yticks([0., 0.01, 0.02])
+    #ax.set_yticklabels([r"$0$", r"$0.01$", r"$0.02$"])
 
     ax2.set_yticks([0., 0.2, 0.4])
     ax2.set_yticklabels([r"$0$", r"$0.2$", r"$0.4$"])
 
 
-    legend = ax.legend(fontsize=fontsize, loc='upper left', bbox_to_anchor=(0.0, 0.65), edgecolor='black', ncol=1)
+    legend = ax.legend(fontsize=fontsize, loc='upper left', bbox_to_anchor=(0.0, 0.55), edgecolor='black', ncol=1, handlelength = 1.5)
     legend.get_frame().set_alpha(0.)
     legend.get_frame().set_boxstyle('Square', pad=0.1)
     legend.get_frame().set_linewidth(0.0)
 
-    legend = ax2.legend(fontsize=fontsize, loc='upper right', bbox_to_anchor=(1.0, 0.6), edgecolor='black', ncol=1)
+    legend = ax2.legend(fontsize=fontsize, loc='upper right', bbox_to_anchor=(1.0, 0.9), edgecolor='black', ncol=1, handlelength = 1.5)
     legend.get_frame().set_alpha(0.)
     legend.get_frame().set_boxstyle('Square', pad=0.1)
     legend.get_frame().set_linewidth(0.0)
@@ -163,8 +166,8 @@ def plotTimeEvolCorr():
     wArr = [9.8, 10.1]
     #wArr = [10.3, 12.]
 
-    #nT = 400
-    nT = 2400
+    nT = 400
+    #nT = 2400
 
     Corr0Arr = np.zeros((len(wArr), nT))
     pumpArr = np.zeros((len(wArr), nT))
@@ -173,7 +176,8 @@ def plotTimeEvolCorr():
 
     for wInd, wVal in enumerate(wArr):
 
-        filename = "./../data/gsProp2BandstHop10Ua0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD200NB6TS20WPh{}.hdf5".format(int(np.rint(wArr[wInd] * 100)), int(np.rint(wArr[wInd] * 1000)))
+        filename = "./../data/clusterData/data/gsProp2BandsUa0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD500NB8TS20WPh{}.hdf5".format(int(np.rint(wArr[wInd] * 100)), int(np.rint(wArr[wInd] * 1000)))
+        #filename = "./../data/gsProp2BandstHop10Ua0Ub0Uud0Uss0epsA0epsB100gE1WD{}FD200NB6TS20WPh{}.hdf5".format(int(np.rint(wArr[wInd] * 100)), int(np.rint(wArr[wInd] * 1000)))
         #print(filename)
         file = h5py.File(filename,'r')
         times = file['times'][()]

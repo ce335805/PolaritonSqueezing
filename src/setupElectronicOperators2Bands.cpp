@@ -135,3 +135,27 @@ void setupN1Small(std::vector<std::complex<double>> &N1) {
   
   readInComplex2DArray(N1, filename);
 }
+
+void setupNC0Small(std::vector<std::complex<double>> &NC0) {
+  NC0 = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+  std::string filename = "./setupH/savedOperators/nc0.hdf5";
+  readInComplex2DArray(NC0, filename);
+}
+
+void setupND0Small(std::vector<std::complex<double>> &ND0) {
+  ND0 = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+  std::string filename = "./setupH/savedOperators/nd0.hdf5";
+  readInComplex2DArray(ND0, filename);
+}
+
+void setupNC1Small(std::vector<std::complex<double>> &NC1) {
+  NC1 = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+  std::string filename = "./setupH/savedOperators/nc1.hdf5";
+  readInComplex2DArray(NC1, filename);
+}
+
+void setupND1Small(std::vector<std::complex<double>> &ND1) {
+  ND1 = std::vector<std::complex<double>> (dimElectron * dimElectron, std::complex<double> (0., 0.));
+  std::string filename = "./setupH/savedOperators/nd1.hdf5";
+  readInComplex2DArray(ND1, filename);
+}

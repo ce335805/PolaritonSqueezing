@@ -13,6 +13,8 @@ std::string gsPropNameOnlyPhot();
 
 std::string gsPropName2Bands(const double gSqrOverOmega);
 
+std::string spectrumName();
+
 std::string timeEvolName2Bands();
 
 #endif //PHONONSQUEEZING_MAKEFILENAMES_H

@@ -26,5 +26,10 @@ void setupN0(std::vector<std::complex<double>> &N0);
 
 void setupN1(std::vector<std::complex<double>> &N1);
 
+void setupNC0(std::vector<std::complex<double>> &NC0);
+void setupND0(std::vector<std::complex<double>> &ND0);
+void setupNC1(std::vector<std::complex<double>> &NC1);
+void setupND1(std::vector<std::complex<double>> &ND1);
+
 #endif //PHONONSQUEEZING_SETUPBASICOPERATORS2BANDS_H
 

@@ -45,6 +45,19 @@ void writeStuffToHdf52Bands(
     const std::string &filename
 );
 
+void writeSpectrumToFile(
+    const std::vector<double> &gArr,
+    const std::vector<double> &spectrum,
+    const std::vector<double> &nc0Arr,
+    const std::vector<double> &nd0Arr,
+    const std::vector<double> &nc1Arr,
+    const std::vector<double> &nd1Arr,
+    const std::vector<double> &nBos0Arr,
+    const std::vector<double> &nBos1Arr,
+    const std::string &filename
+);
+
+
 void writeStuffToHdf52BandsTime(
     const std::vector<double> &times,
     const std::vector<double> &pumpFunction,

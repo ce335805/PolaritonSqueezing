@@ -196,7 +196,7 @@ void setupN1(std::vector<std::complex<double>> &N1) {
   N1 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
   
   std::vector<std::complex<double>> n1small;
-  setupN1Small(n1small);
+  setupNC0Small(n1small);
   
   for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
     for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
@@ -204,6 +204,82 @@ void setupN1(std::vector<std::complex<double>> &N1) {
         for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
           N1[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
               = n1small[eInd1 * dimElectron + eInd2];
+        }
+      }
+    }
+  }
+}
+
+void setupNC0(std::vector<std::complex<double>> &NC0) {
+  
+  NC0 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> nc0small;
+  setupNC0Small(nc0small);
+  
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < dimElectron; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
+          NC0[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
+              = nc0small[eInd1 * dimElectron + eInd2];
+        }
+      }
+    }
+  }
+}
+
+void setupND0(std::vector<std::complex<double>> &ND0) {
+  
+  ND0 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> nd0small;
+  setupND0Small(nd0small);
+  
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < dimElectron; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
+          ND0[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
+              = nd0small[eInd1 * dimElectron + eInd2];
+        }
+      }
+    }
+  }
+}
+
+void setupNC1(std::vector<std::complex<double>> &NC1) {
+  
+  NC1 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> nc1small;
+  setupNC1Small(nc1small);
+  
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < dimElectron; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
+          NC1[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
+              = nc1small[eInd1 * dimElectron + eInd2];
+        }
+      }
+    }
+  }
+}
+
+void setupND1(std::vector<std::complex<double>> &ND1) {
+  
+  ND1 = std::vector<std::complex<double>>(dimHOnePh * dimHOnePh, std::complex<double>(0., 0.));
+  
+  std::vector<std::complex<double>> nd1small;
+  setupND1Small(nd1small);
+  
+  for (ulong ptInd = 0ul; ptInd < dimPhoton; ++ptInd) {
+    for (ulong phInd = 0ul; phInd < dimPhonon; ++phInd) {
+      for (ulong eInd1 = 0ul; eInd1 < dimElectron; ++eInd1) {
+        for (ulong eInd2 = 0ul; eInd2 < dimElectron; ++eInd2) {
+          ND1[toGlobalMatrixIndexOne(ptInd, ptInd, phInd, phInd, eInd1, eInd2)]
+              = nd1small[eInd1 * dimElectron + eInd2];
         }
       }
     }

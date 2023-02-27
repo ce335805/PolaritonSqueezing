@@ -24,4 +24,12 @@ void setupN0Small(std::vector<std::complex<double>> &N0);
 
 void setupN1Small(std::vector<std::complex<double>> &N1);
 
+void setupNC0Small(std::vector<std::complex<double>> &NC0);
+
+void setupND0Small(std::vector<std::complex<double>> &ND0);
+
+void setupNC1Small(std::vector<std::complex<double>> &NC1);
+
+void setupND1Small(std::vector<std::complex<double>> &ND1);
+
 #endif //PHONONSQUEEZING_SETUPELECTRONICOPERATORS2BANDS_H

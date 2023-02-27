@@ -49,7 +49,7 @@ def projectN(N, H):
 
     return Hcut
     
-def write2OrbOps(Hkin, onsitePot0, onsitePot1, interOrb0, interOrb1, dOcc0, dOcc1, intOrbUpDn, intOrbSigSig, n0, n1):
+def write2OrbOps(Hkin, onsitePot0, onsitePot1, interOrb0, interOrb1, dOcc0, dOcc1, intOrbUpDn, intOrbSigSig, n0, n1, nc0, nd0, nc1, nd1):
     filename = "./savedOperators/HKin.hdf5"
     print("writing to file " + filename)
     f = h5py.File(filename, 'w')
@@ -127,6 +127,35 @@ def write2OrbOps(Hkin, onsitePot0, onsitePot1, interOrb0, interOrb1, dOcc0, dOcc
     f.create_dataset("Imag", data=np.imag(n1), dtype='double')
     f.close()
 
+    filename = "./savedOperators/nc0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(nc0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(nc0), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/nd0.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(nd0), dtype='double')
+    f.create_dataset("Imag", data=np.imag(nd0), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/nc1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(nc1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(nc1), dtype='double')
+    f.close()
+
+    filename = "./savedOperators/nd1.hdf5"
+    print("writing to file " + filename)
+    f = h5py.File(filename, 'w')
+    f.create_dataset("Real", data=np.real(nd1), dtype='double')
+    f.create_dataset("Imag", data=np.imag(nd1), dtype='double')
+    f.close()
+
+
 def main():
     setupTransposeList()
     print("transposeList = {}".format(transposelist))
@@ -159,6 +188,29 @@ def main():
     n1 = twoOrbitalH.ni(2)
     n1cut = projectN(particleN, n1)
 
-    write2OrbOps(HkinCut, onsitePot0Cut, onsitePot1Cut, interOrb0Cut, interOrb1Cut, dOcc0Cut, dOcc1Cut, intOrbUpDnCut, intOrbSigSigCut, n0cut, n1cut)
+    nc0 = twoOrbitalH.nc0()
+    nc0cut = projectN(particleN, nc0)
+    nd0 = twoOrbitalH.nd0()
+    nd0cut = projectN(particleN, nd0)
+    nc1 = twoOrbitalH.nc1()
+    nc1cut = projectN(particleN, nc1)
+    nd1 = twoOrbitalH.nd1()
+    nd1cut = projectN(particleN, nd1)
+
+    write2OrbOps(HkinCut,
+                 onsitePot0Cut,
+                 onsitePot1Cut,
+                 interOrb0Cut,
+                 interOrb1Cut,
+                 dOcc0Cut,
+                 dOcc1Cut,
+                 intOrbUpDnCut,
+                 intOrbSigSigCut,
+                 n0cut,
+                 n1cut,
+                 nc0cut,
+                 nd0cut,
+                 nc1cut,
+                 nd1cut)
 
 main()
