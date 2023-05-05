@@ -94,6 +94,7 @@ def asOfFreq():
         nPhMax[wDInd] = np.amax(nPh)
         nPhMean[wDInd] = np.mean(nPh)
         dOccIntraMax[wDInd] = np.amax(dOcc0 - 2. * n0 * n0)# + dOcc1 - 2. * n1 * n1)
+        print(dOcc0.shape)
         dOccIntraMean[wDInd] = np.mean(dOcc0[100:800] - 2. * n0[100:800] * n0[100:800])
         #dOccInterMax[wDInd] = np.amin(dOccUpDn - 2. * n0 * n1 + dOccSigSig - 2. * n0 * n1)
 
@@ -104,7 +105,7 @@ def asOfFreq():
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax2 = ax.twinx()
-    fig.set_size_inches(2.5, 2.)
+    fig.set_size_inches(2.5, 1.6)
 
     cmapBone = cm.get_cmap('bone')
     cmapPink = cm.get_cmap('pink')
@@ -122,9 +123,9 @@ def asOfFreq():
 
     ax.set_yscale('log')
 
-    ax.set_ylabel(r"$\rm{Pairing \,\, Amplitude}$" + r"$\, \,\left(C \right)$", fontsize = fontsize)
+    ax.set_ylabel(r"$\rm{Doublon \,\, Correlations}$" + r"$\, \,\left(C \right)$", fontsize = fontsize)
     ax2.set_ylabel(r"$N_{\rm Bos}$", fontsize = fontsize)
-    ax.set_xlabel(r"$\Omega \, [\Delta]$", fontsize = fontsize)
+    ax.set_xlabel(r"$\Omega \, [\Delta E]$", fontsize = fontsize)
 
     #ax.text(6, 0.004, r"$\times 10^{4}$", fontsize = 8, color = 'peru', alpha = 0.4)
 
@@ -155,6 +156,8 @@ def asOfFreq():
     for axis in ['top', 'bottom', 'left', 'right']:
         ax.spines[axis].set_linewidth(0.5)
         ax2.spines[axis].set_linewidth(0.5)
+
+    ax.text(-0.25, 1.07, r"$\rm{b.)}$", transform = ax.transAxes, fontsize = 10)
 
     plt.savefig('./savedPlots/timeAv.png', format='png', bbox_inches='tight', dpi=600)
 

@@ -30,7 +30,7 @@ def main():
 
     #get spectrum lines
 
-    filename = "../data/spectrum2BandstHop0epsA0epsB100Om100.hdf5"
+    #filename = "../data/spectrum2BandstHop0epsA0epsB100Om100.hdf5"
     #plotLevels.makeLevelPlot(filename)
     #plotLevels.plotEigenstateProperties(filename)
 
