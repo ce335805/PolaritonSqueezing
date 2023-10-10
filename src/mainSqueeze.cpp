@@ -31,12 +31,16 @@ int main() {
   std::cout << "Hello World! - let's squeeze some phonons" << std::endl;
   
   std::cout << std::setprecision(12);
+
+
+  evalGSProps(1);
+  evalGSPropsTemp();
   
   //evalGSPropsAsOfWPh();
   //eigenenergiesAsOfG();
   
   //calcTimeEvolution2Bands();
-  calcTimeEvolutionAsOfWD();
+  //calcTimeEvolutionAsOfWD();
   
   
   return 0;
