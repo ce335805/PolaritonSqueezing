@@ -14,7 +14,7 @@
 #include "matrixOperations.h"
 
 
-//double wP;
+double wP;
 
 double evalThermalExpectation(const ulong dimH,
                               const double beta,
@@ -31,7 +31,7 @@ void evalGSProps(const bool twoPhonons) {
   std::vector<double> wPArr(wPSteps, 0.);
 
   for (ulong ind = 0ul; ind < wPSteps; ++ind) {
-    wPArr[ind] = double(ind) / 2.;
+    wPArr[ind] = double(ind) / 4.;
   }
 
   std::vector<std::complex<double>> dOcc;
@@ -73,7 +73,7 @@ void evalGSProps(const bool twoPhonons) {
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
 
     ////////////////// set wp //////////////////////
-    //wP = wPArr[wPStep];
+    wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
     if (twoPhonons) {
       setupGlobalH(H);
@@ -126,7 +126,7 @@ void evalGSPropsTemp() {
   std::vector<double> wPArr(wPSteps, 0.);
 
   for (ulong ind = 0ul; ind < wPSteps; ++ind) {
-    wPArr[ind] = double(ind) / 2.;
+    wPArr[ind] = double(ind) / 4.;
   }
 
   const ulong betaSteps(17ul);
@@ -159,7 +159,7 @@ void evalGSPropsTemp() {
 
   for (ulong wPStep = 0ul; wPStep < wPSteps; ++wPStep) {
     ////////////////// set wp //////////////////////
-    //wP = wPArr[wPStep];
+    wP = wPArr[wPStep];
     std::cout << "wP = " << wP << '\n';
     setupGlobalH(H);
     std::vector<double> spectrum = diagonalize(H, dimH, 'V');
@@ -177,7 +177,7 @@ void evalGSPropsTemp() {
   }
 
   std::string filename;
-  filename = gsPropNameTemp(true, true);
+  filename = gsPropNameTemp(true, false);
 
   writeStuffToHdf5Temps(betaArr, wPArr, expectationVals, filename);
 }

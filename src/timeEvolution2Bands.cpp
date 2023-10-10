@@ -42,7 +42,7 @@ void calcTimeEvolutionAsOfWD(){
   
     ////////////////// set wPh //////////////////////
     wDrive = wArr[wStep];
-    wPh = wDrive;
+    //wPh = wDrive;
     dt = 2. * PI / wDrive / timePointsPerDrivingPeriod;
     std::cout << "wDrive = " << wDrive << '\n';
     calcTimeEvolution2Bands();

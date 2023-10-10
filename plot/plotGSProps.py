@@ -39,13 +39,13 @@ mpl.rcParams['text.latex.preamble'] = [
 def plotGSProps():
     print("plotting GS props")
 
-    fileOnePh = h5py.File("../data/gsPropQuad2PhGPH20NB16.hdf5", 'r')
+    fileOnePh = h5py.File("../data/gsProp2PhGPH20NB4.hdf5", 'r')
     wPOnePh = fileOnePh['times'][()]
     dOccOnePh = fileOnePh['dOcc'][()]
     NptOnePh = fileOnePh['Npt'][()]
     NphOnePh = fileOnePh['N1ph'][()]
 
-    fileTwoPh = h5py.File("../data/gsPropQuad2PhGPH50NB16.hdf5", 'r')
+    fileTwoPh = h5py.File("../data/gsProp2PhGPH50NB4.hdf5", 'r')
     wPTwoPh = fileTwoPh['times'][()]
     dOccTwoPh = fileTwoPh['dOcc'][()]
     NptTwoPh = fileTwoPh['Npt'][()]
@@ -60,7 +60,7 @@ def plotGSProps():
 
     ax.tick_params(direction='inout', length=4, width=.8)
 
-    fig.set_size_inches(2.3, 2.)
+    fig.set_size_inches(2.9, 2.)
     #fig.set_size_inches(5., 5.)
 
     linewidth = 1.
@@ -96,7 +96,7 @@ def plotGSProps():
     ax.text(.1, 0.114, r"$\rm Increased \, \, \,  Interactions$", fontsize=fontsize - 1, color='black', alpha=1., bbox=boxProps)
 
     #plt.gcf().text(.9, 0.1, r"$g_1 = g_2 = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
-    ax.text(1., 0.109565595278 + 0.0003, r"$g = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
+    ax.text(0.2, 0.109565595278 + 0.0003, r"$g = 0$", fontsize=10, color='black', alpha=1., bbox=boxProps)
     ax.text(2.3, 0.1109, r"$X^2 n$", fontsize=10, color='rosybrown', alpha=1., bbox=boxProps)
     ax.text(2., 0.11545, r"$X^2 n_{\uparrow}n_{\downarrow}$", fontsize=10, color='olive', alpha=1., bbox=boxProps)
 
@@ -109,27 +109,27 @@ def plotGSProps():
     plt.tight_layout()
     #plt.show()
 
-    plt.savefig('dOccAsOfwP.png', format='png', bbox_inches='tight', dpi = 600)
+    plt.savefig('dOccAsOfwPNew.png', format='png', bbox_inches='tight', dpi = 600)
 
 
 def plotGSPropsTemp():
     print("plotting GS props")
 
     #read in zero-temperature result
-    fileTZero = h5py.File("../data/gsPropQuad2PhGPH50NB16.hdf5", 'r')
+    fileTZero = h5py.File("../data/gsProp2PhGPH50NB4.hdf5", 'r')
     wPTZero = fileTZero['times'][()]
     dOccTZero = fileTZero['dOcc'][()]
 
-    fileTZeroQuad = h5py.File("../data/gsPropQuad2PhGPH20NB16.hdf5", 'r')
+    fileTZeroQuad = h5py.File("../data/gsProp2PhGPH20NB4.hdf5", 'r')
     #wPOnePh = fileTZeroQuad['times'][()]
     dOccTZeroQuad = fileTZeroQuad['dOcc'][()]
 
-    fileLin = h5py.File("../data/gsProp2PhLinGPH50NB16Temp.hdf5", 'r')
+    fileLin = h5py.File("../data/gsProp2PhLinGPH50NB4Temp.hdf5", 'r')
     wPs = fileLin['wPs'][()]
     betas = fileLin['betas'][()]
     dOccLin = fileLin['dOccs'][()]
 
-    fileQuad = h5py.File("../data/gsProp2PhQuadGPH20NB16Temp.hdf5", 'r')
+    fileQuad = h5py.File("../data/gsProp2PhQuadGPH20NB4Temp.hdf5", 'r')
     #wPs = fileQuad['wPs'][()]
     #betas = fileQuad['betas'][()]
     dOccQuad = fileQuad['dOccs'][()]
@@ -145,7 +145,7 @@ def plotGSPropsTemp():
 
     ax.tick_params(direction='inout', length=4, width=.8)
 
-    fig.set_size_inches(3.5, 2.)
+    fig.set_size_inches(2.9, 1.8)
 
     markersize = 3
     markeredgewidth = 0.5
@@ -166,10 +166,11 @@ def plotGSPropsTemp():
 
 
     cmap = cm.get_cmap('copper')
+    cmap = cm.get_cmap('pink')
     linewidth = 1.2
 
     for betaInd, beta in enumerate(betasPlot):
-        color = cmap((len(betasPlot) - betaInd) / (len(betasPlot) + 1.) + 0.1)
+        color = cmap((len(betasPlot) - betaInd) / (len(betasPlot) + 3.) + 0.1)
         TinK = round(1. / beta * 930)
         ax.plot(wPs / 2. * np.sqrt(2.), dOccsPlotLin[betaInd, :] + 0.5, color = color, linewidth = linewidth, label = r"$T = {} \rm K$".format(int(TinK)))
         ax.plot(wPs / 2. * np.sqrt(2.), dOccsPlotQuad[betaInd, :] + 0.5, color = color, linewidth = linewidth)
@@ -199,7 +200,7 @@ def plotGSPropsTemp():
     legend.get_frame().set_boxstyle('Square', pad=0.0)
     legend.get_frame().set_linewidth(0)
 
-    plt.savefig('gsPropsTemp.png', format='png', bbox_inches='tight', dpi = 600)
+    plt.savefig('gsPropsTempNew.png', format='png', bbox_inches='tight', dpi = 600)
 
     #plt.tight_layout()
     #plt.show()

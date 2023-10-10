@@ -33,7 +33,7 @@ std::string timeEvolName(const bool twoPhonons){
 
 std::string gsPropName(const bool twoPhonons){
 
-  std::string fileName ("data/gsProp");
+std::string fileName ("data/gsProp");
 
   std::string twoPhonSpeci;
   if(twoPhonons){

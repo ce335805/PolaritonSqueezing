@@ -12,7 +12,7 @@
 
 #include <chrono>
 
-double wPh;
+//double wPh;
 //double gE;
 
 void evalGSPropsAsOfWPh() {
